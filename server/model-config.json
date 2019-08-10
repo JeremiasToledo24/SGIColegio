@@ -38,5 +38,13 @@
   "Materia": {
     "dataSource": "db",
     "public": true
+  },
+  "Curso": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Nivel": {
+    "dataSource": "db",
+    "public": true
   }
 }
