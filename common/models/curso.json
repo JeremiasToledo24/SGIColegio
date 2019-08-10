@@ -9,8 +9,7 @@
   "properties": {
     "idCurso": {
       "type": "number",
-      "id": true,
-      "required": true
+      "id": true
     },
     "nombre": {
       "type": "string",
