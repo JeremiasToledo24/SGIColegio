@@ -1,9 +1,9 @@
 export class CursoModel {
 
   constructor(
-    idCurso = 0,
-    nombre = '',
-    division = ''
+    idCurso,
+    nombre,
+    division
   ){
     this.idCurso=idCurso;
     this.nombre=nombre;

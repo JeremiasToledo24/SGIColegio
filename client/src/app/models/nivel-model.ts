@@ -1,8 +1,8 @@
 export class NivelModel {
 
   constructor(
-    idNivel = 0,
-    nombre = ''
+    idNivel,
+    nombre
   ){
     this.idNivel=idNivel;
     this.nombre=nombre

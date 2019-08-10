@@ -1,9 +1,9 @@
 export class MateriaModel {
 
   constructor(
-    idMateria = 0,
-    nombre = '',
-    codigo = ''
+    idMateria,
+    nombre,
+    codigo
   ){
     this.idMateria=idMateria;
     this.nombre=nombre;
