@@ -1,17 +1,20 @@
 // Aquí se importan los modulos a usar de Angular Material :
 
-import {NgModule} from "@angular/core";
-import {
-  MatFormFieldModule
-} from "@angular/material";
+import {NgModule} from '@angular/core';
+import {MatFormFieldModule, MatIconModule, MatTableModule} from '@angular/material';
 
 
 @NgModule({
   imports: [
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatTableModule,
+    MatIconModule
   ],
   exports: [
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatTableModule,
+    MatIconModule
+
   ]
 })
 
