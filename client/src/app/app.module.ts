@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListaMateriasComponent } from './componentes/lista-materias/lista-materias.component';
 
-import {MaterialModule} from "./material/material.module";
+// tslint:disable-next-line: quotemark
+import {MaterialModule} from './material/material.module';
 
 @NgModule({
   declarations: [
