@@ -8,17 +8,21 @@ import { ListaMateriasComponent } from './componentes/lista-materias/lista-mater
 
 // tslint:disable-next-line: quotemark
 import {MaterialModule} from './material/material.module';
+import { AgregarMateriaComponent } from './componentes/agregar-materia/agregar-materia.component';
+import { FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListaMateriasComponent
+    ListaMateriasComponent,
+    AgregarMateriaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
