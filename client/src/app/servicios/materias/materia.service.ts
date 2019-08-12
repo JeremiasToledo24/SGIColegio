@@ -20,18 +20,16 @@ export class MateriaService {
   async getMaterias(){
     return await this.http.get(this.api_url).toPromise();
   }
+
+  
   //Obtener listado de materias
 
-  async listarMaterias() {
-    this.materiaService.listarMaterias()
-    .then(res => {
-        this.materiaService.listaMaterias = res as MateriaModel[];
+  listarMaterias() {
+    this.getMaterias().then(
+      res => {
+        this.listaMaterias = res as MateriaModel[];
       }
     );
-  }
-
-  obtenerMaterias() {
-    
   }
 
   //Agregar Materia

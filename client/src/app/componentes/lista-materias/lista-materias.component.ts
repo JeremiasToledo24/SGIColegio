@@ -8,14 +8,12 @@ import { MateriaModel } from 'src/app/models/materia-model';
   styleUrls: ['./lista-materias.component.css']
 })
 export class ListaMateriasComponent implements OnInit {
-
+  lista: MateriaModel[];
   constructor(private materiaService: MateriaService) { }
 
   ngOnInit() {
-
+    this.materiaService.listarMaterias();
+    this.lista = this.materiaService.listaMaterias;
   }
-
-  
-
 
 }

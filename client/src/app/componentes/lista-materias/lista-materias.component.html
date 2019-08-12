@@ -1,4 +1,4 @@
-<table mat-table [dataSource]="materiaService.listaMaterias" class="mat-elevation-z8">
+<table mat-table [dataSource]="lista" class="mat-elevation-z8">
     <ng-container matColumnDef="codigo">
         <th mat-header-cell *matHeaderCellDef> Codigo de la Materia </th>
         <td mat-cell *matCellDef="let materia"> {{materia.codigo}} </td>
