@@ -8,25 +8,18 @@ import { MateriaModel } from 'src/app/models/materia-model';
 })
 export class MateriaService {
 
-  api_url: 'http://localhost:3000/api/Materias'
-
   listaMaterias: MateriaModel[];
-  constructor(private http: HttpClient) { 
-    
+
+  constructor(private http: HttpClient) {
   }
 
-  //Obtener listado de materias
-
-  async listarMaterias(){
-    return await this.http.get(this.api_url).toPromise();
+  // Obtener listado de materias
+  async listarMaterias() {
+    return await this.http.get('http://localhost:3000/api/Materias').toPromise();
   }
 
-  //Agregar Materia
-
-  async agregarMateria(Materia: MateriaModel){
-     return await this.http.post(this.api_url, Materia).toPromise();
+  // Agregar Materia
+  async agregarMateria(Materia: MateriaModel) {
+    return await this.http.post('http://localhost:3000/api/Materias', Materia).toPromise();
   }
-
-
-
 }
