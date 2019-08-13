@@ -5,7 +5,7 @@ import {
   MatFormFieldModule,
   MatCardModule,
   MatButtonModule,
-  MatSnackBarModule
+  MatSnackBarModule, MatInputModule
 } from "@angular/material";
 
 
@@ -14,13 +14,15 @@ import {
     MatFormFieldModule,
     MatCardModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatInputModule
   ],
   exports: [
     MatFormFieldModule,
     MatCardModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatInputModule
 
   ]
 })

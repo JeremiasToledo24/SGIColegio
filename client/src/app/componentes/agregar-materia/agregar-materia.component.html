@@ -1,0 +1,33 @@
+<mat-card>
+  <mat-card-title>Agregar nueva materia</mat-card-title>
+  <mat-card-content>
+
+    <!-- Formulario para agregar materia -->
+    <form #materiaForm="ngForm" (ngSubmit)="addMateria(materiaForm)">
+
+      <!-- Nombre de materia -->
+      <mat-form-field appearance="outline" hideRequiredMarker>
+        <mat-label>Ingresar nombre</mat-label>
+        <input type="text" name="nombre" #nombre="ngModel"
+               [(ngModel)]="materiaService.selectedMateria.nombre"
+               matInput required>
+      </mat-form-field>
+
+      <!-- Código de materia -->
+      <mat-form-field appearance="outline" hideRequiredMarker>
+        <mat-label>Ingresar código</mat-label>
+        <input type="text" name="codigo" #codigo="ngModel"
+               [(ngModel)]="materiaService.selectedMateria.codigo"
+               matInput required>
+      </mat-form-field>
+
+      <!-- Cancel -->
+      <button type="reset" mat-raised-button color="warn">Cancelar</button>
+
+      <!-- Submit -->
+      <button type="submit" mat-raised-button color="primary"
+              (click)="openSnackBar()">Agregar
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>
