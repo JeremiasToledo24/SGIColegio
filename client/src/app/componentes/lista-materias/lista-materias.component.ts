@@ -9,7 +9,7 @@ import { MateriaModel } from 'src/app/models/materia-model';
 })
 export class ListaMateriasComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'codigo', 'nombre'];
+  displayedColumns: string[] = ['id', 'codigo', 'nombre', 'operaciones'];
   dataSource: MateriaModel[];
   constructor(private materiaService: MateriaService) { }
 
