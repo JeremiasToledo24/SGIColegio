@@ -8,12 +8,18 @@ import { MateriaModel } from 'src/app/models/materia-model';
   styleUrls: ['./lista-materias.component.css']
 })
 export class ListaMateriasComponent implements OnInit {
-  lista: MateriaModel[];
+
+  displayedColumns: string[] = ['id', 'codigo', 'nombre'];
+  dataSource: MateriaModel[];
   constructor(private materiaService: MateriaService) { }
 
   ngOnInit() {
-    this.materiaService.listarMaterias();
-    this.lista = this.materiaService.listaMaterias;
+    this.materiaService.listarMaterias().then(
+      res => {
+        this.dataSource = res as MateriaModel[];
+        console.log(this.dataSource);
+      }
+    );
   }
-
 }
+

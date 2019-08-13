@@ -11,7 +11,7 @@ import {MaterialModule} from './material/material.module';
 import { MateriaService } from './servicios/materias/materia.service';
 import { CursoService } from './servicios/cursos/curso.service';
 import { NivelService } from './servicios/niveles/nivel.service';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import { HttpClientModule } from "@angular/common/http";
     MaterialModule,
     HttpClientModule
   ],
-  providers: [MateriaService,CursoService,NivelService],
+  providers: [MateriaService, CursoService, NivelService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
