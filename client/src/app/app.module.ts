@@ -11,7 +11,6 @@ import {MaterialModule} from './material/material.module';
 
 import { AgregarMateriaComponent } from './componentes/agregar-materia/agregar-materia.component';
 import { FormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
 
 import { MateriaService } from './servicios/materias/materia.service';
 import { CursoService } from './servicios/cursos/curso.service';
