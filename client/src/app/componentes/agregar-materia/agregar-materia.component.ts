@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import {NgForm} from "@angular/forms";
-import {MatSnackBar} from "@angular/material";
+import { NgForm } from "@angular/forms";
+import { MatSnackBar } from "@angular/material";
 
-import {MateriaService} from '../../servicios/materias/materia.service';
+import { MateriaService } from '../../servicios/materias/materia.service';
+import { MateriaModel } from 'src/app/models/materia-model';
 
 @Component({
   selector: 'app-agregar-materia',
@@ -31,20 +32,29 @@ export class AgregarMateriaComponent implements OnInit {
 
   // Agregar materia y reiniciar el formulario
   addMateria(form: NgForm) {
-    this.materiaService.agregarMateria(form.value)
-      .then(
-        res => {
-          this.openSnackBar();
-          this.resetForm(form);
-          console.log(res);
-        }
-      )
+    try {
+      this.materiaService.agregarMateria(form.value)
+        .then(
+          res => {
+            if (res === undefined){
+              this.openSnackBar('Materia existente');
+
+            } else {
+              this.openSnackBar('materia agregada');
+              this.resetForm(form);
+              console.log(res);
+            }
+          }
+        )
+    } catch (error) {
+    }
+
   }
 
   // Mostrar SnackBar al agregar materia
-  openSnackBar() {
+  openSnackBar(m: string) {
     this._snackBar.open(
-      'Materia agregada', '', {
+      m, '', {
         duration: 1500
       }
     )
