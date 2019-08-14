@@ -12,7 +12,7 @@ export class MateriaService {
   selectedMateria: MateriaModel;
 
   constructor(private http: HttpClient) {
-    this.selectedMateria = new MateriaModel(0,'','');
+    this.selectedMateria = new MateriaModel(0, '', '');
   }
 
   // Obtener listado de materias
@@ -24,6 +24,4 @@ export class MateriaService {
   async agregarMateria(Materia: MateriaModel) {
     return await this.http.post('http://localhost:3000/api/Materias', Materia).toPromise();
   }
-
-
 }

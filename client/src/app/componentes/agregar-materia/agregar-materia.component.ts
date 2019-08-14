@@ -23,7 +23,7 @@ export class AgregarMateriaComponent implements OnInit {
   }
 
   // Reiniciar el formulario
-   public static resetForm (form?: NgForm) {
+  resetForm(form?: NgForm) {
     if (form) {
       form.reset();
     }
@@ -31,8 +31,14 @@ export class AgregarMateriaComponent implements OnInit {
 
   // Agregar materia y reiniciar el formulario
   addMateria(form: NgForm) {
-    this.materiaService.agregarMateria(form.value);
-    AgregarMateriaComponent.resetForm(form);
+    this.materiaService.agregarMateria(form.value)
+      .then(
+        res => {
+          this.openSnackBar();
+          this.resetForm(form);
+          console.log(res);
+        }
+      )
   }
 
   // Mostrar SnackBar al agregar materia
