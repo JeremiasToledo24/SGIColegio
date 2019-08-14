@@ -8,6 +8,11 @@ import { ListaMateriasComponent } from './componentes/lista-materias/lista-mater
 
 // tslint:disable-next-line: quotemark
 import {MaterialModule} from './material/material.module';
+
+import { AgregarMateriaComponent } from './componentes/agregar-materia/agregar-materia.component';
+import { FormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+
 import { MateriaService } from './servicios/materias/materia.service';
 import { CursoService } from './servicios/cursos/curso.service';
 import { NivelService } from './servicios/niveles/nivel.service';
@@ -16,13 +21,15 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
-    ListaMateriasComponent
+    ListaMateriasComponent,
+    AgregarMateriaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [MateriaService, CursoService, NivelService],
