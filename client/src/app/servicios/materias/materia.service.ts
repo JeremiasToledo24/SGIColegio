@@ -9,10 +9,14 @@ import {MateriaModel} from 'src/app/models/materia-model';
 export class MateriaService {
 
   listaMaterias: MateriaModel[];
+
   selectedMateria: MateriaModel;
 
   constructor(private http: HttpClient) {
     this.selectedMateria = new MateriaModel(0, '', '');
+
+
+  constructor(private http: HttpClient) {
   }
 
   // Obtener listado de materias
