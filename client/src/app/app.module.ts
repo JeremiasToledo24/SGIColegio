@@ -16,12 +16,18 @@ import { MateriaService } from './servicios/materias/materia.service';
 import { CursoService } from './servicios/cursos/curso.service';
 import { NivelService } from './servicios/niveles/nivel.service';
 import { HttpClientModule } from '@angular/common/http';
+import { CursosComponent } from './componentes/cursos/cursos.component';
+import { AgregarCursoComponent } from './componentes/cursos/agregar-curso/agregar-curso.component';
+import { ListaCursoComponent } from './componentes/cursos/lista-curso/lista-curso.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListaMateriasComponent,
-    AgregarMateriaComponent
+    AgregarMateriaComponent,
+    CursosComponent,
+    AgregarCursoComponent,
+    ListaCursoComponent
   ],
   imports: [
     BrowserModule,

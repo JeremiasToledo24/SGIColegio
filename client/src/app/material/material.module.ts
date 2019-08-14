@@ -8,7 +8,7 @@ import {
   MatSnackBarModule, MatInputModule
 } from "@angular/material";
 
-import {MatIconModule, MatTableModule} from '@angular/material';
+import {MatIconModule, MatTableModule, MatSelectModule} from '@angular/material';
 
 
 @NgModule({
@@ -17,7 +17,8 @@ import {MatIconModule, MatTableModule} from '@angular/material';
     MatCardModule,
     MatButtonModule,
     MatSnackBarModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule
   ],
   exports: [
     MatFormFieldModule,
@@ -26,7 +27,8 @@ import {MatIconModule, MatTableModule} from '@angular/material';
     MatSnackBarModule,
     MatInputModule,
     MatTableModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule
   ]
 })
 

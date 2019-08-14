@@ -1,0 +1,40 @@
+<mat-card>
+  <mat-card-title>Agregar Curso</mat-card-title>
+  <mat-card-content>
+
+    <!-- Formulario para agregar curso -->
+    <form #cursoForm="ngForm" (ngSubmit)="addCurso(cursoForm)">
+
+      <!-- Nombre de curso -->
+      <mat-form-field appearance="outline" hideRequiredMarker>
+        <mat-label>Ingresar nombre del curso</mat-label>
+        <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="cursoService.selectedCurso.nombre" matInput
+          required>
+      </mat-form-field>
+
+      <!-- division de curso -->
+      <mat-form-field appearance="outline" hideRequiredMarker>
+        <mat-label>Ingresar la division del curso</mat-label>
+        <mat-select  matInput required name="division" #division="ngModel" [(ngModel)]="cursoService.selectedCurso.division">
+          <mat-option [value]="div.nombre" *ngFor="let div of divisiones">{{ div.nombre }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Nivel -->
+      <mat-form-field appearance="outline" hideRequiredMarker>
+          <mat-label>Ingresar el nivel al que pertenece el curso</mat-label>
+        <mat-select name="idNivel" #idNivel="ngModel" [(ngModel)]="cursoService.selectedCurso.idNivel" matInput required>
+          <mat-option [value]="nivel.id" *ngFor="let nivel of niveles"  >{{ nivel.nombre }}</mat-option>
+        </mat-select>
+
+      </mat-form-field>
+
+      <!-- Cancel -->
+      <button type="reset" mat-raised-button color="warn">Cancelar</button>
+
+      <!-- Submit -->
+      <button type="submit" mat-raised-button color="primary">Agregar</button>
+
+    </form>
+  </mat-card-content>
+</mat-card>
