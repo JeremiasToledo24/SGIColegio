@@ -2,31 +2,45 @@
 
 import {NgModule} from "@angular/core";
 import {
-  MatFormFieldModule,
-  MatCardModule,
   MatButtonModule,
-  MatSnackBarModule, MatInputModule
+  MatCardModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatSidenavModule,
+  MatSnackBarModule,
+  MatTableModule,
+  MatToolbarModule,
 } from "@angular/material";
-
-import {MatIconModule, MatTableModule} from '@angular/material';
-
+  import {LayoutModule} from "@angular/cdk/layout";
 
 @NgModule({
   imports: [
-    MatFormFieldModule,
-    MatCardModule,
     MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    LayoutModule,
+    MatListModule,
+    MatSidenavModule,
     MatSnackBarModule,
-    MatInputModule
+    MatTableModule,
+    MatToolbarModule
   ],
   exports: [
-    MatFormFieldModule,
-    MatCardModule,
     MatButtonModule,
-    MatSnackBarModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatIconModule,
     MatInputModule,
+    LayoutModule,
+    MatListModule,
+    MatSidenavModule,
+    MatSnackBarModule,
     MatTableModule,
-    MatIconModule
+    MatToolbarModule
   ]
 })
 
