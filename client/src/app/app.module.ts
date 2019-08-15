@@ -16,6 +16,9 @@ import { MateriaService } from './servicios/materias/materia.service';
 import { CursoService } from './servicios/cursos/curso.service';
 import { NivelService } from './servicios/niveles/nivel.service';
 import { HttpClientModule } from '@angular/common/http';
+import { CursosComponent } from './componentes/cursos/cursos.component';
+import { AgregarCursoComponent } from './componentes/cursos/agregar-curso/agregar-curso.component';
+import { ListaCursoComponent } from './componentes/cursos/lista-curso/lista-curso.component';
 
 import { LayoutModule } from '@angular/cdk/layout';
 import { MateriaComponent } from './componentes/materia/materia.component';
@@ -26,6 +29,9 @@ import { SidenavComponent} from "./componentes/sidenav/sidenav.component";
     AppComponent,
     ListaMateriasComponent,
     AgregarMateriaComponent,
+    CursosComponent,
+    AgregarCursoComponent,
+    ListaCursoComponent
     MateriaComponent,
     SidenavComponent
   ],

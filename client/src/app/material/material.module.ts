@@ -12,7 +12,11 @@ import {
   MatSnackBarModule,
   MatTableModule,
   MatToolbarModule,
+  MatSelectModule
 } from "@angular/material";
+
+
+
   import {LayoutModule} from "@angular/cdk/layout";
 
 @NgModule({
@@ -26,6 +30,7 @@ import {
     MatListModule,
     MatSidenavModule,
     MatSnackBarModule,
+    MatSelectModule,
     MatTableModule,
     MatToolbarModule
   ],
@@ -40,6 +45,7 @@ import {
     MatSidenavModule,
     MatSnackBarModule,
     MatTableModule,
+    MatSelectModule,
     MatToolbarModule
   ]
 })
