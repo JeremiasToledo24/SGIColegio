@@ -15,16 +15,18 @@
       <!-- division de curso -->
       <mat-form-field appearance="outline" hideRequiredMarker>
         <mat-label>Ingresar la division del curso</mat-label>
-        <mat-select  matInput required name="division" #division="ngModel" [(ngModel)]="cursoService.selectedCurso.division">
+        <mat-select matInput required name="division" #division="ngModel"
+          [(ngModel)]="cursoService.selectedCurso.division">
           <mat-option [value]="div.nombre" *ngFor="let div of divisiones">{{ div.nombre }}</mat-option>
         </mat-select>
       </mat-form-field>
 
       <!-- Nivel -->
       <mat-form-field appearance="outline" hideRequiredMarker>
-          <mat-label>Ingresar el nivel al que pertenece el curso</mat-label>
-        <mat-select name="idNivel" #idNivel="ngModel" [(ngModel)]="cursoService.selectedCurso.idNivel" matInput required>
-          <mat-option [value]="nivel.id" *ngFor="let nivel of niveles"  >{{ nivel.nombre }}</mat-option>
+        <mat-label>Ingresar el nivel al que pertenece el curso</mat-label>
+        <mat-select name="idNivel" #idNivel="ngModel" [(ngModel)]="cursoService.selectedCurso.idNivel" matInput
+          required>
+          <mat-option [value]="nivel.id" *ngFor="let nivel of niveles">{{ nivel.nombre }}</mat-option>
         </mat-select>
 
       </mat-form-field>
