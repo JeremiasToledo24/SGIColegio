@@ -46,5 +46,13 @@
   "Nivel": {
     "dataSource": "db",
     "public": true
+  },
+  "PlanEstudio": {
+    "dataSource": "db",
+    "public": true
+  },
+  "PlanMateria": {
+    "dataSource": "db",
+    "public": true
   }
 }

@@ -1,0 +1,43 @@
+<mat-card>
+        <mat-card-title>Crear Plan de Estudio</mat-card-title>
+        <mat-card-content>
+      
+          <!-- Formulario para agregar plan de estudio -->
+          <form #planForm="ngForm" (ngSubmit)="addPlan(planForm)">
+      
+            <!-- Annio del plan -->
+            <mat-form-field appearance="outline" hideRequiredMarker>
+              <mat-label>Ingresar el año correspondiente al nuevo plan</mat-label>
+              <mat-select  matInput required name="annio" #annio="ngModel" [(ngModel)]="planService.plan.annio">
+                <mat-option [value]="ann.anio" *ngFor="let ann of annios">{{ ann.anio }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+             <!-- Nivel -->
+             <mat-form-field appearance="outline" hideRequiredMarker>
+              <mat-label>Ingresar el nivel al que pertenece el plan</mat-label>
+            <mat-select name="idNivel" #idNivel="ngModel" [(ngModel)]="planService.plan.idNivel" matInput required>
+              <mat-option (click)="buscarPorNivel(nivel.idNivel)" [value]="nivel.idNivel" *ngFor="let nivel of niveles"  >{{ nivel.nombre }}</mat-option>
+            </mat-select>
+    
+          </mat-form-field>
+      
+            <!-- curso del plan -->
+            <mat-form-field appearance="outline" hideRequiredMarker>
+              <mat-label>Ingresar el curso correspondiente al plan</mat-label>
+              <mat-select  matInput required name="idCurso" #idCurso="ngModel" [(ngModel)]="planService.plan.idCurso">
+                <mat-option [value]="curso.idCurso" *ngFor="let curso of cursos">{{ curso.nombre }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+      
+           
+      
+            <!-- Cancel -->
+            <button type="reset" mat-raised-button color="warn">Cancelar</button>
+      
+            <!-- Submit -->
+            <button type="submit" mat-raised-button color="primary">Agregar</button>
+      
+          </form>
+        </mat-card-content>
+      </mat-card>

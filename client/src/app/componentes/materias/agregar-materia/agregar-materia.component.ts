@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from "@angular/forms";
 import { MatSnackBar } from "@angular/material";
 
-import { MateriaService } from '../../servicios/materias/materia.service';
+import { MateriaService } from '../../../servicios/materias/materia.service';
 import { MateriaModel } from 'src/app/models/materia-model';
 
 @Component({

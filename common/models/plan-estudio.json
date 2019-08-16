@@ -1,27 +1,23 @@
 {
-  "name": "Curso",
-  "plural": "Cursos",
+  "name": "PlanEstudio",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "idCurso": {
+    "idPlanEstudio": {
       "type": "number",
       "id": true
     },
-    "nombre": {
-      "type": "string",
-      "required": true
+    "annio": {
+      "type": "string"
     },
-    "division": {
-      "type": "string",
-      "required": true
+    "idCurso": {
+      "type": "number"
     },
     "idNivel": {
-      "type": "number",
-      "required": true
+      "type": "number"
     }
   },
   "validations": [],

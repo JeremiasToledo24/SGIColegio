@@ -1,0 +1,24 @@
+{
+  "name": "PlanMateria",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "idMateria": {
+      "type": "number"
+    },
+    "idPlan": {
+      "type": "number"
+    },
+    "idPlanMateria": {
+      "type": "number",
+      "id": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
