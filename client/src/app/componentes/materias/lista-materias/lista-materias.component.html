@@ -1,4 +1,3 @@
-
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef> ID de la Materia </th>
@@ -15,8 +14,9 @@
     <ng-container matColumnDef="operaciones">
         <th mat-header-cell *matHeaderCellDef> Operaciones </th>
         <mat-cell *matCellDef="let row">
-            <button mat-button>Edit</button>
-            <button mat-button>Eliminar</button>
+            <mat-checkbox (click)="agregar(row)">Agregar al Plan</mat-checkbox>
+            <!-- <button mat-raised-button color="primary"></button> -->
+            <!-- <button mat-button>Eliminar</button> -->
         </mat-cell>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

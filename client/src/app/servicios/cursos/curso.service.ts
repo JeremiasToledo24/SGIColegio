@@ -25,11 +25,12 @@ export class CursoService {
     return await this.http.get('http://localhost:3000/api/Cursos' + `${id}`).toPromise();
   }
 
-   obtenerCursosPorNivel(idNivel: number) {
+  obtenerCursosPorNivel(idNivel: number) {
     try {
-      return  this.http.get(`http://localhost:3000/api/Cursos/findOne?filter=%7B%22where%22%3A%7B%22idNivel%22%3A%22${idNivel}%22%7D%7D`
+      return this.http.get<CursoModel[]>(`http://localhost:3000/api/Cursos?filter=%7B%22where%22%3A%7B%22idNivel%22%3A%22${idNivel}%22%7D%7D `
     );
-    } catch (error) {
+       
+  } catch (error) {
       console.log(error);
     }
     
