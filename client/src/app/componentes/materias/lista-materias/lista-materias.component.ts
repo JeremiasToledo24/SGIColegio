@@ -11,6 +11,7 @@ export class ListaMateriasComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'codigo', 'nombre', 'operaciones'];
   dataSource: MateriaModel[];
+  materiasSeleccionadas: MateriaModel[] = [];
   constructor(private materiaService: MateriaService) { }
 
   ngOnInit() {
@@ -20,6 +21,17 @@ export class ListaMateriasComponent implements OnInit {
         console.log(this.dataSource);
       }
     );
+  }
+
+  agregar(materia: MateriaModel){
+   
+    if (this.materiasSeleccionadas.some(mat => mat.nombre === materia.nombre)) {
+      console.log('la materia ya esta en la lista');
+    } else {
+      this.materiasSeleccionadas.push(materia);
+      console.log(materia);
+    }
+    
   }
 }
 

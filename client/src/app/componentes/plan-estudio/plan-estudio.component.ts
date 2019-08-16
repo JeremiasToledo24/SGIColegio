@@ -1,6 +1,7 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PlanEstudioService } from 'src/app/servicios/planEstudio/plan-estudio.service';
 import { CursoService } from 'src/app/servicios/cursos/curso.service';
+import { map } from 'rxjs/operators';
 import { CursoModel } from 'src/app/models/curso-model';
 
 @Component({
@@ -25,34 +26,42 @@ export class PlanEstudioComponent implements OnInit {
     { "anio": "2030" }
   ];
 
-  public cursos: [];
+  cursos: CursoModel[] = [];
 
   public niveles = [
     { "idNivel": "1", "nombre": "Primaria" },
     { "idNivel": "2", "nombre": "Secundaria" }
   ]
 
-  id: number;
 
+  listaCurso = []
+  
 
   constructor(private planService: PlanEstudioService, private cursoService: CursoService) { }
 
   ngOnInit() {
-    this.cursos = [];
-
   }
 
   buscarPorNivel(id: number) {
-     this.cursoService.obtenerCursosPorNivel(id).subscribe(
-      (res: CursoModel[]) => { 
-        this.hola(res);
-       })
+    this.listaCurso = [];
+    this.cursos = [];
+    const obtCursos = this.cursoService.obtenerCursosPorNivel(id)
+      .pipe(
+        map((curso) => curso)
+      )
+    let curso = obtCursos
+      .subscribe(x => {
+        this.cursos = x;
+        this.cursos.forEach(element => {
+          this.listaCurso.push({"nombre": element.nombre,"idCurso": element.idCurso});
+        });
+      });
   }
 
-  hola(resp){
-    this.cursos = resp;
-    console.log(this.cursos)
-  }
+  // hola(resp){
+  //   this.cursos = resp;
+  //   console.log(this.cursos)
+  // }
 
 
 
