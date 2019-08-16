@@ -6,10 +6,13 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListaMateriasComponent } from './componentes/materias/lista-materias/lista-materias.component';
 
+
 // tslint:disable-next-line: quotemark
 import {MaterialModule} from './material/material.module';
 
+
 import { AgregarMateriaComponent } from './componentes/materias/agregar-materia/agregar-materia.component';
+
 import { FormsModule} from "@angular/forms";
 
 import { MateriaService } from './servicios/materias/materia.service';
@@ -22,6 +25,10 @@ import { ListaCursoComponent } from './componentes/cursos/lista-curso/lista-curs
 import { PlanEstudioComponent } from './componentes/plan-estudio/plan-estudio.component';
 import { MateriasComponent } from './componentes/materias/materias.component';
 
+import { LayoutModule } from '@angular/cdk/layout';
+import { MateriaComponent } from './componentes/materia/materia.component';
+import { SidenavComponent} from "./componentes/sidenav/sidenav.component";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,9 +36,10 @@ import { MateriasComponent } from './componentes/materias/materias.component';
     AgregarMateriaComponent,
     CursosComponent,
     AgregarCursoComponent,
-    ListaCursoComponent,
     PlanEstudioComponent,
-    MateriasComponent
+    ListaCursoComponent
+    MateriaComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +47,8 @@ import { MateriasComponent } from './componentes/materias/materias.component';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    LayoutModule,
   ],
   providers: [MateriaService, CursoService, NivelService],
   bootstrap: [AppComponent]
