@@ -26,8 +26,6 @@ import { PlanEstudioComponent } from './componentes/plan-estudio/plan-estudio.co
 import { MateriasComponent } from './componentes/materias/materias.component';
 
 import { LayoutModule } from '@angular/cdk/layout';
-import { MateriaComponent } from './componentes/materia/materia.component';
-import { SidenavComponent} from "./componentes/sidenav/sidenav.component";
 
 @NgModule({
   declarations: [
@@ -37,10 +35,9 @@ import { SidenavComponent} from "./componentes/sidenav/sidenav.component";
     CursosComponent,
     AgregarCursoComponent,
     PlanEstudioComponent,
-    ListaCursoComponent
-    MateriaComponent,
-    SidenavComponent
-  ],
+    ListaCursoComponent,
+    MateriasComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
