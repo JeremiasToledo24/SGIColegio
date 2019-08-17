@@ -26,6 +26,7 @@ import { PlanEstudioComponent } from './componentes/plan-estudio/plan-estudio.co
 import { MateriasComponent } from './componentes/materias/materias.component';
 
 import { LayoutModule } from '@angular/cdk/layout';
+import { MatSnackBar } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -50,4 +51,13 @@ import { LayoutModule } from '@angular/cdk/layout';
   providers: [MateriaService, CursoService, NivelService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  /**
+   *
+   */
+  constructor( ) {
+    
+    
+  }
+  
+}

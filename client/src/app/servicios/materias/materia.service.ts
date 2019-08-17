@@ -11,10 +11,16 @@ export class MateriaService {
 
   listaMaterias: MateriaModel[];
 
+  listaMateriasSeleccionadas: MateriaModel[];
+  listaCompletaMaterias: MateriaModel[];
+
   selectedMateria: MateriaModel;
 
   constructor(private http: HttpClient, private _snackBar: MatSnackBar) {
     this.selectedMateria = new MateriaModel(0, '', '');
+    this.listaMateriasSeleccionadas = [];
+    this.listaCompletaMaterias = [];
+
   }
 
   openSnackBar(m: string) {
@@ -26,8 +32,8 @@ export class MateriaService {
   }
 
   // Obtener listado de materias
-  async listarMaterias() {
-    return await this.http.get('http://localhost:3000/api/Materias').toPromise();
+  listarMaterias() {
+    return this.http.get('http://localhost:3000/api/Materias');
   }
 
   // Agregar Materia
