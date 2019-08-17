@@ -1,48 +1,91 @@
-<mat-card>
-  <mat-card-title>Crear Plan de Estudio</mat-card-title>
-  <mat-card-content>
+<div class="container-fluid">
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <mat-card id="opciones">
+        <mat-card-header>
+          <mat-card-title>Seleccione las Opciones Correspondientes</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <!-- Formulario para agregar plan de estudio -->
+          <form #planForm="ngForm" >
 
-    <!-- Formulario para agregar plan de estudio -->
-    <form #planForm="ngForm" (ngSubmit)="addPlan(planForm)">
+            <!-- Annio del plan -->
+            <mat-form-field appearance="outline" hideRequiredMarker>
+              <mat-label>Ingresar el año correspondiente al nuevo plan</mat-label>
+              <mat-select matInput required name="annio" #annio="ngModel" [(ngModel)]="planService.plan.annio">
+                <mat-option [value]="ann.anio" *ngFor="let ann of annios">{{ ann.anio }}</mat-option>
+              </mat-select>
+            </mat-form-field>
 
-      <!-- Annio del plan -->
-      <mat-form-field appearance="outline" hideRequiredMarker>
-        <mat-label>Ingresar el año correspondiente al nuevo plan</mat-label>
-        <mat-select matInput required name="annio" #annio="ngModel" [(ngModel)]="planService.plan.annio">
-          <mat-option [value]="ann.anio" *ngFor="let ann of annios">{{ ann.anio }}</mat-option>
-        </mat-select>
-      </mat-form-field>
+            <!-- Nivel -->
+            <mat-form-field appearance="outline" hideRequiredMarker>
+              <mat-label>Ingresar el nivel al que pertenece el plan</mat-label>
+              <mat-select name="idNivel" #idNivel="ngModel" [(ngModel)]="planService.plan.idNivel" matInput required>
+                <mat-option (click)="buscarPorNivel(nivel.idNivel)" [value]="nivel.idNivel"
+                  *ngFor="let nivel of niveles">
+                  {{ nivel.nombre }}</mat-option>
+              </mat-select>
+            </mat-form-field>
 
-      <!-- Nivel -->
-      <mat-form-field appearance="outline" hideRequiredMarker>
-        <mat-label>Ingresar el nivel al que pertenece el plan</mat-label>
-        <mat-select name="idNivel" #idNivel="ngModel" [(ngModel)]="planService.plan.idNivel" matInput required>
-          <mat-option (click)="buscarPorNivel(nivel.idNivel)" [value]="nivel.idNivel" *ngFor="let nivel of niveles">
-            {{ nivel.nombre }}</mat-option>
-        </mat-select>
+            <!-- curso del plan -->
+            <mat-form-field appearance="outline" hideRequiredMarker>
+              <mat-label>Ingresar el curso correspondiente al plan</mat-label>
+              <mat-select matInput required name="idCurso" #idCurso="ngModel" [(ngModel)]="planService.plan.idCurso">
+                <mat-option [value]="curso.idCurso" *ngFor="let curso of listaCurso">{{ curso.nombre }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="row justify-content-md-center">
+      <mat-card id="seleccionarMaterias">
+        <mat-card-header>
+          <mat-card-title>Seleccione las materias que corresponden al plan</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form class="search-form" #buscarForm="ngForm">
+            <mat-form-field class="seearch-full-width">
+              <input type="text" placeholder="Buscar una Materia" aria-label="Number" matInput [formControl]="myControl"
+                [matAutocomplete]="auto">
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option.nombre"
+                  (click)="agregarMateriaALista(option.codigo, buscarForm)">
+                  {{option.nombre}}
+                </mat-option>
+              </mat-autocomplete>
+              <button mat-button matSuffix mat-icon-button aria-label="Clear">
+                <mat-icon>search</mat-icon>
+              </button>
+            </mat-form-field>
+          </form>
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef> ID de la Materia </th>
+              <td mat-cell *matCellDef="let materia"> {{materia.idMateria}} </td>
+            </ng-container>
+            <ng-container matColumnDef="codigo">
+              <th mat-header-cell *matHeaderCellDef> Codigo de la Materia </th>
+              <td mat-cell *matCellDef="let materia"> {{materia.codigo}} </td>
+            </ng-container>
+            <ng-container matColumnDef="nombre">
+              <th mat-header-cell *matHeaderCellDef> Nombre de la Materia </th>
+              <td mat-cell *matCellDef="let materia"> {{materia.nombre}} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="row justify-content-md-center">
+      <!-- Cancel -->
+      <button type="reset" mat-raised-button color="warn">Cancelar</button>
 
-      </mat-form-field>
-
-      <!-- curso del plan -->
-      <mat-form-field appearance="outline" hideRequiredMarker>
-        <mat-label>Ingresar el curso correspondiente al plan</mat-label>
-        <mat-select matInput required name="idCurso" #idCurso="ngModel" [(ngModel)]="planService.plan.idCurso">
-          <mat-option [value]="curso.idCurso" *ngFor="let curso of listaCurso">{{ curso.nombre }}</mat-option>
-        </mat-select>
-      </mat-form-field>
-
-
-
-
-
-    </form>
-  </mat-card-content>
-</mat-card>
-
-<app-lista-materias></app-lista-materias>
-
-<!-- Cancel -->
-<button type="reset" mat-raised-button color="warn">Cancelar</button>
-
-<!-- Submit -->
-<button type="submit" mat-raised-button color="primary">Agregar</button>
+      <!-- Submit -->
+      <button (click)="crearPlan(planForm, dataSource)" mat-raised-button color="primary">Agregar</button>
+    </div>
+  </div>
+</div>
+<!-- 
+(ngSubmit)="addPlan(planForm)" -->

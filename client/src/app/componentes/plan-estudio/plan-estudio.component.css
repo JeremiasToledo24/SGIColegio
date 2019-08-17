@@ -4,7 +4,7 @@ mat-card {
   }
   
   mat-card-title {
-    text-align: center;
+    text-align: left;
   }
   
   mat-card-content {
@@ -19,4 +19,19 @@ mat-card {
   button {
     margin: 10px;
   }
+  
+  .search-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .search-full-width {
+    width: 100%;
+  }
+
+  table {
+    width: 100%;
+  }
+  
   

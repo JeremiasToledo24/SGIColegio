@@ -15,12 +15,12 @@ export class ListaMateriasComponent implements OnInit {
   constructor(private materiaService: MateriaService) { }
 
   ngOnInit() {
-    this.materiaService.listarMaterias().then(
-      res => {
-        this.dataSource = res as MateriaModel[];
-        console.log(this.dataSource);
-      }
-    );
+    // this.materiaService.listarMaterias().then(
+    //   res => {
+    //     this.dataSource = res as MateriaModel[];
+    //     console.log(this.dataSource);
+    //   }
+    // );
   }
 
   agregar(materia: MateriaModel){
