@@ -18,4 +18,21 @@ plan: PlanEstudioModel;
       }
     )
   }
+
+  
+  agregarPlan(plan: PlanEstudioModel){
+    return this.http.post(`http://localhost:3000/api/PlanEstudios`,plan);
+  }
+
+  listarPlanes(){
+    return this.http.get(`http://localhost:3000/api/ListaPlanesYMaterias`);
+  }
+
+  eliminarPlan(id: number){
+    return this.http.delete(`http://localhost:3000/api/PlanEstudios/${id}`)
+  }
+
+  editarPlan(){
+    
+  }
 }

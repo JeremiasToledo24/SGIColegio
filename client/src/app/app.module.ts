@@ -22,11 +22,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { CursosComponent } from './componentes/cursos/cursos.component';
 import { AgregarCursoComponent } from './componentes/cursos/agregar-curso/agregar-curso.component';
 import { ListaCursoComponent } from './componentes/cursos/lista-curso/lista-curso.component';
-import { PlanEstudioComponent } from './componentes/plan-estudio/plan-estudio.component';
 import { MateriasComponent } from './componentes/materias/materias.component';
-
+import { PlanEstudioComponent } from "./componentes/plan-estudio/plan-estudio.component";
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatSnackBar } from '@angular/material';
+import { ListaPlanesComponent } from './componentes/plan-estudio/lista-planes/lista-planes.component';
 
 @NgModule({
   declarations: [
@@ -35,9 +34,10 @@ import { MatSnackBar } from '@angular/material';
     AgregarMateriaComponent,
     CursosComponent,
     AgregarCursoComponent,
-    PlanEstudioComponent,
     ListaCursoComponent,
-    MateriasComponent
+    MateriasComponent,
+    PlanEstudioComponent,
+    ListaPlanesComponent
    ],
   imports: [
     BrowserModule,
@@ -46,7 +46,7 @@ import { MatSnackBar } from '@angular/material';
     MaterialModule,
     FormsModule,
     HttpClientModule,
-    LayoutModule,
+    LayoutModule
   ],
   providers: [MateriaService, CursoService, NivelService],
   bootstrap: [AppComponent]
