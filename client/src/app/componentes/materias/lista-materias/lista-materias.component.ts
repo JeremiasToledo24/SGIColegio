@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { MateriaService } from 'src/app/servicios/materias/materia.service';
-import { MateriaModel } from 'src/app/models/materia-model';
+import {Component, OnInit} from '@angular/core';
+import {MateriaService} from 'src/app/servicios/materias/materia.service';
+import {MateriaModel} from 'src/app/models/materia-model';
 
 @Component({
   selector: 'app-lista-materias',
@@ -9,18 +9,21 @@ import { MateriaModel } from 'src/app/models/materia-model';
 })
 export class ListaMateriasComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'codigo', 'nombre', 'operaciones'];
+  displayedColumns: string[] = ['codigo', 'nombre', 'operaciones'];
   dataSource: MateriaModel[];
+
   materiasSeleccionadas: MateriaModel[] = [];
-  constructor(private materiaService: MateriaService) { }
+
+  constructor(private materiaService: MateriaService) {
+  }
 
   ngOnInit() {
-    // this.materiaService.listarMaterias().then(
-    //   res => {
-    //     this.dataSource = res as MateriaModel[];
-    //     console.log(this.dataSource);
-    //   }
-    // );
+    this.materiaService.listarMaterias().subscribe(
+      res => {
+        this.dataSource = res as MateriaModel[];
+        console.log(this.dataSource);
+      }
+    );
   }
 
   agregar(materia: MateriaModel) {
@@ -31,7 +34,6 @@ export class ListaMateriasComponent implements OnInit {
       this.materiasSeleccionadas.push(materia);
       console.log(materia);
     }
-
   }
 }
 

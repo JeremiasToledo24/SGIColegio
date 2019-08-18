@@ -1,24 +1,41 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-    <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef> ID de la Materia </th>
-        <td mat-cell *matCellDef="let materia"> {{materia.idMateria}} </td>
-    </ng-container>
+<div class="example-container">
+
+  <!-- Buscador de materia -->
+
+  <!-- Lista de materias -->
+  <table mat-table [dataSource]="dataSource">
+
+    <!-- Columna código -->
     <ng-container matColumnDef="codigo">
-        <th mat-header-cell *matHeaderCellDef> Codigo de la Materia </th>
-        <td mat-cell *matCellDef="let materia"> {{materia.codigo}} </td>
+      <th mat-header-cell *matHeaderCellDef> Codigo de la Materia</th>
+      <td mat-cell *matCellDef="let materia"> {{materia.codigo}} </td>
     </ng-container>
+
+    <!-- Columna nombre -->
     <ng-container matColumnDef="nombre">
-        <th mat-header-cell *matHeaderCellDef> Nombre de la Materia </th>
-        <td mat-cell *matCellDef="let materia"> {{materia.nombre}} </td>
+      <th mat-header-cell *matHeaderCellDef> Nombre de la Materia</th>
+      <td mat-cell *matCellDef="let materia"> {{materia.nombre}} </td>
     </ng-container>
+
+    <!-- Columna operaciones -->
     <ng-container matColumnDef="operaciones">
-        <th mat-header-cell *matHeaderCellDef> Operaciones </th>
-        <mat-cell *matCellDef="let row">
-            <mat-checkbox (click)="agregar(row)">Agregar al Plan</mat-checkbox>
-            <!-- <button mat-raised-button color="primary"></button> -->
-            <!-- <button mat-button>Eliminar</button> -->
-        </mat-cell>
+      <th mat-header-cell *matHeaderCellDef> Operaciones</th>
+      <td mat-cell *matCellDef="let row">
+
+        <!-- Botón editar -->
+        <button mat-raised-button style="background-color: khaki">
+          <mat-icon>create</mat-icon>
+        </button>
+
+        <!-- Botón eliminar -->
+        <button mat-raised-button style="background-color: #ff0000">
+          <mat-icon>delete</mat-icon>
+        </button>
+
+      </td>
     </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+  </table>
+</div>
