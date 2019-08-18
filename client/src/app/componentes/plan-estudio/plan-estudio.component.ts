@@ -7,13 +7,23 @@ import { NgForm, FormControl } from '@angular/forms';
 import { MateriaModel } from 'src/app/models/materia-model';
 import { MateriaService } from 'src/app/servicios/materias/materia.service';
 import { Observable } from 'rxjs';
-import { AppComponent } from 'src/app/app.component';
+import { PlanEstudioModel } from 'src/app/models/plan-estudio-model';
+
+class PlanMat {
+  idPlan: number;
+  idMateria: number;
+  constructor(idPlan, idMateria) {
+    this.idPlan = idPlan;
+    this.idMateria = idMateria
+  }
+}
 
 @Component({
   selector: 'app-plan-estudio',
   templateUrl: './plan-estudio.component.html',
   styleUrls: ['./plan-estudio.component.css']
 })
+
 export class PlanEstudioComponent implements OnInit {
   nombre: string;
   //TODO
@@ -43,11 +53,12 @@ export class PlanEstudioComponent implements OnInit {
   myControl = new FormControl();
   options = [];
   filteredOptions: Observable<string[]>;
-  displayedColumns: string[] = ['id', 'codigo', 'nombre'];
+  displayedColumns: string[] = ['id', 'codigo', 'nombre', 'quitar'];
   dataSource: MateriaModel[];
 
 
   constructor(private planService: PlanEstudioService, private cursoService: CursoService, private materiaService: MateriaService) { }
+
 
   ngOnInit() {
     this.dataSource = this.materiaService.listaMateriasSeleccionadas;
@@ -122,9 +133,26 @@ export class PlanEstudioComponent implements OnInit {
 
   }
 
-  crearPlan(planForm: NgForm, dataSource){
-    console.log(planForm.value,'plan');
-    console.log(dataSource);
+  crearPlan(planForm: NgForm, dataSource: MateriaModel[]) {
+    if (!(planForm.value.annio === undefined) && (dataSource.length > 0)) {
+      console.log(planForm.value, 'plan');
+      console.log(dataSource);
+      let plan = new PlanEstudioModel(planForm.value.annio, planForm.value.idCurso, planForm.value.idNivel);
+      this.planService.agregarPlan(plan).subscribe(
+        (res: PlanEstudioModel) => {
+          this.planService.openSnackBar('El plan fue crado en la base de datos')
+          dataSource.forEach(element => {
+            let planxmateria = new PlanMat(res.idPlanEstudio, element.idMateria);
+            this.materiaService.agregarMatPlan(planxmateria).subscribe(
+              x => { this.planService.openSnackBar('Materia Agregada al Plan') }
+            )
+          });
+        }
+      );
+    } else {
+      console.log('error')
+    }
+
   }
 
 }

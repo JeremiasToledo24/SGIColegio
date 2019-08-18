@@ -36,7 +36,7 @@ export class AgregarMateriaComponent implements OnInit {
       this.materiaService.agregarMateria(form.value)
         .then(
           res => {
-            if (res === undefined){
+            if (res === undefined) {
               this.openSnackBar('Materia existente');
 
             } else {

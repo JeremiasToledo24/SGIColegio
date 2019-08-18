@@ -3,7 +3,7 @@ export class PlanEstudioModel {
     annio: string;
     idCurso: number;
     idNivel: number;
-    constructor(idPlanEstudio?,annio?,idCurso?,idNivel?) {
+    constructor(annio?,idCurso?,idNivel?,idPlanEstudio?) {
         this.idPlanEstudio = idPlanEstudio;
         this.annio = annio;
         this.idCurso = idCurso;
