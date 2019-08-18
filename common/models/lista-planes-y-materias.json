@@ -1,0 +1,37 @@
+{
+  "name": "ListaPlanesYMaterias",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "anniodelplan": {
+      "type": "string"
+    },
+    "Nivel": {
+      "type": "string"
+    },
+    "Curso": {
+      "type": "string"
+    },
+    "idMateria": {
+      "type": "number"
+    },
+    "materianombre": {
+      "type": "string"
+    },
+    "materiacodigo": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
+
+

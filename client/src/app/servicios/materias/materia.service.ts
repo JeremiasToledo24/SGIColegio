@@ -85,4 +85,8 @@ export class MateriaService {
       }
     );
   }
+
+  agregarMatPlan(planxmateria){
+    return this.http.post(`http://localhost:3000/api/PlanMateria`,planxmateria)
+  }
 }

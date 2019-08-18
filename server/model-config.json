@@ -54,5 +54,9 @@
   "PlanMateria": {
     "dataSource": "db",
     "public": true
+  },
+  "ListaPlanesYMaterias": {
+    "dataSource": "db",
+    "public": true
   }
 }
