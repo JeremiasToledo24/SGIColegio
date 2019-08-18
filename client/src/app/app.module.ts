@@ -13,7 +13,7 @@ import {MaterialModule} from './material/material.module';
 
 import { AgregarMateriaComponent } from './componentes/materias/agregar-materia/agregar-materia.component';
 
-import { FormsModule} from "@angular/forms";
+import { FormsModule} from '@angular/forms';
 
 import { MateriaService } from './servicios/materias/materia.service';
 import { CursoService } from './servicios/cursos/curso.service';
@@ -49,15 +49,16 @@ import { MatSnackBar } from '@angular/material';
     LayoutModule,
   ],
   providers: [MateriaService, CursoService, NivelService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AgregarMateriaComponent]
 })
-export class AppModule { 
+export class AppModule {
   /**
    *
    */
   constructor( ) {
-    
-    
+
+
   }
-  
+
 }

@@ -1,6 +1,6 @@
 // Aquí se importan los modulos a usar de Angular Material :
 
-import { NgModule } from "@angular/core";
+import { NgModule } from '@angular/core';
 import {
   MatButtonModule,
   MatCardModule,
@@ -15,13 +15,13 @@ import {
   MatSelectModule,
   MatCheckboxModule,
   MatDividerModule,
-  MatAutocompleteModule,
-  
-} from "@angular/material";
+  MatAutocompleteModule, MatPaginatorModule, MatDialogModule
+} from '@angular/material';
 
 
 
-import { LayoutModule } from "@angular/cdk/layout";
+import { LayoutModule } from '@angular/cdk/layout';
+
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
@@ -42,7 +42,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatDividerModule,
     MatAutocompleteModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatPaginatorModule,
+    MatDialogModule
   ],
   exports: [
     MatButtonModule,
@@ -61,7 +63,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatDividerModule,
     MatAutocompleteModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatPaginatorModule,
+    MatDialogModule
   ]
 })
 

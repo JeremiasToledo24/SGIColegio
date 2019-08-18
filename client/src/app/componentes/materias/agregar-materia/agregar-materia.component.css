@@ -19,3 +19,8 @@ mat-form-field {
 button {
   margin: 10px;
 }
+
+mat-dialog-actions{
+  text-align: center;
+  display: block;
+}

@@ -28,7 +28,7 @@ export class MateriaService {
       m, '', {
         duration: 1500
       }
-    )
+    );
   }
 
   // Obtener listado de materias
@@ -41,7 +41,7 @@ export class MateriaService {
     try {
       return await this.http.post('http://localhost:3000/api/Materias', Materia).toPromise();
     } catch (error) {
-      this.openSnackBar(error)
+      this.openSnackBar(error);
     }
   }
 
@@ -73,7 +73,7 @@ export class MateriaService {
     ).toPromise();
   }
 
-  //devuelve booleano
+  // devuelve booleano
   buscarMateriaPorCodigo(codigo: string) {
     this.findOne(codigo).then(
       (res: MateriaModel) => {
@@ -83,6 +83,6 @@ export class MateriaService {
           return false;
         }
       }
-    )
+    );
   }
 }
