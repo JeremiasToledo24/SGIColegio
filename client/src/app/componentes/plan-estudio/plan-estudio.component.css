@@ -1,31 +1,31 @@
 mat-card {
-    width: 500px;
+    width: auto;
     margin: auto;
   }
-  
+
   mat-card-title {
     text-align: left;
   }
-  
+
   mat-card-content {
     text-align: center;
   }
-  
+
   mat-form-field {
     display: block;
     width: auto;
   }
-  
+
   button {
     margin: 10px;
   }
-  
+
   .search-form {
     min-width: 150px;
     max-width: 500px;
     width: 100%;
   }
-  
+
   .search-full-width {
     width: 100%;
   }
@@ -33,5 +33,4 @@ mat-card {
   table {
     width: 100%;
   }
-  
-  
+

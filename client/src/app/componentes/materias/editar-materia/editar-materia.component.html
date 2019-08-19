@@ -1,10 +1,11 @@
-<h5>Ingresar información de la materia</h5>
+<h5>Editar información de la materia</h5>
 
 <!-- Formulario para agregar materia -->
-<form #materiaForm="ngForm" (ngSubmit)="addMateria(materiaForm)">
+<form #materiaForm="ngForm" (ngSubmit)="editMateria(materiaForm)">
+
   <!-- Nombre de materia -->
   <mat-form-field appearance="outline" hideRequiredMarker>
-    <mat-label>Ingresar nombre</mat-label>
+    <!-- <mat-label>Ingresar nombre</mat-label> -->
     <input type="text" name="nombre" #nombre="ngModel"
            [(ngModel)]="materiaService.selectedMateria.nombre"
            matInput required>
@@ -18,14 +19,27 @@
            matInput required>
   </mat-form-field>
 
+
+
+  <!-- Prueba -->
+  <mat-form-field appearance="outline" hideRequiredMarker>
+    <mat-label>Nombre de materia</mat-label>
+    <input matInput type="text" value="{{data.outputNombre}}">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" hideRequiredMarker>
+      <mat-label>Codigo de materia</mat-label>
+      <input matInput type="text" value=" {{data.outputCodigo}}">
+    </mat-form-field>
+    
+
+
   <mat-dialog-actions>
     <!-- Cancel -->
     <button type="reset" mat-raised-button color="warn" (click)="close()">Cancelar</button>
 
     <!-- Submit -->
-    <button type="submit" mat-raised-button color="primary">Agregar</button>
+    <button type="submit" mat-raised-button color="primary">Confirmar</button>
 
   </mat-dialog-actions>
 </form>
-
-

@@ -3,8 +3,7 @@ import {MateriaService} from '../../../servicios/materias/materia.service';
 
 import {NgForm} from '@angular/forms';
 
-import {MatSnackBar} from '@angular/material';
-import {MatDialogRef} from '@angular/material';
+import {MatDialogRef, MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-agregar-materia',
@@ -17,7 +16,7 @@ export class AgregarMateriaComponent implements OnInit {
   constructor(
     private snackBar: MatSnackBar,
     private materiaService: MateriaService,
-    public dialogRef: MatDialogRef<AgregarMateriaComponent>
+    public dialogRef: MatDialogRef<AgregarMateriaComponent>,
   ) {
   }
 
@@ -70,7 +69,7 @@ export class AgregarMateriaComponent implements OnInit {
   openSnackBar(m: string, a: string) {
     this.snackBar.open(
       m, a, {
-        duration: 1500
+        duration: 2000
       }
     );
   }
@@ -79,5 +78,4 @@ export class AgregarMateriaComponent implements OnInit {
   close() {
     this.dialogRef.close();
   }
-
 }
