@@ -7,7 +7,7 @@
   <mat-form-field appearance="outline" hideRequiredMarker>
     <!-- <mat-label>Ingresar nombre</mat-label> -->
     <input type="text" name="nombre" #nombre="ngModel"
-           [(ngModel)]="materiaService.selectedMateria.nombre"
+           [(ngModel)]="data.nombre"
            matInput required>
   </mat-form-field>
 
@@ -15,13 +15,11 @@
   <mat-form-field appearance="outline" hideRequiredMarker>
     <mat-label>Ingresar código</mat-label>
     <input type="text" name="codigo" #codigo="ngModel"
-           [(ngModel)]="materiaService.selectedMateria.codigo"
+           [(ngModel)]="data.codigo"
            matInput required>
   </mat-form-field>
 
-
-
-  <!-- Prueba -->
+<!-- 
   <mat-form-field appearance="outline" hideRequiredMarker>
     <mat-label>Nombre de materia</mat-label>
     <input matInput type="text" value="{{data.outputNombre}}">
@@ -31,7 +29,7 @@
       <mat-label>Codigo de materia</mat-label>
       <input matInput type="text" value=" {{data.outputCodigo}}">
     </mat-form-field>
-    
+     -->
 
 
   <mat-dialog-actions>

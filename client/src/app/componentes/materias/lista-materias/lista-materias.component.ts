@@ -43,18 +43,29 @@ export class ListaMateriasComponent implements OnInit {
   // Arreglar estas dos funciones junto el HTML
 
   // Editar materia
-  editarMateria(nombre: string, codigo: string) {
-    this.openDialog(nombre, codigo);
+  editarMateria(materia: any) {
+    this.openDialog(materia);
   }
 
   // Abrir dialog y enviar datos para editar materia
-  openDialog(nombre: string, codigo: string): void {
+  openDialog(materia: any): void {
     const dialogRef = this.dialog.open(EditarMateriaComponent, {
-      data: {
-        outputNombre: nombre, outputCodigo: codigo
+      data : {
+        nombre: materia.nombre,
+        idMateria: materia.idMateria,
+        codigo : materia.codigo
       }
     });
-    dialogRef.afterClosed().subscribe();
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Editar result: ${result}`);
+      if (result) {
+        this.materiaService.listarMaterias().subscribe(
+          res => {
+            this.dataSource = res as MateriaModel[];
+          }
+        );
+      }
+    });
   }
 
   // Eliminar materia

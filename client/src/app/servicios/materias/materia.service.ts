@@ -92,4 +92,8 @@ export class MateriaService {
   agregarMatPlan(planxmateria) {
     return this.http.post(`http://localhost:3000/api/PlanMateria`, planxmateria);
   }
+  //Actualizar materia
+  async actualizarMateria (materia: any) {
+    return this.http.put(`http://localhost:3000/api/Materias/`, materia).toPromise();
+  }
 }

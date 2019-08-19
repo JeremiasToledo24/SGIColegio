@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import {MAT_DIALOG_DATA, MatDialogRef, MatSnackBar} from '@angular/material';
 import {MateriaModel} from '../../../models/materia-model';
 import {MateriaService} from '../../../servicios/materias/materia.service';
 import {NgForm} from '@angular/forms';
@@ -15,6 +15,7 @@ export class EditarMateriaComponent implements OnInit {
 
   constructor(
     private materiaService: MateriaService,
+    private snackBar: MatSnackBar,
     public dialogRef: MatDialogRef<EditarMateriaComponent>,
     @Inject(MAT_DIALOG_DATA) public data: MateriaModel
   ) {
@@ -25,7 +26,23 @@ export class EditarMateriaComponent implements OnInit {
 
   // Editar materia
   editMateria(form: NgForm) {
-    console.log('edit funca');
+      this.materiaService.actualizarMateria(this.data).then(response => {
+        if (response) {
+           // Todo ok
+           this.snackBar.open('Materia actualizada con exito','OK', 
+           {
+             duration : 2000
+           });
+           this.dialogRef.close(true);
+        }
+      }).catch(error => {
+        console.log(error.error.error.sqlMessage);
+        this.snackBar.open(`Error al actualizar: ${error.error.error.sqlMessage}`, 'OK',
+           {
+             duration : 2000
+           });
+        this.dialogRef.close(false);
+      });
   }
 
   // Cerrar dialog
