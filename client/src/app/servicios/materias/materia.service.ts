@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { MateriaModel } from 'src/app/models/materia-model';
-import { MatSnackBar } from '@angular/material';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {MateriaModel} from 'src/app/models/materia-model';
+import {MatSnackBar} from '@angular/material';
 
 
 @Injectable({
@@ -10,10 +10,8 @@ import { MatSnackBar } from '@angular/material';
 export class MateriaService {
 
   listaMaterias: MateriaModel[];
-
   listaMateriasSeleccionadas: MateriaModel[];
   listaCompletaMaterias: MateriaModel[];
-
   selectedMateria: MateriaModel;
 
   constructor(private http: HttpClient, private _snackBar: MatSnackBar) {
@@ -53,6 +51,7 @@ export class MateriaService {
     class Exist {
       exists: boolean;
     }
+
     var exist = new Exist();
     exist = await new Promise(resolve => {
       this.getExist(id).then((res) => {
@@ -65,7 +64,6 @@ export class MateriaService {
       return false;
     }
   }
-
 
 
   async findOne(codigo: string) {
@@ -86,7 +84,16 @@ export class MateriaService {
     );
   }
 
-  agregarMatPlan(planxmateria){
-    return this.http.post(`http://localhost:3000/api/PlanMateria`,planxmateria)
+  // Eliminar materia
+  eliminarMateria(id: number) {
+    return this.http.delete(`http://localhost:3000/api/Materias/${id}`);
+  }
+
+  agregarMatPlan(planxmateria) {
+    return this.http.post(`http://localhost:3000/api/PlanMateria`, planxmateria);
+  }
+  //Actualizar materia
+  async actualizarMateria (materia: any) {
+    return this.http.put(`http://localhost:3000/api/Materias/`, materia).toPromise();
   }
 }
