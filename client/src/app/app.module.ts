@@ -27,6 +27,8 @@ import { PlanEstudioComponent } from './componentes/plan-estudio/plan-estudio.co
 import { LayoutModule } from '@angular/cdk/layout';
 import { ListaPlanesComponent } from './componentes/plan-estudio/lista-planes/lista-planes.component';
 import { EditarMateriaComponent } from './componentes/materias/editar-materia/editar-materia.component';
+import { SidebarComponent } from './componentes/sidebar/sidebar.component';
+import { ConfirmDialogComponent } from './componentes/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { EditarMateriaComponent } from './componentes/materias/editar-materia/ed
     MateriasComponent,
     PlanEstudioComponent,
     ListaPlanesComponent,
-    EditarMateriaComponent
+    EditarMateriaComponent,
+    SidebarComponent,
+    ConfirmDialogComponent
    ],
   imports: [
     BrowserModule,
@@ -52,7 +56,7 @@ import { EditarMateriaComponent } from './componentes/materias/editar-materia/ed
   ],
   providers: [MateriaService, CursoService, NivelService],
   bootstrap: [AppComponent],
-  entryComponents: [AgregarMateriaComponent, EditarMateriaComponent]
+  entryComponents: [AgregarMateriaComponent, EditarMateriaComponent,ConfirmDialogComponent]
 })
 export class AppModule {
   /**

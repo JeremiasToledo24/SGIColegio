@@ -13,6 +13,7 @@ export class MateriaService {
   listaMateriasSeleccionadas: MateriaModel[];
   listaCompletaMaterias: MateriaModel[];
   selectedMateria: MateriaModel;
+  datasource: MateriaModel[] = [];
 
   constructor(private http: HttpClient, private _snackBar: MatSnackBar) {
     this.selectedMateria = new MateriaModel(0, '', '');
@@ -85,8 +86,8 @@ export class MateriaService {
   }
 
   // Eliminar materia
-  eliminarMateria(id: number) {
-    return this.http.delete(`http://localhost:3000/api/Materias/${id}`);
+  async eliminarMateria(id: number) {
+    return await this.http.delete(`http://localhost:3000/api/Materias/${id}`).toPromise();
   }
 
   agregarMatPlan(planxmateria) {

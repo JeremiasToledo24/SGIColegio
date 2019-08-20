@@ -1,7 +1,11 @@
 mat-card {
     width: auto;
+    background-color: #E8EAF6;
+
     margin: auto;
   }
+ 
+  
 
   mat-card-title {
     text-align: left;
