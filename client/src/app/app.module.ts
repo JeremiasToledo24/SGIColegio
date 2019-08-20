@@ -23,10 +23,10 @@ import { CursosComponent } from './componentes/cursos/cursos.component';
 import { AgregarCursoComponent } from './componentes/cursos/agregar-curso/agregar-curso.component';
 import { ListaCursoComponent } from './componentes/cursos/lista-curso/lista-curso.component';
 import { MateriasComponent } from './componentes/materias/materias.component';
-import { PlanEstudioComponent } from "./componentes/plan-estudio/plan-estudio.component";
+import { PlanEstudioComponent } from './componentes/plan-estudio/plan-estudio.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { ListaPlanesComponent } from './componentes/plan-estudio/lista-planes/lista-planes.component';
-import { SidebarComponent } from './componentes/sidebar/sidebar.component';
+import { EditarMateriaComponent } from './componentes/materias/editar-materia/editar-materia.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,7 @@ import { SidebarComponent } from './componentes/sidebar/sidebar.component';
     MateriasComponent,
     PlanEstudioComponent,
     ListaPlanesComponent,
-    SidebarComponent
+    EditarMateriaComponent
    ],
   imports: [
     BrowserModule,
@@ -52,7 +52,7 @@ import { SidebarComponent } from './componentes/sidebar/sidebar.component';
   ],
   providers: [MateriaService, CursoService, NivelService],
   bootstrap: [AppComponent],
-  entryComponents: [AgregarMateriaComponent]
+  entryComponents: [AgregarMateriaComponent, EditarMateriaComponent]
 })
 export class AppModule {
   /**

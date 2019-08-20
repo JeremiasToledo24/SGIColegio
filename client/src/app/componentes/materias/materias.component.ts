@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MatDialog, MatDialogRef} from '@angular/material';
+import {MatDialog} from '@angular/material';
 import {AgregarMateriaComponent} from './agregar-materia/agregar-materia.component';
 
 
@@ -20,10 +20,7 @@ export class MateriasComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(AgregarMateriaComponent, {});
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
+    dialogRef.afterClosed().subscribe();
   }
 
 }

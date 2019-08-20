@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {MateriaService} from 'src/app/servicios/materias/materia.service';
 import {MateriaModel} from 'src/app/models/materia-model';
+import {MatDialog} from '@angular/material';
+
+import { EditarMateriaComponent} from '../editar-materia/editar-materia.component';
 
 @Component({
   selector: 'app-lista-materias',
@@ -14,26 +17,59 @@ export class ListaMateriasComponent implements OnInit {
 
   materiasSeleccionadas: MateriaModel[] = [];
 
-  constructor(private materiaService: MateriaService) {
+  constructor(
+    private materiaService: MateriaService,
+    public dialog: MatDialog
+  ) {
   }
 
   ngOnInit() {
     this.materiaService.listarMaterias().subscribe(
       res => {
         this.dataSource = res as MateriaModel[];
-        console.log(this.dataSource);
       }
     );
   }
 
   agregar(materia: MateriaModel) {
-
     if (this.materiasSeleccionadas.some(mat => mat.nombre === materia.nombre)) {
       console.log('la materia ya esta en la lista');
     } else {
       this.materiasSeleccionadas.push(materia);
-      console.log(materia);
     }
   }
-}
 
+  // TODO
+  // Arreglar estas dos funciones junto el HTML
+
+  // Editar materia
+  editarMateria(materia: any) {
+    this.openDialog(materia);
+  }
+
+  // Abrir dialog y enviar datos para editar materia
+  openDialog(materia: any): void {
+    const dialogRef = this.dialog.open(EditarMateriaComponent, {
+      data : {
+        nombre: materia.nombre,
+        idMateria: materia.idMateria,
+        codigo : materia.codigo
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Editar result: ${result}`);
+      if (result) {
+        this.materiaService.listarMaterias().subscribe(
+          res => {
+            this.dataSource = res as MateriaModel[];
+          }
+        );
+      }
+    });
+  }
+
+  // Eliminar materia
+  eliminarMateria(id: number) {
+    this.materiaService.eliminarMateria(id).subscribe();
+  }
+}
