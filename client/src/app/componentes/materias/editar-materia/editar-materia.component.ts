@@ -26,23 +26,23 @@ export class EditarMateriaComponent implements OnInit {
 
   // Editar materia
   editMateria(form: NgForm) {
-      this.materiaService.actualizarMateria(this.data).then(response => {
-        if (response) {
-           // Todo ok
-           this.snackBar.open('Materia actualizada con exito','OK', 
-           {
-             duration : 2000
-           });
-           this.dialogRef.close(true);
-        }
-      }).catch(error => {
-        console.log(error.error.error.sqlMessage);
-        this.snackBar.open(`Error al actualizar: ${error.error.error.sqlMessage}`, 'OK',
-           {
-             duration : 2000
-           });
-        this.dialogRef.close(false);
-      });
+    this.materiaService.actualizarMateria(this.data).then(response => {
+      if (response) {
+        // Todo ok
+        this.snackBar.open('Materia actualizada con exito', 'OK',
+          {
+            duration: 2000
+          });
+        this.dialogRef.close(true);
+      }
+    }).catch(error => {
+      console.log(error.error.error.sqlMessage);
+      this.snackBar.open(`Error al actualizar: ${error.error.error.sqlMessage}`, 'OK',
+        {
+          duration: 2000
+        });
+      this.dialogRef.close(false);
+    });
   }
 
   // Cerrar dialog

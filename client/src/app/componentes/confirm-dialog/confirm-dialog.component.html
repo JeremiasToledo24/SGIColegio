@@ -1,9 +1,7 @@
-<h1 mat-dialog-title>Hi {{data.name}}</h1>
 <div mat-dialog-content>
-  <p>What's your favorite animal?</p>
+  <p>¿Eliminar la materia {{data.nombre}}?</p>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="eliminar(data)" cdkFocusInitial>Ok</button>
-</div>
-
+<mat-dialog-actions>
+  <button mat-raised-button (click)="onNoClick()" color="warn">Cancelar</button>
+  <button mat-raised-button (click)="eliminar(data)" color="primary">Confirmar</button>
+</mat-dialog-actions>

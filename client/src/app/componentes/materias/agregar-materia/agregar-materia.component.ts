@@ -4,6 +4,7 @@ import {MateriaService} from '../../../servicios/materias/materia.service';
 import {NgForm} from '@angular/forms';
 
 import {MatDialogRef, MatSnackBar} from '@angular/material';
+import {MateriaModel} from '../../../models/materia-model';
 
 @Component({
   selector: 'app-agregar-materia',
@@ -54,7 +55,6 @@ export class AgregarMateriaComponent implements OnInit {
                 );
                 this.resetForm(form);
                 this.close();
-                console.log(res);
               }
             }
           );
@@ -78,4 +78,6 @@ export class AgregarMateriaComponent implements OnInit {
   close() {
     this.dialogRef.close();
   }
+
+
 }
