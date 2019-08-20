@@ -26,6 +26,7 @@ import { MateriasComponent } from './componentes/materias/materias.component';
 import { PlanEstudioComponent } from "./componentes/plan-estudio/plan-estudio.component";
 import { LayoutModule } from '@angular/cdk/layout';
 import { ListaPlanesComponent } from './componentes/plan-estudio/lista-planes/lista-planes.component';
+import { SidebarComponent } from './componentes/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ListaPlanesComponent } from './componentes/plan-estudio/lista-planes/li
     ListaCursoComponent,
     MateriasComponent,
     PlanEstudioComponent,
-    ListaPlanesComponent
+    ListaPlanesComponent,
+    SidebarComponent
    ],
   imports: [
     BrowserModule,
