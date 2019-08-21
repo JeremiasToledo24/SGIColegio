@@ -1,34 +1,15 @@
-<div class="container-fluid">
-  <div class="container">
+<div class="row justify-content-md-center">
+  <mat-card class="col-md-10">
+    <mat-card-title style="text-align: center">Administración de materias</mat-card-title>
+    <mat-card-content>
 
-    <mat-card>
-      <mat-card-title>Administración de materias</mat-card-title>
-      <mat-card-content>
+      <!-- Panel de botones -->
+      <div style="text-align: center; margin-bottom: 1rem">
+        <button mat-raised-button (click)="openDialog()" color="primary">Agregar materia</button>
+      </div>
 
-        <!-- Panel de botones -->
-        <div style="text-align: center">
-          <button mat-raised-button (click)="openDialog()" color="primary">Agregar materia</button>
-        </div>
-
-        <!-- Lista de materias -->
-        <div class="row justify-content-md-center" style="margin-top: 10px;">
-          <div class="col-md-10">
-            <mat-card id="listaMaterias">
-              <mat-card-header>
-                <mat-card-title>Lista de materias</mat-card-title>
-              </mat-card-header>
-              <mat-card-content>
-                <app-lista-materias></app-lista-materias>
-              </mat-card-content>
-            </mat-card>
-          </div>
-        </div>
-
-      </mat-card-content>
-    </mat-card>
-
-  </div>
+      <h5>Lista de materias</h5>
+      <app-lista-materias></app-lista-materias>
+    </mat-card-content>
+  </mat-card>
 </div>
-
-
-

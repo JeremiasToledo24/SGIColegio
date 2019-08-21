@@ -1,6 +1,6 @@
 mat-card {
-  width: 500px;
-  margin: auto;
+  margin: 2rem;
+  background-color: #E8EAF6;
 }
 
 mat-card-title {
@@ -33,14 +33,16 @@ button {
 table {
   width: 100%;
 }
-th{
+
+th {
   background-color: #3F51B5;
   color: beige;
 }
-td{
+
+td {
   background-color: #C5CAE9;
 }
 
-mat-cell{
+mat-cell {
   background-color: #C5CAE9;
 }
