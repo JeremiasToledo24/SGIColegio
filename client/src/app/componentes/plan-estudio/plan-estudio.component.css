@@ -1,40 +1,52 @@
 mat-card {
-    width: auto;
-    background-color: #E8EAF6;
+  background-color: #E8EAF6;
+  margin: 2rem;
+}
 
-    margin: auto;
-  }
- 
-  
+mat-card-title {
+  text-align: left;
+}
 
-  mat-card-title {
-    text-align: left;
-  }
+mat-card-content {
+  text-align: center;
+}
 
-  mat-card-content {
-    text-align: center;
-  }
+mat-form-field {
+  display: block;
+  width: auto;
+}
 
-  mat-form-field {
-    display: block;
-    width: auto;
-  }
+button {
+  margin: 10px;
+}
 
-  button {
-    margin: 10px;
-  }
+.search-form {
+  min-width: 150px;
+  max-width: 50%;
+  width: 100%;
+  margin-left: 30px;
+}
 
-  .search-form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-  }
+.search-full-width {
+  width: 100%;
+}
 
-  .search-full-width {
-    width: 100%;
-  }
+table {
+  width: 100%;
+}
 
-  table {
-    width: 100%;
-  }
+th {
+  background-color: #3F51B5;
+  color: beige;
+}
+
+td {
+  background-color: #C5CAE9;
+}
+
+mat-cell {
+  background-color: #C5CAE9;
+}
+
+
 

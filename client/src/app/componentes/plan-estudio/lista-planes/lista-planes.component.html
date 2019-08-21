@@ -1,66 +1,70 @@
-<div class="container">
-  <div class="row justify-content-md-center">
-    <mat-card id="seleccionarMaterias">
-      <mat-card-header>
-          <mat-card-title>Lista de Planes Vigentes</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-          <!-- <form class="search-form" #buscarForm="ngForm">
-          <mat-form-field class="seearch-full-width">
-            <input type="text" placeholder="Buscar un Plan por Año, curso, o nivel" aria-label="Number" matInput [formControl]="myControl"
-              [matAutocomplete]="auto">
-            <mat-autocomplete #auto="matAutocomplete">
-              <mat-option *ngFor="let option of filteredOptions | async" [value]="option.nombre"
-                (click)="agregarMateriaALista(option.codigo, buscarForm)">
-                {{option.nombre}}
-              </mat-option>
-            </mat-autocomplete>
-            <button mat-button matSuffix mat-icon-button aria-label="Clear">
-              <mat-icon>search</mat-icon>
-            </button>
-          </mat-form-field>
-        </form> -->
-          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-              <ng-container matColumnDef="id">
-                  <th mat-header-cell *matHeaderCellDef> ID del Plan </th>
-                  <td mat-cell *matCellDef="let plan"> {{plan.id}} </td>
-              </ng-container>
-              <ng-container matColumnDef="anniodelplan">
-                  <th mat-header-cell *matHeaderCellDef> Año del Plan </th>
-                  <td mat-cell *matCellDef="let plan"> {{plan.anniodelplan}} </td>
-              </ng-container>
-              <ng-container matColumnDef="Nivel">
-                  <th mat-header-cell *matHeaderCellDef> Nivel del Plan </th>
-                  <td mat-cell *matCellDef="let plan"> {{plan.Nivel}} </td>
-              </ng-container>
-              <ng-container matColumnDef="Curso">
-                  <th mat-header-cell *matHeaderCellDef> Curso del Plan </th>
-                  <td mat-cell *matCellDef="let plan"> {{plan.Curso}} </td>
-              </ng-container>
-              <ng-container matColumnDef="idMateria">
-                  <th mat-header-cell *matHeaderCellDef> ID de la Materia </th>
-                  <td mat-cell *matCellDef="let plan"> {{plan.idMateria}} </td>
-              </ng-container>
-              <ng-container matColumnDef="materiacodigo">
-                  <th mat-header-cell *matHeaderCellDef> Codigo de la Materia </th>
-                  <td mat-cell *matCellDef="let plan"> {{plan.materiacodigo}} </td>
-              </ng-container>
-              <ng-container matColumnDef="materianombre">
-                  <th mat-header-cell *matHeaderCellDef> Nombre de la Materia </th>
-                  <td mat-cell *matCellDef="let plan"> {{plan.materianombre}} </td>
-              </ng-container>
-              <ng-container matColumnDef="operaciones">
-                <th mat-header-cell *matHeaderCellDef> Operaciones </th>
-                <td mat-cell *matCellDef="let plan"> 
-                  <button  mat-raised-button color="warn" (click)="eliminarPlan(plan.id)">ELIMINAR</button>
-                  <button  mat-raised-button color="warn">EDITAR</button>
-  
-                </td>
-            </ng-container>
-              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table>
-      </mat-card-content>
-  </mat-card>
-  </div></div>
+<div class="row justify-content-md-center">
+  <mat-card id="seleccionarMaterias" class="col-md-10">
+    <mat-card-header>
+      <mat-card-title>Lista de Planes Vigentes</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
 
+      <!-- <form class="search-form" #buscarForm="ngForm">
+      <mat-form-field class="seearch-full-width">
+        <input type="text" placeholder="Buscar un Plan por Año, curso, o nivel" aria-label="Number" matInput [formControl]="myControl"
+          [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option.nombre"
+            (click)="agregarMateriaALista(option.codigo, buscarForm)">
+            {{option.nombre}}
+          </mat-option>
+        </mat-autocomplete>
+        <button mat-button matSuffix mat-icon-button aria-label="Clear">
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-form-field>
+    </form> -->
+
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!--Columna año del plan -->
+        <ng-container matColumnDef="anniodelplan">
+          <th mat-header-cell *matHeaderCellDef> Año del Plan</th>
+          <td mat-cell *matCellDef="let plan"> {{plan.anniodelplan}} </td>
+        </ng-container>
+
+        <!--Columna nivel -->
+        <ng-container matColumnDef="Nivel">
+          <th mat-header-cell *matHeaderCellDef> Nivel del Plan</th>
+          <td mat-cell *matCellDef="let plan"> {{plan.Nivel}} </td>
+        </ng-container>
+
+        <!--Columna curso -->
+        <ng-container matColumnDef="Curso">
+          <th mat-header-cell *matHeaderCellDef> Curso del Plan</th>
+          <td mat-cell *matCellDef="let plan"> {{plan.Curso}} </td>
+        </ng-container>
+
+        <!--Columna codigo materia -->
+        <ng-container matColumnDef="materiacodigo">
+          <th mat-header-cell *matHeaderCellDef> Codigo de la Materia</th>
+          <td mat-cell *matCellDef="let plan"> {{plan.materiacodigo}} </td>
+        </ng-container>
+
+        <!--Columna nombre materia -->
+        <ng-container matColumnDef="materianombre">
+          <th mat-header-cell *matHeaderCellDef> Nombre de la Materia</th>
+          <td mat-cell *matCellDef="let plan"> {{plan.materianombre}} </td>
+        </ng-container>
+
+        <!--Columna operaciones -->
+        <ng-container matColumnDef="operaciones">
+          <th mat-header-cell *matHeaderCellDef> Operaciones</th>
+          <td mat-cell *matCellDef="let plan">
+            <button mat-raised-button color="warn" (click)="eliminarPlan(plan.id)">ELIMINAR</button>
+            <button mat-raised-button color="warn">EDITAR</button>
+
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>
