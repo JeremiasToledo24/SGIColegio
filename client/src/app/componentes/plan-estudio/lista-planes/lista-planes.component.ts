@@ -1,6 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {PlanEstudioService} from 'src/app/servicios/planEstudio/plan-estudio.service';
+import { Component, OnInit } from '@angular/core';
+import { PlanEstudioService } from 'src/app/servicios/planEstudio/plan-estudio.service';
+import { MatDialog } from '@angular/material';
+import { ConfirmDialogComponent } from '../../confirm-dialog/confirm-dialog.component';
+import { PlanEstudioModel } from 'src/app/models/plan-estudio-model';
 
+/* clase de planes */
 class Planes {
   id: number;
   anniodelplan: string;
@@ -9,7 +13,6 @@ class Planes {
   idMateria: number;
   materiacodigo: string;
   materianombre: string;
-
   constructor() {
   }
 }
@@ -22,21 +25,42 @@ class Planes {
 
 
 export class ListaPlanesComponent implements OnInit {
+  /* variables para mostrar lista */
   displayedColumns: string[] = ['anniodelplan', 'Nivel', 'Curso', 'materiacodigo', 'materianombre', 'operaciones'];
   dataSource: Planes[];
 
-  constructor(private planService: PlanEstudioService) {
+  constructor(private planService: PlanEstudioService, public dialog: MatDialog) {
   }
 
   ngOnInit() {
+    /* listar planes  */
     this.planService.listarPlanes().subscribe(res => {
       this.dataSource = res as Planes[];
-      console.log(res);
     });
   }
 
-  eliminarPlan(id: number) {
-    this.planService.eliminarPlan(id).subscribe(res => console.log(id));
+  /* trigger para la el dialogo de eliminar plan */
+  eliminarPlan(plan: any) {
+    this.openDialog(plan)
   }
-
+  /* dialogo de eliminar plan */
+  openDialog(plan: Planes) {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      data: {
+        id: plan.id
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Eliminar result: ${result}`);
+      if (result) {
+        this.planService.listarPlanes().subscribe(
+          res => {
+            this.dataSource = res as Planes[];
+          }
+        );
+      }
+    });
+  }
 }
+
+
