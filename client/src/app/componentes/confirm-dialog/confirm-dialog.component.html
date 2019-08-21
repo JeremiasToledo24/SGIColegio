@@ -1,11 +1,11 @@
 <div mat-dialog-content>
-  <p *ngIf="tipoPlan">¿Eliminar el plan {{dataPlan.nombre}}?</p>
+  <p *ngIf="tipoPlan">¿Eliminar el plan {{data.nombre}}?</p>
+  <p *ngIf="tipoMat">¿Eliminar la materia  {{data.nombre}}?</p>
 
-  <p *ngIf="tipoMat">¿Eliminar el plan {{dataMateria.nombre}}?</p>
 </div>
 <mat-dialog-actions>
   <button mat-raised-button (click)="onNoClick()" color="warn">Cancelar</button>
-  <button mat-raised-button *ngIf="tipoPlan" (click)="eliminarPlan(dataPlan)" color="primary">Confirmar</button>
-  <button mat-raised-button *ngIf="tipoMat" (click)="eliminarMateria(dataMateria)" color="primary">Confirmar</button>
+  <button mat-raised-button *ngIf="tipoPlan" (click)="eliminarPlan(data)" color="primary">Confirmar</button>
+  <button mat-raised-button *ngIf="tipoMat" (click)="eliminarMateria(data)" color="primary">Confirmar</button>
 
 </mat-dialog-actions>
