@@ -1,14 +1,14 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
-import { PlanEstudioService } from 'src/app/servicios/planEstudio/plan-estudio.service';
-import { CursoService } from 'src/app/servicios/cursos/curso.service';
-import { map, startWith } from 'rxjs/operators';
-import { CursoModel } from 'src/app/models/curso-model';
-import { NgForm, FormControl } from '@angular/forms';
-import { MateriaModel } from 'src/app/models/materia-model';
-import { MateriaService } from 'src/app/servicios/materias/materia.service';
-import { Observable } from 'rxjs';
-import { PlanEstudioModel } from 'src/app/models/plan-estudio-model';
-import { MatDialog } from '@angular/material';
+import {Component, OnInit, OnChanges} from '@angular/core';
+import {PlanEstudioService} from 'src/app/servicios/planEstudio/plan-estudio.service';
+import {CursoService} from 'src/app/servicios/cursos/curso.service';
+import {map, startWith} from 'rxjs/operators';
+import {CursoModel} from 'src/app/models/curso-model';
+import {NgForm, FormControl} from '@angular/forms';
+import {MateriaModel} from 'src/app/models/materia-model';
+import {MateriaService} from 'src/app/servicios/materias/materia.service';
+import {Observable} from 'rxjs';
+import {PlanEstudioModel} from 'src/app/models/plan-estudio-model';
+import {MatDialog} from '@angular/material';
 
 //CLASE PLAN X MATERIA
 class PlanMat {
@@ -34,22 +34,22 @@ export class PlanEstudioComponent implements OnInit {
   //TODO
   //REEMPLAZAR POR GET DESDE TABLA
   public annios = [
-    { 'anio': '2019' },
-    { 'anio': '2020' },
-    { 'anio': '2021' },
-    { 'anio': '2022' },
-    { 'anio': '2023' },
-    { 'anio': '2024' },
-    { 'anio': '2025' },
-    { 'anio': '2026' },
-    { 'anio': '2027' },
-    { 'anio': '2028' },
-    { 'anio': '2029' },
-    { 'anio': '2030' }
+    {'anio': '2019'},
+    {'anio': '2020'},
+    {'anio': '2021'},
+    {'anio': '2022'},
+    {'anio': '2023'},
+    {'anio': '2024'},
+    {'anio': '2025'},
+    {'anio': '2026'},
+    {'anio': '2027'},
+    {'anio': '2028'},
+    {'anio': '2029'},
+    {'anio': '2030'}
   ];
   public niveles = [
-    { 'idNivel': '1', 'nombre': 'Primaria' },
-    { 'idNivel': '2', 'nombre': 'Secundaria' }
+    {'idNivel': '1', 'nombre': 'Primaria'},
+    {'idNivel': '2', 'nombre': 'Secundaria'}
   ];
   cursos: CursoModel[] = [];
   listaCurso = [];
@@ -61,7 +61,7 @@ export class PlanEstudioComponent implements OnInit {
 
 
   constructor(private planService: PlanEstudioService, private cursoService: CursoService, private materiaService: MateriaService,
-    public dialog: MatDialog
+              public dialog: MatDialog
   ) {
   }
 
@@ -78,6 +78,7 @@ export class PlanEstudioComponent implements OnInit {
         map(value => this._filter(value))
       );
   }
+
   /* quitar la materia de la lista de materias seleccionadas */
   quitar(materia: any) {
     this.materiaService.listaMateriasSeleccionadas = this.materiaService.listaMateriasSeleccionadas.filter(obj => obj !== materia);
@@ -85,8 +86,8 @@ export class PlanEstudioComponent implements OnInit {
   }
 
 
-  //TODO
-  //REEMPLAZAR POR UNA VISTA
+  // TODO
+  // REEMPLAZAR POR UNA VISTA
   /* busca cursos segun el nivel seleccionado */
   buscarPorNivel(id: number) {
     this.listaCurso = [];
@@ -99,7 +100,7 @@ export class PlanEstudioComponent implements OnInit {
       .subscribe(x => {
         this.cursos = x;
         this.cursos.forEach(element => {
-          this.listaCurso.push({ 'nombre': element.nombre, 'idCurso': element.idCurso });
+          this.listaCurso.push({'nombre': element.nombre, 'idCurso': element.idCurso});
         });
       });
   }
@@ -128,11 +129,13 @@ export class PlanEstudioComponent implements OnInit {
       this.planService.openSnackBar('la materia ya esta en la lista');
     }
   }
+
   /* parte de la funcion que filtra las materias del buscador */
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
     return this.options.filter(option => option.nombre.toLowerCase().includes(filterValue));
   }
+
   /* obtener la lista de materias */
   getListaMaterias() {
     const _Materias = this.materiaService.listarMaterias()
@@ -141,11 +144,11 @@ export class PlanEstudioComponent implements OnInit {
       );
     let _lista = _Materias
       .subscribe((x: MateriaModel[]) => {
-        x.forEach(element => {
-          this.materiaService.listaCompletaMaterias.push(element);
-          this.options.push({ 'codigo': element.codigo, 'nombre': element.nombre });
-        });
-      }
+          x.forEach(element => {
+            this.materiaService.listaCompletaMaterias.push(element);
+            this.options.push({'codigo': element.codigo, 'nombre': element.nombre});
+          });
+        }
       );
   }
 

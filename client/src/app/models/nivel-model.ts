@@ -3,9 +3,9 @@ export class NivelModel {
   constructor(
     idNivel,
     nombre
-  ){
-    this.idNivel=idNivel;
-    this.nombre=nombre
+  ) {
+    this.idNivel = idNivel;
+    this.nombre = nombre;
   }
 
   idNivel: number;

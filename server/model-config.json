@@ -58,5 +58,9 @@
   "ListaPlanesYMaterias": {
     "dataSource": "db",
     "public": true
+  },
+  "Docente": {
+    "dataSource": "db",
+    "public": true
   }
 }
