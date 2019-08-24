@@ -1,8 +1,10 @@
+CREATE DATABASE  IF NOT EXISTS `SGIColegio` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `SGIColegio`;
 -- MySQL dump 10.13  Distrib 5.7.27, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: SGIColegio
+-- Host: localhost    Database: SGIColegio
 -- ------------------------------------------------------
--- Server version	5.7.27-0ubuntu0.19.04.1
+-- Server version	5.7.27-0ubuntu0.18.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -35,15 +37,6 @@ CREATE TABLE `ACL` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `ACL`
---
-
-LOCK TABLES `ACL` WRITE;
-/*!40000 ALTER TABLE `ACL` DISABLE KEYS */;
-/*!40000 ALTER TABLE `ACL` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `AccessToken`
 --
 
@@ -61,15 +54,6 @@ CREATE TABLE `AccessToken` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `AccessToken`
---
-
-LOCK TABLES `AccessToken` WRITE;
-/*!40000 ALTER TABLE `AccessToken` DISABLE KEYS */;
-/*!40000 ALTER TABLE `AccessToken` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `Aula`
 --
 
@@ -84,15 +68,6 @@ CREATE TABLE `Aula` (
   PRIMARY KEY (`idAula`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Aula`
---
-
-LOCK TABLES `Aula` WRITE;
-/*!40000 ALTER TABLE `Aula` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Aula` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `Curso`
@@ -112,16 +87,6 @@ CREATE TABLE `Curso` (
   CONSTRAINT `idNivel` FOREIGN KEY (`idNivel`) REFERENCES `Nivel` (`idNivel`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Curso`
---
-
-LOCK TABLES `Curso` WRITE;
-/*!40000 ALTER TABLE `Curso` DISABLE KEYS */;
-INSERT INTO `Curso` VALUES (1,'primero','A',NULL),(2,'segundo','A',NULL),(3,'Tercero','A',1),(4,'segundo','A',1);
-/*!40000 ALTER TABLE `Curso` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `Docente`
@@ -150,15 +115,6 @@ CREATE TABLE `Docente` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Docente`
---
-
-LOCK TABLES `Docente` WRITE;
-/*!40000 ALTER TABLE `Docente` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Docente` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `FormacionDocente`
 --
 
@@ -176,15 +132,6 @@ CREATE TABLE `FormacionDocente` (
   CONSTRAINT `DNIDocente` FOREIGN KEY (`DNIDocente`) REFERENCES `Docente` (`DNI`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `FormacionDocente`
---
-
-LOCK TABLES `FormacionDocente` WRITE;
-/*!40000 ALTER TABLE `FormacionDocente` DISABLE KEYS */;
-/*!40000 ALTER TABLE `FormacionDocente` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Temporary table structure for view `ListaPlanesYMaterias`
@@ -218,18 +165,8 @@ CREATE TABLE `Materia` (
   PRIMARY KEY (`idMateria`),
   UNIQUE KEY `idMateria_UNIQUE` (`idMateria`),
   UNIQUE KEY `codigo_UNIQUE` (`codigo`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Materia`
---
-
-LOCK TABLES `Materia` WRITE;
-/*!40000 ALTER TABLE `Materia` DISABLE KEYS */;
-INSERT INTO `Materia` VALUES (1,'MATEMATICA 1','MAT1'),(2,'Sistemas 3','S3'),(3,'Matematica 2','MAT'),(4,'Matematica 2','MAT2'),(5,'FISICA APLICADA','FIA'),(21,'INGENIERIA DE SOFTWARE','ING'),(22,'sistemas 1','s1');
-/*!40000 ALTER TABLE `Materia` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `MateriaDocente`
@@ -251,15 +188,6 @@ CREATE TABLE `MateriaDocente` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `MateriaDocente`
---
-
-LOCK TABLES `MateriaDocente` WRITE;
-/*!40000 ALTER TABLE `MateriaDocente` DISABLE KEYS */;
-/*!40000 ALTER TABLE `MateriaDocente` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `Nivel`
 --
 
@@ -273,16 +201,6 @@ CREATE TABLE `Nivel` (
   UNIQUE KEY `idNivel_UNIQUE` (`idNivel`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Nivel`
---
-
-LOCK TABLES `Nivel` WRITE;
-/*!40000 ALTER TABLE `Nivel` DISABLE KEYS */;
-INSERT INTO `Nivel` VALUES (1,'Primaria'),(2,'Secundaria');
-/*!40000 ALTER TABLE `Nivel` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `PlanEstudio`
@@ -305,16 +223,6 @@ CREATE TABLE `PlanEstudio` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `PlanEstudio`
---
-
-LOCK TABLES `PlanEstudio` WRITE;
-/*!40000 ALTER TABLE `PlanEstudio` DISABLE KEYS */;
-INSERT INTO `PlanEstudio` VALUES (2,'2019',3,1),(5,'2019',3,1);
-/*!40000 ALTER TABLE `PlanEstudio` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `PlanMateria`
 --
 
@@ -330,18 +238,8 @@ CREATE TABLE `PlanMateria` (
   KEY `idPlan_idx` (`idPlan`),
   CONSTRAINT `idPlan` FOREIGN KEY (`idPlan`) REFERENCES `PlanEstudio` (`idPlanEstudio`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `materiaID` FOREIGN KEY (`idMateria`) REFERENCES `Materia` (`idMateria`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `PlanMateria`
---
-
-LOCK TABLES `PlanMateria` WRITE;
-/*!40000 ALTER TABLE `PlanMateria` DISABLE KEYS */;
-INSERT INTO `PlanMateria` VALUES (1,NULL,NULL),(5,5,5);
-/*!40000 ALTER TABLE `PlanMateria` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `Role`
@@ -361,15 +259,6 @@ CREATE TABLE `Role` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Role`
---
-
-LOCK TABLES `Role` WRITE;
-/*!40000 ALTER TABLE `Role` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Role` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `RoleMapping`
 --
 
@@ -385,15 +274,6 @@ CREATE TABLE `RoleMapping` (
   KEY `principalId` (`principalId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `RoleMapping`
---
-
-LOCK TABLES `RoleMapping` WRITE;
-/*!40000 ALTER TABLE `RoleMapping` DISABLE KEYS */;
-/*!40000 ALTER TABLE `RoleMapping` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `User`
@@ -413,15 +293,6 @@ CREATE TABLE `User` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `User`
---
-
-LOCK TABLES `User` WRITE;
-/*!40000 ALTER TABLE `User` DISABLE KEYS */;
-/*!40000 ALTER TABLE `User` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Final view structure for view `ListaPlanesYMaterias`
@@ -450,4 +321,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-08-17 22:14:19
+-- Dump completed on 2019-08-24 18:35:09
