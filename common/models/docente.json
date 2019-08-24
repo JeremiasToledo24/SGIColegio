@@ -1,0 +1,58 @@
+{
+  "name": "Docente",
+  "plural": "Docentes",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "idDocente": {
+      "type": "number",
+      "id": true
+    },
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "apellido": {
+      "type": "string",
+      "required": true
+    },
+    "dni": {
+      "type": "number",
+      "required": true
+    },
+    "direccion": {
+      "type": "string",
+      "required": true
+    },
+    "telefono": {
+      "type": "string",
+      "required": true
+    },
+    "cuil": {
+      "type": "string",
+      "required": true
+    },
+    "fechaNacimiento": {
+      "type": "string",
+      "required": true
+    },
+    "fechaIngresoColegio": {
+      "type": "string",
+      "required": true
+    },
+    "fechaEgresoColegio": {
+      "type": "string"
+    },
+    "fechaIngresoDocencia": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
