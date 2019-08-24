@@ -1,15 +1,27 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { MateriasComponent } from './componentes/materias/materias.component';
-import { PlanEstudioComponent } from './componentes/plan-estudio/plan-estudio.component';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
+
+// Componentes del SGI
+import {MateriasComponent} from './componentes/materias/materias.component';
+import {CursosComponent} from './componentes/cursos/cursos.component';
+import {ListaPlanesComponent} from './componentes/plan-estudio/lista-planes/lista-planes.component';
+import {PlanEstudioComponent} from './componentes/plan-estudio/plan-estudio.component';
+import {HomeComponent} from './componentes/navegacion/home/home.component';
+import {NotFoundComponent} from './componentes/navegacion/not-found/not-found.component';
 
 const routes: Routes = [
-  {path: 'materias', component: MateriasComponent},
-  {path : 'nuevoPlan', component: PlanEstudioComponent}
+  {path: '', component: HomeComponent},
+  {path: 'Materias', component: MateriasComponent},
+  {path: 'Cursos', component: CursosComponent},
+  {path: 'listaPlanes', component: ListaPlanesComponent},
+  {path: 'crearPlan', component: PlanEstudioComponent},
+  {path: 'error', component: NotFoundComponent},
+  {path: '**', redirectTo: 'error'}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
