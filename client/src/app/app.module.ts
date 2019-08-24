@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListaMateriasComponent } from './componentes/materias/lista-materias/lista-materias.component';
 
 
-// tslint:disable-next-line: quotemark
 import {MaterialModule} from './material/material.module';
 
 
@@ -27,8 +26,11 @@ import { PlanEstudioComponent } from './componentes/plan-estudio/plan-estudio.co
 import { LayoutModule } from '@angular/cdk/layout';
 import { ListaPlanesComponent } from './componentes/plan-estudio/lista-planes/lista-planes.component';
 import { EditarMateriaComponent } from './componentes/materias/editar-materia/editar-materia.component';
-import { SidebarComponent } from './componentes/sidebar/sidebar.component';
 import { ConfirmDialogComponent } from './componentes/confirm-dialog/confirm-dialog.component';
+import {SideBarComponent} from './componentes/navegacion/side-bar/side-bar.component';
+import {NavbarComponent} from './componentes/navegacion/navbar/navbar.component';
+import {FooterComponent} from './componentes/navegacion/footer/footer.component';
+import {HomeComponent} from './componentes/navegacion/home/home.component';
 
 @NgModule({
   declarations: [
@@ -42,8 +44,11 @@ import { ConfirmDialogComponent } from './componentes/confirm-dialog/confirm-dia
     PlanEstudioComponent,
     ListaPlanesComponent,
     EditarMateriaComponent,
-    SidebarComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    SideBarComponent,
+    NavbarComponent,
+    FooterComponent,
+    HomeComponent
    ],
   imports: [
     BrowserModule,

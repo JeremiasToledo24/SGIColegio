@@ -5,10 +5,12 @@
 
       <!-- Panel de botones -->
       <div style="text-align: center; margin-bottom: 1rem">
-        <button mat-raised-button (click)="openDialog()" color="primary">Agregar materia</button>
+        <button mat-raised-button (click)="openDialog()" style="background-color: #B2FF59">Agregar materia</button>
       </div>
 
-      <h5>Lista de materias</h5>
+      <mat-card-header>
+        <mat-card-title>Lista de Planes Vigentes</mat-card-title>
+      </mat-card-header>
       <app-lista-materias></app-lista-materias>
     </mat-card-content>
   </mat-card>
