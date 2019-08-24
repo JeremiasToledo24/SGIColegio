@@ -37,6 +37,15 @@ CREATE TABLE `ACL` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `ACL`
+--
+
+LOCK TABLES `ACL` WRITE;
+/*!40000 ALTER TABLE `ACL` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ACL` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `AccessToken`
 --
 
@@ -54,6 +63,15 @@ CREATE TABLE `AccessToken` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `AccessToken`
+--
+
+LOCK TABLES `AccessToken` WRITE;
+/*!40000 ALTER TABLE `AccessToken` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AccessToken` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `Aula`
 --
 
@@ -68,6 +86,15 @@ CREATE TABLE `Aula` (
   PRIMARY KEY (`idAula`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Aula`
+--
+
+LOCK TABLES `Aula` WRITE;
+/*!40000 ALTER TABLE `Aula` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Aula` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `Curso`
@@ -89,6 +116,16 @@ CREATE TABLE `Curso` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `Curso`
+--
+
+LOCK TABLES `Curso` WRITE;
+/*!40000 ALTER TABLE `Curso` DISABLE KEYS */;
+INSERT INTO `Curso` VALUES (1,'primero','A',NULL),(2,'segundo','A',NULL),(3,'Tercero','A',1),(4,'segundo','A',1);
+/*!40000 ALTER TABLE `Curso` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `Docente`
 --
 
@@ -103,16 +140,21 @@ CREATE TABLE `Docente` (
   `telefono` varchar(45) NOT NULL,
   `cuil` varchar(14) NOT NULL,
   `fechaNac` varchar(45) NOT NULL,
-  `pais` varchar(45) NOT NULL,
-  `provincia` varchar(45) NOT NULL,
-  `departamento` varchar(45) NOT NULL,
-  `estadoCivil` varchar(45) NOT NULL,
   `fechaIngreso` varchar(45) NOT NULL,
   `fechaEgreso` varchar(45) DEFAULT NULL,
   `fechaIngresoDocencia` varchar(45) NOT NULL,
   PRIMARY KEY (`DNI`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Docente`
+--
+
+LOCK TABLES `Docente` WRITE;
+/*!40000 ALTER TABLE `Docente` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Docente` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `FormacionDocente`
@@ -132,6 +174,15 @@ CREATE TABLE `FormacionDocente` (
   CONSTRAINT `DNIDocente` FOREIGN KEY (`DNIDocente`) REFERENCES `Docente` (`DNI`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `FormacionDocente`
+--
+
+LOCK TABLES `FormacionDocente` WRITE;
+/*!40000 ALTER TABLE `FormacionDocente` DISABLE KEYS */;
+/*!40000 ALTER TABLE `FormacionDocente` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Temporary table structure for view `ListaPlanesYMaterias`
@@ -169,6 +220,16 @@ CREATE TABLE `Materia` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `Materia`
+--
+
+LOCK TABLES `Materia` WRITE;
+/*!40000 ALTER TABLE `Materia` DISABLE KEYS */;
+INSERT INTO `Materia` VALUES (26,'Eticaffff','ETC'),(27,'Lenguajes 2','L2'),(28,'Lenguajes 3','L3'),(29,'Lenguajes 4','L4'),(38,'nery','nery'),(39,'maxi','maxi'),(40,'NahuelSO','SONA');
+/*!40000 ALTER TABLE `Materia` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `MateriaDocente`
 --
 
@@ -188,6 +249,15 @@ CREATE TABLE `MateriaDocente` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `MateriaDocente`
+--
+
+LOCK TABLES `MateriaDocente` WRITE;
+/*!40000 ALTER TABLE `MateriaDocente` DISABLE KEYS */;
+/*!40000 ALTER TABLE `MateriaDocente` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `Nivel`
 --
 
@@ -201,6 +271,16 @@ CREATE TABLE `Nivel` (
   UNIQUE KEY `idNivel_UNIQUE` (`idNivel`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Nivel`
+--
+
+LOCK TABLES `Nivel` WRITE;
+/*!40000 ALTER TABLE `Nivel` DISABLE KEYS */;
+INSERT INTO `Nivel` VALUES (1,'Primaria'),(2,'Secundaria');
+/*!40000 ALTER TABLE `Nivel` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `PlanEstudio`
@@ -223,6 +303,16 @@ CREATE TABLE `PlanEstudio` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `PlanEstudio`
+--
+
+LOCK TABLES `PlanEstudio` WRITE;
+/*!40000 ALTER TABLE `PlanEstudio` DISABLE KEYS */;
+INSERT INTO `PlanEstudio` VALUES (2,'2019',3,1),(5,'2019',3,1);
+/*!40000 ALTER TABLE `PlanEstudio` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `PlanMateria`
 --
 
@@ -242,6 +332,16 @@ CREATE TABLE `PlanMateria` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `PlanMateria`
+--
+
+LOCK TABLES `PlanMateria` WRITE;
+/*!40000 ALTER TABLE `PlanMateria` DISABLE KEYS */;
+INSERT INTO `PlanMateria` VALUES (1,NULL,NULL);
+/*!40000 ALTER TABLE `PlanMateria` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `Role`
 --
 
@@ -257,6 +357,15 @@ CREATE TABLE `Role` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Role`
+--
+
+LOCK TABLES `Role` WRITE;
+/*!40000 ALTER TABLE `Role` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Role` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `RoleMapping`
@@ -276,6 +385,15 @@ CREATE TABLE `RoleMapping` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `RoleMapping`
+--
+
+LOCK TABLES `RoleMapping` WRITE;
+/*!40000 ALTER TABLE `RoleMapping` DISABLE KEYS */;
+/*!40000 ALTER TABLE `RoleMapping` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `User`
 --
 
@@ -293,6 +411,15 @@ CREATE TABLE `User` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `User`
+--
+
+LOCK TABLES `User` WRITE;
+/*!40000 ALTER TABLE `User` DISABLE KEYS */;
+/*!40000 ALTER TABLE `User` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Final view structure for view `ListaPlanesYMaterias`
@@ -321,4 +448,4 @@ CREATE TABLE `User` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-08-24 18:35:09
+-- Dump completed on 2019-08-24 19:07:35
