@@ -4,7 +4,7 @@
     <div class="sidenav-header d-flex align-items-center justify-content-center">
       <!-- Small Brand information, appears on minimized sidebar-->
       <div class="sidenav-header-logo">
-        <a href="" class="brand-small text-center" routerLinkActive="active">
+        <a href="#" class="brand-small text-center" routerLinkActive="active">
           <strong class="text-primary">SGI</strong>
         </a>
       </div>
@@ -16,8 +16,8 @@
 
         <!-- Items sidebar -->
         <li><a href=""><i class="icon-home"></i>Inicio</a></li>
-        <li><a href="Materias" routerLinkActive="active"><i class="icon-form"></i>Administrar materias</a></li>
-        <li><a href="Cursos" routerLinkActive="active"><i class="fa fa-bar-chart"></i>Administrar cursos</a></li>
+        <li><a routerLink="/Materias" routerLinkActive="active"><i class="icon-form"></i>Administrar materias</a></li>
+        <li><a routerLink="/Cursos" routerLinkActive="active"><i class="fa fa-bar-chart"></i>Administrar cursos</a></li>
 
         <!-- Dropdown -->
         <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse">
@@ -25,8 +25,8 @@
 
           <!-- Dropdown items -->
           <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-            <li><a href="crearPlan" routerLinkActive="active">Crear plan</a></li>
-            <li><a href="listaPlanes" routerLinkActive="active">Lista de planes</a></li>
+            <li><a routerLink="/crearPlan" routerLinkActive="active">Crear plan</a></li>
+            <li><a routerLink="/listaPlanes" routerLinkActive="active">Lista de planes</a></li>
           </ul>
         </li>
       </ul>
