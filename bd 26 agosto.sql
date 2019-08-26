@@ -136,13 +136,14 @@ CREATE TABLE `Docente` (
   `DNI` bigint(20) NOT NULL,
   `nombre` varchar(45) NOT NULL,
   `apellido` varchar(45) NOT NULL,
-  `direccion` varchar(45) NOT NULL,
+  `direccion` varchar(200) NOT NULL,
   `telefono` varchar(45) NOT NULL,
   `cuil` varchar(14) NOT NULL,
-  `fechaNac` varchar(45) NOT NULL,
-  `fechaIngreso` varchar(45) NOT NULL,
-  `fechaEgreso` varchar(45) DEFAULT NULL,
-  `fechaIngresoDocencia` varchar(45) NOT NULL,
+  `fechaNacimiento` varchar(45) NOT NULL,
+  `fechaIngColegio` varchar(45) NOT NULL,
+  `fechaEgrColegio` varchar(45) DEFAULT NULL,
+  `fechaIngDocencia` varchar(45) NOT NULL,
+  `sexo` varchar(45) NOT NULL,
   PRIMARY KEY (`DNI`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -153,6 +154,7 @@ CREATE TABLE `Docente` (
 
 LOCK TABLES `Docente` WRITE;
 /*!40000 ALTER TABLE `Docente` DISABLE KEYS */;
+INSERT INTO `Docente` VALUES (38951736,'Virginia','Bassi Soledad','J Hernandez 1469, Jose Maria Bosch','string','23-38951736-4','1995-07-26','2019-08-26',NULL,'2010-05-25','Mujer'),(40330241,'Fernando Gabriel','Castillo Sorani','Barrio San Carlos Manzana 61 Casa 18, Salta Capital','+5493874137551','20-40330241-5','1997-04-10','2019-08-26',NULL,'2010-05-25','Hombre');
 /*!40000 ALTER TABLE `Docente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -168,10 +170,9 @@ CREATE TABLE `FormacionDocente` (
   `tipo` varchar(45) DEFAULT NULL,
   `descripcion` varchar(45) DEFAULT NULL,
   `annio` varchar(45) DEFAULT NULL,
-  `DNIDocente` bigint(20) DEFAULT NULL,
+  `DNIDocente` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idFormacionDocente`),
-  KEY `DNIDocente_idx` (`DNIDocente`),
-  CONSTRAINT `DNIDocente` FOREIGN KEY (`DNIDocente`) REFERENCES `Docente` (`DNI`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `DNIDocente_idx` (`DNIDocente`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -448,4 +449,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-08-24 19:07:35
+-- Dump completed on 2019-08-26  6:42:02
