@@ -1,0 +1,122 @@
+<div class="row justify-content-md-center">
+  <mat-card class="col-md-10 backGroundCard">
+    <mat-card-title style="text-align: center">Ingrese la información del docente a registrar</mat-card-title>
+    <mat-card-content>
+      <form #docenteForm="ngForm" (ngSubmit)="addDocente(docenteForm)">
+
+        <!-- Datos personales -->
+        <mat-card id="datosPersonales">
+          <mat-card-title style="font-size: 100%">Datos personales</mat-card-title>
+          <!-- Nombre -->
+          <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-6">
+            <mat-label>Nombre</mat-label>
+            <input type="text" name="nombre" [(ngModel)]="nombre" required matInput>
+          </mat-form-field>
+
+          <!-- Apellido -->
+          <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-6">
+            <mat-label>Apellido</mat-label>
+            <input type="text" name="apellido" [(ngModel)]="apellido" required matInput>
+          </mat-form-field>
+
+          <!-- Sexo -->
+          <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
+            <mat-label>Sexo</mat-label>
+            <mat-select [(ngModel)]="sexo" name="sexo" required>
+              <mat-option value="Hombre">Hombre</mat-option>
+              <mat-option value="Mujer">Mujer</mat-option>
+              <mat-option value="Otro">Otro</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <!-- DNI -->
+          <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
+            <mat-label>DNI</mat-label>
+            <input type="number" name="dni" [(ngModel)]="dni" required matInput>
+          </mat-form-field>
+
+          <!-- CUIL -->
+          <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
+            <mat-label>CUIL</mat-label>
+            <input type="string" name="cuil" [(ngModel)]="cuil" required matInput>
+          </mat-form-field>
+
+          <!-- Fecha de nacimiento -->
+          <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
+            <mat-label>Fecha de nacimiento</mat-label>
+            <input type="date" name="fechaNacimiento" [(ngModel)]="fechaNacimiento" required matInput>
+          </mat-form-field>
+
+          <!-- Telefono -->
+          <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
+            <mat-label>Telefono</mat-label>
+            <input type="text" name="telefono" [(ngModel)]="telefono" required matInput>
+          </mat-form-field>
+        </mat-card>
+
+        <!-- Datos Domicilio -->
+        <mat-card id="domicilio">
+          <mat-card-title style="font-size: 100%">Domicilio</mat-card-title>
+          <!-- Dirección -->
+          <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-12">
+            <mat-label>Direccion</mat-label>
+            <input type="string" name="direccion" [(ngModel)]="direccion" required matInput>
+          </mat-form-field>
+
+          <!-- Provincia -->
+          <!-- <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-3">
+            <mat-label>Provincia</mat-label>
+            <mat-select>
+              <mat-option>None</mat-option>
+            </mat-select>
+          </mat-form-field> -->
+
+          <!-- Departamento -->
+          <!-- <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-3">
+            <mat-label>Departamento</mat-label>
+            <mat-select>
+              <mat-option>None</mat-option>
+            </mat-select>
+          </mat-form-field> -->
+
+          <!-- Municipio -->
+          <!-- <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-3">
+            <mat-label>Municipio</mat-label>
+            <mat-select>
+              <mat-option>None</mat-option>
+            </mat-select>
+          </mat-form-field> -->
+
+          <!-- Localidad -->
+          <!-- <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-3">
+            <mat-label>Localidad</mat-label>
+            <mat-select>
+              <mat-option>None</mat-option>
+            </mat-select>
+          </mat-form-field> -->
+        </mat-card>
+
+        <mat-card id="FormacionAcademica">
+          <mat-card-title style="font-size: 100%">Formación académica</mat-card-title>
+
+          <!-- Fecha de ingreso a la docencia -->
+          <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
+            <mat-label>Fecha de ingreso a la docencia</mat-label>
+            <input type="date" name="fechaIngDocencia" [(ngModel)]="fechaIngDocencia" required matInput>
+          </mat-form-field>
+
+          <!-- Fecha de ingreso al colegio -->
+          <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
+            <mat-label>Fecha de registro</mat-label>
+            <input type="date" name="fechaIngColegio" [(ngModel)]="fechaIngColegio" required matInput readonly>
+          </mat-form-field>
+
+          <div style="text-align: center">
+            <!-- Submit -->
+            <button type="submit" mat-raised-button color="primary">Registrar docente</button>
+          </div>
+        </mat-card>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

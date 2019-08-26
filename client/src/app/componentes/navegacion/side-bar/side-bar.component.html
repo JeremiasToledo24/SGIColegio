@@ -19,7 +19,7 @@
         <li><a routerLink="/Materias" routerLinkActive="active"><i class="icon-form"></i>Administrar materias</a></li>
         <li><a routerLink="/Cursos" routerLinkActive="active"><i class="fa fa-bar-chart"></i>Administrar cursos</a></li>
 
-        <!-- Dropdown -->
+        <!-- Dropdown Plan de estudio-->
         <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse">
           <i class="icon-interface-windows"></i>Planes de estudio</a>
 
@@ -27,6 +27,16 @@
           <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
             <li><a routerLink="/crearPlan" routerLinkActive="active">Crear plan</a></li>
             <li><a routerLink="/listaPlanes" routerLinkActive="active">Lista de planes</a></li>
+          </ul>
+        </li>
+
+        <!-- Dropdown Docentes -->
+        <li><a href="#docentesDropdown" aria-expanded="false" data-toggle="collapse">
+          <i class="icon-interface-windows"></i>Docentes</a>
+
+          <!-- Dropdown items -->
+          <ul id="docentesDropdown" class="collapse list-unstyled ">
+            <li><a routerLink="/nuevoDocente" routerLinkActive="active">Registrar docente</a></li>
           </ul>
         </li>
       </ul>

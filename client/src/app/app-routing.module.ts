@@ -8,6 +8,7 @@ import {ListaPlanesComponent} from './componentes/plan-estudio/lista-planes/list
 import {PlanEstudioComponent} from './componentes/plan-estudio/plan-estudio.component';
 import {HomeComponent} from './componentes/navegacion/home/home.component';
 import {NotFoundComponent} from './componentes/navegacion/not-found/not-found.component';
+import {NuevoDocenteComponent} from './docentes/componentes/nuevo-docente/nuevo-docente.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'listaPlanes', component: ListaPlanesComponent},
   {path: 'crearPlan', component: PlanEstudioComponent},
   {path: 'error', component: NotFoundComponent},
+  {path: 'nuevoDocente', component: NuevoDocenteComponent},
   {path: '**', redirectTo: 'error'}
 ];
 

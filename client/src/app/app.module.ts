@@ -3,16 +3,15 @@ import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
+
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ListaMateriasComponent} from './componentes/materias/lista-materias/lista-materias.component';
-
-
 import {MaterialModule} from './material/material.module';
+import {FormsModule} from '@angular/forms';
 
 
 import {AgregarMateriaComponent} from './componentes/materias/agregar-materia/agregar-materia.component';
+import {ListaMateriasComponent} from './componentes/materias/lista-materias/lista-materias.component';
 
-import {FormsModule} from '@angular/forms';
 
 import {MateriaService} from './servicios/materias/materia.service';
 import {CursoService} from './servicios/cursos/curso.service';
@@ -32,6 +31,7 @@ import {NavbarComponent} from './componentes/navegacion/navbar/navbar.component'
 import {FooterComponent} from './componentes/navegacion/footer/footer.component';
 import {HomeComponent} from './componentes/navegacion/home/home.component';
 import {NotFoundComponent} from './componentes/navegacion/not-found/not-found.component';
+import {DocentesModule} from './docentes/docentes.module';
 
 @NgModule({
   declarations: [
@@ -59,7 +59,8 @@ import {NotFoundComponent} from './componentes/navegacion/not-found/not-found.co
     MaterialModule,
     FormsModule,
     HttpClientModule,
-    LayoutModule
+    LayoutModule,
+    DocentesModule
   ],
   providers: [MateriaService, CursoService, NivelService],
   bootstrap: [AppComponent],
