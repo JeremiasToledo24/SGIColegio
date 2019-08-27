@@ -1,8 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {NgForm} from '@angular/forms';
-import {DocenteService} from '../../../servicios/docentes/docente.service';
-import {HttpClient} from '@angular/common/http';
-import {MatSnackBar} from '@angular/material';
+import { Component, OnInit } from '@angular/core';
+import { NgForm, FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { DocenteService } from '../../../servicios/docentes/docente.service';
+import { HttpClient } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material';
+
+class Tipos {
+  nombre: string;
+}
 
 @Component({
   selector: 'app-nuevo-docente',
@@ -11,6 +15,22 @@ import {MatSnackBar} from '@angular/material';
   providers: [DocenteService]
 })
 export class NuevoDocenteComponent implements OnInit {
+  isLinear = true;
+  startDate = new Date(1990, 0, 1);
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
+  /* array de tipos de formacion. se muestra en el mat-select */
+  tipos: Tipos[] = [
+    { nombre: 'Título Secundario' },
+    { nombre: 'Título Terciario' },
+    { nombre: 'Título Universitario' },
+    { nombre: 'Maestria' },
+    { nombre: 'Doctorado' },
+    { nombre: 'Certificacion' },
+    { nombre: 'Curso' },
+    { nombre: 'Capacitacion' }
+  ];
+  selectedTipos;
 
   // JSON
   localidades: string[];
@@ -33,11 +53,29 @@ export class NuevoDocenteComponent implements OnInit {
   constructor(
     private docenteService: DocenteService,
     private http: HttpClient,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private _formBuilder: FormBuilder
   ) {
   }
 
   ngOnInit() {
+    this.firstFormGroup = this._formBuilder.group({
+      nombreCtrl: ['', Validators.required],
+      apellidoCtrl: ['', Validators.required],
+      sexoCtrl: ['', Validators.required],
+      dniCtrl: ['', Validators.required],
+      cuilCtrl: ['', Validators.required],
+      nacimientoCtrl: ['', Validators.required],
+      telefonoCtrl: ['', Validators.required],
+      direccionCtrl: ['', Validators.required],
+      fechaIngDocCtrl: ['', Validators.required],
+      fechaIngColCtrl: ['', Validators.required]
+    });
+    this.secondFormGroup = this._formBuilder.group({
+      tipoCtrl: ['', Validators.required],
+      descCtrl: ['', Validators.required],
+      fechaFormacionCtrl: ['', Validators.required]
+    });
     // TODO Elegir provincia/dpto/.. y nueva tabla Docente.
     /* // Cargar PROVINCIAS desde JSON
     this.http.get('../../../../../assets/json/provincias.json').subscribe(
@@ -75,41 +113,27 @@ export class NuevoDocenteComponent implements OnInit {
     this.fechaIngColegio = yyyy + '-' + mm + '-' + dd;
   }
 
-  addDocente(form: NgForm) {
+  addDocente(docenteForm: NgForm, formacionForm: NgForm) {
     try {
-      if (form.value.nombre === undefined
-        || form.value.apellido === undefined
-        || form.value.sexo === undefined
-        || form.value.dni === undefined
-        || form.value.cuil === undefined
-        || form.value.fechaNacimiento === undefined
-        || form.value.telefono === undefined
-        || form.value.direccion === undefined
-        || form.value.fechaIngDocencia === undefined) {
-        this.openSnackBar(
-          'Llene todos los campos.',
-          'OK'
-        );
-      } else {
-        this.docenteService.agregarDocente(form.value)
-          .subscribe(
-            res => {
-              if (res === undefined) {
-                this.openSnackBar(
-                  'Docente existente',
-                  'OK'
-                );
-              } else {
-                this.openSnackBar(
-                  'Docente registrado',
-                  'OK'
-                );
-                this.resetForm(form);
-              }
+     /*  this.docenteService.agregarDocente(form.value)
+        .subscribe(
+          res => {
+            if (res === undefined) {
+              this.openSnackBar(
+                'Docente existente',
+                'OK'
+              );
+            } else {
+              this.openSnackBar(
+                'Docente registrado',
+                'OK'
+              );
+              this.resetForm(form);
             }
-          );
-        console.log(form.value);
-      }
+          }
+        ); */
+      console.log(docenteForm.value,'docente');
+      console.log(formacionForm.value,'formacion');
     } catch (err) {
     }
   }
