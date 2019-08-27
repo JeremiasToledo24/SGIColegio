@@ -15,7 +15,10 @@ import {
   MatSelectModule,
   MatCheckboxModule,
   MatDividerModule,
-  MatAutocompleteModule, MatPaginatorModule, MatDialogModule
+  MatAutocompleteModule, MatPaginatorModule, MatDialogModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatStepperModule
 } from '@angular/material';
 
 
@@ -45,7 +48,10 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     ReactiveFormsModule,
     MatPaginatorModule,
     MatDialogModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatStepperModule
   ],
   exports: [
     MatButtonModule,
@@ -67,8 +73,12 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     ReactiveFormsModule,
     MatPaginatorModule,
     MatDialogModule,
-    MatSidenavModule
-  ]
+    MatDatepickerModule,
+    MatSidenavModule,
+    MatNativeDateModule,
+    MatStepperModule
+  ],
+  providers: [MatNativeDateModule]
 })
 
 export class MaterialModule {
