@@ -60,21 +60,21 @@ export class NuevoDocenteComponent implements OnInit {
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
-      nombreCtrl: ['', Validators.required],
-      apellidoCtrl: ['', Validators.required],
-      sexoCtrl: ['', Validators.required],
-      dniCtrl: ['', Validators.required],
-      cuilCtrl: ['', Validators.required],
-      nacimientoCtrl: ['', Validators.required],
-      telefonoCtrl: ['', Validators.required],
-      direccionCtrl: ['', Validators.required],
-      fechaIngDocCtrl: ['', Validators.required],
-      fechaIngColCtrl: ['', Validators.required]
+      nombre: ['', Validators.required],
+      apellido: ['', Validators.required],
+      sexo: ['', Validators.required],
+      dni: ['', Validators.required],
+      cuil: ['', Validators.required],
+      fechaNacimiento: ['', Validators.required],
+      telefono: ['', Validators.required],
+      direccion: ['', Validators.required],
+      fechaIngDocencia: ['', Validators.required],
+      fechaIngColegio: ['', Validators.required]
     });
     this.secondFormGroup = this._formBuilder.group({
-      tipoCtrl: ['', Validators.required],
-      descCtrl: ['', Validators.required],
-      fechaFormacionCtrl: ['', Validators.required]
+     tipo: ['', Validators.required],
+      descripcion: ['', Validators.required],
+      annio: ['', Validators.required]
     });
     // TODO Elegir provincia/dpto/.. y nueva tabla Docente.
     /* // Cargar PROVINCIAS desde JSON
@@ -115,9 +115,10 @@ export class NuevoDocenteComponent implements OnInit {
 
   addDocente(docenteForm: NgForm, formacionForm: NgForm) {
     try {
-     /*  this.docenteService.agregarDocente(form.value)
+      this.docenteService.agregarDocente(docenteForm.value)
         .subscribe(
           res => {
+            console.log(res, 'respuesta')
             if (res === undefined) {
               this.openSnackBar(
                 'Docente existente',
@@ -128,12 +129,18 @@ export class NuevoDocenteComponent implements OnInit {
                 'Docente registrado',
                 'OK'
               );
-              this.resetForm(form);
+              this.docenteService.agregarFormacionDocente({
+                'tipo': formacionForm.value.tipo,
+                'descripcion': formacionForm.value.descripcion,
+                'annio': formacionForm.value.annio,
+                'DNIDocente': docenteForm.value.dni
+              }).subscribe(
+                res => {console.log(res)}
+              )
+              this.resetForm(docenteForm);
             }
           }
-        ); */
-      console.log(docenteForm.value,'docente');
-      console.log(formacionForm.value,'formacion');
+        );
     } catch (err) {
     }
   }
