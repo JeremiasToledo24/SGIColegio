@@ -4,9 +4,10 @@ import {NuevoDocenteComponent} from './componentes/nuevo-docente/nuevo-docente.c
 import {MaterialModule} from '../material/material.module';
 import {DocenteService} from '../servicios/docentes/docente.service';
 import {HttpClientModule} from '@angular/common/http';
+import { ListaDocenteComponent } from './componentes/lista-docente/lista-docente.component';
 
 @NgModule({
-  declarations: [NuevoDocenteComponent],
+  declarations: [NuevoDocenteComponent, ListaDocenteComponent],
   imports: [
     CommonModule,
     MaterialModule,
