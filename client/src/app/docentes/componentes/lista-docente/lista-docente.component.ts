@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DocenteService } from 'src/app/servicios/docentes/docente.service';
-import { MatDialog } from '@angular/material';
 import { ConfirmDialogComponent } from 'src/app/componentes/confirm-dialog/confirm-dialog.component';
-
+import { FormacionComponent } from '../formacion/formacion.component';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 @Component({
   selector: 'app-lista-docente',
   templateUrl: './lista-docente.component.html',
@@ -29,6 +29,31 @@ export class ListaDocenteComponent implements OnInit {
   // Borrar docente
   borrarDocente(Docente: any) {
     this.dialogo(Docente);
+  }
+
+  //Agregar formacion
+  agregarFormacion(Docente: any){
+    this.dialogoFormacion(Docente);
+  }
+
+  //dialogo agregar formacion
+  dialogoFormacion(Docente: any){
+    const dialogRef = this.dialog.open(FormacionComponent, {
+      data: {
+        dni: Docente.dni
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log(result)
+        this.docenteService.listarDocentes().subscribe(
+          res => {
+            this.dataSource = res as any[];
+          }
+        );
+      }
+    });
   }
 
   // Dialogo

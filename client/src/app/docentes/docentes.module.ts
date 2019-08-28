@@ -5,15 +5,17 @@ import {MaterialModule} from '../material/material.module';
 import {DocenteService} from '../servicios/docentes/docente.service';
 import {HttpClientModule} from '@angular/common/http';
 import { ListaDocenteComponent } from './componentes/lista-docente/lista-docente.component';
+import { FormacionComponent } from './componentes/formacion/formacion.component';
 
 @NgModule({
-  declarations: [NuevoDocenteComponent, ListaDocenteComponent],
+  declarations: [NuevoDocenteComponent, ListaDocenteComponent, FormacionComponent],
   imports: [
     CommonModule,
     MaterialModule,
     HttpClientModule
   ],
-  providers: [DocenteService]
+  providers: [DocenteService],
+  entryComponents: [FormacionComponent]
 })
 export class DocentesModule {
 }

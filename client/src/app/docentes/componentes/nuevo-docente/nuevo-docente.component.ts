@@ -30,7 +30,7 @@ export class NuevoDocenteComponent implements OnInit {
     { nombre: 'Curso' },
     { nombre: 'Capacitacion' }
   ];
-  selectedTipos;
+  
 
   // JSON
   localidades: string[];
