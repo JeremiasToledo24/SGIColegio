@@ -13,20 +13,20 @@
               <!-- Nombre -->
               <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-6">
                 <mat-label>Nombre</mat-label>
-                <input formControlName="nombreCtrl" type="text" name="nombre" [(ngModel)]="nombre" required matInput>
+                <input formControlName="nombre" type="text" name="nombre" [(ngModel)]="nombre" required matInput>
               </mat-form-field>
 
               <!-- Apellido -->
               <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-6">
                 <mat-label>Apellido</mat-label>
-                <input formControlName="apellidoCtrl" type="text" name="apellido" [(ngModel)]="apellido" required
+                <input formControlName="apellido" type="text" name="apellido" [(ngModel)]="apellido" required
                   matInput>
               </mat-form-field>
 
               <!-- Sexo -->
               <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
                 <mat-label>Sexo</mat-label>
-                <mat-select formControlName="sexoCtrl" [(ngModel)]="sexo" name="sexo" required>
+                <mat-select formControlName="sexo" [(ngModel)]="sexo" name="sexo" required>
                   <mat-option value="M">Masculino</mat-option>
                   <mat-option value="F">Femenino</mat-option>
                   <mat-option value="O">Otro</mat-option>
@@ -36,26 +36,26 @@
               <!-- DNI -->
               <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
                 <mat-label>DNI</mat-label>
-                <input formControlName="dniCtrl" type="number" name="dni" [(ngModel)]="dni" required matInput>
+                <input formControlName="dni" type="number" name="dni" [(ngModel)]="dni" required matInput>
               </mat-form-field>
 
               <!-- CUIL -->
               <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
                 <mat-label>CUIL</mat-label>
-                <input type="string" formControlName="cuilCtrl" name="cuil" [(ngModel)]="cuil" required matInput>
+                <input type="string" formControlName="cuil" name="cuil" [(ngModel)]="cuil" required matInput>
               </mat-form-field>
 
               <!-- Fecha de nacimiento -->
               <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
                 <mat-label>Fecha de nacimiento</mat-label>
-                <input type="date" formControlName="nacimientoCtrl" name="fechaNacimiento" [(ngModel)]="fechaNacimiento"
+                <input type="date" formControlName="fechaNacimiento" name="fechaNacimiento" [(ngModel)]="fechaNacimiento"
                   required matInput>
               </mat-form-field>
 
               <!-- Telefono -->
               <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
                 <mat-label>Telefono</mat-label>
-                <input formControlName="telefonoCtrl" type="text" name="telefono" [(ngModel)]="telefono" required
+                <input formControlName="telefono" type="text" name="telefono" [(ngModel)]="telefono" required
                   matInput>
               </mat-form-field>
             </mat-card>
@@ -66,7 +66,7 @@
               <!-- Dirección -->
               <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-12">
                 <mat-label>Direccion</mat-label>
-                <input formControlName="direccionCtrl" type="string" name="direccion" [(ngModel)]="direccion" required
+                <input formControlName="direccion" type="string" name="direccion" [(ngModel)]="direccion" required
                   matInput>
               </mat-form-field>
 
@@ -109,14 +109,14 @@
               <!-- Fecha de ingreso a la docencia -->
               <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
                 <mat-label>Fecha de ingreso a la docencia</mat-label>
-                <input formControlName="fechaIngDocCtrl" type="date" name="fechaIngDocencia"
+                <input formControlName="fechaIngDocencia" type="date" name="fechaIngDocencia"
                   [(ngModel)]="fechaIngDocencia" required matInput>
               </mat-form-field>
 
               <!-- Fecha de ingreso al colegio -->
               <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
                 <mat-label>Fecha de registro</mat-label>
-                <input type="date" formControlName="fechaIngColCtrl" name="fechaIngColegio"
+                <input type="date" formControlName="fechaIngColegio" name="fechaIngColegio"
                   [(ngModel)]="fechaIngColegio" required matInput readonly>
               </mat-form-field>
 
@@ -141,7 +141,7 @@
                     <mat-label>Seleccione el tipo de formación a registrar</mat-label>
                     <br>
                     <mat-form-field class="col-sm-12" appearance="outline">
-                      <mat-select formControlName="tipoCtrl" matInput required [(ngModel)]="selectedTipos" name="tipo">
+                      <mat-select formControlName="tipo" matInput required [(ngModel)]="selectedTipos" name="tipo">
                         <mat-option *ngFor="let tipo of tipos" [value]="tipo.nombre">
                           {{tipo.nombre}}
                         </mat-option>
@@ -155,7 +155,7 @@
                     <mat-label>Fecha en la que se obtuvo</mat-label>
                     <br>
                     <mat-form-field appearance="outline">
-                      <input matInput type="date" formControlName="fechaFormacionCtrl">
+                      <input matInput type="date" formControlName="annio">
                     </mat-form-field>
                     <br>
                   </div>
@@ -166,7 +166,7 @@
                   <mat-label>Descripción de la formación académica a registrar</mat-label>
                   <br>
                   <mat-form-field class="col-sm-12" appearance="outline">
-                    <textarea formControlName="descCtrl" matInput></textarea>
+                    <textarea formControlName="descripcion" matInput></textarea>
                   </mat-form-field>
                   <br>
                 </div>
