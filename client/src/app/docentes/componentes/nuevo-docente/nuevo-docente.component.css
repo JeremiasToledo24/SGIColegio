@@ -6,3 +6,7 @@
 mat-card {
   margin-bottom: 2rem;
 }
+
+button {
+  margin: 10px;
+}
