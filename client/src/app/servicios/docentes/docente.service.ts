@@ -20,6 +20,10 @@ export class DocenteService {
       catchError(this.handleError)
     );
   }
+  
+  agregarFormacionDocente(Formacion: any): Observable<any> {
+    return this.http.post('http://localhost:3000/api/FormacionDocentes', Formacion);
+  }
 
   // Traer la lista de todos los docentes registrados en la BD
   listarDocentes() {
