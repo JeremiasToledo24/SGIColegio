@@ -13,13 +13,29 @@ export class DocenteService {
   ) {
   }
 
+
+  // Agregar docente a BD
   agregarDocente(Docente: any): Observable<any> {
     return this.http.post('http://localhost:3000/api/Docentes', Docente).pipe(
       catchError(this.handleError)
     );
   }
 
+  // Traer la lista de todos los docentes registrados en la BD
+  listarDocentes() {
+    return this.http.get('http://localhost:3000/api/Docentes').pipe(
+      catchError(this.handleError)
+    )
+  }
 
+  // Eliminar un docente
+  eliminarDocente(DNI: number): Observable<any> {
+    return this.http.delete(`http://localhost:3000/api/Docentes/${DNI}`).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  // Manejo de errores segun la respuesta HTTP y mostrar en consola un resumen del error
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.

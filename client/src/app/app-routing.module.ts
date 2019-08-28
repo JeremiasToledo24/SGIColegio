@@ -9,6 +9,7 @@ import {PlanEstudioComponent} from './componentes/plan-estudio/plan-estudio.comp
 import {HomeComponent} from './componentes/navegacion/home/home.component';
 import {NotFoundComponent} from './componentes/navegacion/not-found/not-found.component';
 import {NuevoDocenteComponent} from './docentes/componentes/nuevo-docente/nuevo-docente.component';
+import { ListaDocenteComponent } from './docentes/componentes/lista-docente/lista-docente.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'crearPlan', component: PlanEstudioComponent},
   {path: 'error', component: NotFoundComponent},
   {path: 'nuevoDocente', component: NuevoDocenteComponent},
+  {path: 'listaDocentes', component: ListaDocenteComponent},
   {path: '**', redirectTo: 'error'}
 ];
 
