@@ -16,7 +16,7 @@ class Tipos {
 })
 export class NuevoDocenteComponent implements OnInit {
   isLinear = true;
-  
+  startDate = new Date(1990, 0, 1);
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   /* array de tipos de formacion. se muestra en el mat-select */
@@ -30,6 +30,7 @@ export class NuevoDocenteComponent implements OnInit {
     { nombre: 'Curso' },
     { nombre: 'Capacitacion' }
   ];
+  selectedTipos;
 
   // JSON
   localidades: string[];
@@ -49,14 +50,6 @@ export class NuevoDocenteComponent implements OnInit {
   fechaIngDocencia: string;
   fechaIngColegio: string;
 
-  //Datos de la formacion docente
-  formacion: {
-    tipo,
-    annio,
-    descripcion,
-    DNIDocente
-  }
-
   constructor(
     private docenteService: DocenteService,
     private http: HttpClient,
@@ -67,21 +60,21 @@ export class NuevoDocenteComponent implements OnInit {
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
-      nombre: ['', Validators.required],
-      apellido: ['', Validators.required],
-      sexo: ['', Validators.required],
-      dni: ['', Validators.required],
-      cuil: ['', Validators.required],
-      fechaNacimiento: ['', Validators.required],
-      telefono: ['', Validators.required],
-      direccion: ['', Validators.required],
-      fechaIngDocencia: ['', Validators.required],
-      fechaIngColegio: ['', Validators.required]
+      nombreCtrl: ['', Validators.required],
+      apellidoCtrl: ['', Validators.required],
+      sexoCtrl: ['', Validators.required],
+      dniCtrl: ['', Validators.required],
+      cuilCtrl: ['', Validators.required],
+      nacimientoCtrl: ['', Validators.required],
+      telefonoCtrl: ['', Validators.required],
+      direccionCtrl: ['', Validators.required],
+      fechaIngDocCtrl: ['', Validators.required],
+      fechaIngColCtrl: ['', Validators.required]
     });
     this.secondFormGroup = this._formBuilder.group({
-      tipo: ['', Validators.required],
-      descripcion: ['', Validators.required],
-      annio: ['', Validators.required]
+      tipoCtrl: ['', Validators.required],
+      descCtrl: ['', Validators.required],
+      fechaFormacionCtrl: ['', Validators.required]
     });
     // TODO Elegir provincia/dpto/.. y nueva tabla Docente.
     /* // Cargar PROVINCIAS desde JSON
@@ -122,10 +115,9 @@ export class NuevoDocenteComponent implements OnInit {
 
   addDocente(docenteForm: NgForm, formacionForm: NgForm) {
     try {
-      this.docenteService.agregarDocente(docenteForm.value)
+     /*  this.docenteService.agregarDocente(form.value)
         .subscribe(
           res => {
-            console.log(res, 'respuesta')
             if (res === undefined) {
               this.openSnackBar(
                 'Docente existente',
@@ -136,18 +128,12 @@ export class NuevoDocenteComponent implements OnInit {
                 'Docente registrado',
                 'OK'
               );
-              this.docenteService.agregarFormacionDocente({
-                'tipo': formacionForm.value.tipo,
-                'descripcion': formacionForm.value.descripcion,
-                'annio': formacionForm.value.annio,
-                'DNIDocente': docenteForm.value.dni
-              }).subscribe(
-                res => {console.log(res)}
-              )
-              this.resetForm(docenteForm);
+              this.resetForm(form);
             }
           }
-        );
+        ); */
+      console.log(docenteForm.value,'docente');
+      console.log(formacionForm.value,'formacion');
     } catch (err) {
     }
   }

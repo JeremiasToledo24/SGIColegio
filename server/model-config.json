@@ -62,9 +62,5 @@
   "Docente": {
     "dataSource": "db",
     "public": true
-  },
-  "FormacionDocente": {
-    "dataSource": "db",
-    "public": true
   }
 }
