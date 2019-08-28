@@ -13,19 +13,20 @@
               <!-- Nombre -->
               <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-6">
                 <mat-label>Nombre</mat-label>
-                <input formControlName="nombre" type="text" name="nombre" [(ngModel)]="nombre" required matInput>
+                <input formControlName="nombreCtrl" type="text" name="nombre" [(ngModel)]="nombre" required matInput>
               </mat-form-field>
 
               <!-- Apellido -->
               <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-6">
                 <mat-label>Apellido</mat-label>
-                <input formControlName="apellido" type="text" name="apellido" [(ngModel)]="apellido" required matInput>
+                <input formControlName="apellidoCtrl" type="text" name="apellido" [(ngModel)]="apellido" required
+                  matInput>
               </mat-form-field>
 
               <!-- Sexo -->
               <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
                 <mat-label>Sexo</mat-label>
-                <mat-select formControlName="sexo" [(ngModel)]="sexo" name="sexo" required>
+                <mat-select formControlName="sexoCtrl" [(ngModel)]="sexo" name="sexo" required>
                   <mat-option value="M">Masculino</mat-option>
                   <mat-option value="F">Femenino</mat-option>
                   <mat-option value="O">Otro</mat-option>
@@ -35,26 +36,27 @@
               <!-- DNI -->
               <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
                 <mat-label>DNI</mat-label>
-                <input formControlName="dni" type="number" name="dni" [(ngModel)]="dni" required matInput>
+                <input formControlName="dniCtrl" type="number" name="dni" [(ngModel)]="dni" required matInput>
               </mat-form-field>
 
               <!-- CUIL -->
               <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
                 <mat-label>CUIL</mat-label>
-                <input type="string" formControlName="cuil" name="cuil" [(ngModel)]="cuil" required matInput>
+                <input type="string" formControlName="cuilCtrl" name="cuil" [(ngModel)]="cuil" required matInput>
               </mat-form-field>
 
               <!-- Fecha de nacimiento -->
               <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
                 <mat-label>Fecha de nacimiento</mat-label>
-                <input type="date" formControlName="fechaNacimiento" name="fechaNacimiento"
-                  [(ngModel)]="fechaNacimiento" required matInput>
+                <input type="date" formControlName="nacimientoCtrl" name="fechaNacimiento" [(ngModel)]="fechaNacimiento"
+                  required matInput>
               </mat-form-field>
 
               <!-- Telefono -->
               <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
                 <mat-label>Telefono</mat-label>
-                <input formControlName="telefono" type="text" name="telefono" [(ngModel)]="telefono" required matInput>
+                <input formControlName="telefonoCtrl" type="text" name="telefono" [(ngModel)]="telefono" required
+                  matInput>
               </mat-form-field>
             </mat-card>
 
@@ -64,7 +66,7 @@
               <!-- Dirección -->
               <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-12">
                 <mat-label>Direccion</mat-label>
-                <input formControlName="direccion" type="string" name="direccion" [(ngModel)]="direccion" required
+                <input formControlName="direccionCtrl" type="string" name="direccion" [(ngModel)]="direccion" required
                   matInput>
               </mat-form-field>
 
@@ -107,60 +109,21 @@
               <!-- Fecha de ingreso a la docencia -->
               <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
                 <mat-label>Fecha de ingreso a la docencia</mat-label>
-                <input formControlName="fechaIngDocencia" type="date" name="fechaIngDocencia"
+                <input formControlName="fechaIngDocCtrl" type="date" name="fechaIngDocencia"
                   [(ngModel)]="fechaIngDocencia" required matInput>
               </mat-form-field>
 
               <!-- Fecha de ingreso al colegio -->
               <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
                 <mat-label>Fecha de registro</mat-label>
-                <input type="date" formControlName="fechaIngColegio" name="fechaIngColegio"
+                <input type="date" formControlName="fechaIngColCtrl" name="fechaIngColegio"
                   [(ngModel)]="fechaIngColegio" required matInput readonly>
               </mat-form-field>
 
             </mat-card>
             <!-- Boton siguiente del stepper -->
             <div style="text-align: right">
-
-              <button mat-raised-button color="primary" matStepperNext>Siguiente</button>
-            </div>
-          </form>
-        </mat-card-content>
-      </mat-card>
-    </mat-step>
-    <mat-step label="Registrar formacion del docente" [stepControl]="secondFormGroup">
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>Agregar Formacion Docente</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <form [formGroup]="secondFormGroup" #formacionForm="ngForm">
-            <mat-label>Seleccione el tipo de formacion a registrar</mat-label>
-            <br>
-            <mat-form-field>
-              <mat-select formControlName="tipo" matInput required [(ngModel)]="selectedTipos" name="tipo">
-                <mat-option *ngFor="let tipo of tipos" [value]="tipo.nombre">
-                  {{tipo.nombre}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-            <br>
-            <mat-label>Seleccione el tipo de formacion a registrar</mat-label>
-            <br>
-            <mat-form-field>
-              <textarea formControlName="descripcion" matInput placeholder="Descripcion"></textarea>
-            </mat-form-field>
-            <br>
-            <mat-form-field>
-              <input matInput formControlName="annio" type="date" placeholder="Elija una fecha">
-            </mat-form-field>
-            <br>
-            <div>
-              <button mat-raised-button color="primary" matStepperPrevious>Volver</button>
-              <button mat-raised-button color="primary" matStepperNext>Siguiente</button>
-
               <button mat-raised-button color="primary" matStepperNext>Siguiente <mat-icon>arrow_forward</mat-icon></button>
-
             </div>
 
           </form>
