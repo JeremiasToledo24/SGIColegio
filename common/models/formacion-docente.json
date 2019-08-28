@@ -1,0 +1,30 @@
+{
+  "name": "FormacionDocente",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "idFormacionDocente": {
+      "type": "number",
+      "id": true
+    },
+    "tipo": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string"
+    },
+    "annio": {
+      "type": "string"
+    },
+    "DNIDocente": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
