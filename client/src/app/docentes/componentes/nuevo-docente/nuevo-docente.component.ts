@@ -30,7 +30,7 @@ export class NuevoDocenteComponent implements OnInit {
     { nombre: 'Curso' },
     { nombre: 'Capacitacion' }
   ];
-  
+
 
   // JSON
   localidades: string[];
@@ -72,7 +72,7 @@ export class NuevoDocenteComponent implements OnInit {
       fechaIngColegio: ['', Validators.required]
     });
     this.secondFormGroup = this._formBuilder.group({
-     tipo: ['', Validators.required],
+      tipo: ['', Validators.required],
       descripcion: ['', Validators.required],
       annio: ['', Validators.required]
     });
@@ -118,29 +118,28 @@ export class NuevoDocenteComponent implements OnInit {
       this.docenteService.agregarDocente(docenteForm.value)
         .subscribe(
           res => {
-            console.log(res, 'respuesta')
-            if (res === undefined) {
-              this.openSnackBar(
-                'Docente existente',
-                'OK'
-              );
-            } else {
-              this.openSnackBar(
-                'Docente registrado',
-                'OK'
-              );
-              this.docenteService.agregarFormacionDocente({
-                'tipo': formacionForm.value.tipo,
-                'descripcion': formacionForm.value.descripcion,
-                'annio': formacionForm.value.annio,
-                'DNIDocente': docenteForm.value.dni
-              }).subscribe(
-                res => {console.log(res)}
-              )
-              this.resetForm(docenteForm);
-            }
+            this.docenteService.agregarFormacionDocente({
+              'tipo': formacionForm.value.tipo,
+              'descripcion': formacionForm.value.descripcion,
+              'annio': formacionForm.value.annio,
+              'DNIDocente': docenteForm.value.dni
+            }).subscribe(
+              res => { console.log(res) }
+            )
+            this.resetForm(docenteForm);
+
           }
-        );
+          , error => {
+            this.openSnackBar(
+              'El docente ya existe en la Base de Datos',
+              'OK'
+            );
+          }, () => {
+            this.openSnackBar(
+              'Docente registrado',
+              'OK'
+            );
+          });
     } catch (err) {
     }
   }
@@ -149,7 +148,7 @@ export class NuevoDocenteComponent implements OnInit {
   openSnackBar(m: string, a: string) {
     this.snackBar.open(
       m, a, {
-        duration: 2000
+        duration: 4000
       }
     );
   }
