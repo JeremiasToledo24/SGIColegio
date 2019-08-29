@@ -21,6 +21,7 @@ export class DocenteService {
     );
   }
   
+  //agregar formacion del docente
   agregarFormacionDocente(Formacion: any): Observable<any> {
     return this.http.post('http://localhost:3000/api/FormacionDocentes', Formacion);
   }
@@ -51,5 +52,14 @@ export class DocenteService {
     }
     // return an observable with a user-facing error message
     return throwError('Something bad happened. Please try again later.');
+  }
+
+
+  //buscar docente por DNI
+  obtenerDocente(dni): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/Docentes/${dni}`)
+    .pipe(
+      catchError(this.handleError)
+    )
   }
 }
