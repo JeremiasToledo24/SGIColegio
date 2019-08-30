@@ -3,7 +3,7 @@ import { DocenteService } from 'src/app/servicios/docentes/docente.service';
 import { ConfirmDialogComponent } from 'src/app/componentes/confirm-dialog/confirm-dialog.component';
 import { FormacionComponent } from '../formacion/formacion.component';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 
 
@@ -16,7 +16,7 @@ import { MatSnackBar } from '@angular/material';
 export class ListaDocenteComponent implements OnInit {
 
   buscadorForm = new FormGroup({
-    dni: new FormControl('')
+    data: new FormControl('', Validators.required)
   });
 
   constructor(
@@ -36,82 +36,126 @@ export class ListaDocenteComponent implements OnInit {
     );
   }
 
-  buscar(){
-    this.docenteService.obtenerDocente(this.buscadorForm.value.dni)
-    .subscribe(
+  limpiar(){
+    this.buscadorForm.reset();
+    this.docenteService.listarDocentes().subscribe(
       res => {
-        this.dataSource = [];
-        this.dataSource.push(res)
-      },
-      error =>{
-        this.snackBar.open(`El Docente con el dni ${this.buscadorForm.value.dni} no se encuentra registrado en el sistema`, "ok")
-      },
-      () =>{
-
+        this.dataSource = res as any[];
       }
-    )
+    );
   }
 
-
-  // Borrar docente
-  borrarDocente(Docente: any) {
-    this.dialogo(Docente);
-  }
-
-  //Agregar formacion
-  agregarFormacion(Docente: any) {
-    this.dialogoFormacion(Docente);
-  }
-
-  //dialogo agregar formacion
-  dialogoFormacion(Docente: any) {
-    const dialogRef = this.dialog.open(FormacionComponent, {
-      data: {
-        dni: Docente.dni
-      }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        console.log(result)
-        this.docenteService.listarDocentes().subscribe(
+  buscar() {
+    if (this.buscadorForm.valid) {
+      this.docenteService.obtenerDocentesDNI(this.buscadorForm.value.data)
+        .subscribe(
           res => {
-            this.dataSource = res as any[];
-          }
-        );
-      }
-    });
-  }
-
-  // Dialogo
-  dialogo(Docente: any) {
-    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      data: {
-        nombre: Docente.nombre,
-        apellido: Docente.apellido,
-        dni: Docente.dni
-      }
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Eliminar result: ${result}`);
-      if (result) {
-        console.log(result)
-        this.docenteService.listarDocentes().subscribe(
-          res => {
-            this.dataSource = res as any[];
-          }
-        );
-      }
+            this.dataSource = [];
+            this.dataSource.push(res)
+          },
+          error => {
+            this.docenteService.obtenerDocentesNombre(this.buscadorForm.value.data)
+              .subscribe(
+                res => {
+                  this.dataSource = [];
+                  res.forEach(element => {
+                    this.dataSource.push(element)
+                  });
+                },
+                error => {
+                  this.docenteService.obtenerDocentesApellido(this.buscadorForm.value.data)
+                    .subscribe(
+                      res => {
+                        this.dataSource = [];
+                        res.forEach(element => {
+                          this.dataSource.push(element)
+                        });
+                      },
+                      error => {
+                        this.snackBar.open(`El Docente ${this.buscadorForm.value.data} no se encuentra registrado en el sistema`, "ok")
+                      },
+                      () => { }
+                    )
+                }
+                ,
+                () => { }
+              )
+          },
+          () => { }
+        )
+    } else {
+      this.snackBar.open('Debe ingresar un DNI, Nombre o Apellido del Docente que desea buscar','OK')
     }
-    );
-  }
 
-  openSnackBar(m: string, a: string) {
-    this.snackBar.open(
-      m, a, {
-        duration: 4000
+  }
+  
+
+
+
+
+
+
+
+
+    // Borrar docente
+    borrarDocente(Docente: any) {
+      this.dialogo(Docente);
+    }
+
+    //Agregar formacion
+    agregarFormacion(Docente: any) {
+      this.dialogoFormacion(Docente);
+    }
+
+    //dialogo agregar formacion
+    dialogoFormacion(Docente: any) {
+      const dialogRef = this.dialog.open(FormacionComponent, {
+        data: {
+          dni: Docente.dni
+        }
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          console.log(result)
+          this.docenteService.listarDocentes().subscribe(
+            res => {
+              this.dataSource = res as any[];
+            }
+          );
+        }
+      });
+    }
+
+    // Dialogo
+    dialogo(Docente: any) {
+      const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+        data: {
+          nombre: Docente.nombre,
+          apellido: Docente.apellido,
+          dni: Docente.dni
+        }
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(`Eliminar result: ${result}`);
+        if (result) {
+          console.log(result)
+          this.docenteService.listarDocentes().subscribe(
+            res => {
+              this.dataSource = res as any[];
+            }
+          );
+        }
       }
-    );
-  }
+      );
+    }
 
-}
+    openSnackBar(m: string, a: string) {
+      this.snackBar.open(
+        m, a, {
+          duration: 4000
+        }
+      );
+    }
+
+  }

@@ -56,8 +56,24 @@ export class DocenteService {
 
 
   //buscar docente por DNI
-  obtenerDocente(dni): Observable<any> {
+  obtenerDocentesDNI(dni): Observable<any> {
     return this.http.get(`http://localhost:3000/api/Docentes/${dni}`)
+    .pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  //buscar docente por nombre
+  obtenerDocentesNombre(data): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/Docentes?filter=%7B%22where%22%3A%7B%22nombre%22%3A%22${data}%22%7D%7D`)
+    .pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  //buscar docente por apellido
+  obtenerDocentesApellido(data): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/Docentes?filter=%7B%22where%22%3A%7B%22apellido%22%3A%22${data}%22%7D%7D`)
     .pipe(
       catchError(this.handleError)
     )
