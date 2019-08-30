@@ -11,10 +11,13 @@
             <!-- Buscador de docentes -->
             <form class="buscador-form" [formGroup]="buscadorForm" (ngSubmit)="buscar()">
                 <mat-form-field class="buscador-full-width">
-                    <input  type="text" placeholder="Buscar Docente por DNI" aria-label="search" matInput
-                    formControlName="dni">
+                    <input  type="text" placeholder="Buscar Docente por DNI, Nombre o Apellido" aria-label="search" matInput
+                    formControlName="data">
                     <button mat-button matSuffix mat-icon-button>
                         <mat-icon>search</mat-icon>
+                    </button>
+                    <button (click)="limpiar()" mat-button matSuffix mat-icon-button>
+                        <mat-icon>clear</mat-icon>
                     </button>
                 </mat-form-field>
             </form>
