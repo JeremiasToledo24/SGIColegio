@@ -10,6 +10,7 @@ import {HomeComponent} from './componentes/navegacion/home/home.component';
 import {NotFoundComponent} from './componentes/navegacion/not-found/not-found.component';
 import {NuevoDocenteComponent} from './docentes/componentes/nuevo-docente/nuevo-docente.component';
 import { ListaDocenteComponent } from './docentes/componentes/lista-docente/lista-docente.component';
+import { PerfilDocenteComponent } from './docentes/componentes/perfil-docente/perfil-docente.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'error', component: NotFoundComponent},
   {path: 'nuevoDocente', component: NuevoDocenteComponent},
   {path: 'listaDocentes', component: ListaDocenteComponent},
+  {path: 'perfilDocente/:id', component: PerfilDocenteComponent},
   {path: '**', redirectTo: 'error'}
 ];
 

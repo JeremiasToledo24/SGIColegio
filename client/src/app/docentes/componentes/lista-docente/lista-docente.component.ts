@@ -5,7 +5,7 @@ import { FormacionComponent } from '../formacion/formacion.component';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
-
+import { Router } from '@angular/router'; 
 
 
 @Component({
@@ -22,7 +22,8 @@ export class ListaDocenteComponent implements OnInit {
   constructor(
     private docenteService: DocenteService,
     public dialog: MatDialog,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private router: Router
   ) { }
 
   displayedColumns: string[] = ['dni', 'apellido', 'nombre', 'cuil', 'operaciones'];
@@ -36,7 +37,7 @@ export class ListaDocenteComponent implements OnInit {
     );
   }
 
-  limpiar(){
+  limpiar() {
     this.buscadorForm.reset();
     this.docenteService.listarDocentes().subscribe(
       res => {
@@ -84,78 +85,75 @@ export class ListaDocenteComponent implements OnInit {
           () => { }
         )
     } else {
-      this.snackBar.open('Debe ingresar un DNI, Nombre o Apellido del Docente que desea buscar','OK')
+      this.snackBar.open('Debe ingresar un DNI, Nombre o Apellido del Docente que desea buscar', 'OK')
     }
 
   }
-  
 
+  /* metodo que redirige a la pagina del perfil del docente */
+  verPerfil(dni){
+    this.router.navigate(['/perfilDocente', dni]);
+  }
 
+  // Borrar docente
+  borrarDocente(Docente: any) {
+    this.dialogo(Docente);
+  }
 
+  //Agregar formacion
+  agregarFormacion(Docente: any) {
+    this.dialogoFormacion(Docente);
+  }
 
-
-
-
-
-    // Borrar docente
-    borrarDocente(Docente: any) {
-      this.dialogo(Docente);
-    }
-
-    //Agregar formacion
-    agregarFormacion(Docente: any) {
-      this.dialogoFormacion(Docente);
-    }
-
-    //dialogo agregar formacion
-    dialogoFormacion(Docente: any) {
-      const dialogRef = this.dialog.open(FormacionComponent, {
-        data: {
-          dni: Docente.dni
-        }
-      });
-
-      dialogRef.afterClosed().subscribe(result => {
-        if (result) {
-          console.log(result)
-          this.docenteService.listarDocentes().subscribe(
-            res => {
-              this.dataSource = res as any[];
-            }
-          );
-        }
-      });
-    }
-
-    // Dialogo
-    dialogo(Docente: any) {
-      const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-        data: {
-          nombre: Docente.nombre,
-          apellido: Docente.apellido,
-          dni: Docente.dni
-        }
-      });
-      dialogRef.afterClosed().subscribe(result => {
-        console.log(`Eliminar result: ${result}`);
-        if (result) {
-          console.log(result)
-          this.docenteService.listarDocentes().subscribe(
-            res => {
-              this.dataSource = res as any[];
-            }
-          );
-        }
+  //dialogo agregar formacion
+  dialogoFormacion(Docente: any) {
+    const dialogRef = this.dialog.open(FormacionComponent, {
+      data: {
+        dni: Docente.dni
       }
-      );
-    }
+    });
 
-    openSnackBar(m: string, a: string) {
-      this.snackBar.open(
-        m, a, {
-          duration: 4000
-        }
-      );
-    }
-
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log(result)
+        this.docenteService.listarDocentes().subscribe(
+          res => {
+            this.dataSource = res as any[];
+          }
+        );
+      }
+    });
   }
+
+  // Dialogo
+  dialogo(Docente: any) {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      data: {
+        nombre: Docente.nombre,
+        apellido: Docente.apellido,
+        dni: Docente.dni
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Eliminar result: ${result}`);
+      if (result) {
+        console.log(result)
+        this.docenteService.listarDocentes().subscribe(
+          res => {
+            this.dataSource = res as any[];
+          }
+        );
+      }
+    }
+    );
+  }
+
+  openSnackBar(m: string, a: string) {
+    this.snackBar.open(
+      m, a, {
+        duration: 4000
+      }
+    );
+  }
+
+}

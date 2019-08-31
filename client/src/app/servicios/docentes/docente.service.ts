@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,17 @@ import {catchError} from 'rxjs/operators';
 export class DocenteService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private snackBar: MatSnackBar
   ) {
+  }
+
+  openSnackBar(m: string, a: string) {
+    this.snackBar.open(
+      m, a, {
+        duration: 4000
+      }
+    );
   }
 
 
