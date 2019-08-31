@@ -21,6 +21,7 @@ export class DocenteService {
     );
   }
   
+  // Agregar formación docente
   agregarFormacionDocente(Formacion: any): Observable<any> {
     return this.http.post('http://localhost:3000/api/FormacionDocentes', Formacion);
   }
@@ -37,6 +38,13 @@ export class DocenteService {
     return this.http.delete(`http://localhost:3000/api/Docentes/${DNI}`).pipe(
       catchError(this.handleError)
     )
+  }
+
+  // Editar un docente
+  editarDocente(Docente: any): Observable<any> {
+    return this.http.put('http://localhost:3000/api/Docentes/',Docente).pipe(
+      catchError(this.handleError)
+    );
   }
 
   // Manejo de errores segun la respuesta HTTP y mostrar en consola un resumen del error
