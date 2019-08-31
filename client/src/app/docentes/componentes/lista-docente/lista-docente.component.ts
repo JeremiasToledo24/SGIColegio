@@ -5,7 +5,8 @@ import { FormacionComponent } from '../formacion/formacion.component';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
-import { Router } from '@angular/router'; 
+import { Router } from '@angular/router';
+import { EditarDocenteComponent } from '../editar-docente/editar-docente.component';
 
 
 @Component({
@@ -91,7 +92,7 @@ export class ListaDocenteComponent implements OnInit {
   }
 
   /* metodo que redirige a la pagina del perfil del docente */
-  verPerfil(dni){
+  verPerfil(dni) {
     this.router.navigate(['/perfilDocente', dni]);
   }
 
@@ -146,6 +147,36 @@ export class ListaDocenteComponent implements OnInit {
       }
     }
     );
+  }
+
+
+  // Dialogo para editar docente
+  openEditDialog(Docente: any): void {
+    const dialogRef = this.dialog.open(EditarDocenteComponent, {
+      data: {
+        nombre: Docente.nombre,
+        apellido: Docente.apellido,
+        sexo: Docente.sexo,
+        dni: Docente.dni,
+        cuil: Docente.cuil,
+        fechaNacimiento: Docente.fechaNacimiento,
+        telefono: Docente.telefono,
+        direccion: Docente.direccion,
+        fechaIngDocencia: Docente.fechaIngDocencia,
+        fechaIngColegio: Docente.fechaIngColegio 
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Eliminar result: ${result}`);
+      if (result) {
+        console.log(result)
+        this.docenteService.listarDocentes().subscribe(
+          res => {
+            this.dataSource = res as any[];
+          }
+        );
+      }
+    });
   }
 
   openSnackBar(m: string, a: string) {
