@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,17 @@ import {catchError} from 'rxjs/operators';
 export class DocenteService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private snackBar: MatSnackBar
   ) {
+  }
+
+  openSnackBar(m: string, a: string) {
+    this.snackBar.open(
+      m, a, {
+        duration: 4000
+      }
+    );
   }
 
 
@@ -21,7 +31,7 @@ export class DocenteService {
     );
   }
   
-  // Agregar formación docente
+  //agregar formacion del docente
   agregarFormacionDocente(Formacion: any): Observable<any> {
     return this.http.post('http://localhost:3000/api/FormacionDocentes', Formacion);
   }
@@ -40,13 +50,6 @@ export class DocenteService {
     )
   }
 
-  // Editar un docente
-  editarDocente(Docente: any): Observable<any> {
-    return this.http.put('http://localhost:3000/api/Docentes/',Docente).pipe(
-      catchError(this.handleError)
-    );
-  }
-
   // Manejo de errores segun la respuesta HTTP y mostrar en consola un resumen del error
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
@@ -59,5 +62,30 @@ export class DocenteService {
     }
     // return an observable with a user-facing error message
     return throwError('Something bad happened. Please try again later.');
+  }
+
+
+  //buscar docente por DNI
+  obtenerDocentesDNI(dni): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/Docentes/${dni}`)
+    .pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  //buscar docente por nombre
+  obtenerDocentesNombre(data): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/Docentes?filter=%7B%22where%22%3A%7B%22nombre%22%3A%22${data}%22%7D%7D`)
+    .pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  //buscar docente por apellido
+  obtenerDocentesApellido(data): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/Docentes?filter=%7B%22where%22%3A%7B%22apellido%22%3A%22${data}%22%7D%7D`)
+    .pipe(
+      catchError(this.handleError)
+    )
   }
 }

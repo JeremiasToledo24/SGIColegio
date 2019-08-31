@@ -7,6 +7,22 @@
             </button>
             para agregar la formación académica del docente.</mat-card-subtitle>
         <mat-card-content>
+
+            <!-- Buscador de docentes -->
+            <form class="buscador-form" [formGroup]="buscadorForm" (ngSubmit)="buscar()">
+                <mat-form-field class="buscador-full-width">
+                    <input  type="text" placeholder="Buscar Docente por DNI, Nombre o Apellido" aria-label="search" matInput
+                    formControlName="data">
+                    <button mat-button matSuffix mat-icon-button>
+                        <mat-icon>search</mat-icon>
+                    </button>
+                    <button (click)="limpiar()" mat-button matSuffix mat-icon-button>
+                        <mat-icon>clear</mat-icon>
+                    </button>
+                </mat-form-field>
+            </form>
+
+            <!-- Tabla de docentes -->
             <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
                 <!-- Columna DNI -->
@@ -56,7 +72,7 @@
                 </ng-container>
 
                 <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                <tr (click)="verPerfil(row.dni)" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
         </mat-card-content>
     </mat-card>

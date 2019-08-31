@@ -6,17 +6,17 @@ import {DocenteService} from '../servicios/docentes/docente.service';
 import {HttpClientModule} from '@angular/common/http';
 import { ListaDocenteComponent } from './componentes/lista-docente/lista-docente.component';
 import { FormacionComponent } from './componentes/formacion/formacion.component';
-import { EditarDocenteComponent } from './componentes/editar-docente/editar-docente.component';
+import { PerfilDocenteComponent } from './componentes/perfil-docente/perfil-docente.component';
 
 @NgModule({
-  declarations: [NuevoDocenteComponent, ListaDocenteComponent, FormacionComponent, EditarDocenteComponent],
+  declarations: [NuevoDocenteComponent, ListaDocenteComponent, FormacionComponent, PerfilDocenteComponent],
   imports: [
     CommonModule,
     MaterialModule,
     HttpClientModule
   ],
   providers: [DocenteService],
-  entryComponents: [FormacionComponent, EditarDocenteComponent]
+  entryComponents: [FormacionComponent]
 })
 export class DocentesModule {
 }

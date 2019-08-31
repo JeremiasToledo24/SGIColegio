@@ -33,3 +33,12 @@ table {
     background-color: #E8EAF6;
     margin: 2rem;
   }
+
+
+  .buscador-form {
+    width: 100%;
+  }
+  
+  .buscador-full-width {
+    width: 100%;
+  }
