@@ -1,0 +1,34 @@
+<h2 mat-dialog-title>Registrar aula</h2>
+<mat-dialog-content>
+    <form [formGroup]="aulaFormGroup">
+
+        <!-- Nombre de aula -->
+        <mat-form-field appearance="outline" hideRequiredMarker>
+            <mat-label>Nombre</mat-label>
+            <input formControlName="nombre" type="text" required matInput>
+        </mat-form-field>
+
+        <!-- Capacidad de aula -->
+        <mat-form-field appearance="outline" hideRequiredMarker>
+            <mat-label>Capacidad</mat-label>
+            <input formControlName="capacidad" type="number" min="0" required matInput>
+        </mat-form-field>
+
+        <!-- Disponibilidad de aula -->
+        <mat-form-field appearance="outline" hideRequiredMarker>
+            <mat-label>Disponibilidad</mat-label>
+            <mat-select formControlName="disponibilidad" required>
+                <mat-option value="Disponible">Disponible</mat-option>
+                <mat-option value="No disponible">No disponible</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <div>
+            <!-- Limpiar formulario -->
+            <button type="reset" mat-raised-button color="warn" (click)="close()">Cancelar</button>
+            <!-- Registrar aula -->
+            <button type="submit" (click)="addAula(aulaFormGroup)" mat-raised-button color="primary">Registrar
+                aula</button>
+        </div>
+    </form>
+</mat-dialog-content>

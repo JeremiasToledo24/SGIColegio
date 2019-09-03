@@ -1,0 +1,32 @@
+{
+    "name": "Aula",
+    "plural": "Aulas",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+      "validateUpsert": true
+    },
+    "properties": {
+      "idAula": {
+        "type": "number",
+        "id": true
+      },
+      "nombre": {
+        "type": "string",
+        "required": true
+      },
+      "capacidad": {
+        "type": "number",
+        "required": true
+      },
+      "disponibilidad": {
+        "type": "string",
+        "required": true
+      }
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
+  }
+  

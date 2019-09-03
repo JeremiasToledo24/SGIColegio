@@ -1,3 +1,12 @@
+.backGroundCard {
+  background-color: #E8EAF6;
+  margin: 2rem;
+}
+
+mat-card {
+  margin-bottom: 2rem;
+}
+
 table {
   width: 100%;
 }
@@ -22,22 +31,4 @@ button {
 
 mat-cell {
   background-color: #C5CAE9;
-}
-
-mat-card {
-  width: auto;
-  display: block;
-}
-
-mat-card {
-  background-color: #E8EAF6;
-  margin: 2rem;
-}
-
-.buscador-form {
-  width: 100%;
-}
-
-.buscador-full-width {
-  width: 100%;
 }

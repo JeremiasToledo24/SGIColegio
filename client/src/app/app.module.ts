@@ -32,6 +32,7 @@ import {FooterComponent} from './componentes/navegacion/footer/footer.component'
 import {HomeComponent} from './componentes/navegacion/home/home.component';
 import {NotFoundComponent} from './componentes/navegacion/not-found/not-found.component';
 import {DocentesModule} from './docentes/docentes.module';
+import { AulasModule } from './aulas/aulas.module';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import {DocentesModule} from './docentes/docentes.module';
     FormsModule,
     HttpClientModule,
     LayoutModule,
-    DocentesModule
+    DocentesModule,
+    AulasModule
   ],
   providers: [MateriaService, CursoService, NivelService],
   bootstrap: [AppComponent],
