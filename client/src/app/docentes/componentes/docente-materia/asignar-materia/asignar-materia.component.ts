@@ -41,7 +41,7 @@ export class AsignarMateriaComponent implements OnInit {
 
   /* datos de las materias vinculadas */
   materiasDocente: Materia[];
-  displayedColumnsMateriasVinculadas: string[] = ['codigo', 'nombre'];
+  displayedColumnsMateriasVinculadas: string[] = ['codigo', 'nombre', 'operaciones'];
   dataSourceMateriasVinculadas = new MatTableDataSource(this.materiasDocente)
 
   /* datos de todas las materias */
@@ -95,6 +95,17 @@ export class AsignarMateriaComponent implements OnInit {
     }
 
   }
+
+  /* desvincular materia */
+  desvincular(materia) {
+    this.materiasDocente = this.materiasDocente.filter(
+      x => x.codigo === materia.codigo
+    );
+    this.dataSourceMateriasVinculadas = new MatTableDataSource(this.materiasDocente);
+    this.docenteService.openSnackBar('la materia desvinculada', 'ok');
+
+  }
+
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -112,11 +123,11 @@ export class AsignarMateriaComponent implements OnInit {
                 res => console.log(res)
               )
           })
-          this.docenteService.openSnackBar("Cambios Guardados","ok");
+          this.docenteService.openSnackBar("Cambios Guardados", "ok");
           this.dialogRef.close();
-        }),null,
-        ()=>{
-        }
+        }), null,
+      () => {
+      }
 
   }
 
