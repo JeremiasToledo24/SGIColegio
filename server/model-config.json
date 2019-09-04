@@ -70,5 +70,13 @@
   "Aula": {
     "dataSource": "db",
     "public": true
+  },
+  "MateriaDocente": {
+    "dataSource": "db",
+    "public": true
+  },
+  "MateriasXDocente": {
+    "dataSource": "db",
+    "public": true
   }
 }

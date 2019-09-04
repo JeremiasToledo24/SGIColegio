@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { NivelModel } from 'src/app/models/nivel-model';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {NivelModel} from 'src/app/models/nivel-model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,18 +10,18 @@ export class NivelService {
 
   listaNiveles: NivelModel[];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   //listar niveles
-  async listarNiveles(){
+  async listarNiveles() {
     return await this.http.get(this.api_url).toPromise();
   }
 
   //obtener nivel por id, recibe id como parametro del tipo number
-  async obtenerNivel(id:number){
+  async obtenerNivel(id: number) {
     return await this.http.get(this.api_url + `/${id}`).toPromise();
   }
-
 
 
 }

@@ -1,9 +1,9 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { MateriaService } from 'src/app/servicios/materias/materia.service';
-import { PlanEstudioService } from 'src/app/servicios/planEstudio/plan-estudio.service';
-import { DocenteService } from 'src/app/servicios/docentes/docente.service';
-import { AulaService } from 'src/app/servicios/aula/aula.service';
+import {Component, Inject, OnInit} from '@angular/core';
+import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {MateriaService} from 'src/app/servicios/materias/materia.service';
+import {PlanEstudioService} from 'src/app/servicios/planEstudio/plan-estudio.service';
+import {DocenteService} from 'src/app/servicios/docentes/docente.service';
+import {AulaService} from 'src/app/servicios/aula/aula.service';
 
 @Component({
   selector: 'app-confirm-dialog',
@@ -17,12 +17,12 @@ export class ConfirmDialogComponent implements OnInit {
   tipoAula: boolean = false;
 
   constructor(public dialogRef: MatDialogRef<ConfirmDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
-    private materiaService: MateriaService,
-    private planService: PlanEstudioService,
-    private docenteService: DocenteService,
-    private aulaService: AulaService
-    ) {
+              @Inject(MAT_DIALOG_DATA) public data: any,
+              private materiaService: MateriaService,
+              private planService: PlanEstudioService,
+              private docenteService: DocenteService,
+              private aulaService: AulaService
+  ) {
   }
 
   ngOnInit() {

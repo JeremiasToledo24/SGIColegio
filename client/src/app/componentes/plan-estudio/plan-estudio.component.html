@@ -47,10 +47,10 @@
       <form class="search-form" #buscarForm="ngForm">
         <mat-form-field class="seearch-full-width">
           <input type="text" placeholder="Buscar una Materia" aria-label="Number" matInput [formControl]="myControl"
-            [matAutocomplete]="auto">
+                 [matAutocomplete]="auto">
           <mat-autocomplete #auto="matAutocomplete">
             <mat-option *ngFor="let option of filteredOptions | async" [value]="option.nombre"
-              (click)="agregarMateriaALista(option.codigo, buscarForm)">
+                        (click)="agregarMateriaALista(option.codigo, buscarForm)">
               {{option.nombre}}
             </mat-option>
           </mat-autocomplete>
@@ -104,7 +104,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
+     aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">

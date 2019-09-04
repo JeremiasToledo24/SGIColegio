@@ -5,10 +5,10 @@ export class CursoModel {
     nombre?,
     division?,
     idNivel?
-  ){
-    this.idCurso=idCurso;
-    this.nombre=nombre;
-    this.division=division;
+  ) {
+    this.idCurso = idCurso;
+    this.nombre = nombre;
+    this.division = division;
     this.idNivel = idNivel;
   }
 

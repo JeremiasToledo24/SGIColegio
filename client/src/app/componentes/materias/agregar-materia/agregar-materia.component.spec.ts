@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AgregarMateriaComponent } from './agregar-materia.component';
+import {AgregarMateriaComponent} from './agregar-materia.component';
 
 describe('AgregarMateriaComponent', () => {
   let component: AgregarMateriaComponent;
@@ -8,9 +8,9 @@ describe('AgregarMateriaComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AgregarMateriaComponent ]
+      declarations: [AgregarMateriaComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

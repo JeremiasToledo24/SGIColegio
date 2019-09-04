@@ -1,4 +1,4 @@
-import { MateriaModel } from './materia-model';
+import {MateriaModel} from './materia-model';
 
 describe('MateriaModel', () => {
   it('should create an instance', () => {

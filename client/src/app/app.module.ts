@@ -32,7 +32,7 @@ import {FooterComponent} from './componentes/navegacion/footer/footer.component'
 import {HomeComponent} from './componentes/navegacion/home/home.component';
 import {NotFoundComponent} from './componentes/navegacion/not-found/not-found.component';
 import {DocentesModule} from './docentes/docentes.module';
-import { AulasModule } from './aulas/aulas.module';
+import {AulasModule} from './aulas/aulas.module';
 
 @NgModule({
   declarations: [
@@ -66,7 +66,12 @@ import { AulasModule } from './aulas/aulas.module';
   ],
   providers: [MateriaService, CursoService, NivelService],
   bootstrap: [AppComponent],
-  entryComponents: [AgregarMateriaComponent, EditarMateriaComponent, ConfirmDialogComponent]
+  entryComponents: [
+    AgregarMateriaComponent,
+    EditarMateriaComponent,
+    ConfirmDialogComponent],
+  exports: [ListaMateriasComponent],
+
 })
 export class AppModule {
   /**

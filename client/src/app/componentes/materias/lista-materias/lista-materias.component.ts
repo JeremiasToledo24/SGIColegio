@@ -1,10 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { MateriaService } from 'src/app/servicios/materias/materia.service';
-import { MateriaModel } from 'src/app/models/materia-model';
-import { MatDialog } from '@angular/material';
+import {Component, OnInit, Input} from '@angular/core';
+import {MateriaService} from 'src/app/servicios/materias/materia.service';
+import {MateriaModel} from 'src/app/models/materia-model';
+import {MatDialog} from '@angular/material';
 
-import { EditarMateriaComponent } from '../editar-materia/editar-materia.component';
-import { ConfirmDialogComponent } from '../../confirm-dialog/confirm-dialog.component';
+import {EditarMateriaComponent} from '../editar-materia/editar-materia.component';
+import {ConfirmDialogComponent} from '../../confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-lista-materias',
@@ -13,8 +13,7 @@ import { ConfirmDialogComponent } from '../../confirm-dialog/confirm-dialog.comp
 })
 export class ListaMateriasComponent implements OnInit {
 
-  displayedColumns: string[] = ['codigo','nombre','operaciones'];
-  @Input() dataSource: MateriaModel[];
+  displayedColumns: string[] = ['codigo', 'nombre', 'operaciones'];
 
   materiasSeleccionadas: MateriaModel[] = [];
 
@@ -47,12 +46,14 @@ export class ListaMateriasComponent implements OnInit {
   editarMateria(materia: any) {
     this.openDialog(materia);
   }
+
   // Eliminar materia
 
   eliminarMateria(materia: any) {
     this.dialogo(materia);
 
   }
+
   dialogo(materia: any) {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       data: {
@@ -62,16 +63,16 @@ export class ListaMateriasComponent implements OnInit {
       }
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Eliminar result: ${result}`);
-      if (result) {
-        console.log(result)
-        this.materiaService.listarMaterias().subscribe(
-          x => {
-            this.materiaService.datasource = x as MateriaModel[];
-          }
-        );
+        console.log(`Eliminar result: ${result}`);
+        if (result) {
+          console.log(result)
+          this.materiaService.listarMaterias().subscribe(
+            x => {
+              this.materiaService.datasource = x as MateriaModel[];
+            }
+          );
+        }
       }
-    }
     );
   }
 

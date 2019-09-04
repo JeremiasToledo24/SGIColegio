@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material';
-import { AgregarMateriaComponent } from './agregar-materia/agregar-materia.component';
-import { MateriaService } from 'src/app/servicios/materias/materia.service';
-import { MateriaModel } from 'src/app/models/materia-model';
+import {Component, OnInit} from '@angular/core';
+import {MatDialog} from '@angular/material';
+import {AgregarMateriaComponent} from './agregar-materia/agregar-materia.component';
+import {MateriaService} from 'src/app/servicios/materias/materia.service';
+import {MateriaModel} from 'src/app/models/materia-model';
 
 
 @Component({

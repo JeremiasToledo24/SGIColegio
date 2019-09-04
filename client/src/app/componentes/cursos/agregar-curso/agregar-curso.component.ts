@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { CursoService } from 'src/app/servicios/cursos/curso.service';
-import { NgForm } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {CursoService} from 'src/app/servicios/cursos/curso.service';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-agregar-curso',
@@ -19,12 +19,14 @@ export class AgregarCursoComponent implements OnInit {
     {"nombre": "A"},
     {"nombre": "B"}
   ]
-  constructor(private cursoService: CursoService) { }
+
+  constructor(private cursoService: CursoService) {
+  }
 
   ngOnInit() {
   }
 
-  addCurso(form: NgForm){
+  addCurso(form: NgForm) {
     this.cursoService.agregarCurso(form.value).then(
       res => console.log(res)
     )

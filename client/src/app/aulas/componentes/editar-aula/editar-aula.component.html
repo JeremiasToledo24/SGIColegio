@@ -2,36 +2,36 @@
 
 
 <mat-dialog-content>
-    <form #aulaForm="ngForm" [formGroup]="firstFormGroup">
+  <form #aulaForm="ngForm" [formGroup]="firstFormGroup">
 
-        <!-- Nombre de aula -->
-        <mat-form-field appearance="outline" hideRequiredMarker>
-            <mat-label>Nombre</mat-label>
-            <input formControlName="nombre" type="text" required matInput>
-        </mat-form-field>
+    <!-- Nombre de aula -->
+    <mat-form-field appearance="outline" hideRequiredMarker>
+      <mat-label>Nombre</mat-label>
+      <input formControlName="nombre" type="text" required matInput>
+    </mat-form-field>
 
-        <!-- Capacidad de aula -->
-        <mat-form-field appearance="outline" hideRequiredMarker>
-            <mat-label>Capacidad</mat-label>
-            <input formControlName="capacidad" type="number" min="0" required matInput>
-        </mat-form-field>
+    <!-- Capacidad de aula -->
+    <mat-form-field appearance="outline" hideRequiredMarker>
+      <mat-label>Capacidad</mat-label>
+      <input formControlName="capacidad" type="number" min="0" required matInput>
+    </mat-form-field>
 
-        <!-- Disponibilidad de aula -->
-        <mat-form-field appearance="outline" hideRequiredMarker>
-            <mat-label>Disponibilidad</mat-label>
-            <mat-select formControlName="disponibilidad" required>
-                <mat-option value="Disponible">Disponible</mat-option>
-                <mat-option value="No disponible">No disponible</mat-option>
-            </mat-select>
-        </mat-form-field>
+    <!-- Disponibilidad de aula -->
+    <mat-form-field appearance="outline" hideRequiredMarker>
+      <mat-label>Disponibilidad</mat-label>
+      <mat-select formControlName="disponibilidad" required>
+        <mat-option value="Disponible">Disponible</mat-option>
+        <mat-option value="No disponible">No disponible</mat-option>
+      </mat-select>
+    </mat-form-field>
 
-        <div>
-            <!-- Cancel -->
-            <button type="reset" mat-raised-button color="warn" (click)="close()">Cancelar</button>
+    <div>
+      <!-- Cancel -->
+      <button type="reset" mat-raised-button color="warn" (click)="close()">Cancelar</button>
 
-            <!-- Submit -->
-            <button type="submit" mat-raised-button color="primary" (click)="editAula(aulaForm)">Confirmar</button>
+      <!-- Submit -->
+      <button type="submit" mat-raised-button color="primary" (click)="editAula(aulaForm)">Confirmar</button>
 
-        </div>
-    </form>
+    </div>
+  </form>
 </mat-dialog-content>

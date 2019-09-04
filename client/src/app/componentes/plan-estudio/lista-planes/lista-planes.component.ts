@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { PlanEstudioService } from 'src/app/servicios/planEstudio/plan-estudio.service';
-import { MatDialog } from '@angular/material';
-import { ConfirmDialogComponent } from '../../confirm-dialog/confirm-dialog.component';
-import { PlanEstudioModel } from 'src/app/models/plan-estudio-model';
+import {Component, OnInit} from '@angular/core';
+import {PlanEstudioService} from 'src/app/servicios/planEstudio/plan-estudio.service';
+import {MatDialog} from '@angular/material';
+import {ConfirmDialogComponent} from '../../confirm-dialog/confirm-dialog.component';
+import {PlanEstudioModel} from 'src/app/models/plan-estudio-model';
 
 /* clase de planes */
 class Planes {
@@ -13,6 +13,7 @@ class Planes {
   idMateria: number;
   materiacodigo: string;
   materianombre: string;
+
   constructor() {
   }
 }
@@ -43,6 +44,7 @@ export class ListaPlanesComponent implements OnInit {
   eliminarPlan(plan: any) {
     this.openDialog(plan)
   }
+
   /* dialogo de eliminar plan */
   openDialog(plan: Planes) {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {

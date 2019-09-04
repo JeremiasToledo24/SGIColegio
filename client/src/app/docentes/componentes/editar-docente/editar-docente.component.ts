@@ -1,7 +1,7 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { DocenteService } from 'src/app/servicios/docentes/docente.service';
-import { MatDialogRef, MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {Component, OnInit, Inject} from '@angular/core';
+import {DocenteService} from 'src/app/servicios/docentes/docente.service';
+import {MatDialogRef, MAT_DIALOG_DATA, MatSnackBar} from '@angular/material';
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-editar-docente',
@@ -19,7 +19,8 @@ export class EditarDocenteComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private _formBuilder: FormBuilder,
     private snackBar: MatSnackBar
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
@@ -34,34 +35,34 @@ export class EditarDocenteComponent implements OnInit {
       fechaIngDocencia: ['', Validators.required],
       fechaIngColegio: ['', Validators.required]
     });
-      this.firstFormGroup.setValue({
-        nombre: this.data.nombre,
-        apellido: this.data.apellido,
-        sexo: this.data.sexo,
-        dni: this.data.dni,
-        cuil: this.data.cuil,
-        fechaNacimiento: this.data.fechaNacimiento,
-        telefono: this.data.telefono,
-        direccion: this.data.direccion,
-        fechaIngDocencia: this.data.fechaIngDocencia,
-        fechaIngColegio: this.data.fechaIngColegio
-      })
+    this.firstFormGroup.setValue({
+      nombre: this.data.nombre,
+      apellido: this.data.apellido,
+      sexo: this.data.sexo,
+      dni: this.data.dni,
+      cuil: this.data.cuil,
+      fechaNacimiento: this.data.fechaNacimiento,
+      telefono: this.data.telefono,
+      direccion: this.data.direccion,
+      fechaIngDocencia: this.data.fechaIngDocencia,
+      fechaIngColegio: this.data.fechaIngColegio
+    })
   }
 
   // Editar docente
   editDocente(Docente: FormGroup) {
     console.log(Docente.value);
     this.docenteService.editarDocente(Docente.value)
-    .subscribe(
-      res => {
-        this.snackBar.open('Docente actualizado con éxito','OK');
-        this.dialogRef.close(true);
-        console.log(res);
-      }, error => {
-        this.openSnackBar('No se pudo actualizar.','OK');
-        console.log(error);
-      }
-    );
+      .subscribe(
+        res => {
+          this.snackBar.open('Docente actualizado con éxito', 'OK');
+          this.dialogRef.close(true);
+          console.log(res);
+        }, error => {
+          this.openSnackBar('No se pudo actualizar.', 'OK');
+          console.log(error);
+        }
+      );
   }
 
   // Cerrar dialog

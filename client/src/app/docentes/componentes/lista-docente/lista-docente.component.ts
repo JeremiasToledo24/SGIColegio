@@ -1,12 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { DocenteService } from 'src/app/servicios/docentes/docente.service';
-import { ConfirmDialogComponent } from 'src/app/componentes/confirm-dialog/confirm-dialog.component';
-import { FormacionComponent } from '../formacion/formacion.component';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material';
-import { Router } from '@angular/router';
-import { EditarDocenteComponent } from '../editar-docente/editar-docente.component';
+import {Component, OnInit, Input, Output} from '@angular/core';
+import {DocenteService} from 'src/app/servicios/docentes/docente.service';
+import {ConfirmDialogComponent} from 'src/app/componentes/confirm-dialog/confirm-dialog.component';
+import {FormacionComponent} from '../formacion/formacion.component';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {MatSnackBar} from '@angular/material';
+import {Router} from '@angular/router';
+import {EditarDocenteComponent} from '../editar-docente/editar-docente.component';
+import {EventEmitter} from 'events';
 
 
 @Component({
@@ -25,9 +26,11 @@ export class ListaDocenteComponent implements OnInit {
     public dialog: MatDialog,
     private snackBar: MatSnackBar,
     private router: Router
-  ) { }
+  ) {
+  }
 
   displayedColumns: string[] = ['dni', 'apellido', 'nombre', 'cuil', 'operaciones'];
+;
   @Input() dataSource: any[];
 
   ngOnInit() {
@@ -37,6 +40,7 @@ export class ListaDocenteComponent implements OnInit {
       }
     );
   }
+
 
   limpiar() {
     this.buscadorForm.reset();
@@ -76,14 +80,17 @@ export class ListaDocenteComponent implements OnInit {
                       error => {
                         this.snackBar.open(`El Docente ${this.buscadorForm.value.data} no se encuentra registrado en el sistema`, "ok")
                       },
-                      () => { }
+                      () => {
+                      }
                     )
                 }
                 ,
-                () => { }
+                () => {
+                }
               )
           },
-          () => { }
+          () => {
+          }
         )
     } else {
       this.snackBar.open('Debe ingresar un DNI, Nombre o Apellido del Docente que desea buscar', 'OK')
@@ -95,6 +102,7 @@ export class ListaDocenteComponent implements OnInit {
   verPerfil(dni) {
     this.router.navigate(['/perfilDocente', dni]);
   }
+
 
   // Borrar docente
   borrarDocente(Docente: any) {
@@ -136,16 +144,16 @@ export class ListaDocenteComponent implements OnInit {
       }
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Eliminar result: ${result}`);
-      if (result) {
-        console.log(result)
-        this.docenteService.listarDocentes().subscribe(
-          res => {
-            this.dataSource = res as any[];
-          }
-        );
+        console.log(`Eliminar result: ${result}`);
+        if (result) {
+          console.log(result)
+          this.docenteService.listarDocentes().subscribe(
+            res => {
+              this.dataSource = res as any[];
+            }
+          );
+        }
       }
-    }
     );
   }
 
@@ -163,7 +171,7 @@ export class ListaDocenteComponent implements OnInit {
         telefono: Docente.telefono,
         direccion: Docente.direccion,
         fechaIngDocencia: Docente.fechaIngDocencia,
-        fechaIngColegio: Docente.fechaIngColegio 
+        fechaIngColegio: Docente.fechaIngColegio
       }
     });
     dialogRef.afterClosed().subscribe(result => {

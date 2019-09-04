@@ -20,7 +20,7 @@
               <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-6">
                 <mat-label>Apellido</mat-label>
                 <input formControlName="apellido" type="text" name="apellido" [(ngModel)]="apellido" required
-                  matInput>
+                       matInput>
               </mat-form-field>
 
               <!-- Sexo -->
@@ -48,15 +48,16 @@
               <!-- Fecha de nacimiento -->
               <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
                 <mat-label>Fecha de nacimiento</mat-label>
-                <input type="date" formControlName="fechaNacimiento" name="fechaNacimiento" [(ngModel)]="fechaNacimiento"
-                  required matInput>
+                <input type="date" formControlName="fechaNacimiento" name="fechaNacimiento"
+                       [(ngModel)]="fechaNacimiento"
+                       required matInput>
               </mat-form-field>
 
               <!-- Telefono -->
               <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
                 <mat-label>Telefono</mat-label>
                 <input formControlName="telefono" type="text" name="telefono" [(ngModel)]="telefono" required
-                  matInput>
+                       matInput>
               </mat-form-field>
             </mat-card>
 
@@ -67,7 +68,7 @@
               <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-12">
                 <mat-label>Direccion</mat-label>
                 <input formControlName="direccion" type="string" name="direccion" [(ngModel)]="direccion" required
-                  matInput>
+                       matInput>
               </mat-form-field>
 
               <!-- Provincia -->
@@ -110,20 +111,22 @@
               <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
                 <mat-label>Fecha de ingreso a la docencia</mat-label>
                 <input formControlName="fechaIngDocencia" type="date" name="fechaIngDocencia"
-                  [(ngModel)]="fechaIngDocencia" required matInput>
+                       [(ngModel)]="fechaIngDocencia" required matInput>
               </mat-form-field>
 
               <!-- Fecha de ingreso al colegio -->
               <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
                 <mat-label>Fecha de registro</mat-label>
                 <input type="date" formControlName="fechaIngColegio" name="fechaIngColegio"
-                  [(ngModel)]="fechaIngColegio" required matInput readonly>
+                       [(ngModel)]="fechaIngColegio" required matInput readonly>
               </mat-form-field>
 
             </mat-card>
             <!-- Boton siguiente del stepper -->
             <div style="text-align: right">
-              <button mat-raised-button color="primary" matStepperNext>Siguiente <mat-icon>arrow_forward</mat-icon></button>
+              <button mat-raised-button color="primary" matStepperNext>Siguiente
+                <mat-icon>arrow_forward</mat-icon>
+              </button>
             </div>
 
           </form>
@@ -177,9 +180,11 @@
           <!-- Botones para volver o continuar en el Stepper-->
           <div class="d-flex justify-content-between">
             <button mat-raised-button color="primary" matStepperPrevious>
-              <mat-icon>arrow_back</mat-icon>Volver
+              <mat-icon>arrow_back</mat-icon>
+              Volver
             </button>
-            <button mat-raised-button color="primary" matStepperNext>Siguiente <mat-icon>arrow_forward</mat-icon>
+            <button mat-raised-button color="primary" matStepperNext>Siguiente
+              <mat-icon>arrow_forward</mat-icon>
             </button>
           </div>
         </mat-step>
@@ -187,13 +192,15 @@
         <!-- Step FINALIZAR -->
         <mat-step label="Finalizar">
           <div class="d-flex justify-content-center">
-              <button mat-raised-button (click)="stepper.reset()" color="warn">
-                  <mat-icon>refresh</mat-icon> Reiniciar formulario
-                </button>
-                <!-- Submit -->
-                <button type="submit" (click)="addDocente(docenteForm, formacionForm)" mat-raised-button color="primary">
-                  <mat-icon>check</mat-icon> Confirmar registro
-                </button>
+            <button mat-raised-button (click)="stepper.reset()" color="warn">
+              <mat-icon>refresh</mat-icon>
+              Reiniciar formulario
+            </button>
+            <!-- Submit -->
+            <button type="submit" (click)="addDocente(docenteForm, formacionForm)" mat-raised-button color="primary">
+              <mat-icon>check</mat-icon>
+              Confirmar registro
+            </button>
           </div>
         </mat-step>
       </mat-vertical-stepper>

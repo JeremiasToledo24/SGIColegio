@@ -1,0 +1,30 @@
+{
+  "name": "MateriasXDocente",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "number",
+      "id": true
+    },
+    "idMateria": {
+      "type": "number"
+    },
+    "nombre": {
+      "type": "string"
+    },
+    "codigo": {
+      "type": "string"
+    },
+    "idDocente": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

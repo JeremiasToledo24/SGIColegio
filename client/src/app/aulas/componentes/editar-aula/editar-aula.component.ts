@@ -1,8 +1,8 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { AulaService } from 'src/app/servicios/aula/aula.service';
-import { MatSnackBar } from '@angular/material';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Component, OnInit, Inject} from '@angular/core';
+import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {AulaService} from 'src/app/servicios/aula/aula.service';
+import {MatSnackBar} from '@angular/material';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-editar-aula',
@@ -18,14 +18,15 @@ export class EditarAulaComponent implements OnInit {
     private snackBar: MatSnackBar,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private _formBuilder: FormBuilder,
-  ) { }
+  ) {
+  }
 
   firstFormGroup: FormGroup;
 
   ngOnInit() {
     console.log(this.data)
     this.firstFormGroup = this._formBuilder.group({
-      idAula: ['',Validators.required],
+      idAula: ['', Validators.required],
       nombre: ['', Validators.required],
       capacidad: ['', Validators.required],
       disponibilidad: ['', Validators.required]
@@ -44,16 +45,16 @@ export class EditarAulaComponent implements OnInit {
   editAula(Aula: FormGroup) {
     console.log(Aula.value);
     this.aulaService.editarAula(Aula.value)
-    .subscribe(
-      res => {
-        this.snackBar.open('Aula actualizado con éxito','OK');
-        this.dialogRef.close(true);
-        console.log(res);
-      }, error => {
-        this.openSnackBar('No se pudo actualizar.','OK');
-        console.log(error);
-      }
-    );
+      .subscribe(
+        res => {
+          this.snackBar.open('Aula actualizado con éxito', 'OK');
+          this.dialogRef.close(true);
+          console.log(res);
+        }, error => {
+          this.openSnackBar('No se pudo actualizar.', 'OK');
+          console.log(error);
+        }
+      );
   }
 
   // Cerrar dialog
@@ -69,5 +70,5 @@ export class EditarAulaComponent implements OnInit {
       }
     );
   }
-  
+
 }

@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { CursoModel } from 'src/app/models/curso-model';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {CursoModel} from 'src/app/models/curso-model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +11,7 @@ export class CursoService {
 
   selectedCurso: CursoModel;
   listaCursos: CursoModel[]
+
   constructor(private http: HttpClient) {
     this.selectedCurso = new CursoModel();
   }
@@ -28,12 +29,12 @@ export class CursoService {
   obtenerCursosPorNivel(idNivel: number) {
     try {
       return this.http.get<CursoModel[]>(`http://localhost:3000/api/Cursos?filter=%7B%22where%22%3A%7B%22idNivel%22%3A%22${idNivel}%22%7D%7D `
-    );
-       
-  } catch (error) {
+      );
+
+    } catch (error) {
       console.log(error);
     }
-    
+
   }
 
 

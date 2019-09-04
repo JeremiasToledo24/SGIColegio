@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { NgForm, FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { DocenteService } from '../../../servicios/docentes/docente.service';
-import { HttpClient } from '@angular/common/http';
-import { MatSnackBar } from '@angular/material';
+import {Component, OnInit} from '@angular/core';
+import {NgForm, FormBuilder, Validators, FormGroup} from '@angular/forms';
+import {DocenteService} from '../../../servicios/docentes/docente.service';
+import {HttpClient} from '@angular/common/http';
+import {MatSnackBar} from '@angular/material';
 
 class Tipos {
   nombre: string;
@@ -21,14 +21,14 @@ export class NuevoDocenteComponent implements OnInit {
   secondFormGroup: FormGroup;
   /* array de tipos de formacion. se muestra en el mat-select */
   tipos: Tipos[] = [
-    { nombre: 'Título Secundario' },
-    { nombre: 'Título Terciario' },
-    { nombre: 'Título Universitario' },
-    { nombre: 'Maestria' },
-    { nombre: 'Doctorado' },
-    { nombre: 'Certificacion' },
-    { nombre: 'Curso' },
-    { nombre: 'Capacitacion' }
+    {nombre: 'Título Secundario'},
+    {nombre: 'Título Terciario'},
+    {nombre: 'Título Universitario'},
+    {nombre: 'Maestria'},
+    {nombre: 'Doctorado'},
+    {nombre: 'Certificacion'},
+    {nombre: 'Curso'},
+    {nombre: 'Capacitacion'}
   ];
 
 
@@ -124,7 +124,9 @@ export class NuevoDocenteComponent implements OnInit {
               'annio': formacionForm.value.annio,
               'DNIDocente': docenteForm.value.dni
             }).subscribe(
-              res => { console.log(res) }
+              res => {
+                console.log(res)
+              }
             )
             this.resetForm(docenteForm);
 

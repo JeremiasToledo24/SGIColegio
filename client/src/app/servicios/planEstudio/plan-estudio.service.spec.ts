@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { PlanEstudioService } from './plan-estudio.service';
+import {PlanEstudioService} from './plan-estudio.service';
 
 describe('PlanEstudioService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

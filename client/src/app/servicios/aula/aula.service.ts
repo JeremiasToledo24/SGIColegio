@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {Observable, throwError} from 'rxjs';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {catchError} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +9,12 @@ import { catchError } from 'rxjs/operators';
 export class AulaService {
   constructor(
     private http: HttpClient
-  ) { }
+  ) {
+  }
 
   // Registrar aula
   addAula(Aula: any): Observable<any> {
-    return this.http.post('http://localhost:3000/api/Aulas',Aula).pipe(
+    return this.http.post('http://localhost:3000/api/Aulas', Aula).pipe(
       catchError(this.handleError)
     );
   }
@@ -27,7 +28,7 @@ export class AulaService {
 
   // Editar docente
   editarAula(Aula: any): Observable<any> {
-    return this.http.put('http://localhost:3000/api/Aulas/',Aula).pipe(
+    return this.http.put('http://localhost:3000/api/Aulas/', Aula).pipe(
       catchError(this.handleError)
     )
   }
