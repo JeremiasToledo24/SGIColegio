@@ -1,5 +1,5 @@
 {
-  "name": "ListaPlanesYMaterias",
+  "name": "MateriasXDocente",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -7,25 +7,20 @@
   },
   "properties": {
     "id": {
-      "type": "number"
-    },
-    "anniodelplan": {
-      "type": "string"
-    },
-    "Nivel": {
-      "type": "string"
-    },
-    "Curso": {
-      "type": "string"
+      "type":"number",
+    "id":true
     },
     "idMateria": {
       "type": "number"
     },
-    "materianombre": {
+    "nombre": {
       "type": "string"
     },
-    "materiacodigo": {
+    "codigo": {
       "type": "string"
+    },
+    "idDocente": {
+      "type": "number"
     }
   },
   "validations": [],

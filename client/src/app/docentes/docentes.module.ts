@@ -8,14 +8,21 @@ import { ListaDocenteComponent } from './componentes/lista-docente/lista-docente
 import { FormacionComponent } from './componentes/formacion/formacion.component';
 import { PerfilDocenteComponent } from './componentes/perfil-docente/perfil-docente.component';
 import { EditarDocenteComponent } from './componentes/editar-docente/editar-docente.component';
-
+import { DocenteMateriaComponent } from './componentes/docente-materia/docente-materia.component';
+import { AsignarMateriaComponent } from './componentes/docente-materia/asignar-materia/asignar-materia.component';
 @NgModule({
-  declarations: [NuevoDocenteComponent, ListaDocenteComponent, FormacionComponent, PerfilDocenteComponent, EditarDocenteComponent],
+  declarations: [NuevoDocenteComponent,
+    ListaDocenteComponent,
+    FormacionComponent,
+    PerfilDocenteComponent,
+    EditarDocenteComponent,
+    DocenteMateriaComponent,
+    AsignarMateriaComponent,
+    ],
   imports: [
     CommonModule,
     MaterialModule,
-    HttpClientModule
-  ],
+    HttpClientModule ],
   providers: [DocenteService],
   entryComponents: [FormacionComponent, EditarDocenteComponent]
 })

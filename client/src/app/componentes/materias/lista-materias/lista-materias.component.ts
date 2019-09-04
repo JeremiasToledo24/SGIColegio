@@ -14,7 +14,6 @@ import { ConfirmDialogComponent } from '../../confirm-dialog/confirm-dialog.comp
 export class ListaMateriasComponent implements OnInit {
 
   displayedColumns: string[] = ['codigo','nombre','operaciones'];
-  @Input() dataSource: MateriaModel[];
 
   materiasSeleccionadas: MateriaModel[] = [];
 

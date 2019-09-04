@@ -9,10 +9,23 @@ import { MatSnackBar } from '@angular/material';
 })
 export class DocenteService {
 
+  docenteSeleccionado = [];
   constructor(
     private http: HttpClient,
     private snackBar: MatSnackBar
   ) {
+  }
+
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.docenteSeleccionado = [];
+  }
+
+  seleccionarDocente(docente){
+    this.docenteSeleccionado = []
+    this.docenteSeleccionado.push(docente);
+    console.log(this.docenteSeleccionado)
   }
 
   openSnackBar(m: string, a: string) {
@@ -29,6 +42,14 @@ export class DocenteService {
     return this.http.post('http://localhost:3000/api/Docentes', Docente).pipe(
       catchError(this.handleError)
     );
+  }
+
+  //borrar materias vinculadas
+  desvincularTodasMaterias(id): Observable<any>{
+    return this.http.delete(`http://localhost:3000/api/MateriaDocentes/${id}`)
+    .pipe(
+      catchError(this.handleError)
+    )
   }
   
   //agregar formacion del docente
@@ -80,6 +101,24 @@ export class DocenteService {
       catchError(this.handleError)
     )
   }
+
+  //OBTENER MATERIAS X DOCENTE
+  obtenerMateriasDocente(id): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/MateriasXDocentes?filter=%7B%22where%22%3A%7B%22idDocente%22%3A%22${id}%22%7D%7D`
+    )
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  asignarMateria(data): Observable<any>{
+    return this.http.post('http://localhost:3000/api/MateriaDocentes', data)
+    .pipe(
+      catchError(this.handleError)
+    )
+  }
+
+
 
   // Manejo de errores segun la respuesta HTTP y mostrar en consola un resumen del error
   private handleError(error: HttpErrorResponse) {
