@@ -33,6 +33,7 @@ import {HomeComponent} from './componentes/navegacion/home/home.component';
 import {NotFoundComponent} from './componentes/navegacion/not-found/not-found.component';
 import {DocentesModule} from './docentes/docentes.module';
 import {AulasModule} from './aulas/aulas.module';
+import { EditarCursoComponent } from './componentes/cursos/editar-curso/editar-curso.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import {AulasModule} from './aulas/aulas.module';
     NavbarComponent,
     FooterComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    EditarCursoComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +71,8 @@ import {AulasModule} from './aulas/aulas.module';
   entryComponents: [
     AgregarMateriaComponent,
     EditarMateriaComponent,
-    ConfirmDialogComponent],
+    ConfirmDialogComponent,
+    EditarCursoComponent],
   exports: [ListaMateriasComponent],
 
 })

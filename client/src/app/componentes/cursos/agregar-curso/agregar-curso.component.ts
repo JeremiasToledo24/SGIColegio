@@ -28,8 +28,13 @@ export class AgregarCursoComponent implements OnInit {
 
   addCurso(form: NgForm) {
     this.cursoService.agregarCurso(form.value).then(
-      res => console.log(res)
+      res => {
+        console.log(res);
+      }
     )
-  }
+  }  
 
+  refresh(): void {
+    window.location.reload();
+  }
 }

@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {CursoModel} from 'src/app/models/curso-model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -43,4 +44,13 @@ export class CursoService {
     return await this.http.post('http://localhost:3000/api/Cursos', curso).toPromise();
   }
 
+  // Eliminar curso
+  deleteCurso(Curso: number): Observable<any> {
+    return this.http.delete(`http://localhost:3000/api/Cursos/${Curso}`)
+  }
+
+  // Editar curso
+  editarCurso(Curso: any): Observable<any> {
+    return this.http.put('http://localhost:3000/api/Cursos/', Curso)
+  }
 }

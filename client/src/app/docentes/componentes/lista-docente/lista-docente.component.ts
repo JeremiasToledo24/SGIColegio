@@ -29,8 +29,7 @@ export class ListaDocenteComponent implements OnInit {
   ) {
   }
 
-  displayedColumns: string[] = ['dni', 'apellido', 'nombre', 'cuil', 'operaciones'];
-;
+  displayedColumns: string[] = ['dni', 'apellido', 'nombre', 'operaciones'];
   @Input() dataSource: any[];
 
   ngOnInit() {

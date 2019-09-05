@@ -79,5 +79,8 @@ export class AgregarMateriaComponent implements OnInit {
     this.dialogRef.close();
   }
 
+  refresh(): void {
+    window.location.reload();
+  }
 
 }

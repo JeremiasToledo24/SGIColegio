@@ -4,6 +4,7 @@ import {MateriaService} from 'src/app/servicios/materias/materia.service';
 import {PlanEstudioService} from 'src/app/servicios/planEstudio/plan-estudio.service';
 import {DocenteService} from 'src/app/servicios/docentes/docente.service';
 import {AulaService} from 'src/app/servicios/aula/aula.service';
+import { CursoService } from 'src/app/servicios/cursos/curso.service';
 
 @Component({
   selector: 'app-confirm-dialog',
@@ -15,13 +16,15 @@ export class ConfirmDialogComponent implements OnInit {
   tipoMat: boolean = false;
   tipoDoc: boolean = false;
   tipoAula: boolean = false;
+  tipoCurso: boolean = false;
 
   constructor(public dialogRef: MatDialogRef<ConfirmDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any,
               private materiaService: MateriaService,
               private planService: PlanEstudioService,
               private docenteService: DocenteService,
-              private aulaService: AulaService
+              private aulaService: AulaService,
+              private cursoService: CursoService
   ) {
   }
 
@@ -43,6 +46,10 @@ export class ConfirmDialogComponent implements OnInit {
     if (this.data.idAula !== undefined) {
       console.log(this.data, 'data aula');
       this.tipoAula = true
+    }
+    if (this.data.idCurso !== undefined) {
+      console.log(this.data, 'data curso');
+      this.tipoCurso = true
     }
 
   }
@@ -87,6 +94,18 @@ export class ConfirmDialogComponent implements OnInit {
   eliminarAula(dataAula) {
     console.log(dataAula.idAula)
     this.aulaService.deleteAula(dataAula.idAula).subscribe(
+      res => {
+        if (res) {
+          console.log(res);
+          this.dialogRef.close(true);
+        }
+      }
+    )
+  }
+  
+  eliminarCurso(dataCurso) {
+    console.log(dataCurso.idCurso)
+    this.cursoService.deleteCurso(dataCurso.idCurso).subscribe(
       res => {
         if (res) {
           console.log(res);

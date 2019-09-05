@@ -1,0 +1,36 @@
+<h3 mat-dialog-title class="rounded">Editar información del curso</h3>
+
+<mat-dialog-content>
+    <form #cursoForm="ngForm" [formGroup]="firstFormGroup">
+        <!-- Nombre -->
+        <mat-form-field appearance="outline" hideRequiredMarker >
+            <mat-label>Nombre</mat-label>
+            <input formControlName="nombre" type="text" required matInput>
+        </mat-form-field>
+
+        <!-- Division -->
+        <mat-form-field appearance="outline" hideRequiredMarker>
+            <mat-label>Ingresar la division del curso</mat-label>
+            <mat-select matInput required formControlName="division">
+                <mat-option [value]="div.nombre" *ngFor="let div of divisiones">{{ div.nombre }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <!-- Nivel -->
+        <mat-form-field appearance="outline" hideRequiredMarker>
+            <mat-label>Ingresar el nivel al que pertenece el curso</mat-label>
+            <mat-select formControlName="idNivel" matInput required>
+                <mat-option [value]="nivel.id" *ngFor="let nivel of niveles">{{ nivel.nombre }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-dialog-actions>
+            <!-- Cancel -->
+            <button type="reset" mat-raised-button color="warn" (click)="close()">Cancelar</button>
+
+            <!-- Submit -->
+            <button type="submit" mat-raised-button color="primary"
+                (click)="editCurso(cursoForm)">Confirmar</button>
+        </mat-dialog-actions>
+    </form>
+</mat-dialog-content>
