@@ -27,8 +27,6 @@ const routes: Routes = [
   {path: 'perfilDocente/:id', component: PerfilDocenteComponent},
   {path: 'docenteMateria', component: DocenteMateriaComponent},
   {path: 'asignarMateria/:id', component: AsignarMateriaComponent},
-
-
   {path: 'Aulas', component: AulasComponent},
   {path: '**', redirectTo: 'error'}
 ];

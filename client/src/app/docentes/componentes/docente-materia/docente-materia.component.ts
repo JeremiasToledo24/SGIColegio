@@ -66,20 +66,9 @@ export class DocenteMateriaComponent implements OnInit {
 
   }
 
-  openDialog(docente): void {
-    const dialogRef = this.dialog.open(AsignarMateriaComponent, {
-      height: '800px',
-      width: '800px',
-      data: {
-        dni: docente.dni,
-        nombre: docente.nombre,
-        apellido: docente.apellido
-      }
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      //this.animal = result;
-    });
+  asignacion(dni){
+    console.log(dni)
+      this.router.navigate(['/asignarMateria', dni]);
   }
 
   /* seleccionarDocente(docente) {

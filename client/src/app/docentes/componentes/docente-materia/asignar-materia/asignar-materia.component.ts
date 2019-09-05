@@ -1,13 +1,25 @@
-import {Component, OnInit, Inject} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {Component, OnInit, Inject, ViewChild} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 import {DocenteService} from 'src/app/servicios/docentes/docente.service';
-import {MAT_DIALOG_DATA, MatDialogRef, MatTableDataSource} from '@angular/material';
+import {MAT_DIALOG_DATA, MatDialogRef, MatTableDataSource, MatPaginator} from '@angular/material';
 import {MateriaService} from 'src/app/servicios/materias/materia.service';
 
 export interface Docente {
   dni;
   nombre;
   apellido;
+}
+
+export class Docente {
+  dni;
+  nombre;
+  apellido;
+  constructor(dni, n,a) {
+    this.dni = dni;
+    this.nombre = n;
+    this.apellido = a;
+
+  }
 }
 
 export interface Materia {
@@ -33,9 +45,12 @@ export class MateriaDocente {
   styleUrls: ['./asignar-materia.component.css']
 })
 export class AsignarMateriaComponent implements OnInit {
+  public id: string;
+  d: Docente;
 
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   /* datos del docente */
-  docenteData: Docente[] = [{dni: this.data.dni, nombre: this.data.nombre, apellido: this.data.apellido}];
+  docenteData: Docente[] = [{dni: 0, nombre: 0, apellido: 0}];
   displayedColumns: string[] = ['dni', 'nombre', 'apellido'];
   dataSource = new MatTableDataSource(this.docenteData);
 
@@ -51,20 +66,21 @@ export class AsignarMateriaComponent implements OnInit {
   dataSourceMaterias = new MatTableDataSource(this.materias);
 
   /* constructor */
-  constructor(
+  constructor(    
+    private route: ActivatedRoute,
     private docenteService: DocenteService,
     private materiaService: MateriaService,
-    public dialogRef: MatDialogRef<AsignarMateriaComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    private router: Router,
+
   ) {
   }
 
   ngOnInit() {
+    this.id = this.route.snapshot.paramMap.get('id');
     /* obtiene las materias asignadas a los docentes */
-    this.docenteService.obtenerMateriasDocente(this.data.dni)
+    this.docenteService.obtenerMateriasDocente(this.id)
       .subscribe(
         (res) => {
-          console.log(res);
           this.materiasDocente = res
           this.dataSourceMateriasVinculadas = new MatTableDataSource(this.materiasDocente);
         })
@@ -74,18 +90,25 @@ export class AsignarMateriaComponent implements OnInit {
         (res: Materia[]) => {
           this.materias = res;
           this.dataSourceMaterias = new MatTableDataSource(this.materias);
+          this.dataSourceMaterias.paginator = this.paginator;
+        }
+      )
+      this.docenteService.obtenerDocentesDNI(this.id)
+      .subscribe(
+        (res: Docente) => {
+          this.docenteData = [];
+          this.docenteData.push(res)
+          this.dataSource = new MatTableDataSource(this.docenteData);
+
         }
       )
   }
-
   /* filtro de la tabla materias */
   applyFilter(filterValue: string) {
     this.dataSourceMaterias.filter = filterValue.trim().toLowerCase();
   }
-
   /* agrega materias a la lista de materias vinculadas */
   add(materia) {
-
     const _mat = this.materiasDocente.filter(
       x => x.codigo === materia.codigo
     );
@@ -97,39 +120,36 @@ export class AsignarMateriaComponent implements OnInit {
     }
 
   }
-
   /* desvincular materia */
   desvincular(materia) {
     this.materiasDocente = this.materiasDocente.filter(
-      x => x.codigo === materia.codigo
+      x => x.codigo !== materia.codigo
     );
     this.dataSourceMateriasVinculadas = new MatTableDataSource(this.materiasDocente);
-    this.docenteService.openSnackBar('la materia desvinculada', 'ok');
 
   }
 
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
+  cancelar(){
+    this.router.navigate(['docenteMateria',]);
 
+  }
   guardarCambios() {
     /* desvincula todas las materias */
-    this.docenteService.desvincularTodasMaterias(this.data.dni)
+    this.docenteService.desvincularTodasMaterias(this.id)
       .subscribe(
         res => {
-          console.log(res)
           this.materiasDocente.forEach(element => {
-            let dat = new MateriaDocente(element.idMateria, this.data.dni);
+            let dat = new MateriaDocente(element.idMateria, this.id);
             this.docenteService.asignarMateria(dat)
               .subscribe(
                 res => console.log(res)
               )
           })
           this.docenteService.openSnackBar("Cambios Guardados", "ok");
-          this.dialogRef.close();
         }), null,
       () => {
       }
+      this.router.navigate(['docenteMateria']);
 
   }
 
