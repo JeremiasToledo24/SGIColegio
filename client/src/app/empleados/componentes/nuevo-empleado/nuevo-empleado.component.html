@@ -2,10 +2,9 @@
   <mat-card class="col-md-10 backGroundCard">
     <mat-card-content>
       <mat-vertical-stepper [linear]="isLinear" #stepper style="background-color: #E8EAF6">
-
         <!-- Step REGISTRAR DATOS -->
-        <mat-step label="Registrar datos del docente" [stepControl]="firstFormGroup">
-          <form #docenteForm="ngForm" [formGroup]="firstFormGroup">
+        <mat-step label="Registrar datos del empleado" [stepControl]="firstFormGroup">
+          <form [formGroup]="firstFormGroup" #empleadoForm="ngForm">
 
             <!-- Datos personales -->
             <mat-card id="datosPersonales">
@@ -19,8 +18,7 @@
               <!-- Apellido -->
               <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-6">
                 <mat-label>Apellido</mat-label>
-                <input formControlName="apellido" type="text" name="apellido" [(ngModel)]="apellido" required
-                       matInput>
+                <input formControlName="apellido" type="text" name="apellido" [(ngModel)]="apellido" required matInput>
               </mat-form-field>
 
               <!-- Sexo -->
@@ -49,15 +47,20 @@
               <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
                 <mat-label>Fecha de nacimiento</mat-label>
                 <input type="date" formControlName="fechaNacimiento" name="fechaNacimiento"
-                       [(ngModel)]="fechaNacimiento"
-                       required matInput>
+                  [(ngModel)]="fechaNacimiento" required matInput>
               </mat-form-field>
 
               <!-- Telefono -->
               <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
                 <mat-label>Telefono</mat-label>
-                <input formControlName="telefono" type="text" name="telefono" [(ngModel)]="telefono" required
-                       matInput>
+                <input formControlName="telefono" type="text" name="telefono" [(ngModel)]="telefono" required matInput>
+              </mat-form-field>
+
+              <!-- Fecha de ingreso al colegio -->
+              <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
+                <mat-label>Fecha de registro</mat-label>
+                <input type="date" formControlName="fechaIngColegio" name="fechaIngColegio"
+                  [(ngModel)]="fechaIngColegio" required matInput readonly>
               </mat-form-field>
 
               <!-- Correo electrónico -->
@@ -74,60 +77,10 @@
               <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-12">
                 <mat-label>Direccion</mat-label>
                 <input formControlName="direccion" type="string" name="direccion" [(ngModel)]="direccion" required
-                       matInput>
+                  matInput>
               </mat-form-field>
-
-              <!-- Provincia -->
-              <!-- <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-3">
-                <mat-label>Provincia</mat-label>
-                <mat-select>
-                  <mat-option>None</mat-option>
-                </mat-select>
-              </mat-form-field> -->
-
-              <!-- Departamento -->
-              <!-- <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-3">
-                <mat-label>Departamento</mat-label>
-                <mat-select>
-                  <mat-option>None</mat-option>
-                </mat-select>
-              </mat-form-field> -->
-
-              <!-- Municipio -->
-              <!-- <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-3">
-                <mat-label>Municipio</mat-label>
-                <mat-select>
-                  <mat-option>None</mat-option>
-                </mat-select>
-              </mat-form-field> -->
-
-              <!-- Localidad -->
-              <!-- <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-3">
-                <mat-label>Localidad</mat-label>
-                <mat-select>
-                  <mat-option>None</mat-option>
-                </mat-select>
-              </mat-form-field> -->
             </mat-card>
 
-            <mat-card id="FormacionAcademica">
-              <mat-card-title style="font-size: 100%">Formación académica</mat-card-title>
-
-              <!-- Fecha de ingreso a la docencia -->
-              <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
-                <mat-label>Fecha de ingreso a la docencia</mat-label>
-                <input formControlName="fechaIngDocencia" type="date" name="fechaIngDocencia"
-                       [(ngModel)]="fechaIngDocencia" required matInput>
-              </mat-form-field>
-
-              <!-- Fecha de ingreso al colegio -->
-              <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
-                <mat-label>Fecha de registro</mat-label>
-                <input type="date" formControlName="fechaIngColegio" name="fechaIngColegio"
-                       [(ngModel)]="fechaIngColegio" required matInput readonly>
-              </mat-form-field>
-
-            </mat-card>
             <!-- Boton siguiente del stepper -->
             <div style="text-align: right">
               <button mat-raised-button color="primary" matStepperNext>Siguiente
@@ -137,13 +90,10 @@
 
           </form>
         </mat-step>
-
-        <!-- Step REGISTRAR FORMACIÓN -->
-        <mat-step label="Registrar formación académica del docente" [stepControl]="secondFormGroup">
-          <mat-card>
+        <mat-step label="Registrar formación académica del empleado" [stepControl]="secondFormGroup">
+          <mat-card id="Formacion">
             <mat-card-content>
               <form [formGroup]="secondFormGroup" #formacionForm="ngForm">
-
                 <div class="d-flex justify-content-start">
                   <!-- Tipo de formación -->
                   <div class="col-sm-5">
@@ -170,7 +120,7 @@
                   </div>
                 </div>
 
-                <!-- Descripcion de la formación academica-->
+                <!-- Descripcion de la formación academica -->
                 <div class="col-sm-9">
                   <mat-label>Descripción de la formación académica a registrar</mat-label>
                   <br>
@@ -183,6 +133,44 @@
             </mat-card-content>
           </mat-card>
 
+          <mat-card id="Experiencias">
+            <mat-card-content>
+              <form [formGroup]="thirdFormGroup" #experienciasForm="ngForm">
+                <div class="d-flex justify-content-start">
+
+                  <!-- Fecha inicio de experiencia -->
+                  <div class="col-sm-3">
+                    <mat-label>Desde</mat-label>
+                    <br>
+                    <mat-form-field class="col-sm-12" appearance="outline">
+                      <input matInput type="date" formControlName="fechaDesde">
+                    </mat-form-field>
+                    <br>
+                  </div>
+
+                  <!-- Fecha fin de experiencia -->
+                  <div class="col-sm-3">
+                    <mat-label>Hasta</mat-label>
+                    <br>
+                    <mat-form-field class="col-sm-12" appearance="outline">
+                      <input matInput type="date" formControlName="fechaHasta">
+                    </mat-form-field>
+                    <br>
+                  </div>
+                </div>
+
+                <!-- Descripción -->
+                <div class="col-sm-9">
+                  <mat-label>Descripción de la experencia a registrar</mat-label>
+                  <br>
+                  <mat-form-field class="col-sm-12" appearance="outline">
+                    <textarea formControlName="descripcionExp" matInput></textarea>
+                  </mat-form-field>
+                  <br>
+                </div>
+              </form>
+            </mat-card-content>
+          </mat-card>
           <!-- Botones para volver o continuar en el Stepper-->
           <div class="d-flex justify-content-between">
             <button mat-raised-button color="primary" matStepperPrevious>
@@ -194,7 +182,6 @@
             </button>
           </div>
         </mat-step>
-
         <!-- Step FINALIZAR -->
         <mat-step label="Finalizar">
           <div class="d-flex justify-content-center">
@@ -203,7 +190,8 @@
               Reiniciar formulario
             </button>
             <!-- Submit -->
-            <button type="submit" (click)="addDocente(docenteForm, formacionForm)" mat-raised-button color="primary">
+            <button type="submit" (click)="addEmpleado(empleadoForm, formacionForm, experienciasForm)" mat-raised-button
+              color="primary">
               <mat-icon>check</mat-icon>
               Confirmar registro
             </button>

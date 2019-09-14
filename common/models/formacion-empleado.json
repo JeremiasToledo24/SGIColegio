@@ -1,0 +1,39 @@
+{
+    "name": "FormacionEmpleado",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
+    },
+    "properties": {
+        "idFormacionEmpleado": {
+            "type": "number",
+            "id": true
+        },
+        "tipo": {
+            "type": "string"
+        },
+        "descripcion": {
+            "type": "string"
+        },
+        "año": {
+            "type": "string"
+        },
+        "DNIEmpleado": {
+            "type": "string"
+        },
+        "fechaDesde": {
+            "type": "string"
+        },
+        "fechaHasta": {
+            "type": "string"
+        },
+        "descripcionExp": {
+            "type": "string"
+        }
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
+}

@@ -1,0 +1,56 @@
+{
+    "name": "Empleado",
+    "plural": "Empleados",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+      "validateUpsert": true
+    },
+    "properties": {
+      "nombre": {
+        "type": "string",
+        "required": true
+      },
+      "apellido": {
+        "type": "string",
+        "required": true
+      },
+      "sexo": {
+        "type": "string",
+        "required": true
+      },
+      "dni": {
+        "type": "number",
+        "id": true,
+        "required": true
+      },
+      "cuil": {
+        "type": "string",
+        "required": true
+      },
+      "fechaNacimiento": {
+        "type": "string",
+        "required": true
+      },
+      "telefono": {
+        "type": "string",
+        "required": true
+      },
+      "direccion": {
+        "type": "string",
+        "required": true
+      },
+      "fechaIngColegio": {
+        "type": "string",
+        "required": true
+      },
+      "fechaEgrColegio": {
+        "type": "string"
+      }
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
+  }
+  

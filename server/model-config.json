@@ -78,5 +78,18 @@
   "MateriasXDocente": {
     "dataSource": "db",
     "public": true
+  },
+  "Usuario": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Empleado": {
+    "dataSource": "db",
+    "public": true
+  },
+  "FormacionEmpleado": {
+    "dataSource": "db",
+    "public": true
   }
+  
 }

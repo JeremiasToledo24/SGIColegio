@@ -1,0 +1,12 @@
+.backGroundCard {
+    background-color: #E8EAF6;
+    margin: 2rem;
+  }
+  
+  mat-card {
+    margin-bottom: 2rem;
+  }
+  
+  button {
+    margin: 10px;
+  }

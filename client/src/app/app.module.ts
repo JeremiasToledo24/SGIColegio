@@ -1,70 +1,74 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MaterialModule} from './material/material.module';
-import {FormsModule} from '@angular/forms';
-
-
-import {AgregarMateriaComponent} from './componentes/materias/agregar-materia/agregar-materia.component';
-import {ListaMateriasComponent} from './componentes/materias/lista-materias/lista-materias.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
+import { FormsModule } from '@angular/forms';
 
 
-import {MateriaService} from './servicios/materias/materia.service';
-import {CursoService} from './servicios/cursos/curso.service';
-import {NivelService} from './servicios/niveles/nivel.service';
-import {HttpClientModule} from '@angular/common/http';
-import {CursosComponent} from './componentes/cursos/cursos.component';
-import {AgregarCursoComponent} from './componentes/cursos/agregar-curso/agregar-curso.component';
-import {ListaCursoComponent} from './componentes/cursos/lista-curso/lista-curso.component';
-import {MateriasComponent} from './componentes/materias/materias.component';
-import {PlanEstudioComponent} from './componentes/plan-estudio/plan-estudio.component';
-import {LayoutModule} from '@angular/cdk/layout';
-import {ListaPlanesComponent} from './componentes/plan-estudio/lista-planes/lista-planes.component';
-import {EditarMateriaComponent} from './componentes/materias/editar-materia/editar-materia.component';
-import {ConfirmDialogComponent} from './componentes/confirm-dialog/confirm-dialog.component';
-import {SideBarComponent} from './componentes/navegacion/side-bar/side-bar.component';
-import {NavbarComponent} from './componentes/navegacion/navbar/navbar.component';
-import {FooterComponent} from './componentes/navegacion/footer/footer.component';
-import {HomeComponent} from './componentes/navegacion/home/home.component';
-import {NotFoundComponent} from './componentes/navegacion/not-found/not-found.component';
-import {DocentesModule} from './docentes/docentes.module';
-import {AulasModule} from './aulas/aulas.module';
+import { AgregarMateriaComponent } from './componentes/materias/agregar-materia/agregar-materia.component';
+import { ListaMateriasComponent } from './componentes/materias/lista-materias/lista-materias.component';
+
+
+import { MateriaService } from './servicios/materias/materia.service';
+import { CursoService } from './servicios/cursos/curso.service';
+import { NivelService } from './servicios/niveles/nivel.service';
+import { HttpClientModule } from '@angular/common/http';
+import { CursosComponent } from './componentes/cursos/cursos.component';
+import { AgregarCursoComponent } from './componentes/cursos/agregar-curso/agregar-curso.component';
+import { ListaCursoComponent } from './componentes/cursos/lista-curso/lista-curso.component';
+import { MateriasComponent } from './componentes/materias/materias.component';
+import { PlanEstudioComponent } from './componentes/plan-estudio/plan-estudio.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { ListaPlanesComponent } from './componentes/plan-estudio/lista-planes/lista-planes.component';
+import { EditarMateriaComponent } from './componentes/materias/editar-materia/editar-materia.component';
+import { ConfirmDialogComponent } from './componentes/confirm-dialog/confirm-dialog.component';
+import { SideBarComponent } from './componentes/navegacion/side-bar/side-bar.component';
+import { NavbarComponent } from './componentes/navegacion/navbar/navbar.component';
+import { FooterComponent } from './componentes/navegacion/footer/footer.component';
+import { HomeComponent } from './componentes/navegacion/home/home.component';
+import { NotFoundComponent } from './componentes/navegacion/not-found/not-found.component';
+import { DocentesModule } from './docentes/docentes.module';
+import { AulasModule } from './aulas/aulas.module';
 import { EditarCursoComponent } from './componentes/cursos/editar-curso/editar-curso.component';
+import {AutenticacionModule} from './autenticacion/autenticacion.module';
+import { EmpleadosModule } from './empleados/empleados.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ListaMateriasComponent,
-    AgregarMateriaComponent,
-    CursosComponent,
     AgregarCursoComponent,
-    ListaCursoComponent,
-    MateriasComponent,
-    PlanEstudioComponent,
-    ListaPlanesComponent,
-    EditarMateriaComponent,
+    AgregarMateriaComponent,
+    AppComponent,
     ConfirmDialogComponent,
-    SideBarComponent,
-    NavbarComponent,
+    CursosComponent,
+    EditarCursoComponent,
+    EditarMateriaComponent,
     FooterComponent,
     HomeComponent,
+    ListaCursoComponent,
+    ListaMateriasComponent,
+    ListaPlanesComponent,
+    MateriasComponent,
+    NavbarComponent,
     NotFoundComponent,
-    EditarCursoComponent
+    PlanEstudioComponent,
+    SideBarComponent
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
+    AulasModule,
     BrowserAnimationsModule,
-    MaterialModule,
+    BrowserModule,
+    DocentesModule,
     FormsModule,
     HttpClientModule,
     LayoutModule,
-    DocentesModule,
-    AulasModule
+    MaterialModule,
+    AutenticacionModule,
+    EmpleadosModule
   ],
   providers: [MateriaService, CursoService, NivelService],
   bootstrap: [AppComponent],

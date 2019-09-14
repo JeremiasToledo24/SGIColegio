@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {NgForm, FormBuilder, Validators, FormGroup} from '@angular/forms';
+import {NgForm, FormBuilder, Validators, FormGroup } from '@angular/forms';
 import {DocenteService} from '../../../servicios/docentes/docente.service';
 import {HttpClient} from '@angular/common/http';
 import {MatSnackBar} from '@angular/material';
+import { AutenticacionService } from 'src/app/servicios/autenticacion/autenticacion.service';
 
 class Tipos {
   nombre: string;
@@ -12,7 +13,7 @@ class Tipos {
   selector: 'app-nuevo-docente',
   templateUrl: './nuevo-docente.component.html',
   styleUrls: ['./nuevo-docente.component.css'],
-  providers: [DocenteService]
+  providers: [DocenteService, AutenticacionService]
 })
 export class NuevoDocenteComponent implements OnInit {
   isLinear = true;
@@ -50,14 +51,21 @@ export class NuevoDocenteComponent implements OnInit {
   fechaIngDocencia: string;
   fechaIngColegio: string;
 
+  // Usuario del docente
+  usuario: number;
+  contraseña: string;
+  correo: string;
+  tipo: string = 'Docente';
+
   constructor(
     private docenteService: DocenteService,
+    private authService: AutenticacionService,
     private http: HttpClient,
     private snackBar: MatSnackBar,
     private _formBuilder: FormBuilder
   ) {
   }
-
+  
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
       nombre: ['', Validators.required],
@@ -69,14 +77,15 @@ export class NuevoDocenteComponent implements OnInit {
       telefono: ['', Validators.required],
       direccion: ['', Validators.required],
       fechaIngDocencia: ['', Validators.required],
-      fechaIngColegio: ['', Validators.required]
+      fechaIngColegio: ['', Validators.required],
+      correo: ['',Validators.required]
     });
     this.secondFormGroup = this._formBuilder.group({
       tipo: ['', Validators.required],
       descripcion: ['', Validators.required],
       annio: ['', Validators.required]
     });
-    // TODO Elegir provincia/dpto/.. y nueva tabla Docente.
+    
     /* // Cargar PROVINCIAS desde JSON
     this.http.get('../../../../../assets/json/provincias.json').subscribe(
       data => {
@@ -104,7 +113,8 @@ export class NuevoDocenteComponent implements OnInit {
         this.localidades = data as string[];
       }
     ); */
-    //
+
+
     // Obtener la fecha actual para el registro del docente
     const today = new Date();
     const dd = String(today.getDate()).padStart(2, '0');
@@ -113,11 +123,14 @@ export class NuevoDocenteComponent implements OnInit {
     this.fechaIngColegio = yyyy + '-' + mm + '-' + dd;
   }
 
+  // Agregar nuevo docente
   addDocente(docenteForm: NgForm, formacionForm: NgForm) {
     try {
       this.docenteService.agregarDocente(docenteForm.value)
         .subscribe(
           res => {
+            
+            // Agregar formación docente
             this.docenteService.agregarFormacionDocente({
               'tipo': formacionForm.value.tipo,
               'descripcion': formacionForm.value.descripcion,
@@ -128,8 +141,23 @@ export class NuevoDocenteComponent implements OnInit {
                 console.log(res)
               }
             )
-            this.resetForm(docenteForm);
 
+            // Agregar usuario y contraseña
+            this.authService.nuevoUsuario(
+              {
+                'nombre': docenteForm.value.dni,
+                'contraseña': docenteForm.value.nombre.charAt(0).toLowerCase() + docenteForm.value.apellido.toLowerCase().split(' ')[0] + docenteForm.value.dni.toString().slice(-3),
+                'correo': docenteForm.value.correo,
+                'tipo': this.tipo
+              }
+            ).subscribe(
+              res => {
+                console.log(res)
+              }
+            )
+            
+            // Limpiar formulario
+            this.resetForm(docenteForm);
           }
           , error => {
             this.openSnackBar(
