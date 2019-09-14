@@ -84,7 +84,7 @@ CREATE TABLE `Aula` (
   `capacidad` int(11) DEFAULT NULL,
   `disponibilidad` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idAula`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93,6 +93,7 @@ CREATE TABLE `Aula` (
 
 LOCK TABLES `Aula` WRITE;
 /*!40000 ALTER TABLE `Aula` DISABLE KEYS */;
+INSERT INTO `Aula` VALUES (1,'um1',600,'Disponible');
 /*!40000 ALTER TABLE `Aula` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -154,8 +155,43 @@ CREATE TABLE `Docente` (
 
 LOCK TABLES `Docente` WRITE;
 /*!40000 ALTER TABLE `Docente` DISABLE KEYS */;
-INSERT INTO `Docente` VALUES (38951736,'Virginia','Bassi Soledad','J Hernandez 1469, Jose Maria Bosch','string','23-38951736-4','1995-07-26','2019-08-26',NULL,'2010-05-25','Mujer'),(40330241,'Fernando Gabriel','Castillo Sorani','Barrio San Carlos Manzana 61 Casa 18, Salta Capital','+5493874137551','20-40330241-5','1997-04-10','2019-08-26',NULL,'2010-05-25','Hombre');
+INSERT INTO `Docente` VALUES (222,'Jorge','ASD','asdasd','123123','641','2019-09-24','2019-09-14',NULL,'2019-09-17','M'),(2222,'Gon','Barrientos','Tu casa','5555','2222','1996-09-16','2019-09-06',NULL,'2019-09-18','M'),(6666,'Maximiliano','Esbiza','En su casa','+5493874123123','454','2019-08-28','2019-08-27',NULL,'2019-08-27','F'),(12038,'Jorgelina','Robertita Perez','asdasd','12312','12983','2019-09-24','2019-09-14',NULL,'2019-09-25','F'),(89787,'Jeremias Ruben','Toledo Medrano','brown 81','5','20393642948','2019-08-27','2019-08-27',NULL,'2019-08-28','M'),(92684,'Pedro','Sanchez','Su casaa','4556','13216','2019-09-17','2019-09-14',NULL,'2019-09-24','M'),(9999999,'Jeremías ','Toledo','asdasdw','123123','123123','2019-09-24','2019-09-14',NULL,'2019-09-24','M'),(19283746,'Jeremías','Toledo','his house','19283746','19283746','2019-09-24','2019-09-14',NULL,'2019-09-23','M'),(36987412,'JR','TM','brown 81','5758','23','1992-02-02','2019-08-28',NULL,'2019-08-28','M'),(38951736,'Virginia','Bassi Soledad','J Hernandez 1469, Jose Maria Bosch','string','23-38951736-4','1995-07-26','2019-08-26',NULL,'2010-05-25','Mujer'),(39364283,'Jeremias Ruben','Toledo Medrano','brown 81','342','20393642948','2019-08-27','2019-08-27',NULL,'2019-08-27','M'),(39364294,'Jeremias Ruben','Toledo Medrano','brown 81','4912680','20393642948','1996-02-24','2019-08-26',NULL,'2014-02-02','Hombre'),(40330241,'Fernando Gabriel','Castillo Sorani','Barrio San Carlos Manzana 61 Casa 18, Salta Capital','+5493874137551','20-40330241-5','1997-04-10','2019-08-26',NULL,'2010-05-25','Hombre'),(40330242,'Fernando Gabriel','Castillo Sorani','Barrio San Carlos Manzana 61 Casa 18, Salta Capital','+5493874137551','20-40330241-5','1997-04-10','2019-09-14',NULL,'2019-09-17','M'),(55555555,'Jeremias','TM','brown 81','5757\\','5787','2019-08-28','2019-08-28',NULL,'2019-08-21','M'),(666666666,'Jeremias','R','brown 81','342','56565','2019-08-19','2019-08-27',NULL,'2019-08-29','M');
 /*!40000 ALTER TABLE `Docente` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Empleado`
+--
+
+DROP TABLE IF EXISTS `Empleado`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Empleado` (
+  `idEmpleado` int(8) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) NOT NULL,
+  `apellido` varchar(45) NOT NULL,
+  `dni` int(8) NOT NULL,
+  `cuil` varchar(14) NOT NULL,
+  `direccion` varchar(200) NOT NULL,
+  `telefono` varchar(45) NOT NULL,
+  `fechaNacimiento` varchar(45) NOT NULL,
+  `fechaIngColegio` varchar(45) NOT NULL,
+  `fechaEgrColegio` varchar(45) DEFAULT NULL,
+  `sexo` varchar(45) NOT NULL,
+  PRIMARY KEY (`idEmpleado`),
+  UNIQUE KEY `idEmpleado_UNIQUE` (`idEmpleado`),
+  UNIQUE KEY `dni_UNIQUE` (`dni`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Empleado`
+--
+
+LOCK TABLES `Empleado` WRITE;
+/*!40000 ALTER TABLE `Empleado` DISABLE KEYS */;
+INSERT INTO `Empleado` VALUES (5,'Sandro','Limpia',1234,'1234','Su casaa','asd','2019-09-24','2019-09-14',NULL,'M');
+/*!40000 ALTER TABLE `Empleado` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -173,7 +209,7 @@ CREATE TABLE `FormacionDocente` (
   `DNIDocente` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idFormacionDocente`),
   KEY `DNIDocente_idx` (`DNIDocente`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -182,7 +218,39 @@ CREATE TABLE `FormacionDocente` (
 
 LOCK TABLES `FormacionDocente` WRITE;
 /*!40000 ALTER TABLE `FormacionDocente` DISABLE KEYS */;
+INSERT INTO `FormacionDocente` VALUES (1,'Título Secundario','w','1990-12-22T02:00:00.000Z','88'),(2,'Título Secundario','ll','2019-08-15','89787'),(3,'Título Secundario','kljkj','2019-08-28','36987412'),(4,NULL,'','',NULL),(5,NULL,'','',NULL),(6,'Título Secundario','asdasd','2019-08-28',NULL),(7,'Título Secundario','asdasd','2019-08-28','6666'),(8,'Título Secundario','jkljk','2019-08-28','89787'),(9,'Título Secundario','nnnnn','2019-08-20','55555555'),(10,'Título Terciario','Experto en casi todo','2019-09-18','2222'),(11,'Maestria','aasdasd','2019-08-27','2222'),(12,'Título Terciario','asdasd','2019-09-02','222'),(13,'Título Universitario','Ingeniero en Informática','2019-09-30','40330242'),(14,'Título Universitario','asdasd','2019-09-02','92684'),(15,'Título Terciario','asdasdasd','2019-09-02','12038'),(16,'Título Secundario','qweeee','2019-09-10','9999999'),(17,'Título Secundario','qweeee','2019-09-10','19283746');
 /*!40000 ALTER TABLE `FormacionDocente` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `FormacionEmpleado`
+--
+
+DROP TABLE IF EXISTS `FormacionEmpleado`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `FormacionEmpleado` (
+  `idFormacionEmpleado` int(11) NOT NULL AUTO_INCREMENT,
+  `tipo` varchar(45) NOT NULL,
+  `descripcion` varchar(100) NOT NULL,
+  `año` varchar(45) NOT NULL,
+  `DNIEmpleado` varchar(45) NOT NULL,
+  `fechaDesde` varchar(45) NOT NULL,
+  `fechaHasta` varchar(45) NOT NULL,
+  `descripcionExp` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idFormacionEmpleado`),
+  KEY `DNIEmpleado_idx` (`DNIEmpleado`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `FormacionEmpleado`
+--
+
+LOCK TABLES `FormacionEmpleado` WRITE;
+/*!40000 ALTER TABLE `FormacionEmpleado` DISABLE KEYS */;
+INSERT INTO `FormacionEmpleado` VALUES (1,'Título Terciario','sss','2019-09-02','1234','2019-09-24','2020-01-30','sssss');
+/*!40000 ALTER TABLE `FormacionEmpleado` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -226,7 +294,7 @@ CREATE TABLE `Materia` (
 
 LOCK TABLES `Materia` WRITE;
 /*!40000 ALTER TABLE `Materia` DISABLE KEYS */;
-INSERT INTO `Materia` VALUES (26,'Eticaffff','ETC'),(27,'Lenguajes 2','L2'),(28,'Lenguajes 3','L3'),(29,'Lenguajes 4','L4'),(38,'nery','nery'),(39,'maxi','maxi'),(40,'NahuelSO','SONA');
+INSERT INTO `Materia` VALUES (26,'Eticaffff','ETC'),(27,'Lenguajes 2','L2'),(28,'Lenguajes 3','L3'),(29,'Lenguajes 4','L4'),(38,'nery','nery'),(40,'NahuelSO','SONA');
 /*!40000 ALTER TABLE `Materia` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -244,9 +312,9 @@ CREATE TABLE `MateriaDocente` (
   PRIMARY KEY (`idMateriaDocente`),
   KEY `idMateria_idx` (`idMateria`),
   KEY `DNI_idx` (`IdDocente`),
-  CONSTRAINT `idDocente` FOREIGN KEY (`IdDocente`) REFERENCES `Docente` (`DNI`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `idMateria` FOREIGN KEY (`idMateria`) REFERENCES `Materia` (`idMateria`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  CONSTRAINT `idDocente` FOREIGN KEY (`IdDocente`) REFERENCES `Docente` (`DNI`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `idMateria` FOREIGN KEY (`idMateria`) REFERENCES `Materia` (`idMateria`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -255,8 +323,25 @@ CREATE TABLE `MateriaDocente` (
 
 LOCK TABLES `MateriaDocente` WRITE;
 /*!40000 ALTER TABLE `MateriaDocente` DISABLE KEYS */;
+INSERT INTO `MateriaDocente` VALUES (19,27,39364294),(20,28,39364294),(21,26,39364294),(22,26,39364294),(23,26,39364294),(24,26,39364294),(25,28,39364294),(26,40,39364294),(27,27,39364294),(29,26,6666),(30,27,6666),(31,40,6666),(32,38,6666),(33,27,89787),(34,26,89787),(35,38,2222);
 /*!40000 ALTER TABLE `MateriaDocente` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Temporary table structure for view `MateriasXDocente`
+--
+
+DROP TABLE IF EXISTS `MateriasXDocente`;
+/*!50001 DROP VIEW IF EXISTS `MateriasXDocente`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `MateriasXDocente` AS SELECT 
+ 1 AS `idMateria`,
+ 1 AS `nombre`,
+ 1 AS `codigo`,
+ 1 AS `idDocente`,
+ 1 AS `id`*/;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Table structure for table `Nivel`
@@ -423,6 +508,35 @@ LOCK TABLES `User` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `Usuario`
+--
+
+DROP TABLE IF EXISTS `Usuario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Usuario` (
+  `idUsuario` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` int(11) NOT NULL,
+  `contraseña` varchar(45) NOT NULL,
+  `correo` varchar(45) NOT NULL,
+  `tipo` varchar(45) NOT NULL,
+  PRIMARY KEY (`idUsuario`),
+  UNIQUE KEY `idUsuario_UNIQUE` (`idUsuario`),
+  UNIQUE KEY `nombre_UNIQUE` (`nombre`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Usuario`
+--
+
+LOCK TABLES `Usuario` WRITE;
+/*!40000 ALTER TABLE `Usuario` DISABLE KEYS */;
+INSERT INTO `Usuario` VALUES (1,19283746,'jtoledo746','jtoledo@hotmail.com','Docente');
+/*!40000 ALTER TABLE `Usuario` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Final view structure for view `ListaPlanesYMaterias`
 --
 
@@ -439,6 +553,24 @@ UNLOCK TABLES;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `MateriasXDocente`
+--
+
+/*!50001 DROP VIEW IF EXISTS `MateriasXDocente`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `MateriasXDocente` AS select `M`.`idMateria` AS `idMateria`,`M`.`nombre` AS `nombre`,`M`.`codigo` AS `codigo`,`D`.`DNI` AS `idDocente`,`MD`.`idMateriaDocente` AS `id` from ((`Materia` `M` join `MateriaDocente` `MD` on((`MD`.`idMateria` = `M`.`idMateria`))) join `Docente` `D` on((`D`.`DNI` = `MD`.`IdDocente`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -449,4 +581,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-08-26  6:42:02
+-- Dump completed on 2019-09-14  5:12:31
