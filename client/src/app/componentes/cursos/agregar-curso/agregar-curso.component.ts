@@ -30,6 +30,7 @@ export class AgregarCursoComponent implements OnInit {
     this.cursoService.agregarCurso(form.value).then(
       res => {
         console.log(res);
+        this.refresh();
       }
     )
   }  

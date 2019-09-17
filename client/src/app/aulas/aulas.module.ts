@@ -5,9 +5,10 @@ import {MaterialModule} from '../material/material.module';
 import {AulaService} from '../servicios/aula/aula.service';
 import {AulasComponent} from './componentes/aulas/aulas.component';
 import {EditarAulaComponent} from './componentes/editar-aula/editar-aula.component';
+import { AsignarCursosComponent } from './componentes/asignar-cursos/asignar-cursos.component';
 
 @NgModule({
-  declarations: [CrearAulaComponent, AulasComponent, EditarAulaComponent],
+  declarations: [CrearAulaComponent, AulasComponent, EditarAulaComponent, AsignarCursosComponent],
   imports: [
     CommonModule,
     MaterialModule

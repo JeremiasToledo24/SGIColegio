@@ -11,6 +11,9 @@
       "type": "number",
       "id": true
     },
+    "idAula": {
+      "type": "number"
+    },
     "nombre": {
       "type": "string",
       "required": true

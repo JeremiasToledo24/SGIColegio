@@ -45,7 +45,7 @@ export class EditarCursoComponent implements OnInit {
     })
   }
 
-  // Editar docente
+  // Editar curso
   editCurso(Curso: FormGroup) {
     console.log(Curso.value);
     this.cursoService.editarCurso(Curso.value)

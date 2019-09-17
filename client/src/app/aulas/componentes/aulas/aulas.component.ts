@@ -4,6 +4,9 @@ import {MatDialog} from '@angular/material/dialog';
 import {AulaService} from 'src/app/servicios/aula/aula.service';
 import {EditarAulaComponent} from '../editar-aula/editar-aula.component';
 import {ConfirmDialogComponent} from 'src/app/componentes/confirm-dialog/confirm-dialog.component';
+import { Router } from '@angular/router';
+import { aula } from 'src/app/componentes/cursos/lista-curso/lista-curso.component';
+import { MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-aulas',
@@ -14,20 +17,34 @@ export class AulasComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    private aulaService: AulaService
+    private aulaService: AulaService,
+    private router: Router
   ) {
   }
 
-  displayedColumns: string[] = ['nombre', 'capacidad', 'disponibilidad', 'operaciones'];
-  @Input() dataSource: any[];
+  displayedColumns: string[] = ['nombre', 'capacidad', 'disponibilidad','operaciones'];
+  @Input() dataSource;
 
   ngOnInit() {
     this.aulaService.getAula().subscribe(
       res => {
-        this.dataSource = res as any[];
+        let data: aula[];
+        data = res as aula[];
+        this.dataSource = new MatTableDataSource(data);
       }
     );
   }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  //metodo asignar curso
+  asignarCurso(aula){
+    this.router.navigate(['/asignarCursos', aula.idAula]);
+  }
+
+
 
   // Dialog para agregar aula
   openAddDialog(): void {

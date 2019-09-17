@@ -4,11 +4,7 @@ import {DocenteService} from 'src/app/servicios/docentes/docente.service';
 import {MAT_DIALOG_DATA, MatDialogRef, MatTableDataSource, MatPaginator} from '@angular/material';
 import {MateriaService} from 'src/app/servicios/materias/materia.service';
 
-export interface Docente {
-  dni;
-  nombre;
-  apellido;
-}
+
 
 export class Docente {
   dni;

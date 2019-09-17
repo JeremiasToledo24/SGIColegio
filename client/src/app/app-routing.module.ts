@@ -16,6 +16,7 @@ import {DocenteMateriaComponent} from './docentes/componentes/docente-materia/do
 import {AsignarMateriaComponent} from './docentes/componentes/docente-materia/asignar-materia/asignar-materia.component';
 import {LoginComponent} from './autenticacion/login/login.component';
 import { NuevoEmpleadoComponent } from './empleados/componentes/nuevo-empleado/nuevo-empleado.component';
+import { AsignarCursosComponent } from './aulas/componentes/asignar-cursos/asignar-cursos.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -32,6 +33,7 @@ const routes: Routes = [
   {path: 'Aulas', component: AulasComponent},
   {path: 'Login', component: LoginComponent},
   {path: 'nuevoEmpleado', component: NuevoEmpleadoComponent},
+  {path: 'asignarCursos/:id', component: AsignarCursosComponent},
   {path: '**', redirectTo: 'error'}
 ];
 
