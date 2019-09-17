@@ -4,10 +4,11 @@ import {ConfirmDialogComponent} from 'src/app/componentes/confirm-dialog/confirm
 import {FormacionComponent} from '../formacion/formacion.component';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
-import {MatSnackBar} from '@angular/material';
+import {MatSnackBar, MatTableDataSource} from '@angular/material';
 import {Router} from '@angular/router';
 import {EditarDocenteComponent} from '../editar-docente/editar-docente.component';
 import {EventEmitter} from 'events';
+import { Docente } from '../docente-materia/asignar-materia/asignar-materia.component';
 
 
 @Component({
@@ -30,12 +31,14 @@ export class ListaDocenteComponent implements OnInit {
   }
 
   displayedColumns: string[] = ['dni', 'apellido', 'nombre', 'operaciones'];
-  @Input() dataSource: any[];
+  @Input() dataSource;
 
   ngOnInit() {
     this.docenteService.listarDocentes().subscribe(
       res => {
-        this.dataSource = res as any[];
+        let data: Docente[];
+        data = res as Docente[];
+        this.dataSource = new MatTableDataSource(data);
       }
     );
   }
@@ -50,7 +53,7 @@ export class ListaDocenteComponent implements OnInit {
     );
   }
 
-  buscar() {
+ /*  buscar() {
     if (this.buscadorForm.valid) {
       this.docenteService.obtenerDocentesDNI(this.buscadorForm.value.data)
         .subscribe(
@@ -95,8 +98,11 @@ export class ListaDocenteComponent implements OnInit {
       this.snackBar.open('Debe ingresar un DNI, Nombre o Apellido del Docente que desea buscar', 'OK')
     }
 
-  }
+  } */
 
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
   /* metodo que redirige a la pagina del perfil del docente */
   verPerfil(dni) {
     this.router.navigate(['/perfilDocente', dni]);

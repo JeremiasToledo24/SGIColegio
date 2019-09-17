@@ -1,0 +1,198 @@
+<div class="row">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>aula seleccionada</mat-card-title>
+            <mat-card-subtitle>subtitulo</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 col-sm-7">
+
+                <!-- Columna ID, solo para obtener el dato para ser usado en la edición -->
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef>ID</th>
+                    <td mat-cell *matCellDef="let aula">{{aula.idAula}}</td>
+                </ng-container>
+
+                <!-- Columna Nombre -->
+                <ng-container matColumnDef="nombre">
+                    <th mat-header-cell *matHeaderCellDef>Nombre</th>
+                    <td mat-cell *matCellDef="let aula">{{aula.nombre}}</td>
+                </ng-container>
+
+                <!-- Columna Capacidad -->
+                <ng-container matColumnDef="capacidad">
+                    <th mat-header-cell *matHeaderCellDef>Capacidad</th>
+                    <td mat-cell *matCellDef="let aula">{{aula.capacidad}}</td>
+                </ng-container>
+
+                <!-- Columna Disponibilidad -->
+                <ng-container matColumnDef="disponibilidad">
+                    <th mat-header-cell *matHeaderCellDef>Disponibilidad</th>
+                    <td mat-cell *matCellDef="let aula">{{aula.disponibilidad}}</td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </mat-card-content>
+
+    </mat-card>
+
+
+
+</div>
+
+
+
+
+<div class="row">
+    <div class="col">
+
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Cursos disponibles a asignar</mat-card-title>
+                <mat-card-subtitle>subtitulo</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-form-field>
+                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                </mat-form-field>
+                <table mat-table [dataSource]="dataSourceC" class="mat-elevation-z8 col-sm-8">
+
+                    <!-- Columna ID, solo para llevar el dato -->
+                    <ng-container matColumnDef="idCurso">
+                        <th mat-header-cell *matHeaderCellDef>ID</th>
+                        <td mat-cell *matCellDef="let curso">{{curso.idCurso}}</td>
+                    </ng-container>
+
+                    <!-- Columna Nombre -->
+                    <ng-container matColumnDef="nombre">
+                        <th mat-header-cell *matHeaderCellDef>Nombre</th>
+                        <td mat-cell *matCellDef="let curso">{{curso.nombre}}</td>
+                    </ng-container>
+
+                    <!-- Columna Division -->
+                    <ng-container matColumnDef="division">
+                        <th mat-header-cell *matHeaderCellDef>Division</th>
+                        <td mat-cell *matCellDef="let curso">{{curso.division}}</td>
+                    </ng-container>
+
+                    <!-- Columna Nivel -->
+                    <ng-container matColumnDef="nivel">
+                        <th mat-header-cell *matHeaderCellDef>Nivel</th>
+                        <td mat-cell *matCellDef="let curso">
+                            <div *ngIf="curso.idNivel==1">
+                        <td mat-cell>Primaria</td>
+    </div>
+
+    <div *ngIf="curso.idNivel==2">
+        <td mat-cell>Secundaria</td>
+    </div>
+    </td>
+    </ng-container>
+
+    <!-- Columna operaciones -->
+    <ng-container matColumnDef="operaciones">
+        <th mat-header-cell *matHeaderCellDef style="text-align: center">Operaciones</th>
+        <td mat-cell *matCellDef="let curso" style="text-align: center">
+
+            <!-- Botón vincular -->
+            <button mat-raised-button style="background-color: dodgerblue" (click)="vincular(curso)">
+                <mat-icon>add_circle</mat-icon>
+            </button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsC; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumnsC;"></tr>
+    </table>
+    </mat-card-content>
+
+    </mat-card>
+
+
+
+</div>
+<div class="col">
+
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Cursos asignados al aula seleccionada</mat-card-title>
+            <mat-card-subtitle>subtitulo</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <table mat-table [dataSource]="dataSourceA" class="mat-elevation-z8 col-sm-8">
+
+                <!-- Columna ID, solo para llevar el dato -->
+                <ng-container matColumnDef="idCurso">
+                    <th mat-header-cell *matHeaderCellDef>ID</th>
+                    <td mat-cell *matCellDef="let curso">{{curso.idCurso}}</td>
+                </ng-container>
+
+                <!-- Columna Nombre -->
+                <ng-container matColumnDef="nombre">
+                    <th mat-header-cell *matHeaderCellDef>Nombre</th>
+                    <td mat-cell *matCellDef="let curso">{{curso.nombre}}</td>
+                </ng-container>
+
+                <!-- Columna Division -->
+                <ng-container matColumnDef="division">
+                    <th mat-header-cell *matHeaderCellDef>Division</th>
+                    <td mat-cell *matCellDef="let curso">{{curso.division}}</td>
+                </ng-container>
+
+                <!-- Columna Nivel -->
+                <ng-container matColumnDef="nivel">
+                    <th mat-header-cell *matHeaderCellDef>Nivel</th>
+                    <td mat-cell *matCellDef="let curso">
+                        <div *ngIf="curso.idNivel==1">
+                    <td mat-cell>Primaria</td>
+</div>
+
+<div *ngIf="curso.idNivel==2">
+    <td mat-cell>Secundaria</td>
+</div>
+</td>
+</ng-container>
+
+<!-- Columna operaciones -->
+<ng-container matColumnDef="operaciones">
+    <th mat-header-cell *matHeaderCellDef style="text-align: center">Operaciones</th>
+    <td mat-cell *matCellDef="let curso" style="text-align: center">
+
+        <!-- Botón eliminar -->
+        <button mat-raised-button color="warn" (click)="desvincular(curso)">
+            <mat-icon>delete</mat-icon>Desvincular
+        </button>
+    </td>
+</ng-container>
+
+<tr mat-header-row *matHeaderRowDef="displayedColumnsA; sticky: true"></tr>
+<tr mat-row *matRowDef="let row; columns: displayedColumnsA;"></tr>
+</table>
+</mat-card-content>
+</mat-card>
+
+
+
+</div>
+</div>
+
+
+
+
+
+
+<div class="row" style="align-content: flex-end">
+    <mat-card>
+
+        <mat-card-actions>
+          
+            <button (click)="cancelar()" mat-raised-button>
+                <mat-icon>arrow_back</mat-icon>Volver
+            </button> </mat-card-actions>
+    </mat-card>
+
+
+
+</div>

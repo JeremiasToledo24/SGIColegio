@@ -2,13 +2,15 @@ import {Injectable} from '@angular/core';
 import {Observable, throwError} from 'rxjs';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {catchError} from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AulaService {
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private snackBar: MatSnackBar
   ) {
   }
 
@@ -26,6 +28,15 @@ export class AulaService {
     );
   }
 
+  
+
+  // Obtener aula por id
+  getAulaByID(id): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/Aulas/${id}`).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   // Editar docente
   editarAula(Aula: any): Observable<any> {
     return this.http.put('http://localhost:3000/api/Aulas/', Aula).pipe(
@@ -38,6 +49,23 @@ export class AulaService {
     return this.http.delete(`http://localhost:3000/api/Aulas/${ID}`).pipe(
       catchError(this.handleError)
     )
+  }
+
+  //trae todos los cursos de un aula
+  getCursos(idAula): Observable<any>{
+    return this.http.get(`http://localhost:3000/api/Cursos?filter=%7B%22where%22%3A%7B%22idAula%22%3A%22${idAula}%22%7D%7D`)
+    .pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  
+  openSnackBar(m: string, a: string) {
+    this.snackBar.open(
+      m, a, {
+        duration: 4000
+      }
+    );
   }
 
   // Manejo de errores segun la respuesta HTTP y mostrar en consola un resumen del error

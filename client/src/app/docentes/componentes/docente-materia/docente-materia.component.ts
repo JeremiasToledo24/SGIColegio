@@ -23,15 +23,6 @@ export interface Docente {
 })
 /* Clase componente */
 export class DocenteMateriaComponent implements OnInit {
-  /* displayedColumnsD: string[] = ['label', 'data'];
-  buscadorForm = new FormGroup({
-    data: new FormControl('', Validators.required)
-  });
-  displayedColumns: string[] = ['dni', 'apellido', 'nombre', 'operaciones'];
-  displayedColumnsM: string[] = ['codigo', 'nombre', 'operaciones'];
-  @Input() dataSource: any[];
-  dataSourceDocente: any[]; */
-
   constructor(private docenteService: DocenteService,
               public dialog: MatDialog,
               private snackBar: MatSnackBar,
