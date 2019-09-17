@@ -1,8 +1,10 @@
+CREATE DATABASE  IF NOT EXISTS `SGIColegio` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `SGIColegio`;
 -- MySQL dump 10.13  Distrib 5.7.27, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: SGIColegio
+-- Host: localhost    Database: SGIColegio
 -- ------------------------------------------------------
--- Server version	5.7.27-0ubuntu0.19.04.1
+-- Server version	5.7.27-0ubuntu0.18.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -143,7 +145,6 @@ CREATE TABLE `Docente` (
   `cuil` varchar(14) NOT NULL,
   `fechaNacimiento` varchar(45) NOT NULL,
   `fechaIngColegio` varchar(45) NOT NULL,
-  `fechaEgrColegio` varchar(45) DEFAULT NULL,
   `fechaIngDocencia` varchar(45) NOT NULL,
   `sexo` varchar(45) NOT NULL,
   PRIMARY KEY (`DNI`)
@@ -156,8 +157,59 @@ CREATE TABLE `Docente` (
 
 LOCK TABLES `Docente` WRITE;
 /*!40000 ALTER TABLE `Docente` DISABLE KEYS */;
-INSERT INTO `Docente` VALUES (222,'Jorge','ASD','asdasd','123123','641','2019-09-24','2019-09-14',NULL,'2019-09-17','M'),(2222,'Gon','Barrientos','Tu casa','5555','2222','1996-09-16','2019-09-06',NULL,'2019-09-18','M'),(6666,'Maximiliano','Esbiza','En su casa','+5493874123123','454','2019-08-28','2019-08-27',NULL,'2019-08-27','F'),(12038,'Jorgelina','Robertita Perez','asdasd','12312','12983','2019-09-24','2019-09-14',NULL,'2019-09-25','F'),(89787,'Jeremias Ruben','Toledo Medrano','brown 81','5','20393642948','2019-08-27','2019-08-27',NULL,'2019-08-28','M'),(92684,'Pedro','Sanchez','Su casaa','4556','13216','2019-09-17','2019-09-14',NULL,'2019-09-24','M'),(9999999,'Jeremías ','Toledo','asdasdw','123123','123123','2019-09-24','2019-09-14',NULL,'2019-09-24','M'),(19283746,'Jeremías','Toledo','his house','19283746','19283746','2019-09-24','2019-09-14',NULL,'2019-09-23','M'),(36987412,'JR','TM','brown 81','5758','23','1992-02-02','2019-08-28',NULL,'2019-08-28','M'),(38951736,'Virginia','Bassi Soledad','J Hernandez 1469, Jose Maria Bosch','string','23-38951736-4','1995-07-26','2019-08-26',NULL,'2010-05-25','Mujer'),(39364283,'Jeremias Ruben','Toledo Medrano','brown 81','342','20393642948','2019-08-27','2019-08-27',NULL,'2019-08-27','M'),(39364294,'Jeremias Ruben','Toledo Medrano','brown 81','4912680','20393642948','1996-02-24','2019-08-26',NULL,'2014-02-02','Hombre'),(40330241,'Fernando Gabriel','Castillo Sorani','Barrio San Carlos Manzana 61 Casa 18, Salta Capital','+5493874137551','20-40330241-5','1997-04-10','2019-08-26',NULL,'2010-05-25','Hombre'),(40330242,'Fernando Gabriel','Castillo Sorani','Barrio San Carlos Manzana 61 Casa 18, Salta Capital','+5493874137551','20-40330241-5','1997-04-10','2019-09-14',NULL,'2019-09-17','M'),(55555555,'Jeremias','TM','brown 81','5757\\','5787','2019-08-28','2019-08-28',NULL,'2019-08-21','M'),(666666666,'Jeremias','R','brown 81','342','56565','2019-08-19','2019-08-27',NULL,'2019-08-29','M');
+INSERT INTO `Docente` VALUES (2222,'Gon','Barrientos','Tu casa','5555','2222','1996-09-16','2019-09-06','2019-09-18','M'),(6666,'Maximiliano','Esbiza','En su casa','+5493874123123','454','2019-08-28','2019-08-27','2019-08-27','F'),(12038,'Jorgelina','Robertita Perez','asdasd','12312','12983','2019-09-24','2019-09-14','2019-09-25','F'),(89787,'Jeremias Ruben','Toledo Medrano','brown 81','5','20393642948','2019-08-27','2019-08-27','2019-08-28','M'),(92684,'Pedro','Sanchez','Su casaa','4556','13216','2019-09-17','2019-09-14','2019-09-24','M'),(9999999,'Jeremías ','Toledo','asdasdw','123123','123123','2019-09-24','2019-09-14','2019-09-24','M'),(19283746,'Jeremías','Toledo','his house','19283746','19283746','2019-09-24','2019-09-14','2019-09-23','M'),(38951736,'Virginia','Bassi Soledad','J Hernandez 1469, Jose Maria Bosch','string','23-38951736-4','1995-07-26','2019-08-26','2010-05-25','Mujer'),(39364283,'Jeremias Ruben','Toledo Medrano','brown 81','342','20393642948','2019-08-27','2019-08-27','2019-08-27','M'),(39364294,'Jeremias Ruben','Toledo Medrano','brown 81','4912680','20393642948','1996-02-24','2019-08-26','2014-02-02','Hombre'),(40330241,'Fernando Gabriel','Castillo Sorani','Barrio San Carlos Manzana 61 Casa 18, Salta Capital','+5493874137551','20-40330241-5','1997-04-10','2019-08-26','2010-05-25','Hombre'),(40330242,'Fernando Gabriel','Castillo Sorani','Barrio San Carlos Manzana 61 Casa 18, Salta Capital','+5493874137551','20-40330241-5','1997-04-10','2019-09-14','2019-09-17','M'),(55555555,'Jeremias','TM','brown 81','5757\\','5787','2019-08-28','2019-08-28','2019-08-21','M'),(666666666,'Jeremias','R','brown 81','342','56565','2019-08-19','2019-08-27','2019-08-29','M');
 /*!40000 ALTER TABLE `Docente` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER tr_bajaDocente AFTER DELETE ON Docente FOR EACH ROW
+BEGIN
+	INSERT INTO `Docente-Historico` VALUES(OLD.DNI,OLD.nombre,OLD.apellido,OLD.direccion,OLD.telefono,OLD.cuil,OLD.fechaNacimiento,OLD.fechaIngColegio,CURDATE(),OLD.fechaIngDocencia,OLD.sexo);
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+
+--
+-- Table structure for table `Docente-Historico`
+--
+
+DROP TABLE IF EXISTS `Docente-Historico`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Docente-Historico` (
+  `DNI` bigint(11) NOT NULL,
+  `nombre` varchar(45) NOT NULL,
+  `apellido` varchar(200) NOT NULL,
+  `direccion` varchar(45) NOT NULL,
+  `telefono` varchar(45) NOT NULL,
+  `cuil` varchar(45) NOT NULL,
+  `fechaNacimiento` varchar(45) NOT NULL,
+  `fechaIngColegio` varchar(45) NOT NULL,
+  `fechaEgrColegio` varchar(45) NOT NULL,
+  `fechaIngDocencia` varchar(45) NOT NULL,
+  `sexo` varchar(45) NOT NULL,
+  PRIMARY KEY (`DNI`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Docente-Historico`
+--
+
+LOCK TABLES `Docente-Historico` WRITE;
+/*!40000 ALTER TABLE `Docente-Historico` DISABLE KEYS */;
+INSERT INTO `Docente-Historico` VALUES (222,'Jorge','ASD','asdasd','123123','641','2019-09-24','2019-09-14','2019-09-17','2019-09-17','M'),(36987412,'JR','TM','brown 81','5758','23','1992-02-02','2019-08-28','2019-09-17','2019-08-28','M');
+/*!40000 ALTER TABLE `Docente-Historico` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -177,12 +229,12 @@ CREATE TABLE `Empleado` (
   `telefono` varchar(45) NOT NULL,
   `fechaNacimiento` varchar(45) NOT NULL,
   `fechaIngColegio` varchar(45) NOT NULL,
-  `fechaEgrColegio` varchar(45) DEFAULT NULL,
   `sexo` varchar(45) NOT NULL,
+  `tipoEmpleado` varchar(45) NOT NULL,
   PRIMARY KEY (`idEmpleado`),
   UNIQUE KEY `idEmpleado_UNIQUE` (`idEmpleado`),
   UNIQUE KEY `dni_UNIQUE` (`dni`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -191,8 +243,43 @@ CREATE TABLE `Empleado` (
 
 LOCK TABLES `Empleado` WRITE;
 /*!40000 ALTER TABLE `Empleado` DISABLE KEYS */;
-INSERT INTO `Empleado` VALUES (5,'Sandro','Limpia',1234,'1234','Su casaa','asd','2019-09-24','2019-09-14',NULL,'M');
+INSERT INTO `Empleado` VALUES (5,'Sandro','Limpia',1234,'1234','Su casaa','asd','2019-09-24','2019-09-14','M',''),(6,'Gonzalo','Barrientos',39123123,'2039123123','Su casaa','+5493874137551','1996-09-16','2019-09-16','M','Administración'),(7,'Gabriel','Sorani',1234931,'201729340','Su casaa','9123089123','1993-02-20','2019-09-16','M','Administración'),(8,'test','Castillo Sorani',1223441,'67844','Su casaa','111','2019-09-17','2019-09-16','F','Administración'),(9,'Gabriel','Barrientos',12344,'5331','12344','1234','2019-09-03','2019-09-16','F','Ordenanza');
 /*!40000 ALTER TABLE `Empleado` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Empleado-Historico`
+--
+
+DROP TABLE IF EXISTS `Empleado-Historico`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Empleado-Historico` (
+  `idEmpleado` int(8) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) NOT NULL,
+  `apellido` varchar(45) NOT NULL,
+  `dni` int(8) NOT NULL,
+  `cuil` varchar(14) NOT NULL,
+  `direccion` varchar(200) NOT NULL,
+  `telefono` varchar(45) NOT NULL,
+  `fechaNacimiento` varchar(45) NOT NULL,
+  `fechaIngColegio` varchar(45) NOT NULL,
+  `fechaEgrColegio` varchar(45) NOT NULL,
+  `sexo` varchar(45) NOT NULL,
+  `tipoEmpleado` varchar(45) NOT NULL,
+  PRIMARY KEY (`idEmpleado`),
+  UNIQUE KEY `idEmpleado_UNIQUE` (`idEmpleado`),
+  UNIQUE KEY `dni_UNIQUE` (`dni`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Empleado-Historico`
+--
+
+LOCK TABLES `Empleado-Historico` WRITE;
+/*!40000 ALTER TABLE `Empleado-Historico` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Empleado-Historico` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -524,7 +611,7 @@ CREATE TABLE `Usuario` (
   PRIMARY KEY (`idUsuario`),
   UNIQUE KEY `idUsuario_UNIQUE` (`idUsuario`),
   UNIQUE KEY `nombre_UNIQUE` (`nombre`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -533,9 +620,17 @@ CREATE TABLE `Usuario` (
 
 LOCK TABLES `Usuario` WRITE;
 /*!40000 ALTER TABLE `Usuario` DISABLE KEYS */;
-INSERT INTO `Usuario` VALUES (1,19283746,'jtoledo746','jtoledo@hotmail.com','Docente');
+INSERT INTO `Usuario` VALUES (1,19283746,'jtoledo746','jtoledo@hotmail.com','Docente'),(2,12344,'gbarrientos344','asd@hotmail.com','Ordenanza');
 /*!40000 ALTER TABLE `Usuario` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping events for database 'SGIColegio'
+--
+
+--
+-- Dumping routines for database 'SGIColegio'
+--
 
 --
 -- Final view structure for view `ListaPlanesYMaterias`
@@ -582,4 +677,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-09-17 16:34:40
+-- Dump completed on 2019-09-17 18:12:06
