@@ -65,6 +65,13 @@ export class DocenteService {
     )
   }
 
+  // Obtener docentes dados de baja¿
+  getDocenteHistorico(): Observable<any> {
+    return this.http.get('http://localhost:3000/api/Docentes-Historicos').pipe(
+      catchError(this.handleError)
+    )
+  }
+
   // Eliminar un docente
   eliminarDocente(DNI: number): Observable<any> {
     return this.http.delete(`http://localhost:3000/api/Docentes/${DNI}`).pipe(

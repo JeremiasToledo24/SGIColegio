@@ -2,7 +2,7 @@
   <mat-card class="col-md-10 backGroundCard">
     <mat-card-title style="text-align: center">Lista de docentes registrados en el sistema</mat-card-title>
     <mat-card-subtitle style="margin-left: 2%">Haga clic en el botón
-      <button mat-raised-button style="background-color: #B2FF59; display: inline">
+      <button mat-raised-button style="background-color: rgb(114, 218, 29); display: inline">
         <mat-icon>add_circle</mat-icon>
         Formación docente
       </button>
@@ -10,11 +10,22 @@
     </mat-card-subtitle>
     <mat-card-content>
 
-      
+      <div class="row">
+        <!-- Buscador -->
+          <div class="col-sm-6">
+              <mat-form-field class="col-sm-12">
+                  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar Docente">
+              </mat-form-field>
+          </div>
 
-      <mat-form-field>
-          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar Docente">
-        </mat-form-field>
+        <!-- Docentes historico-->
+        <div class="col-sm-6">Ver docentes dados de baja:
+          <button mat-raised-button color="primary" style="display: inline" (click)="listaHistoricos()">
+            <mat-icon>list</mat-icon>
+          </button>
+        </div>
+      </div>
+      
 
       <!-- Tabla de docentes -->
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -53,7 +64,7 @@
             </button>
 
             <!-- Botón agregar formación docente -->
-            <button (click)="agregarFormacion(docente)" mat-raised-button style="background-color: #B2FF59">
+            <button (click)="agregarFormacion(docente)" mat-raised-button style="background-color: rgb(114, 218, 29)">
               <mat-icon>add_circle</mat-icon>
               Formación docente
             </button>

@@ -1,0 +1,94 @@
+<h3 mat-dialog-title class="rounded">Editar información del empleado</h3>
+
+
+<mat-dialog-content>
+  <form #empleadoForm="ngForm" [formGroup]="firstFormGroup">
+    <!-- Datos personales -->
+    <mat-card id="datosPersonales" style="background-color: #E8EAF6; margin-bottom: 1rem">
+      <mat-card-title style="font-size: 100%">Datos personales</mat-card-title>
+      <!-- Nombre -->
+      <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-6">
+        <mat-label>Nombre</mat-label>
+        <input formControlName="nombre" type="text" required matInput>
+      </mat-form-field>
+
+      <!-- Apellido -->
+      <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-6">
+        <mat-label>Apellido</mat-label>
+        <input formControlName="apellido" type="text" required matInput>
+      </mat-form-field>
+
+      <!-- Sexo -->
+      <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
+        <mat-label>Sexo</mat-label>
+        <mat-select formControlName="sexo" required>
+          <mat-option value="M">Masculino</mat-option>
+          <mat-option value="F">Femenino</mat-option>
+          <mat-option value="O">Otro</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- DNI -->
+      <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
+        <mat-label>DNI</mat-label>
+        <input formControlName="dni" type="number" required matInput>
+      </mat-form-field>
+
+      <!-- CUIL -->
+      <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
+        <mat-label>CUIL</mat-label>
+        <input type="string" formControlName="cuil" required matInput>
+      </mat-form-field>
+
+      <!-- Fecha de nacimiento -->
+      <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
+        <mat-label>Fecha de nacimiento</mat-label>
+        <input type="date" formControlName="fechaNacimiento" required matInput>
+      </mat-form-field>
+
+      <!-- Telefono -->
+      <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
+        <mat-label>Telefono</mat-label>
+        <input formControlName="telefono" type="text" required matInput>
+      </mat-form-field>
+
+      <!-- Tipo empleado -->
+      <br>
+      <mat-label>Sector de trabajo</mat-label>
+      <br>
+      <mat-form-field class="col-sm-4" appearance="outline">
+        <mat-select formControlName="tipoEmpleado" matInput required>
+          <mat-option *ngFor="let tipo of tipoEmpleado" [value]="tipo.nombre">
+            {{tipo.nombre}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+    </mat-card>
+
+    <!-- Datos Domicilio -->
+    <mat-card id="domicilio" style="background-color: #E8EAF6;">
+      <mat-card-title style="font-size: 100%">Otros datos</mat-card-title>
+      <!-- Dirección -->
+      <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-12">
+        <mat-label>Direccion</mat-label>
+        <input formControlName="direccion" type="string" required matInput>
+      </mat-form-field>
+
+      <!-- Fecha de ingreso al colegio -->
+      <mat-form-field appearance="outline" hideRequiredMarker class="col-sm-4">
+        <mat-label>Fecha de registro</mat-label>
+        <input type="date" formControlName="fechaIngColegio" required matInput readonly>
+      </mat-form-field>
+    </mat-card>
+
+    <mat-dialog-actions>
+      <!-- Cancel -->
+      <button type="reset" mat-raised-button color="warn" (click)="close()">Cancelar</button>
+
+      <!-- Submit -->
+      <button type="submit" mat-raised-button color="primary" (click)="editEmpleado(empleadoForm)">Confirmar</button>
+
+    </mat-dialog-actions>
+  </form>
+</mat-dialog-content>

@@ -103,11 +103,16 @@ export class ListaDocenteComponent implements OnInit {
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-  /* metodo que redirige a la pagina del perfil del docente */
+
+  // Redirigir al perfil del docente
   verPerfil(dni) {
     this.router.navigate(['/perfilDocente', dni]);
   }
 
+  // Redirigir a docentes historicos
+  listaHistoricos() {
+    this.router.navigate(['/listaDocentesHistoricos'])
+  }
 
   // Borrar docente
   borrarDocente(Docente: any) {
@@ -145,7 +150,8 @@ export class ListaDocenteComponent implements OnInit {
       data: {
         nombre: Docente.nombre,
         apellido: Docente.apellido,
-        dni: Docente.dni
+        dni: Docente.dni,
+        fechaIngDocencia: Docente.fechaIngDocencia
       }
     });
     dialogRef.afterClosed().subscribe(result => {

@@ -19,13 +19,48 @@ export class EmpleadoService {
     );
   }
 
-  //agregar formacion/experiencia del empleado
+  // Agregar formacion/experiencia del empleado
   agregarFormacionEmpleado(Formacion: any): Observable<any> {
     return this.http.post('http://localhost:3000/api/FormacionEmpleados', Formacion).pipe(
       catchError(this.handleError)
     );
   }
 
+  // Eliminar un empleado
+  deleteEmpleado(DNI: number): Observable<any> {
+    return this.http.delete(`http://localhost:3000/api/Empleados/${DNI}`).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  // Editar empleado
+  editarEmpleado(Empleado: any): Observable<any> {
+    return this.http.put('http://localhost:3000/api/Empleados/', Empleado).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  // Actualizar fechaEgrColegio del empleado
+  addBajaEmpleado(Empleado: any): Observable<any> {
+    return this.http.put('http://localhost:3000/api/Empleados', Empleado).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  // Obtener empleados
+  getEmpleados(): Observable<any> {
+    return this.http.get('http://localhost:3000/api/Empleados').pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  // Obtener empleados dados de baja
+  getEmpleadosHistorico(): Observable<any> {
+    return this.http.get('http://localhost:3000/api/Empleados-Historicos').pipe(
+      catchError(this.handleError)
+    )
+  }
+  
   // Manejo de errores segun la respuesta HTTP y mostrar en consola un resumen del error
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {

@@ -90,6 +90,14 @@
   "FormacionEmpleado": {
     "dataSource": "db",
     "public": true
+  },
+  "Empleado-Historico": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Docente-Historico": {
+    "dataSource": "db",
+    "public": true
   }
   
 }

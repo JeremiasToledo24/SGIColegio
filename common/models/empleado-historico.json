@@ -1,6 +1,6 @@
 {
-    "name": "Empleado",
-    "plural": "Empleados",
+    "name": "Empleado-Historico",
+    "plural": "Empleados-Historicos",
     "base": "PersistedModel",
     "idInjection": true,
     "options": {
@@ -41,6 +41,10 @@
         "required": true
       },
       "fechaIngColegio": {
+        "type": "string",
+        "required": true
+      },
+      "fechaEgrColegio": {
         "type": "string",
         "required": true
       },

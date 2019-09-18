@@ -47,9 +47,6 @@
     "fechaIngColegio": {
       "type": "string",
       "required": true
-    },
-    "fechaEgrColegio": {
-      "type": "string"
     }
   },
   "validations": [],

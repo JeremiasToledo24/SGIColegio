@@ -4,6 +4,7 @@
   <p *ngIf="tipoDoc">¿Eliminar el docente {{data.apellido}}, {{data.nombre}}?</p>
   <p *ngIf="tipoAula">¿Eliminar el aula {{data.nombre}}</p>
   <p *ngIf="tipoCurso">¿Eliminar el curso {{data.nombre}} {{data.division}} de {{data.nivel}} ?</p>
+  <p *ngIf="tipoEmp">¿Eliminar el empleado {{data.apellido}}, {{data.nombre}}?</p>
 </div>
 <mat-dialog-actions>
   <button mat-raised-button (click)="onNoClick()" color="warn">Cancelar</button>
@@ -12,4 +13,5 @@
   <button mat-raised-button *ngIf="tipoDoc" (click)="eliminarDocente(data)" color="primary">Confirmar</button>
   <button mat-raised-button *ngIf="tipoAula" (click)="eliminarAula(data)" color="primary">Confirmar</button>
   <button mat-raised-button *ngIf="tipoCurso" (click)="eliminarCurso(data)" color="primary">Confirmar</button>
+  <button mat-raised-button *ngIf="tipoEmp" (click)="eliminarEmpleado(data)" color="primary">Confirmar</button>
 </mat-dialog-actions>

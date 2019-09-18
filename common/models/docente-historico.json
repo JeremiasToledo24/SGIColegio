@@ -1,6 +1,6 @@
 {
-    "name": "Empleado",
-    "plural": "Empleados",
+    "name": "Docente-Historico",
+    "plural": "Docentes-Historicos",
     "base": "PersistedModel",
     "idInjection": true,
     "options": {
@@ -44,9 +44,13 @@
         "type": "string",
         "required": true
       },
-      "tipoEmpleado": {
+      "fechaIngDocencia": {
         "type": "string",
-        "requierd": true
+        "required": true
+      },
+      "fechaEgrColegio": {
+        "type": "string",
+        "required": true
       }
     },
     "validations": [],

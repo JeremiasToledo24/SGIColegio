@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { FormBuilder, NgForm, FormGroup, Validators } from '@angular/forms';
 import { EmpleadoService } from 'src/app/servicios/empleados/empleado.service';
+import { AutenticacionService } from 'src/app/servicios/autenticacion/autenticacion.service'
 
+// Clase tipos
 class Tipos {
   nombre: string;
 }
@@ -11,7 +13,7 @@ class Tipos {
   selector: 'app-nuevo-empleado',
   templateUrl: './nuevo-empleado.component.html',
   styleUrls: ['./nuevo-empleado.component.css'],
-  providers: [EmpleadoService]
+  providers: [EmpleadoService, AutenticacionService]
 })
 export class NuevoEmpleadoComponent implements OnInit {
 
@@ -33,6 +35,13 @@ export class NuevoEmpleadoComponent implements OnInit {
   fechaNacimiento: string;
   fechaIngColegio: string;
 
+  // Tipo de empleado
+  tipoEmpleado: Tipos[] = [
+    {nombre: 'Administración'},
+    {nombre: 'Ordenanza'},
+    {nombre: 'Cocina'}
+  ]
+
   // Posiciones del empleado
   tipos: Tipos[] = [
     { nombre: 'Título Secundario' },
@@ -48,7 +57,8 @@ export class NuevoEmpleadoComponent implements OnInit {
   constructor(
     private snackBar: MatSnackBar,
     private _formBuilder: FormBuilder,
-    private empleadoService: EmpleadoService
+    private empleadoService: EmpleadoService,
+    private authService: AutenticacionService
   ) { }
 
   ngOnInit() {
@@ -70,7 +80,8 @@ export class NuevoEmpleadoComponent implements OnInit {
       telefono: ['', Validators.required],
       direccion: ['', Validators.required],
       fechaIngColegio: ['', Validators.required],
-      correo: ['', Validators.required]
+      correo: ['', Validators.required],
+      tipoEmpleado: ['', Validators.required]
     });
     this.secondFormGroup = this._formBuilder.group({
       tipo: ['', Validators.required],
@@ -101,6 +112,20 @@ export class NuevoEmpleadoComponent implements OnInit {
               'fechaHasta': experienciasForm.value.fechaHasta,
               'descripcionExp': experienciasForm.value.descripcionExp
             }).subscribe(
+              res => {
+                console.log(res)
+              }
+            )
+
+            // Agregar usuario y contraseña del empleado
+            this.authService.nuevoUsuario(
+              {
+                'nombre': empleadoForm.value.dni,
+                'contraseña': empleadoForm.value.nombre.charAt(0).toLowerCase() + empleadoForm.value.apellido.toLowerCase().split(' ')[0] + empleadoForm.value.dni.toString().slice(-3),
+                'correo': empleadoForm.value.correo,
+                'tipo': empleadoForm.value.tipoEmpleado
+              }
+            ).subscribe(
               res => {
                 console.log(res)
               }

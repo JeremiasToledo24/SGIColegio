@@ -1,0 +1,59 @@
+<div class="row justify-content-md-center">
+  <mat-card class="col-md-10 backGroundCard">
+    <mat-card-title style="text-align: center">Lista de docentes dados de baja</mat-card-title>
+    <mat-card-content>
+
+      <!-- Buscador -->
+      <div class="row">
+        <div class="col-sm-6">
+          <mat-form-field class="col-sm-12">
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar Docente">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- Tabla de docentes -->
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!-- Columna DNI -->
+        <ng-container matColumnDef="dni">
+          <th mat-header-cell *matHeaderCellDef>DNI</th>
+          <td mat-cell *matCellDef="let docente">{{docente.dni}}</td>
+        </ng-container>
+
+        <!-- Columna Apellido -->
+        <ng-container matColumnDef="apellido">
+          <th mat-header-cell *matHeaderCellDef>Apellido</th>
+          <td mat-cell *matCellDef="let docente">{{docente.apellido}}</td>
+        </ng-container>
+
+        <!-- Columna Nombre -->
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef>Nombre</th>
+          <td mat-cell *matCellDef="let docente">{{docente.nombre}}</td>
+        </ng-container>
+
+        <!-- Columna Nombre -->
+        <ng-container matColumnDef="fechaEgrColegio">
+          <th mat-header-cell *matHeaderCellDef>Fecha de baja</th>
+          <td mat-cell *matCellDef="let docente">{{docente.fechaEgrColegio}}</td>
+        </ng-container>
+
+        <!-- Columna operaciones -->
+        <ng-container matColumnDef="operaciones">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let docente">
+            <!-- Botón ver perfil -->
+            <button (click)="verPerfil(docente.dni)" mat-raised-button style="background-color: rosybrown">
+              <mat-icon>account_circle</mat-icon>
+              Perfil
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>

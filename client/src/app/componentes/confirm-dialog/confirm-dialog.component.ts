@@ -1,10 +1,11 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import {MateriaService} from 'src/app/servicios/materias/materia.service';
-import {PlanEstudioService} from 'src/app/servicios/planEstudio/plan-estudio.service';
-import {DocenteService} from 'src/app/servicios/docentes/docente.service';
-import {AulaService} from 'src/app/servicios/aula/aula.service';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MateriaService } from 'src/app/servicios/materias/materia.service';
+import { PlanEstudioService } from 'src/app/servicios/planEstudio/plan-estudio.service';
+import { DocenteService } from 'src/app/servicios/docentes/docente.service';
+import { AulaService } from 'src/app/servicios/aula/aula.service';
 import { CursoService } from 'src/app/servicios/cursos/curso.service';
+import { EmpleadoService } from 'src/app/servicios/empleados/empleado.service';
 
 @Component({
   selector: 'app-confirm-dialog',
@@ -17,14 +18,16 @@ export class ConfirmDialogComponent implements OnInit {
   tipoDoc: boolean = false;
   tipoAula: boolean = false;
   tipoCurso: boolean = false;
+  tipoEmp: boolean = false;
 
   constructor(public dialogRef: MatDialogRef<ConfirmDialogComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: any,
-              private materiaService: MateriaService,
-              private planService: PlanEstudioService,
-              private docenteService: DocenteService,
-              private aulaService: AulaService,
-              private cursoService: CursoService
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private materiaService: MateriaService,
+    private planService: PlanEstudioService,
+    private docenteService: DocenteService,
+    private aulaService: AulaService,
+    private cursoService: CursoService,
+    private empleadoService: EmpleadoService
   ) {
   }
 
@@ -32,8 +35,15 @@ export class ConfirmDialogComponent implements OnInit {
     // Verifica qué tipo de datos recibe
 
     if (this.data.dni !== undefined) {
-      console.log(this.data, 'data docente')
-      this.tipoDoc = true
+      if (this.data.fechaIngDocencia === undefined) {
+        console.log(this.data, 'data empleado')
+        this.tipoEmp = true
+      } 
+      else {
+        console.log(this.data, 'data docente')
+        this.tipoDoc = true
+      }
+
     }
     if (this.data.id !== undefined) {
       console.log(this.data, 'data plan')
@@ -52,7 +62,17 @@ export class ConfirmDialogComponent implements OnInit {
       this.tipoCurso = true
     }
 
+    // Obtener la fecha actual para el registro del docente
+    const today = new Date();
+    const dd = String(today.getDate()).padStart(2, '0');
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const yyyy = today.getFullYear();
+    this.fechaEgrColegio = yyyy + '-' + mm + '-' + dd;
+
   }
+
+  // Inicializar variable fecha de baja
+  fechaEgrColegio: string;
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -65,7 +85,8 @@ export class ConfirmDialogComponent implements OnInit {
           console.log(res);
           this.dialogRef.close(true);
         }
-      });
+      }
+    );
   }
 
   eliminarPlan(dataPlan) {
@@ -89,6 +110,7 @@ export class ConfirmDialogComponent implements OnInit {
         }
       }
     )
+
   }
 
   eliminarAula(dataAula) {
@@ -102,10 +124,22 @@ export class ConfirmDialogComponent implements OnInit {
       }
     )
   }
-  
+
   eliminarCurso(dataCurso) {
     console.log(dataCurso.idCurso)
     this.cursoService.deleteCurso(dataCurso.idCurso).subscribe(
+      res => {
+        if (res) {
+          console.log(res);
+          this.dialogRef.close(true);
+        }
+      }
+    )
+  }
+
+  eliminarEmpleado(dataEmpleado) {
+    console.log(dataEmpleado.dni)
+    this.empleadoService.deleteEmpleado(dataEmpleado.dni).subscribe(
       res => {
         if (res) {
           console.log(res);

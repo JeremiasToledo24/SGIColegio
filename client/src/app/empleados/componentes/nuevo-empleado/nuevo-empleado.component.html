@@ -68,6 +68,19 @@
                 <mat-label>Correo electrónico</mat-label>
                 <input formControlName="correo" type="email" email required matInput>
               </mat-form-field>
+
+              <!-- Tipo empleado -->
+                <br>
+                <mat-label>Seleccione el área de trabajo del empleado a registrar</mat-label>
+                <br>
+                <mat-form-field class="col-sm-4" appearance="outline">
+                  <mat-select formControlName="tipoEmpleado" matInput required>
+                    <mat-option *ngFor="let tipo of tipoEmpleado" [value]="tipo.nombre">
+                      {{tipo.nombre}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <br>
             </mat-card>
 
             <!-- Datos Domicilio -->
@@ -137,7 +150,6 @@
             <mat-card-content>
               <form [formGroup]="thirdFormGroup" #experienciasForm="ngForm">
                 <div class="d-flex justify-content-start">
-
                   <!-- Fecha inicio de experiencia -->
                   <div class="col-sm-3">
                     <mat-label>Desde</mat-label>
