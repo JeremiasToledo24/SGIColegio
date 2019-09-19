@@ -7,9 +7,12 @@
           aula
         </button>
       </div>
-      <mat-form-field>
+      <div class="row justify-content-md-center">
+        <mat-form-field>
           <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar Aula">
-      </mat-form-field>
+        </mat-form-field>
+      </div>
+
 
       <!-- Lista de aulas -->
       <div class="row justify-content-md-center">
