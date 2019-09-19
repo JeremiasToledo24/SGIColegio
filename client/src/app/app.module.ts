@@ -34,8 +34,8 @@ import { NotFoundComponent } from './componentes/navegacion/not-found/not-found.
 import { DocentesModule } from './docentes/docentes.module';
 import { AulasModule } from './aulas/aulas.module';
 import { EditarCursoComponent } from './componentes/cursos/editar-curso/editar-curso.component';
-import {AutenticacionModule} from './autenticacion/autenticacion.module';
 import { EmpleadosModule } from './empleados/empleados.module';
+import { LoginComponent } from './login/login/login.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +55,8 @@ import { EmpleadosModule } from './empleados/empleados.module';
     NavbarComponent,
     NotFoundComponent,
     PlanEstudioComponent,
-    SideBarComponent
+    SideBarComponent,
+    LoginComponent
   ],
   imports: [
     AppRoutingModule,
@@ -67,7 +68,6 @@ import { EmpleadosModule } from './empleados/empleados.module';
     HttpClientModule,
     LayoutModule,
     MaterialModule,
-    AutenticacionModule,
     EmpleadosModule
   ],
   providers: [MateriaService, CursoService, NivelService],

@@ -14,15 +14,17 @@ import {PerfilDocenteComponent} from './docentes/componentes/perfil-docente/perf
 import {AulasComponent} from './aulas/componentes/aulas/aulas.component';
 import {DocenteMateriaComponent} from './docentes/componentes/docente-materia/docente-materia.component';
 import {AsignarMateriaComponent} from './docentes/componentes/docente-materia/asignar-materia/asignar-materia.component';
-import {LoginComponent} from './autenticacion/login/login.component';
 import { NuevoEmpleadoComponent } from './empleados/componentes/nuevo-empleado/nuevo-empleado.component';
 import { ListaEmpleadosComponent } from './empleados/componentes/lista-empleados/lista-empleados.component';
 import { AsignarCursosComponent } from './aulas/componentes/asignar-cursos/asignar-cursos.component';
 import { EmpleadoHistoricoComponent } from './empleados/componentes/empleado-historico/empleado-historico.component';
 import { DocenteHistoricoComponent } from './docentes/componentes/docente-historico/docente-historico.component';
+import { LoginComponent } from './login/login/login.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'Materias', component: MateriasComponent },
   { path: 'Cursos', component: CursosComponent },
   { path: 'listaPlanes', component: ListaPlanesComponent },
@@ -35,12 +37,12 @@ const routes: Routes = [
   { path: 'docenteMateria', component: DocenteMateriaComponent },
   { path: 'asignarMateria/:id', component: AsignarMateriaComponent },
   { path: 'Aulas', component: AulasComponent },
-  { path: 'Login', component: LoginComponent },
   { path: 'nuevoEmpleado', component: NuevoEmpleadoComponent },
   { path: 'listaEmpleados', component: ListaEmpleadosComponent },
   { path: 'listaEmpleadosHistoricos', component: EmpleadoHistoricoComponent},
   { path: 'asignarCursos/:id', component: AsignarCursosComponent},
-  { path: '**', redirectTo: 'error' }
+  { path: '**', redirectTo: 'error' },
+
 ];
 
 @NgModule({
