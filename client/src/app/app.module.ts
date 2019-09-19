@@ -36,6 +36,7 @@ import { AulasModule } from './aulas/aulas.module';
 import { EditarCursoComponent } from './componentes/cursos/editar-curso/editar-curso.component';
 import { EmpleadosModule } from './empleados/empleados.module';
 import { LoginComponent } from './login/login/login.component';
+import {UiService} from "./servicios/ui/ui.service";
 
 @NgModule({
   declarations: [
@@ -70,7 +71,7 @@ import { LoginComponent } from './login/login/login.component';
     MaterialModule,
     EmpleadosModule
   ],
-  providers: [MateriaService, CursoService, NivelService],
+  providers: [MateriaService, CursoService, NivelService, UiService],
   bootstrap: [AppComponent],
   entryComponents: [
     AgregarMateriaComponent,

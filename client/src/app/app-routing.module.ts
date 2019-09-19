@@ -20,27 +20,28 @@ import { AsignarCursosComponent } from './aulas/componentes/asignar-cursos/asign
 import { EmpleadoHistoricoComponent } from './empleados/componentes/empleado-historico/empleado-historico.component';
 import { DocenteHistoricoComponent } from './docentes/componentes/docente-historico/docente-historico.component';
 import { LoginComponent } from './login/login/login.component';
+import {UserGuard} from "./guard/user.guard";
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'Materias', component: MateriasComponent },
-  { path: 'Cursos', component: CursosComponent },
-  { path: 'listaPlanes', component: ListaPlanesComponent },
-  { path: 'crearPlan', component: PlanEstudioComponent },
-  { path: 'error', component: NotFoundComponent },
-  { path: 'nuevoDocente', component: NuevoDocenteComponent },
-  { path: 'listaDocentes', component: ListaDocenteComponent },
-  { path: 'listaDocentesHistoricos', component: DocenteHistoricoComponent},
-  { path: 'perfilDocente/:id', component: PerfilDocenteComponent },
-  { path: 'docenteMateria', component: DocenteMateriaComponent },
-  { path: 'asignarMateria/:id', component: AsignarMateriaComponent },
-  { path: 'Aulas', component: AulasComponent },
-  { path: 'nuevoEmpleado', component: NuevoEmpleadoComponent },
-  { path: 'listaEmpleados', component: ListaEmpleadosComponent },
-  { path: 'listaEmpleadosHistoricos', component: EmpleadoHistoricoComponent},
-  { path: 'asignarCursos/:id', component: AsignarCursosComponent},
+  { path: '', component: HomeComponent , canActivate: [UserGuard]},
+  { path: 'login', component: LoginComponent},
+  { path: 'Materias', component: MateriasComponent , canActivate: [UserGuard]},
+  { path: 'Cursos', component: CursosComponent , canActivate: [UserGuard]},
+  { path: 'listaPlanes', component: ListaPlanesComponent , canActivate: [UserGuard]},
+  { path: 'crearPlan', component: PlanEstudioComponent , canActivate: [UserGuard]},
+  { path: 'error', component: NotFoundComponent , canActivate: [UserGuard]},
+  { path: 'nuevoDocente', component: NuevoDocenteComponent , canActivate: [UserGuard]},
+  { path: 'listaDocentes', component: ListaDocenteComponent , canActivate: [UserGuard]},
+  { path: 'listaDocentesHistoricos', component: DocenteHistoricoComponent, canActivate: [UserGuard]},
+  { path: 'perfilDocente/:id', component: PerfilDocenteComponent , canActivate: [UserGuard]},
+  { path: 'docenteMateria', component: DocenteMateriaComponent , canActivate: [UserGuard]},
+  { path: 'asignarMateria/:id', component: AsignarMateriaComponent , canActivate: [UserGuard]},
+  { path: 'Aulas', component: AulasComponent , canActivate: [UserGuard]},
+  { path: 'nuevoEmpleado', component: NuevoEmpleadoComponent , canActivate: [UserGuard]},
+  { path: 'listaEmpleados', component: ListaEmpleadosComponent , canActivate: [UserGuard]},
+  { path: 'listaEmpleadosHistoricos', component: EmpleadoHistoricoComponent, canActivate: [UserGuard]},
+  { path: 'asignarCursos/:id', component: AsignarCursosComponent, canActivate: [UserGuard]},
   { path: '**', redirectTo: 'error' },
 
 ];
