@@ -1,10 +1,10 @@
-import {Component, OnInit, Input, Output} from '@angular/core';
+import {Component, OnInit, Input, Output, ViewChild} from '@angular/core';
 import {DocenteService} from 'src/app/servicios/docentes/docente.service';
 import {ConfirmDialogComponent} from 'src/app/componentes/confirm-dialog/confirm-dialog.component';
 import {FormacionComponent} from '../formacion/formacion.component';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
-import {MatSnackBar, MatTableDataSource} from '@angular/material';
+import {MatSnackBar, MatTableDataSource, MatPaginator} from '@angular/material';
 import {Router} from '@angular/router';
 import {EditarDocenteComponent} from '../editar-docente/editar-docente.component';
 import {EventEmitter} from 'events';
@@ -17,7 +17,7 @@ import { Docente } from '../docente-materia/asignar-materia/asignar-materia.comp
   styleUrls: ['./lista-docente.component.css']
 })
 export class ListaDocenteComponent implements OnInit {
-
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   buscadorForm = new FormGroup({
     data: new FormControl('', Validators.required)
   });
@@ -39,6 +39,7 @@ export class ListaDocenteComponent implements OnInit {
         let data: Docente[];
         data = res as Docente[];
         this.dataSource = new MatTableDataSource(data);
+        this.dataSource.paginator = this.paginator;
       }
     );
   }
@@ -52,53 +53,6 @@ export class ListaDocenteComponent implements OnInit {
       }
     );
   }
-
- /*  buscar() {
-    if (this.buscadorForm.valid) {
-      this.docenteService.obtenerDocentesDNI(this.buscadorForm.value.data)
-        .subscribe(
-          res => {
-            this.dataSource = [];
-            this.dataSource.push(res)
-          },
-          error => {
-            this.docenteService.obtenerDocentesNombre(this.buscadorForm.value.data)
-              .subscribe(
-                res => {
-                  this.dataSource = [];
-                  res.forEach(element => {
-                    this.dataSource.push(element)
-                  });
-                },
-                error => {
-                  this.docenteService.obtenerDocentesApellido(this.buscadorForm.value.data)
-                    .subscribe(
-                      res => {
-                        this.dataSource = [];
-                        res.forEach(element => {
-                          this.dataSource.push(element)
-                        });
-                      },
-                      error => {
-                        this.snackBar.open(`El Docente ${this.buscadorForm.value.data} no se encuentra registrado en el sistema`, "ok")
-                      },
-                      () => {
-                      }
-                    )
-                }
-                ,
-                () => {
-                }
-              )
-          },
-          () => {
-          }
-        )
-    } else {
-      this.snackBar.open('Debe ingresar un DNI, Nombre o Apellido del Docente que desea buscar', 'OK')
-    }
-
-  } */
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();

@@ -1,7 +1,7 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, ViewChild} from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {DocenteService} from 'src/app/servicios/docentes/docente.service';
-import {MatDialog, MatSnackBar, MatTableDataSource} from '@angular/material';
+import {MatDialog, MatSnackBar, MatTableDataSource, MatPaginator} from '@angular/material';
 import {Router} from '@angular/router';
 import {MateriaModel} from 'src/app/models/materia-model';
 import {MateriaService} from 'src/app/servicios/materias/materia.service';
@@ -34,7 +34,7 @@ export class DocenteMateriaComponent implements OnInit {
   docenteData: Docente[] = [];
   displayedColumns: string[] = ['dni', 'nombre', 'apellido', 'operaciones'];
   dataSource = new MatTableDataSource(this.docenteData);
-
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
@@ -50,7 +50,7 @@ export class DocenteMateriaComponent implements OnInit {
         res.forEach(element => {
           this.dataSource.data.push({dni: element.dni, nombre: element.nombre, apellido: element.apellido})
           this.dataSource = new MatTableDataSource(this.docenteData);
-
+          this.dataSource.paginator = this.paginator;
         });
       }
     );

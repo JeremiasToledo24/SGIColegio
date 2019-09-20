@@ -44,6 +44,9 @@
         "type": "string",
         "required": true
       },
+      "fechaIngDocencia": {
+        "type": "string"
+      },
       "tipoEmpleado": {
         "type": "string",
         "requierd": true
