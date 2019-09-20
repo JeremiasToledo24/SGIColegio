@@ -1,0 +1,50 @@
+<h3>Formación</h3>
+
+<div mat-dialog-content>
+  <mat-card style="background-color: #C5CAE9">
+    <mat-card-content>
+      <form [formGroup]="secondFormGroup" #formacionForm="ngForm">
+        <!-- <div class="d-flex justify-content-start"> -->
+        <div class="row">
+          <!-- Tipo de formación -->
+          <div class="col-sm-6">
+            <mat-label>Seleccione el tipo de formación a registrar</mat-label>
+            <br>
+            <mat-form-field class="col-sm-12" appearance="outline">
+              <mat-select formControlName="tipo" matInput required [(ngModel)]="selectedTipos" name="tipo">
+                <mat-option *ngFor="let tipo of tipos" [value]="tipo.nombre">
+                  {{tipo.nombre}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <br>
+          </div>
+
+          <!-- Fecha en la que se obtuvo la formación academica -->
+          <div class="col-sm-6">
+            <mat-label>Fecha en la que se obtuvo</mat-label>
+            <br>
+            <mat-form-field appearance="outline">
+              <input matInput type="date" formControlName="annio">
+            </mat-form-field>
+            <br>
+          </div>
+        </div>
+
+        <!-- Descripcion de la formación academica-->
+        <div class="row" style="margin: 0.2rem">
+          <mat-label>Descripción de la formación académica a registrar</mat-label>
+          <br>
+          <mat-form-field class="col-sm-12" appearance="outline">
+            <textarea formControlName="descripcion" matInput></textarea>
+          </mat-form-field>
+          <br>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" mat-raised-button color="warn">Cancelar</button>
+  <button mat-button (click)="agregarFormacion(data, formacionForm)" cdkFocusInitial mat-raised-button color="primary">Agregar</button>
+</mat-dialog-actions>

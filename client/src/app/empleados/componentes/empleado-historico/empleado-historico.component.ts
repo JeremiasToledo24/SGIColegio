@@ -1,7 +1,7 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { EmpleadoService } from 'src/app/servicios/empleados/empleado.service';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { MatTableDataSource, MatPaginator } from '@angular/material';
+import { MatTableDataSource } from '@angular/material';
 
 export class Empleado {
   dni;
@@ -30,8 +30,6 @@ export class EmpleadoHistoricoComponent implements OnInit {
   // Datos de tabla
   displayedColumns: string[] = ['dni', 'apellido', 'nombre','tipoEmpleado','fechaEgrColegio','operaciones'];
   @Input() dataSource;
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-
 
   ngOnInit() {
     this.empleadoService.getEmpleadosHistorico().subscribe(
@@ -39,8 +37,6 @@ export class EmpleadoHistoricoComponent implements OnInit {
         let data: Empleado[];
         data = res as Empleado[];
         this.dataSource = new MatTableDataSource(data);
-        this.dataSource.paginator = this.paginator;
-
       }
     )
   }

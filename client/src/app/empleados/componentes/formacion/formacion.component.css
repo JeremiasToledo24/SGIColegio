@@ -1,0 +1,15 @@
+mat-card {
+    width: auto;
+    margin: auto;
+    background-color: #E8EAF6;
+  }
+  
+  button {
+    margin: 10px;
+  }
+  
+  mat-dialog-actions {
+    text-align: center;
+    display: block;
+  }
+  

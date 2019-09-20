@@ -54,6 +54,14 @@ export class EmpleadoService {
     )
   }
 
+  // Obtener empleado por DNI
+  obtenerEmpleadoDNI(dni): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/Empleados/${dni}`)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
   // Obtener empleados dados de baja
   getEmpleadosHistorico(): Observable<any> {
     return this.http.get('http://localhost:3000/api/Empleados-Historicos').pipe(

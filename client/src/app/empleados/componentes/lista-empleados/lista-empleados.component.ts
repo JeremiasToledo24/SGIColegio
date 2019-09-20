@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { EmpleadoService } from 'src/app/servicios/empleados/empleado.service';
-import { MatSnackBar, MatDialog, MatTableDataSource, MatPaginator } from '@angular/material';
+import { MatSnackBar, MatDialog, MatTableDataSource } from '@angular/material';
 import { ConfirmDialogComponent } from 'src/app/componentes/confirm-dialog/confirm-dialog.component';
 import { EditarEmpleadoComponent } from '../editar-empleado/editar-empleado.component';
 import { Router } from '@angular/router';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormacionComponent } from '../formacion/formacion.component';
 
 export class Empleado {
   dni;
@@ -34,11 +35,9 @@ export class ListaEmpleadosComponent implements OnInit {
   ) { }
 
   // Datos de tabla
-  displayedColumns: string[] = ['dni', 'apellido', 'nombre', 'tipoEmpleado', 'operaciones'];
+  displayedColumns: string[] = ['dni', 'apellido', 'nombre','tipoEmpleado','operaciones'];
   @Input() dataSource;
-
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-
+  
 
   ngOnInit() {
     this.empleadoService.getEmpleados().subscribe(
@@ -46,8 +45,6 @@ export class ListaEmpleadosComponent implements OnInit {
         let data: Empleado[];
         data = res as Empleado[];
         this.dataSource = new MatTableDataSource(data);
-        this.dataSource.paginator = this.paginator;
-
       }
     )
   }
@@ -68,16 +65,16 @@ export class ListaEmpleadosComponent implements OnInit {
       }
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Eliminar result: ${result}`);
-      if (result) {
-        console.log(result)
-        this.empleadoService.getEmpleados().subscribe(
-          res => {
-            this.dataSource = res as any[];
-          }
-        );
+        console.log(`Eliminar result: ${result}`);
+        if (result) {
+          console.log(result)
+          this.empleadoService.getEmpleados().subscribe(
+            res => {
+              this.dataSource = res as any[];
+            }
+          );
+        }
       }
-    }
     );
   }
 
@@ -119,8 +116,8 @@ export class ListaEmpleadosComponent implements OnInit {
   openSnackBar(m: string, a: string) {
     this.snackBar.open(
       m, a, {
-      duration: 4000
-    }
+        duration: 4000
+      }
     );
   }
 
@@ -131,6 +128,35 @@ export class ListaEmpleadosComponent implements OnInit {
   });
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  // Redirigir al perfil del empleado
+  verPerfil(dni) {
+    this.router.navigate(['/perfilEmpleado', dni]);
+  }
+
+  //Agregar formacion
+  agregarFormacion(Empleado: any) {
+    this.dialogoFormacion(Empleado);
+  }
+
+  dialogoFormacion(Empleado: any) {
+    const dialogRef = this.dialog.open(FormacionComponent, {
+      data: {
+        dni: Empleado.dni
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log(result)
+        this.empleadoService.getEmpleados().subscribe(
+          res => {
+            this.dataSource = res as any[];
+          }
+        );
+      }
+    });
   }
 
   // Limpiar buscador

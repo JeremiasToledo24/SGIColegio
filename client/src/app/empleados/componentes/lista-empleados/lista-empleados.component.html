@@ -1,6 +1,13 @@
 <div class="row justify-content-md-center">
   <mat-card class="col-md-10 backGroundCard">
     <mat-card-title style="text-align: center">Lista de empleados registrados en el sistema</mat-card-title>
+    <mat-card-subtitle style="margin-left: 2%">Haga clic en el botón
+      <button mat-raised-button style="background-color: rgb(114, 218, 29); display: inline">
+        <mat-icon>add_circle</mat-icon>
+        Formación docente
+      </button>
+      para agregar la formación académica del empleado.
+    </mat-card-subtitle>
     <mat-card-content>
 
         <div class="row">
@@ -61,6 +68,12 @@
               <mat-icon>delete</mat-icon>
             </button>
 
+            <!-- Agregar formación académica -->
+            <button (click)="agregarFormacion(empleado)" mat-raised-button style="background-color: rgb(114, 218, 29)">
+              <mat-icon>add_circle</mat-icon>
+              Formación académica
+            </button>
+
             <!-- Ver perfil -->
             <button (click)="verPerfil(empleado.dni)" mat-raised-button style="background-color: rosybrown">
               <mat-icon>account_circle</mat-icon>
@@ -72,7 +85,6 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
-      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
     </mat-card-content>
   </mat-card>
 </div>
