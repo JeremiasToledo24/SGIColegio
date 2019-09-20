@@ -1,11 +1,12 @@
-<div class="row">
+<mat-card style="background: #E8EAF6">
+  <div class="row"
+  class="col-sm">
     <mat-card>
         <mat-card-header>
-            <mat-card-title>aula seleccionada</mat-card-title>
-            <mat-card-subtitle>subtitulo</mat-card-subtitle>
+            <mat-card-title>Aula Seleccionada</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 col-sm-7">
+            <table mat-table [dataSource]="dataSource" >
 
                 <!-- Columna ID, solo para obtener el dato para ser usado en la edición -->
                 <ng-container matColumnDef="id">
@@ -51,7 +52,6 @@
         <mat-card>
             <mat-card-header>
                 <mat-card-title>Cursos disponibles a asignar</mat-card-title>
-                <mat-card-subtitle>subtitulo</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
                 <mat-form-field>
@@ -97,8 +97,8 @@
         <td mat-cell *matCellDef="let curso" style="text-align: center">
 
             <!-- Botón vincular -->
-            <button mat-raised-button style="background-color: dodgerblue" (click)="vincular(curso)">
-                <mat-icon>add_circle</mat-icon>
+            <button mat-raised-button style="background-color: rgb(114, 218, 29); display: inline" (click)="vincular(curso)">
+                <mat-icon>add_circle</mat-icon> Agregar
             </button>
         </td>
     </ng-container>
@@ -118,7 +118,6 @@
     <mat-card>
         <mat-card-header>
             <mat-card-title>Cursos asignados al aula seleccionada</mat-card-title>
-            <mat-card-subtitle>subtitulo</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
             <table mat-table [dataSource]="dataSourceA" class="mat-elevation-z8 col-sm-8">
@@ -161,8 +160,8 @@
     <td mat-cell *matCellDef="let curso" style="text-align: center">
 
         <!-- Botón eliminar -->
-        <button mat-raised-button color="warn" (click)="desvincular(curso)">
-            <mat-icon>delete</mat-icon>Desvincular
+        <button  type="reset"  mat-raised-button style="background-color:rgba(255, 119, 95, 0.747)" (click)="desvincular(curso)">
+            <mat-icon>clear</mat-icon>Desvincular
         </button>
     </td>
 </ng-container>
@@ -178,21 +177,8 @@
 </div>
 </div>
 
-
-
-
-
-
 <div class="row" style="align-content: flex-end">
-    <mat-card>
-
-        <mat-card-actions>
-          
-            <button (click)="cancelar()" mat-raised-button>
-                <mat-icon>arrow_back</mat-icon>Volver
-            </button> </mat-card-actions>
-    </mat-card>
-
-
-
+<button (click)="cancelar()" type="reset" mat-raised-button color="primary">
+    <mat-icon>arrow_back</mat-icon>Volver
+  </button>
 </div>
