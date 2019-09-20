@@ -16,7 +16,7 @@
 
       <!-- Lista de aulas -->
       <div class="row justify-content-md-center">
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 col-sm-7">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 col-sm-10">
 
           <!-- Columna ID, solo para obtener el dato para ser usado en la edición -->
           <ng-container matColumnDef="id">
@@ -57,7 +57,7 @@
                 <mat-icon>delete</mat-icon>
               </button>
               <!-- Botón asignar o desvincular cursos -->
-              <button mat-raised-button color="primary" (click)="asignarCurso(aula)">
+              <button mat-raised-button style="background-color: rgb(114, 218, 29); display: inline" (click)="asignarCurso(aula)">
                 <mat-icon>add_circle</mat-icon>Asignar o desvincular cursos
               </button>
             </td>
