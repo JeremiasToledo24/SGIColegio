@@ -1,12 +1,12 @@
-<h5>Formacion</h5>
+<h3>Formacion</h3>
 
 <div mat-dialog-content>
   <mat-card style="background-color: #C5CAE9">
     <mat-card-content>
       <form [formGroup]="secondFormGroup" #formacionForm="ngForm">
-        <div class="d-flex justify-content-start">
+        <div class="row">
           <!-- Tipo de formación -->
-          <div class="col-sm-4" style="margin-right: 0.5rem">
+          <div class="col-sm-6">
             <mat-label>Seleccione el tipo de formación a registrar</mat-label>
             <br>
             <mat-form-field class="col-sm-12" appearance="outline">
@@ -18,8 +18,9 @@
             </mat-form-field>
             <br>
           </div>
+
           <!-- Fecha en la que se obtuvo la formación academica -->
-          <div>
+          <div class="col-sm-6">
             <mat-label>Fecha en la que se obtuvo</mat-label>
             <br>
             <mat-form-field appearance="outline">
@@ -30,7 +31,7 @@
         </div>
 
         <!-- Descripcion de la formación academica-->
-        <div class="col-sm-7">
+        <div class="row" style="margin: 0.2rem">
           <mat-label>Descripción de la formación académica a registrar</mat-label>
           <br>
           <mat-form-field class="col-sm-12" appearance="outline">
@@ -43,6 +44,6 @@
   </mat-card>
 </div>
 <mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button (click)="agregarFormacion(data, formacionForm)" cdkFocusInitial>Ok</button>
+  <button mat-button (click)="onNoClick()" mat-raised-button color="warn">Cancelar</button>
+  <button mat-button (click)="agregarFormacion(data, formacionForm)" cdkFocusInitial mat-raised-button color="primary">Agregar</button>
 </mat-dialog-actions>
