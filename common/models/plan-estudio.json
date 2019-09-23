@@ -10,12 +10,6 @@
       "type": "number",
       "id": true
     },
-    "annio": {
-      "type": "string"
-    },
-    "idCurso": {
-      "type": "number"
-    },
     "idNivel": {
       "type": "number"
     }

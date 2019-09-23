@@ -59,14 +59,6 @@
     "dataSource": "db",
     "public": true
   },
-  "Docente": {
-    "dataSource": "db",
-    "public": true
-  },
-  "FormacionDocente": {
-    "dataSource": "db",
-    "public": true
-  },
   "Aula": {
     "dataSource": "db",
     "public": true
@@ -95,9 +87,8 @@
     "dataSource": "db",
     "public": true
   },
-  "Docente-Historico": {
+  "DocenteCurso": {
     "dataSource": "db",
     "public": true
   }
-  
 }

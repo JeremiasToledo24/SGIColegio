@@ -7,11 +7,11 @@
     "validateUpsert": true
   },
   "properties": {
-    "idCurso": {
+    "id": {
       "type": "number",
       "id": true
     },
-    "idAula": {
+    "idCurso": {
       "type": "number"
     },
     "nombre": {
@@ -25,6 +25,12 @@
     "idNivel": {
       "type": "number",
       "required": true
+    },
+    "AnioLectivo": {
+      "type": "string"
+    },
+    "idPlan": {
+      "type": "number"
     }
   },
   "validations": [],

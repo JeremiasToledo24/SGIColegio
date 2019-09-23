@@ -1,26 +1,20 @@
 {
-  "name": "FormacionDocente",
+  "name": "DocenteCurso",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "idFormacionDocente": {
+    "idDocenteCurso": {
       "type": "number",
       "id": true
     },
-    "tipo": {
-      "type": "string"
-    },
-    "descripcion": {
-      "type": "string"
-    },
-    "annio": {
-      "type": "string"
+    "idCurso": {
+      "type": "number"
     },
     "DNIDocente": {
-      "type": "string"
+      "type": "number"
     }
   },
   "validations": [],

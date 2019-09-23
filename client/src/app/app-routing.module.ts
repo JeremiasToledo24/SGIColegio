@@ -36,7 +36,6 @@ const routes: Routes = [
   { path: 'listaDocentesHistoricos', component: DocenteHistoricoComponent},
   { path: 'perfilDocente/:id', component: PerfilDocenteComponent },
   { path: 'perfilEmpleado/:id', component: PerfilEmpleadoComponent },
-
   { path: 'docenteMateria', component: DocenteMateriaComponent },
   { path: 'asignarMateria/:id', component: AsignarMateriaComponent },
   { path: 'Aulas', component: AulasComponent },

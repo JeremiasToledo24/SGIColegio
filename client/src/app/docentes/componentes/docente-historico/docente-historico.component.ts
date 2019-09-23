@@ -3,6 +3,7 @@ import { DocenteService } from 'src/app/servicios/docentes/docente.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material';
 import { Docente } from '../docente-materia/asignar-materia/asignar-materia.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-docente-historico',
@@ -16,7 +17,9 @@ export class DocenteHistoricoComponent implements OnInit {
   });
 
   constructor(
-    private docenteService: DocenteService
+    private docenteService: DocenteService,
+    private router: Router
+
   ) { }
 
   // Datos de tabla
@@ -31,6 +34,10 @@ export class DocenteHistoricoComponent implements OnInit {
         this.dataSource = new MatTableDataSource(data);
       }
     )
+  }
+
+  verPerfil(dni) {
+    this.router.navigate(['/perfilDocente', dni]);
   }
 
   // Buscador 

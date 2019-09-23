@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { EmpleadoService } from 'src/app/servicios/empleados/empleado.service';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material';
+import { Router } from '@angular/router';
 
 export class Empleado {
   dni;
@@ -25,6 +26,7 @@ export class EmpleadoHistoricoComponent implements OnInit {
 
   constructor(
     private empleadoService: EmpleadoService,
+    private router: Router
   ) { }
 
   // Datos de tabla
@@ -57,6 +59,11 @@ export class EmpleadoHistoricoComponent implements OnInit {
         this.dataSource = res as any[];
       }
     );
+  }
+
+  // Redirigir al perfil del empleado
+  verPerfil(dni) {
+    this.router.navigate(['/perfilEmpleado', dni]);
   }
 
 }

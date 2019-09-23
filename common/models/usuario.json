@@ -1,36 +1,35 @@
 {
-    "name": "Usuario",
-    "plural": "Usuarios",
-    "base": "PersistedModel",
-    "idInjection": true,
-    "options": {
-      "validateUpsert": true
+  "name": "Usuario",
+  "plural": "Usuarios",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nombre": {
+      "type": "number",
+      "required": true
     },
-    "properties": {
-      "nombre": {
-        "type": "number",
-        "required": true
-      },
-      "contraseña": {
-        "type": "string",
-        "required": true
-      },
-      "correo": {
-        "type": "string",
-        "required": true
-      },
-      "tipo": {
-        "type": "string",
-        "required": true
-      },
-      "idUsuario": {
-        "type": "number",
-        "id": true
-      }
+    "contraseña": {
+      "type": "string",
+      "required": true
     },
-    "validations": [],
-    "relations": {},
-    "acls": [],
-    "methods": {}
-  }
-  
+    "correo": {
+      "type": "string",
+      "required": true
+    },
+    "tipo": {
+      "type": "string",
+      "required": true
+    },
+    "idUsuario": {
+      "type": "number",
+      "id": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
