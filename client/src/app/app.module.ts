@@ -36,6 +36,7 @@ import { AulasModule } from './aulas/aulas.module';
 import { EditarCursoComponent } from './componentes/cursos/editar-curso/editar-curso.component';
 import { EmpleadosModule } from './empleados/empleados.module';
 import { LoginComponent } from './login/login/login.component';
+import { AgregarPlanComponent } from './componentes/plan-estudio/agregar-plan/agregar-plan.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { LoginComponent } from './login/login/login.component';
     NotFoundComponent,
     PlanEstudioComponent,
     SideBarComponent,
-    LoginComponent
+    LoginComponent,
+    AgregarPlanComponent
   ],
   imports: [
     AppRoutingModule,
@@ -76,7 +78,8 @@ import { LoginComponent } from './login/login/login.component';
     AgregarMateriaComponent,
     EditarMateriaComponent,
     ConfirmDialogComponent,
-    EditarCursoComponent],
+    EditarCursoComponent,
+    AgregarPlanComponent],
   exports: [ListaMateriasComponent],
 
 })

@@ -33,8 +33,11 @@ export class MateriaService {
   }
 
   // Obtener listado de materias
-  listarMaterias() {
-    return this.http.get('http://localhost:3000/api/Materias');
+  listarMaterias(): Observable<any> {
+    return this.http.get('http://localhost:3000/api/Materias')
+    .pipe(
+      catchError(this.handleError)
+    );
   }
 
   // Agregar Materia
