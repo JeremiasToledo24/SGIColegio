@@ -31,7 +31,7 @@ export interface Nivel {
 
 export class PlanEstudioComponent implements OnInit {
   planForm = new FormGroup({
-    idNivel: new FormControl('', Validators.nullValidator)
+    idNivel: new FormControl('',Validators.required)
   });
 
   niveles: Nivel[] = [
@@ -61,6 +61,10 @@ export class PlanEstudioComponent implements OnInit {
 
         }
       );
+  }
+
+  seleccionarNivel(nivel){
+    console.log(nivel)
   }
 
   applyFilter(filterValue: string) {
@@ -98,8 +102,10 @@ export class PlanEstudioComponent implements OnInit {
   }
 
   formValid(){
-    if (this.listaMaterias.length >= 0){
+    if ((this.listaMaterias.length > 0)){
       this.openDialog()
+    }else {
+      this.planService.openSnackBar('Primero debe agregar Materias a la lista')
     }
     
   }
