@@ -6,6 +6,7 @@ import { MateriaModel } from 'src/app/models/materia-model';
 import { MateriaService } from 'src/app/servicios/materias/materia.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AsignarMateriaComponent } from './asignar-materia/asignar-materia.component';
+
 import { EmpleadoService } from 'src/app/servicios/empleados/empleado.service';
 
 /* INTERFACES: */
@@ -23,6 +24,7 @@ export interface Docente {
 })
 /* Clase componente */
 export class DocenteMateriaComponent implements OnInit {
+
   constructor(
     private empleadoService: EmpleadoService,
     public dialog: MatDialog,
