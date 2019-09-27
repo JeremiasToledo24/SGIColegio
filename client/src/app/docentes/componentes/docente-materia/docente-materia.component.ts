@@ -1,12 +1,12 @@
-import {Component, OnInit, Input, ViewChild} from '@angular/core';
-import {FormGroup, FormControl, Validators} from '@angular/forms';
-import {DocenteService} from 'src/app/servicios/docentes/docente.service';
-import {MatDialog, MatSnackBar, MatTableDataSource, MatPaginator} from '@angular/material';
-import {Router} from '@angular/router';
-import {MateriaModel} from 'src/app/models/materia-model';
-import {MateriaService} from 'src/app/servicios/materias/materia.service';
-import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import {AsignarMateriaComponent} from './asignar-materia/asignar-materia.component';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { MatDialog, MatSnackBar, MatTableDataSource, MatPaginator } from '@angular/material';
+import { Router } from '@angular/router';
+import { MateriaModel } from 'src/app/models/materia-model';
+import { MateriaService } from 'src/app/servicios/materias/materia.service';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AsignarMateriaComponent } from './asignar-materia/asignar-materia.component';
+import { EmpleadoService } from 'src/app/servicios/empleados/empleado.service';
 
 /* INTERFACES: */
 export interface Docente {
@@ -23,32 +23,33 @@ export interface Docente {
 })
 /* Clase componente */
 export class DocenteMateriaComponent implements OnInit {
-  constructor(private docenteService: DocenteService,
-              public dialog: MatDialog,
-              private snackBar: MatSnackBar,
-              private router: Router,
-              private materiaService: MateriaService,
+  constructor(
+    private empleadoService: EmpleadoService,
+    public dialog: MatDialog,
+    private snackBar: MatSnackBar,
+    private router: Router,
+    private materiaService: MateriaService,
   ) {
   }
 
   docenteData: Docente[] = [];
   displayedColumns: string[] = ['dni', 'nombre', 'apellido', 'operaciones'];
   dataSource = new MatTableDataSource(this.docenteData);
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   ngOnInit() {
-    /*  this.materiaService.listarMaterias().subscribe(
+     this.materiaService.listarMaterias().subscribe(
        res => {
          this.materiaService.datasource = res as MateriaModel[];
        }
-     );*/
-    this.docenteService.listarDocentes().subscribe(
+     );
+    this.empleadoService.getEmpleadosDocentes().subscribe(
       (res: Docente[]) => {
         res.forEach(element => {
-          this.dataSource.data.push({dni: element.dni, nombre: element.nombre, apellido: element.apellido})
+          this.dataSource.data.push({ dni: element.dni, nombre: element.nombre, apellido: element.apellido })
           this.dataSource = new MatTableDataSource(this.docenteData);
           this.dataSource.paginator = this.paginator;
         });
@@ -57,9 +58,9 @@ export class DocenteMateriaComponent implements OnInit {
 
   }
 
-  asignacion(dni){
+  asignacion(dni) {
     console.log(dni)
-      this.router.navigate(['/asignarMateria', dni]);
+    this.router.navigate(['/asignarMateria', dni]);
   }
 
   /* seleccionarDocente(docente) {

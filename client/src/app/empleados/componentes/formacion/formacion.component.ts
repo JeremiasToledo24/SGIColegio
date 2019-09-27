@@ -47,7 +47,7 @@ export class FormacionComponent implements OnInit {
 
   // Agregar formación/experiencia
   agregarFormacion(data: any, formacionForm: NgForm) {
-    this.empleadoService.agregarFormacionEmpleado({
+    this.empleadoService.addFormacionEmpleado({
       'tipo': formacionForm.value.tipo,
       'descripcion': formacionForm.value.descripcion,
       'año': formacionForm.value.annio,

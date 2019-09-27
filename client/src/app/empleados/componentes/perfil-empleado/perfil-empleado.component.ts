@@ -22,14 +22,15 @@ export class PerfilEmpleadoComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
-    this.empleadoService.obtenerEmpleadoDNI(this.id)
+    this.empleadoService.getEmpleadoDNI(this.id)
       .subscribe(
         res => {
           console.log(res);
           this.dataSource = []
           this.dataSource.push({label: 'DNI', data: res.dni})
-          this.dataSource.push({label: 'Nombre y Apellido', data: res.nombre + ' ' + res.apellido})
+          this.dataSource.push({label: 'Nombre y apellido', data: res.nombre + ' ' + res.apellido})
           this.dataSource.push({label: 'CUIL', data: res.cuil})
+          this.dataSource.push({label: 'Ocupación', data: res.tipoEmpleado})
           switch (res.sexo) {
             case 'M':
               this.dataSource.push({label: 'Sexo', data: 'Masculino'})
@@ -46,6 +47,8 @@ export class PerfilEmpleadoComponent implements OnInit {
           this.dataSource.push({label: 'Fecha de Nacimiento', data: res.fechaNacimiento})
           this.dataSource.push({label: 'Telefono', data: res.telefono})
           this.dataSource.push({label: 'Direccion', data: res.direccion})
+          this.dataSource.push({label: 'Correo', data: res.correo})
+          this.dataSource.push({label: 'Contraseña', data: res.password})
           this.dataSource.push({label: 'Fecha de Ingreso al Establecimiento', data: res.fechaIngColegio})
         }
       ),

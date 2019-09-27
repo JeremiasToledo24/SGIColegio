@@ -65,7 +65,7 @@ export class EditarEmpleadoComponent implements OnInit {
   // Editar docente
   editEmpleado(Empleado: FormGroup) {
     console.log(Empleado.value);
-    this.empleadoService.editarEmpleado(Empleado.value)
+    this.empleadoService.editEmpleado(Empleado.value)
       .subscribe(
         res => {
           this.snackBar.open('Empleado actualizado con éxito', 'OK');

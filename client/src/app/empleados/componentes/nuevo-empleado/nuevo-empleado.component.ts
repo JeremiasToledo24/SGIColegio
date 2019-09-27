@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { FormBuilder, NgForm, FormGroup, Validators } from '@angular/forms';
 import { EmpleadoService } from 'src/app/servicios/empleados/empleado.service';
-import { AutenticacionService } from 'src/app/servicios/autenticacion/autenticacion.service'
 
 // Clase tipos
 class Tipos {
@@ -13,7 +12,7 @@ class Tipos {
   selector: 'app-nuevo-empleado',
   templateUrl: './nuevo-empleado.component.html',
   styleUrls: ['./nuevo-empleado.component.css'],
-  providers: [EmpleadoService, AutenticacionService]
+  providers: [EmpleadoService]
 })
 export class NuevoEmpleadoComponent implements OnInit {
 
@@ -37,12 +36,13 @@ export class NuevoEmpleadoComponent implements OnInit {
 
   // Tipo de empleado
   tipoEmpleado: Tipos[] = [
-    {nombre: 'Administración'},
-    {nombre: 'Ordenanza'},
-    {nombre: 'Cocina'}
+    { nombre: 'Administración' },
+    { nombre: 'Docente' },
+    { nombre: 'Ordenanza' },
+    { nombre: 'Cocina' }
   ]
 
-  // Posiciones del empleado
+  // Tipo de formación académica
   tipos: Tipos[] = [
     { nombre: 'Título Secundario' },
     { nombre: 'Título Terciario' },
@@ -54,14 +54,48 @@ export class NuevoEmpleadoComponent implements OnInit {
     { nombre: 'Capacitacion' }
   ];
 
+  // JSON
+  localidades: string[];
+  municipios: string[];
+  departamentos: string[];
+  provincias: string[];
+
   constructor(
     private snackBar: MatSnackBar,
     private _formBuilder: FormBuilder,
-    private empleadoService: EmpleadoService,
-    private authService: AutenticacionService
+    private empleadoService: EmpleadoService
   ) { }
 
   ngOnInit() {
+
+    /* // Cargar PROVINCIAS desde JSON
+    this.http.get('../../../../../assets/json/provincias.json').subscribe(
+      data => {
+        this.provincias = data as string[];
+      }
+    );
+
+    // Cargar DEPARTAMENTOS desde JSON
+    this.http.get('../../../../../assets/json/departamentos.json').subscribe(
+      data => {
+        this.departamentos = data as string[];
+      }
+    );
+
+    // Cargar MUNICIPIOS desde JSON
+    this.http.get('../../../../../assets/json/municipios.json').subscribe(
+      data => {
+        this.municipios = data as string[];
+      }
+    );
+
+    // Cargar LOCALIDADES desde JSON
+    this.http.get('../../../../../assets/json/localidades-censales.json').subscribe(
+      data => {
+        this.localidades = data as string[];
+      }
+    ); */
+
     // Obtener la fecha actual para el registro del empleado
     const today = new Date();
     const dd = String(today.getDate()).padStart(2, '0');
@@ -81,6 +115,7 @@ export class NuevoEmpleadoComponent implements OnInit {
       direccion: ['', Validators.required],
       fechaIngColegio: ['', Validators.required],
       correo: ['', Validators.required],
+      password: [null],
       tipoEmpleado: ['', Validators.required]
     });
     this.secondFormGroup = this._formBuilder.group({
@@ -89,21 +124,25 @@ export class NuevoEmpleadoComponent implements OnInit {
       annio: ['', Validators.required]
     });
     this.thirdFormGroup = this._formBuilder.group({
-      fechaDesde: ['', Validators.required],
-      fechaHasta: ['', Validators.required],
-      descripcionExp: ['', Validators.required]
-    })
+      fechaDesde: [null],
+      fechaHasta: [null],
+      descripcionExp: [null]
+    });
   }
 
   // Agregar nuevo empleado
   addEmpleado(empleadoForm: NgForm, formacionForm: NgForm, experienciasForm: NgForm) {
+
+    // Generar contraseña
+    empleadoForm.value.password = empleadoForm.value.nombre.charAt(0).toLowerCase() + empleadoForm.value.apellido.toLowerCase().split(' ')[0] + empleadoForm.value.dni.toString().slice(-3)
+
     try {
       this.empleadoService.addEmpleado(empleadoForm.value)
         .subscribe(
           res => {
 
             // Agregar formación académica del empleado
-            this.empleadoService.agregarFormacionEmpleado({
+            this.empleadoService.addFormacionEmpleado({
               'tipo': formacionForm.value.tipo,
               'descripcion': formacionForm.value.descripcion,
               'año': formacionForm.value.annio,
@@ -112,20 +151,6 @@ export class NuevoEmpleadoComponent implements OnInit {
               'fechaHasta': experienciasForm.value.fechaHasta,
               'descripcionExp': experienciasForm.value.descripcionExp
             }).subscribe(
-              res => {
-                console.log(res)
-              }
-            )
-
-            // Agregar usuario y contraseña del empleado
-            this.authService.nuevoUsuario(
-              {
-                'nombre': empleadoForm.value.dni,
-                'contraseña': empleadoForm.value.nombre.charAt(0).toLowerCase() + empleadoForm.value.apellido.toLowerCase().split(' ')[0] + empleadoForm.value.dni.toString().slice(-3),
-                'correo': empleadoForm.value.correo,
-                'tipo': empleadoForm.value.tipoEmpleado
-              }
-            ).subscribe(
               res => {
                 console.log(res)
               }

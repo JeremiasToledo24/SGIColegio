@@ -14,7 +14,6 @@ export class Docente {
     this.dni = dni;
     this.nombre = n;
     this.apellido = a;
-
   }
 }
 

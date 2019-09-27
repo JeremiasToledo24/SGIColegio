@@ -11,6 +11,14 @@
           </mat-form-field>
         </div>
       </div>
+      <div class="row">
+        <mat-radio-group style="margin-left: 1.8rem" color="primary">
+          <mat-radio-button value="D" (click)="applyFilter('Docente')">Docente</mat-radio-button>
+          <mat-radio-button value="A" (click)="applyFilter('Administración')" style="margin-left: 10px">Administración</mat-radio-button>
+          <mat-radio-button value="O" (click)="applyFilter('Ordenanza')" style="margin-left: 10px">Ordenanza</mat-radio-button>
+          <mat-radio-button value="C" (click)="applyFilter('Cocina')" style="margin-left: 10px">Cocina</mat-radio-button>
+        </mat-radio-group>
+      </div>
 
       <!-- Tabla de empleados -->
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -61,6 +69,7 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
     </mat-card-content>
   </mat-card>
 </div>

@@ -105,11 +105,12 @@
         </mat-step>
         <mat-step label="Registrar formación académica del empleado" [stepControl]="secondFormGroup">
           <mat-card id="Formacion">
+              <mat-card-title>Formación académica</mat-card-title>
             <mat-card-content>
               <form [formGroup]="secondFormGroup" #formacionForm="ngForm">
                 <div class="d-flex justify-content-start">
                   <!-- Tipo de formación -->
-                  <div class="col-sm-5">
+                  <div class="col-sm-6">
                     <mat-label>Seleccione el tipo de formación a registrar</mat-label>
                     <br>
                     <mat-form-field class="col-sm-12" appearance="outline">
@@ -126,7 +127,7 @@
                   <div class="col-sm-3">
                     <mat-label>Fecha en la que se obtuvo</mat-label>
                     <br>
-                    <mat-form-field appearance="outline">
+                    <mat-form-field class="col-sm-12" appearance="outline">
                       <input matInput type="date" formControlName="annio">
                     </mat-form-field>
                     <br>
@@ -147,6 +148,8 @@
           </mat-card>
 
           <mat-card id="Experiencias">
+            <mat-card-title>Experiencias laborales</mat-card-title>
+            <mat-card-subtitle>Llenar campos si es necesario.</mat-card-subtitle>
             <mat-card-content>
               <form [formGroup]="thirdFormGroup" #experienciasForm="ngForm">
                 <div class="d-flex justify-content-start">

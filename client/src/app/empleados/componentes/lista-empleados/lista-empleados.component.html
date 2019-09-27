@@ -4,27 +4,35 @@
     <mat-card-subtitle style="margin-left: 2%">Haga clic en el botón
       <button mat-raised-button style="background-color: rgb(114, 218, 29); display: inline">
         <mat-icon>add_circle</mat-icon>
-        Formación docente
+        F.A.
       </button>
-      para agregar la formación académica del empleado.
+      para agregar la <b>formación académica</b> del empleado.
     </mat-card-subtitle>
     <mat-card-content>
 
-        <div class="row">
-            <!-- Buscador -->
-              <div class="col-sm-6">
-                  <mat-form-field class="col-sm-12">
-                      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar empleado">
-                  </mat-form-field>
-              </div>
-    
-            <!-- Docentes historico-->
-            <div class="col-sm-6">Ver empleados dados de baja:
-              <button mat-raised-button color="primary" style="display: inline" (click)="listaHistoricos()">
-                <mat-icon>list</mat-icon>
-              </button>
-            </div>
-          </div>
+      <div class="row">
+        <!-- Buscador -->
+        <div class="col-sm-6">
+          <mat-form-field class="col-sm-12">
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar empleado">
+          </mat-form-field>
+        </div>
+
+        <!-- Docentes historico-->
+        <div class="col-sm-6">Ver empleados dados de baja:
+          <button mat-raised-button color="primary" style="display: inline" (click)="listaHistoricos()">
+            <mat-icon>list</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <mat-radio-group style="margin-left: 1.8rem" color="primary">
+          <mat-radio-button value="D" (click)="applyFilter('Docente')">Docente</mat-radio-button>
+          <mat-radio-button value="A" (click)="applyFilter('Administración')" style="margin-left: 10px">Administración</mat-radio-button>
+          <mat-radio-button value="O" (click)="applyFilter('Ordenanza')" style="margin-left: 10px">Ordenanza</mat-radio-button>
+          <mat-radio-button value="C" (click)="applyFilter('Cocina')" style="margin-left: 10px">Cocina</mat-radio-button>
+        </mat-radio-group>
+      </div>
 
       <!-- Tabla de empleados -->
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -71,7 +79,7 @@
             <!-- Agregar formación académica -->
             <button (click)="agregarFormacion(empleado)" mat-raised-button style="background-color: rgb(114, 218, 29)">
               <mat-icon>add_circle</mat-icon>
-              Formación académica
+              F.A.
             </button>
 
             <!-- Ver perfil -->
@@ -85,6 +93,7 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
     </mat-card-content>
   </mat-card>
 </div>
