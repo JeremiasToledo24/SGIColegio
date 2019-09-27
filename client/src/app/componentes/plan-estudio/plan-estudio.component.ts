@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { PlanEstudioService } from 'src/app/servicios/planEstudio/plan-estudio.service';
 import { CursoService } from 'src/app/servicios/cursos/curso.service';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MateriaService } from 'src/app/servicios/materias/materia.service';
 import { MatDialog, MatTableDataSource, MatPaginator } from '@angular/material';
 import { Materia } from 'src/app/docentes/componentes/docente-materia/asignar-materia/asignar-materia.component';
@@ -31,7 +31,7 @@ export interface Nivel {
 
 export class PlanEstudioComponent implements OnInit {
   planForm = new FormGroup({
-    idNivel: new FormControl('')
+    idNivel: new FormControl('',Validators.required)
   });
 
   niveles: Nivel[] = [
@@ -63,6 +63,10 @@ export class PlanEstudioComponent implements OnInit {
       );
   }
 
+  seleccionarNivel(nivel){
+    console.log(nivel)
+  }
+
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
@@ -89,12 +93,21 @@ export class PlanEstudioComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(AgregarPlanComponent, {
-      data: ''
+      data: {planForm: this.planForm, listaMaterias: this.listaMaterias}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
+  }
+
+  formValid(){
+    if ((this.listaMaterias.length > 0)){
+      this.openDialog()
+    }else {
+      this.planService.openSnackBar('Primero debe agregar Materias a la lista')
+    }
+    
   }
 
   /* crear plan de estudio */

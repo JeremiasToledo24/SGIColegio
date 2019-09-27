@@ -12,10 +12,15 @@ export class AgregarPlanComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data) { }
 
   ngOnInit() {
+    console.log(this.data.planForm.value)
   }
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  crearPlan(){
+    
   }
 
 }
