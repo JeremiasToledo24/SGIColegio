@@ -65,6 +65,13 @@ export class EmpleadoService {
     );
   }
 
+  // Obtener empleado que es docente por DNI
+  getEmpleadosDocentesDNI(dni): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/Empleados/${dni}?filter=%7B%22where%22%3A%7B%22tipoEmpleado%22%3A%22Docente%22%7D%7D`).pipe(
+      catchError(this.handleError)
+    )
+  }
+
   // Obtener empleado por DNI
   getEmpleadoDNI(dni): Observable<any> {
     return this.http.get(`http://localhost:3000/api/Empleados/${dni}`)
