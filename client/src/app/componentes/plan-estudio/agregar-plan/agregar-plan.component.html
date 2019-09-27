@@ -1,8 +1,8 @@
-<h1 mat-dialog-title>Hi</h1>
+
 <div mat-dialog-content>
-  <p>What's your favorite animal?</p>
+  <p>¿Desea crear el plan?</p>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button (click)="onNoClick()" cdkFocusInitial>Ok</button>
+  <button mat-button (click)="onNoClick()" type="reset" mat-raised-button color="warn">Cancelar</button>
+  <button mat-button (click)="onNoClick()" cdkFocusInitial type="reset" mat-raised-button color="primary">Confirmar</button>
 </div>

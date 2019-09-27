@@ -1,122 +1,135 @@
-<div class="row justify-content-md-center">
-  <mat-card id="opciones" class="col-sm-10">
-    <mat-card-header>
-      <mat-card-title>Seleccione las Opciones Correspondientes</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
+<mat-card style="background: #E8EAF6" >
+  <mat-card-content>
+    <div class="row justify-content-md-center">
+      <mat-card id="opciones" class="row" class="col-sm">
+        <mat-card-header>
+          <mat-card-title>Seleccione las Opciones Correspondientes</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
 
-      <!-- Formulario para agregar plan de estudio -->
-      <form [formGroup]="planForm">
+          <!-- Formulario para agregar plan de estudio -->
+          <form [formGroup]="planForm">
 
-        <!-- Nivel -->
-        <mat-form-field appearance="outline" hideRequiredMarker>
-          <mat-label>Ingresar el nivel al que pertenece el plan</mat-label>
-          <mat-select matInput required>
-            <mat-option [value]="nivel.idNivel" *ngFor="let nivel of niveles">
-              {{ nivel.nombre }}</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </form>
-    </mat-card-content>
-  </mat-card>
+            <!-- Nivel -->
+            <mat-form-field appearance="outline" hideRequiredMarker>
+              <mat-label>Ingresar el nivel al que pertenece el plan</mat-label>
+              <mat-select matInput required>
+                <mat-option [value]="nivel.idNivel" *ngFor="let nivel of niveles">
+                  {{ nivel.nombre }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </form>
+        </mat-card-content>
+      </mat-card>
+      <div class="row">
+        <div class="col">
+          <!-- Seleccionar materias -->
+          <mat-card id="seleccionarMaterias">
+            <mat-card-header>
+              <mat-card-title>Seleccione las materias que corresponden al plan</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
 
-  <!-- Seleccionar materias -->
-  <mat-card id="seleccionarMaterias" class="col-sm-10">
-    <mat-card-header>
-      <mat-card-title>Seleccione las materias que corresponden al plan</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-
-      <!-- Buscar materia -->
-      <mat-form-field>
-        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-      </mat-form-field>
-
-
-      <!-- Lista de materias -->
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 .listamateria">
-
-        <!-- Columna código -->
-        <ng-container matColumnDef="codigo">
-          <th mat-header-cell *matHeaderCellDef> Codigo de la Materia</th>
-          <td mat-cell *matCellDef="let materia"> {{materia.codigo}} </td>
-        </ng-container>
-
-        <!-- Columna nombre -->
-        <ng-container matColumnDef="nombre">
-          <th mat-header-cell *matHeaderCellDef> Nombre de la Materia</th>
-          <td mat-cell *matCellDef="let materia"> {{materia.nombre}} </td>
-        </ng-container>
-
-        <!-- Columna operaciones -->
-        <ng-container matColumnDef="quitar">
-          <th mat-header-cell *matHeaderCellDef>Operaciones</th>
-          <mat-cell *matCellDef="let materia">
-            <button mat-raised-button color="primary" (click)="agregar(materia)">Añadir</button>
-          </mat-cell>
-
-        </ng-container>
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
-      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+              <!-- Buscar materia -->
+              <mat-form-field>
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+              </mat-form-field>
 
 
+              <!-- Lista de materias -->
+              <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 .listamateria">
 
-    </mat-card-content>
-  </mat-card>
+                <!-- Columna código -->
+                <ng-container matColumnDef="codigo">
+                  <th mat-header-cell *matHeaderCellDef> Codigo de la Materia</th>
+                  <td mat-cell *matCellDef="let materia"> {{materia.codigo}} </td>
+                </ng-container>
 
-  <!-- materias seleccionadas -->
-  <mat-card id="seleccionarMaterias" class="col-sm-10">
-    <mat-card-header>
-      <mat-card-title>Materias agregadas al plan</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
+                <!-- Columna nombre -->
+                <ng-container matColumnDef="nombre">
+                  <th mat-header-cell *matHeaderCellDef> Nombre de la Materia</th>
+                  <td mat-cell *matCellDef="let materia"> {{materia.nombre}} </td>
+                </ng-container>
 
-      <!-- Lista de materias -->
-      <table mat-table [dataSource]="dataSourceS" class="mat-elevation-z8 .listamateria">
+                <!-- Columna operaciones -->
+                <ng-container matColumnDef="quitar">
+                  <th mat-header-cell *matHeaderCellDef>Operaciones</th>
+                  <mat-cell *matCellDef="let materia">
+                    <button mat-raised-button color="primary" (click)="agregar(materia)">Añadir</button>
+                  </mat-cell>
 
-        <!-- Columna código -->
-        <ng-container matColumnDef="codigo">
-          <th mat-header-cell *matHeaderCellDef> Codigo de la Materia</th>
-          <td mat-cell *matCellDef="let materia"> {{materia.codigo}} </td>
-        </ng-container>
-
-        <!-- Columna nombre -->
-        <ng-container matColumnDef="nombre">
-          <th mat-header-cell *matHeaderCellDef> Nombre de la Materia</th>
-          <td mat-cell *matCellDef="let materia"> {{materia.nombre}} </td>
-        </ng-container>
-
-        <!-- Columna operaciones -->
-        <ng-container matColumnDef="quitar">
-          <th mat-header-cell *matHeaderCellDef>Operaciones</th>
-          <mat-cell *matCellDef="let materia">
-            <button mat-raised-button color="primary" (click)="quitar(materia)">Quitar</button>
-          </mat-cell>
-
-        </ng-container>
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
-      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-    </mat-card-content>
-  </mat-card>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+              <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 
 
 
-  <!-- Botones del formulario -->
-  <div class="row justify-content-md-center">
-    <!-- Cancel -->
-    <button type="reset" mat-raised-button color="warn">Cancelar</button>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div class="col">
+          <!-- materias seleccionadas -->
+          <mat-card id="seleccionarMaterias" class="col-sm-10">
+            <mat-card-header>
+              <mat-card-title>Materias agregadas al plan</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
 
-    <!-- Submit -->
-    <button type="button" mat-raised-button color="primary" (click)="openDialog()">
-      Crear Plan de Estudio
-    </button>
+              <!-- Lista de materias -->
+              <table mat-table [dataSource]="dataSourceS" class="mat-elevation-z8 .listamateria">
+
+                <!-- Columna código -->
+                <ng-container matColumnDef="codigo">
+                  <th mat-header-cell *matHeaderCellDef> Codigo de la Materia</th>
+                  <td mat-cell *matCellDef="let materia"> {{materia.codigo}} </td>
+                </ng-container>
+
+                <!-- Columna nombre -->
+                <ng-container matColumnDef="nombre">
+                  <th mat-header-cell *matHeaderCellDef> Nombre de la Materia</th>
+                  <td mat-cell *matCellDef="let materia"> {{materia.nombre}} </td>
+                </ng-container>
+
+                <!-- Columna operaciones -->
+                <ng-container matColumnDef="quitar">
+                  <th mat-header-cell *matHeaderCellDef>Operaciones</th>
+                  <mat-cell *matCellDef="let materia">
+                    <button mat-raised-button color="warn" (click)="quitar(materia)">Quitar</button>
+                  </mat-cell>
+
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+              <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+
+
+      <!-- Botones del formulario -->
+      
+  
+
   </div>
-</div>
 
+  <div class="d-flex justify-content-center">
+      <!-- Cancel -->
+      <button type="reset" mat-raised-button color="warn">Cancelar</button>
+
+      <!-- Submit -->
+      <button type="button" mat-raised-button color="primary" (click)="openDialog()">
+        Crear Plan de Estudio
+      </button>
+    </div>
+
+  </mat-card-content>
+
+</mat-card>
 <!-- Modal -->
 <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">

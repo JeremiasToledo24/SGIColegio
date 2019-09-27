@@ -40,6 +40,7 @@ mat-cell {
 
 mat-card {
   background-color: #E8EAF6;
+  margin: 2rem;
 }
 
 .buscador-form {
