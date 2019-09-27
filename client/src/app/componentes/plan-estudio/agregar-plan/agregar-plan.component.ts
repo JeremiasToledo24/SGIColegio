@@ -18,4 +18,8 @@ export class AgregarPlanComponent implements OnInit {
     this.dialogRef.close();
   }
 
+  crearPlan(){
+    
+  }
+
 }
