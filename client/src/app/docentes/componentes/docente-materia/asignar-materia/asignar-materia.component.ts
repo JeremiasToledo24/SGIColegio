@@ -17,7 +17,7 @@ export class Docente {
 }
 
 // Clase MATERIA
-export interface Materia {
+export class Materia {
   idMateria;
   codigo;
   nombre;
@@ -52,7 +52,7 @@ export class AsignarMateriaComponent implements OnInit {
   dataSource = new MatTableDataSource(this.docenteData);
 
   // Datos de las materias vinculadas
-  materiasDocente: Materia[];
+  materiasDocente: Materia[] =[];
   displayedColumnsMateriasVinculadas: string[] = ['codigo', 'nombre', 'operaciones'];
   dataSourceMateriasVinculadas = new MatTableDataSource(this.materiasDocente)
 
@@ -109,16 +109,15 @@ export class AsignarMateriaComponent implements OnInit {
 
   // Agrega las materias a la lista de materias a vincular
   add(materia) {
-    const _mat = this.materiasDocente.filter(
+    const mat = this.materiasDocente.filter(
       x => x.codigo === materia.codigo
-    );
-    if (_mat.length === 0) {
+    )
+    if (mat.length === 0) {
       this.materiasDocente.push(materia);
       this.dataSourceMateriasVinculadas = new MatTableDataSource(this.materiasDocente);
     } else {
       this.openSnackBar('La materia ya esta en la lista', 'OK');
     }
-
   }
   
   // Desvincular materia del docente (lo elimina de la lista)
