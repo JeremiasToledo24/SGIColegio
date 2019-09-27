@@ -2,9 +2,9 @@ CREATE DATABASE  IF NOT EXISTS `SGIColegio` /*!40100 DEFAULT CHARACTER SET latin
 USE `SGIColegio`;
 -- MySQL dump 10.13  Distrib 5.7.27, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: SGIColegio
+-- Host: localhost    Database: SGIColegio
 -- ------------------------------------------------------
--- Server version	5.7.27-0ubuntu0.19.04.1
+-- Server version	5.7.27-0ubuntu0.18.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -262,7 +262,7 @@ CREATE TABLE `Empleado` (
   PRIMARY KEY (`idEmpleado`),
   UNIQUE KEY `idEmpleado_UNIQUE` (`idEmpleado`),
   UNIQUE KEY `dni_UNIQUE` (`dni`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -271,27 +271,8 @@ CREATE TABLE `Empleado` (
 
 LOCK TABLES `Empleado` WRITE;
 /*!40000 ALTER TABLE `Empleado` DISABLE KEYS */;
-INSERT INTO `Empleado` VALUES (12,'camil','Toledo',852963,'741','uuu','852','2019-09-19','2019-09-19','F','Administración',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `Empleado` ENABLE KEYS */;
 UNLOCK TABLES;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER tr_bajaEmpleado AFTER DELETE ON Empleado FOR EACH ROW
-BEGIN
-	INSERT INTO `Empleado-Historico` VALUES(OLD.idEmpleado,OLD.nombre,OLD.apellido,OLD.dni,OLD.cuil,OLD.direccion,OLD.telefono,OLD.fechaNacimiento,OLD.fechaIngColegio,CURDATE(),OLD.sexo,OLD.tipoEmpleado);
-END */;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `Empleado-Historico`
@@ -434,7 +415,7 @@ CREATE TABLE `MateriaDocente` (
   KEY `DNI_idx` (`IdDocente`),
   CONSTRAINT `idDocente` FOREIGN KEY (`IdDocente`) REFERENCES `Docente` (`DNI`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `idMateria` FOREIGN KEY (`idMateria`) REFERENCES `Materia` (`idMateria`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -616,4 +597,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-09-23 17:44:43
+-- Dump completed on 2019-09-26 20:32:53

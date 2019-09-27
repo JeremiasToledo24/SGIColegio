@@ -1,12 +1,14 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { DocenteService } from 'src/app/servicios/docentes/docente.service';
+
 import { MatDialog, MatSnackBar, MatTableDataSource, MatPaginator } from '@angular/material';
 import { Router } from '@angular/router';
 import { MateriaModel } from 'src/app/models/materia-model';
 import { MateriaService } from 'src/app/servicios/materias/materia.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AsignarMateriaComponent } from './asignar-materia/asignar-materia.component';
+
+import { EmpleadoService } from 'src/app/servicios/empleados/empleado.service';
 
 /* INTERFACES: */
 export interface Docente {
@@ -23,7 +25,9 @@ export interface Docente {
 })
 /* Clase componente */
 export class DocenteMateriaComponent implements OnInit {
-  constructor(private docenteService: DocenteService,
+
+  constructor(
+    private empleadoService: EmpleadoService,
     public dialog: MatDialog,
     private snackBar: MatSnackBar,
     private router: Router,
@@ -40,12 +44,12 @@ export class DocenteMateriaComponent implements OnInit {
   }
 
   ngOnInit() {
-    /*  this.materiaService.listarMaterias().subscribe(
+     this.materiaService.listarMaterias().subscribe(
        res => {
          this.materiaService.datasource = res as MateriaModel[];
        }
-     );*/
-    this.docenteService.listarDocentes().subscribe(
+     );
+    this.empleadoService.getEmpleadosDocentes().subscribe(
       (res: Docente[]) => {
         res.forEach(element => {
           this.dataSource.data.push({ dni: element.dni, nombre: element.nombre, apellido: element.apellido })

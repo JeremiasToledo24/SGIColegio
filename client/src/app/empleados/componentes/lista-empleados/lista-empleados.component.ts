@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { EmpleadoService } from 'src/app/servicios/empleados/empleado.service';
-import { MatSnackBar, MatDialog, MatTableDataSource } from '@angular/material';
+import { MatSnackBar, MatDialog, MatTableDataSource, MatPaginator } from '@angular/material';
 import { ConfirmDialogComponent } from 'src/app/componentes/confirm-dialog/confirm-dialog.component';
 import { EditarEmpleadoComponent } from '../editar-empleado/editar-empleado.component';
 import { Router } from '@angular/router';
@@ -38,6 +38,8 @@ export class ListaEmpleadosComponent implements OnInit {
   displayedColumns: string[] = ['dni', 'apellido', 'nombre','tipoEmpleado','operaciones'];
   @Input() dataSource;
   
+  // Paginador
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   ngOnInit() {
     this.empleadoService.getEmpleados().subscribe(
@@ -45,6 +47,7 @@ export class ListaEmpleadosComponent implements OnInit {
         let data: Empleado[];
         data = res as Empleado[];
         this.dataSource = new MatTableDataSource(data);
+        this.dataSource.paginator = this.paginator;
       }
     )
   }
