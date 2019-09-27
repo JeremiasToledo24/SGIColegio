@@ -7,12 +7,11 @@
 
       <!-- Formulario para agregar plan de estudio -->
       <form [formGroup]="planForm">
-
         <!-- Nivel -->
         <mat-form-field appearance="outline" hideRequiredMarker>
           <mat-label>Ingresar el nivel al que pertenece el plan</mat-label>
-          <mat-select matInput required>
-            <mat-option (click)="seleccionarNivel(value)" [value]="nivel.idNivel" *ngFor="let nivel of niveles">
+          <mat-select [formControl]="idNivel" matInput required>
+            <mat-option [value]="nivel.idNivel" *ngFor="let nivel of niveles">
               {{ nivel.nombre }}</mat-option>
           </mat-select>
         </mat-form-field>
