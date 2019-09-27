@@ -40,12 +40,12 @@ export class DocenteMateriaComponent implements OnInit {
   }
 
   ngOnInit() {
-    /*  this.materiaService.listarMaterias().subscribe(
+     this.materiaService.listarMaterias().subscribe(
        res => {
          this.materiaService.datasource = res as MateriaModel[];
        }
-     );*/
-    this.docenteService.listarDocentes().subscribe(
+     );
+    this.empleadoService.getEmpleadosDocentes().subscribe(
       (res: Docente[]) => {
         res.forEach(element => {
           this.dataSource.data.push({ dni: element.dni, nombre: element.nombre, apellido: element.apellido })

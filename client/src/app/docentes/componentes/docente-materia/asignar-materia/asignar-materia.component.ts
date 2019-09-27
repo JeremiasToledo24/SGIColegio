@@ -1,35 +1,34 @@
-import {Component, OnInit, Inject, ViewChild} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {DocenteService} from 'src/app/servicios/docentes/docente.service';
-import {MAT_DIALOG_DATA, MatDialogRef, MatTableDataSource, MatPaginator} from '@angular/material';
-import {MateriaService} from 'src/app/servicios/materias/materia.service';
+import { Component, OnInit, Inject, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MAT_DIALOG_DATA, MatDialogRef, MatTableDataSource, MatPaginator, MatSnackBar } from '@angular/material';
+import { MateriaService } from 'src/app/servicios/materias/materia.service';
+import { EmpleadoService } from 'src/app/servicios/empleados/empleado.service';
 
-
-
+// Clase DOCENTE
 export class Docente {
   dni;
   nombre;
   apellido;
-  constructor(dni, n,a) {
+  constructor(dni, n, a) {
     this.dni = dni;
     this.nombre = n;
     this.apellido = a;
-
   }
 }
 
-export interface Materia {
+// Clase MATERIA
+export class Materia {
   idMateria;
   codigo;
   nombre;
 }
 
+// Clase MATERIA - DOCENTE
 export class MateriaDocente {
   constructor(idM, idD) {
     this.idDocente = idD;
     this.idMateria = idM;
   }
-
   id;
   idMateria;
   idDocente;
@@ -44,43 +43,46 @@ export class AsignarMateriaComponent implements OnInit {
   public id: string;
   d: Docente;
 
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  /* datos del docente */
-  docenteData: Docente[] = [{dni: 0, nombre: 0, apellido: 0}];
+  // Paginador
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+
+  // Datos del docente
+  docenteData: Docente[] = [{ dni: 0, nombre: 0, apellido: 0 }];
   displayedColumns: string[] = ['dni', 'nombre', 'apellido'];
   dataSource = new MatTableDataSource(this.docenteData);
 
-
-  /* datos de las materias vinculadas */
-  materiasDocente: Materia[];
+  // Datos de las materias vinculadas
+  materiasDocente: Materia[] =[];
   displayedColumnsMateriasVinculadas: string[] = ['codigo', 'nombre', 'operaciones'];
   dataSourceMateriasVinculadas = new MatTableDataSource(this.materiasDocente)
 
-  /* datos de todas las materias */
+  // Datos de las materias
   materias: Materia[];
   displayedColumnsMaterias: string[] = ['codigo', 'nombre', 'operaciones'];
   dataSourceMaterias = new MatTableDataSource(this.materias);
 
-  /* constructor */
-  constructor(    
+  // CONSTRUCTOR
+  constructor(
     private route: ActivatedRoute,
-    private docenteService: DocenteService,
+    private empleadoService: EmpleadoService,
     private materiaService: MateriaService,
     private router: Router,
-
+    private snackBar: MatSnackBar
   ) {
   }
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
-    /* obtiene las materias asignadas a los docentes */
-    this.docenteService.obtenerMateriasDocente(this.id)
+
+    // Obtiene las materias asignadas a los docentes
+    this.empleadoService.getEmpleadosDocentesDNI(this.id)
       .subscribe(
         (res) => {
           this.materiasDocente = res
           this.dataSourceMateriasVinculadas = new MatTableDataSource(this.materiasDocente);
         })
-    /* obtiene todas las materias de la bd */
+
+    // Obtiene todas las materias de la bd
     this.materiaService.listarMaterias()
       .subscribe(
         (res: Materia[]) => {
@@ -89,7 +91,7 @@ export class AsignarMateriaComponent implements OnInit {
           this.dataSourceMaterias.paginator = this.paginator;
         }
       )
-      this.docenteService.obtenerDocentesDNI(this.id)
+    this.empleadoService.getEmpleadosDocentesDNI(this.id)
       .subscribe(
         (res: Docente) => {
           this.docenteData = [];
@@ -99,24 +101,26 @@ export class AsignarMateriaComponent implements OnInit {
         }
       )
   }
-  /* filtro de la tabla materias */
+
+  // Buscador de materias
   applyFilter(filterValue: string) {
     this.dataSourceMaterias.filter = filterValue.trim().toLowerCase();
   }
-  /* agrega materias a la lista de materias vinculadas */
+
+  // Agrega las materias a la lista de materias a vincular
   add(materia) {
-    const _mat = this.materiasDocente.filter(
+    const mat = this.materiasDocente.filter(
       x => x.codigo === materia.codigo
-    );
-    if (_mat.length === 0) {
+    )
+    if (mat.length === 0) {
       this.materiasDocente.push(materia);
       this.dataSourceMateriasVinculadas = new MatTableDataSource(this.materiasDocente);
     } else {
-      this.docenteService.openSnackBar('la materia ya esta en la lista', 'ok');
+      this.openSnackBar('La materia ya esta en la lista', 'OK');
     }
-
   }
-  /* desvincular materia */
+  
+  // Desvincular materia del docente (lo elimina de la lista)
   desvincular(materia) {
     this.materiasDocente = this.materiasDocente.filter(
       x => x.codigo !== materia.codigo
@@ -125,28 +129,39 @@ export class AsignarMateriaComponent implements OnInit {
 
   }
 
-  cancelar(){
+  // Cancelar operación
+  cancelar() {
     this.router.navigate(['docenteMateria',]);
-
   }
+
+  // Guardar cambios
   guardarCambios() {
     /* desvincula todas las materias */
-    this.docenteService.desvincularTodasMaterias(this.id)
+    this.empleadoService.desvincularTodasMaterias(this.id)
       .subscribe(
         res => {
           this.materiasDocente.forEach(element => {
             let dat = new MateriaDocente(element.idMateria, this.id);
-            this.docenteService.asignarMateria(dat)
+            this.empleadoService.asignarMateria(dat)
               .subscribe(
                 res => console.log(res)
               )
           })
-          this.docenteService.openSnackBar("Cambios Guardados", "ok");
+          this.openSnackBar("Cambios Guardados", "OK");
         }), null,
       () => {
       }
-      this.router.navigate(['docenteMateria']);
+    this.router.navigate(['docenteMateria']);
 
+  }
+
+  // Mostrar SnackBar
+  openSnackBar(m: string, a: string) {
+    this.snackBar.open(
+      m, a, {
+      duration: 4000
+    }
+    );
   }
 
 }

@@ -12,15 +12,19 @@ export class EmpleadoService {
     private http: HttpClient
   ) { }
 
+  // ---------------------------------------------------------------//
+  // ------------- SERVICIOS GENÉRICOS PARA EMPLEADOS ------------- //
+  // ---------------------------------------------------------------//
+
   // Registrar empleado
-  addEmpleado(Empleado: any): Observable<any>{
+  addEmpleado(Empleado: any): Observable<any> {
     return this.http.post('http://localhost:3000/api/Empleados', Empleado).pipe(
       catchError(this.handleError)
     );
   }
 
   // Agregar formacion/experiencia del empleado
-  agregarFormacionEmpleado(Formacion: any): Observable<any> {
+  addFormacionEmpleado(Formacion: any): Observable<any> {
     return this.http.post('http://localhost:3000/api/FormacionEmpleados', Formacion).pipe(
       catchError(this.handleError)
     );
@@ -30,14 +34,14 @@ export class EmpleadoService {
   deleteEmpleado(DNI: number): Observable<any> {
     return this.http.delete(`http://localhost:3000/api/Empleados/${DNI}`).pipe(
       catchError(this.handleError)
-    )
+    );
   }
 
   // Editar empleado
-  editarEmpleado(Empleado: any): Observable<any> {
+  editEmpleado(Empleado: any): Observable<any> {
     return this.http.put('http://localhost:3000/api/Empleados/', Empleado).pipe(
       catchError(this.handleError)
-    )
+    );
   }
 
   // Actualizar fechaEgrColegio del empleado
@@ -51,15 +55,29 @@ export class EmpleadoService {
   getEmpleados(): Observable<any> {
     return this.http.get('http://localhost:3000/api/Empleados').pipe(
       catchError(this.handleError)
+    );
+  }
+
+  // Obtener empleados que son docentes
+  getEmpleadosDocentes(): Observable<any> {
+    return this.http.get('http://localhost:3000/api/Empleados?filter=%7B%22where%22%3A%7B%22tipoEmpleado%22%3A%22Docente%22%7D%7D').pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  // Obtener empleado que es docente por DNI
+  getEmpleadosDocentesDNI(dni): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/Empleados/${dni}?filter=%7B%22where%22%3A%7B%22tipoEmpleado%22%3A%22Docente%22%7D%7D`).pipe(
+      catchError(this.handleError)
     )
   }
 
   // Obtener empleado por DNI
-  obtenerEmpleadoDNI(dni): Observable<any> {
+  getEmpleadoDNI(dni): Observable<any> {
     return this.http.get(`http://localhost:3000/api/Empleados/${dni}`)
       .pipe(
         catchError(this.handleError)
-      )
+      );
   }
 
   // Obtener empleados dados de baja
@@ -68,8 +86,40 @@ export class EmpleadoService {
       catchError(this.handleError)
     )
   }
-  
-  // Manejo de errores segun la respuesta HTTP y mostrar en consola un resumen del error
+
+  // ---------------------------------------------------------------//
+  // -------------- SERVICIOS EXCLUSIVOS DE DOCENTES ---------------//
+  // ---------------------------------------------------------------//
+
+  // Asignar materia a un docente
+  asignarMateria(data): Observable<any> {
+    return this.http.post('http://localhost:3000/api/MateriaDocentes', data)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
+  // Obtener materias vinculadas a un docente
+  getMateriasDocente(id): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/MateriasXDocentes?filter=%7B%22where%22%3A%7B%22idDocente%22%3A%22${id}%22%7D%7D`)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  // Borrar materias vinculadas a un docente
+  desvincularTodasMaterias(id): Observable<any> {
+    return this.http.delete(`http://localhost:3000/api/MateriaDocentes/${id}`)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+
+  // ---------------------------------------------------------------//
+  // -------------- MANEJO DE ERRORES SEGUN HTTP RES ---------------//
+  // ---------------------------------------------------------------//
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
