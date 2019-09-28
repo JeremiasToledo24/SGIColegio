@@ -13,7 +13,7 @@
       "type": "number",
       "id": true
     },
-    "idDetalleMateria": {
+    "idDetallePlanMateria": {
       "type":"number"
     },
     "anio":{
