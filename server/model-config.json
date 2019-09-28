@@ -90,5 +90,9 @@
   "DocenteCurso": {
     "dataSource": "db",
     "public": true
+  },
+  "DetallePlanMateria": {
+    "dataSource": "db",
+    "public": true
   }
 }

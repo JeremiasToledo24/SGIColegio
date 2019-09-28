@@ -15,6 +15,9 @@
     },
     "DNIDocente": {
       "type": "number"
+    },
+    "idMateria": {
+      "type":"number"
     }
   },
   "validations": [],

@@ -6,15 +6,18 @@
     "validateUpsert": true
   },
   "properties": {
-    "idMateria": {
-      "type": "number"
-    },
     "idPlan": {
       "type": "number"
     },
     "idPlanMateria": {
       "type": "number",
       "id": true
+    },
+    "idDetalleMateria": {
+      "type":"number"
+    },
+    "anio":{
+      "type": "number"
     }
   },
   "validations": [],

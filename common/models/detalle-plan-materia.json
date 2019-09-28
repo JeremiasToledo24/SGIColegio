@@ -1,20 +1,17 @@
 {
-  "name": "PlanEstudio",
+  "name": "DetallePlanMateria",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "idPlanEstudio": {
+    "idDetallePlanMateria": {
       "type": "number",
       "id": true
     },
-    "idNivel": {
+    "idMateria": {
       "type": "number"
-    },
-    "nombrePlan": {
-      "type":"string"
     }
   },
   "validations": [],
