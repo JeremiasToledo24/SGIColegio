@@ -10,7 +10,7 @@
       "type": "number",
       "id": true
     },
-    "idMateria": {
+    "codMateria": {
       "type": "number"
     }
   },
