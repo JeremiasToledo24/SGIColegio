@@ -7,12 +7,9 @@
     "validateUpsert": true
   },
   "properties": {
-    "id": {
+    "idCurso": {
       "type": "number",
       "id": true
-    },
-    "idCurso": {
-      "type": "number"
     },
     "nombre": {
       "type": "string",

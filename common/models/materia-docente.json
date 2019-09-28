@@ -22,7 +22,6 @@
     "hasta": {
       "type": "string"
     }
-
   },
   "validations": [],
   "relations": {},
