@@ -37,6 +37,7 @@ import { EditarCursoComponent } from './componentes/cursos/editar-curso/editar-c
 import { EmpleadosModule } from './empleados/empleados.module';
 import { LoginComponent } from './login/login/login.component';
 import { AgregarPlanComponent } from './componentes/plan-estudio/agregar-plan/agregar-plan.component';
+import { DialogMateriasComponent } from './componentes/plan-estudio/dialog-materias/dialog-materias.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { AgregarPlanComponent } from './componentes/plan-estudio/agregar-plan/ag
     PlanEstudioComponent,
     SideBarComponent,
     LoginComponent,
-    AgregarPlanComponent
+    AgregarPlanComponent,
+    DialogMateriasComponent
   ],
   imports: [
     AppRoutingModule,
@@ -79,7 +81,8 @@ import { AgregarPlanComponent } from './componentes/plan-estudio/agregar-plan/ag
     EditarMateriaComponent,
     ConfirmDialogComponent,
     EditarCursoComponent,
-    AgregarPlanComponent],
+    AgregarPlanComponent,
+  DialogMateriasComponent],
   exports: [ListaMateriasComponent],
 
 })

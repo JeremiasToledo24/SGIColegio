@@ -27,7 +27,7 @@ class Planes {
 
 export class ListaPlanesComponent implements OnInit {
   /* variables para mostrar lista */
-  displayedColumns: string[] = ['anniodelplan', 'Nivel', 'Curso', 'materiacodigo', 'materianombre', 'operaciones'];
+  displayedColumns: string[] = ['nombre','anio', 'Nivel', 'materiacodigo', 'materianombre', 'operaciones'];
   dataSource: Planes[];
 
   constructor(private planService: PlanEstudioService, public dialog: MatDialog) {

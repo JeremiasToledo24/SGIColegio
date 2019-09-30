@@ -3,6 +3,6 @@
   <p>¿Desea crear el plan?</p>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()" type="reset" mat-raised-button color="warn">Cancelar</button>
-  <button mat-button (click)="onNoClick()" cdkFocusInitial type="reset" mat-raised-button color="primary">Confirmar</button>
+  <button mat-button (click)="onNoClick('N')" type="reset" mat-raised-button color="warn">Cancelar</button>
+  <button mat-button (click)="onNoClick('S')" cdkFocusInitial type="reset" mat-raised-button color="primary">Confirmar</button>
 </div>

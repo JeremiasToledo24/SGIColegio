@@ -13,10 +13,10 @@
       "type": "number",
       "id": true
     },
-    "idDetallePlanMateria": {
-      "type":"number"
-    },
     "anio":{
+      "type": "string"
+    },
+    "codMateria":{
       "type": "number"
     }
   },

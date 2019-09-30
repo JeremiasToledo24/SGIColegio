@@ -31,6 +31,13 @@ export class PlanEstudioService {
     );
   }
 
+  nuevoPlanMateria(plan_materia): Observable<any>{
+    return this.http.post('http://localhost:3000/api/PlanMateria', plan_materia)
+    .pipe(
+      catchError(this.handleError)
+    )
+  }
+
   listarPlanes() {
     return this.http.get(`http://localhost:3000/api/ListaPlanesYMaterias`);
   }
