@@ -17,6 +17,8 @@ import { AsignarCursosComponent } from './aulas/componentes/asignar-cursos/asign
 import { EmpleadoHistoricoComponent } from './empleados/componentes/empleado-historico/empleado-historico.component';
 import { LoginComponent } from './login/login/login.component';
 import { PerfilEmpleadoComponent } from './empleados/componentes/perfil-empleado/perfil-empleado.component';
+import { InscribirComponent } from './alumnos/componentes/inscribir/inscribir.component';
+import { ListaAlumnosComponent } from './alumnos/componentes/lista-alumnos/lista-alumnos.component';
 
 
 const routes: Routes = [
@@ -34,6 +36,8 @@ const routes: Routes = [
   { path: 'nuevoEmpleado', component: NuevoEmpleadoComponent },
   { path: 'listaEmpleados', component: ListaEmpleadosComponent },
   { path: 'listaEmpleadosHistoricos', component: EmpleadoHistoricoComponent },
+  { path: 'inscribirAlumno', component: InscribirComponent },
+  { path: 'listaAlumnos', component: ListaAlumnosComponent },
   { path: 'asignarCursos/:id', component: AsignarCursosComponent },
   { path: '**', redirectTo: 'error' },
 

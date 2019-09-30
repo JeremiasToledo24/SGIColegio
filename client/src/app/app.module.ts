@@ -37,6 +37,7 @@ import { EditarCursoComponent } from './componentes/cursos/editar-curso/editar-c
 import { EmpleadosModule } from './empleados/empleados.module';
 import { LoginComponent } from './login/login/login.component';
 import { AgregarPlanComponent } from './componentes/plan-estudio/agregar-plan/agregar-plan.component';
+import { AlumnosModule } from './alumnos/alumnos.module';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { AgregarPlanComponent } from './componentes/plan-estudio/agregar-plan/ag
     HttpClientModule,
     LayoutModule,
     MaterialModule,
-    EmpleadosModule
+    EmpleadosModule,
+    AlumnosModule
   ],
   providers: [MateriaService, CursoService, NivelService],
   bootstrap: [AppComponent],
