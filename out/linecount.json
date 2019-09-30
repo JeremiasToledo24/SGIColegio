@@ -1,0 +1,2589 @@
+{
+    "extension": "linecount",
+    "version": "0.1.7",
+    "workspace": "/home/jeremias/SGIColegio",
+    "linecount": [
+        {
+            "version": "0.1.7",
+            "counttime": "2019-09-30 00:11:12",
+            "filesum": 426,
+            "codesum": 195112,
+            "commentsum": 12327,
+            "blanksum": 14254,
+            "filelist": [
+                {
+                    "blank": 2,
+                    "code": 11,
+                    "comment": 1,
+                    "filename": ".editorconfig"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": ".eslintignore"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": ".eslintrc"
+                },
+                {
+                    "blank": 0,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": ".gitignore"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": ".yo-rc.json"
+                },
+                {
+                    "blank": 204,
+                    "code": 274,
+                    "comment": 249,
+                    "filename": "bd 26 sep.sql"
+                },
+                {
+                    "blank": 2,
+                    "code": 11,
+                    "comment": 1,
+                    "filename": "client/.editorconfig"
+                },
+                {
+                    "blank": 5,
+                    "code": 22,
+                    "comment": 21,
+                    "filename": "client/.gitignore"
+                },
+                {
+                    "blank": 6,
+                    "code": 117,
+                    "comment": 0,
+                    "filename": "client/angular.json"
+                },
+                {
+                    "blank": 2,
+                    "code": 10,
+                    "comment": 1,
+                    "filename": "client/browserslist"
+                },
+                {
+                    "blank": 2,
+                    "code": 25,
+                    "comment": 6,
+                    "filename": "client/e2e/protractor.conf.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 18,
+                    "comment": 1,
+                    "filename": "client/e2e/src/app.e2e-spec.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "client/e2e/src/app.po.ts"
+                },
+                {
+                    "blank": 1,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "client/e2e/tsconfig.json"
+                },
+                {
+                    "blank": 1,
+                    "code": 29,
+                    "comment": 3,
+                    "filename": "client/karma.conf.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 9671,
+                    "comment": 0,
+                    "filename": "client/package-lock.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 53,
+                    "comment": 0,
+                    "filename": "client/package.json"
+                },
+                {
+                    "blank": 12,
+                    "code": 7,
+                    "comment": 1,
+                    "filename": "client/README.md"
+                },
+                {
+                    "blank": 5,
+                    "code": 41,
+                    "comment": 1,
+                    "filename": "client/src/app/app-routing.module.ts"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "client/src/app/app.component.css"
+                },
+                {
+                    "blank": 2,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "client/src/app/app.component.html"
+                },
+                {
+                    "blank": 4,
+                    "code": 31,
+                    "comment": 0,
+                    "filename": "client/src/app/app.component.spec.ts"
+                },
+                {
+                    "blank": 1,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "client/src/app/app.component.ts"
+                },
+                {
+                    "blank": 11,
+                    "code": 84,
+                    "comment": 3,
+                    "filename": "client/src/app/app.module.ts"
+                },
+                {
+                    "blank": 1,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "client/src/app/aulas/aulas.module.ts"
+                },
+                {
+                    "blank": 7,
+                    "code": 27,
+                    "comment": 0,
+                    "filename": "client/src/app/aulas/componentes/asignar-cursos/asignar-cursos.component.css"
+                },
+                {
+                    "blank": 39,
+                    "code": 130,
+                    "comment": 16,
+                    "filename": "client/src/app/aulas/componentes/asignar-cursos/asignar-cursos.component.html"
+                },
+                {
+                    "blank": 5,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/aulas/componentes/asignar-cursos/asignar-cursos.component.spec.ts"
+                },
+                {
+                    "blank": 20,
+                    "code": 105,
+                    "comment": 28,
+                    "filename": "client/src/app/aulas/componentes/asignar-cursos/asignar-cursos.component.ts"
+                },
+                {
+                    "blank": 7,
+                    "code": 27,
+                    "comment": 0,
+                    "filename": "client/src/app/aulas/componentes/aulas/aulas.component.css"
+                },
+                {
+                    "blank": 11,
+                    "code": 53,
+                    "comment": 9,
+                    "filename": "client/src/app/aulas/componentes/aulas/aulas.component.html"
+                },
+                {
+                    "blank": 5,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/aulas/componentes/aulas/aulas.component.spec.ts"
+                },
+                {
+                    "blank": 13,
+                    "code": 96,
+                    "comment": 4,
+                    "filename": "client/src/app/aulas/componentes/aulas/aulas.component.ts"
+                },
+                {
+                    "blank": 5,
+                    "code": 18,
+                    "comment": 0,
+                    "filename": "client/src/app/aulas/componentes/crear-aula/crear-aula.component.css"
+                },
+                {
+                    "blank": 4,
+                    "code": 26,
+                    "comment": 5,
+                    "filename": "client/src/app/aulas/componentes/crear-aula/crear-aula.component.html"
+                },
+                {
+                    "blank": 5,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/aulas/componentes/crear-aula/crear-aula.component.spec.ts"
+                },
+                {
+                    "blank": 9,
+                    "code": 52,
+                    "comment": 3,
+                    "filename": "client/src/app/aulas/componentes/crear-aula/crear-aula.component.ts"
+                },
+                {
+                    "blank": 4,
+                    "code": 18,
+                    "comment": 0,
+                    "filename": "client/src/app/aulas/componentes/editar-aula/editar-aula.component.css"
+                },
+                {
+                    "blank": 8,
+                    "code": 24,
+                    "comment": 5,
+                    "filename": "client/src/app/aulas/componentes/editar-aula/editar-aula.component.html"
+                },
+                {
+                    "blank": 5,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/aulas/componentes/editar-aula/editar-aula.component.spec.ts"
+                },
+                {
+                    "blank": 8,
+                    "code": 63,
+                    "comment": 3,
+                    "filename": "client/src/app/aulas/componentes/editar-aula/editar-aula.component.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/confirm-dialog/confirm-dialog.component.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/confirm-dialog/confirm-dialog.component.html"
+                },
+                {
+                    "blank": 5,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/confirm-dialog/confirm-dialog.component.spec.ts"
+                },
+                {
+                    "blank": 16,
+                    "code": 132,
+                    "comment": 3,
+                    "filename": "client/src/app/componentes/confirm-dialog/confirm-dialog.component.ts"
+                },
+                {
+                    "blank": 5,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/cursos/agregar-curso/agregar-curso.component.css"
+                },
+                {
+                    "blank": 8,
+                    "code": 30,
+                    "comment": 6,
+                    "filename": "client/src/app/componentes/cursos/agregar-curso/agregar-curso.component.html"
+                },
+                {
+                    "blank": 5,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/cursos/agregar-curso/agregar-curso.component.spec.ts"
+                },
+                {
+                    "blank": 7,
+                    "code": 34,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/cursos/agregar-curso/agregar-curso.component.ts"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/cursos/cursos.component.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 2,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/cursos/cursos.component.html"
+                },
+                {
+                    "blank": 5,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/cursos/cursos.component.spec.ts"
+                },
+                {
+                    "blank": 5,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/cursos/cursos.component.ts"
+                },
+                {
+                    "blank": 5,
+                    "code": 21,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/cursos/editar-curso/editar-curso.component.css"
+                },
+                {
+                    "blank": 5,
+                    "code": 26,
+                    "comment": 5,
+                    "filename": "client/src/app/componentes/cursos/editar-curso/editar-curso.component.html"
+                },
+                {
+                    "blank": 5,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/cursos/editar-curso/editar-curso.component.spec.ts"
+                },
+                {
+                    "blank": 8,
+                    "code": 66,
+                    "comment": 3,
+                    "filename": "client/src/app/componentes/cursos/editar-curso/editar-curso.component.ts"
+                },
+                {
+                    "blank": 10,
+                    "code": 34,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/cursos/lista-curso/lista-curso.component.css"
+                },
+                {
+                    "blank": 11,
+                    "code": 56,
+                    "comment": 8,
+                    "filename": "client/src/app/componentes/cursos/lista-curso/lista-curso.component.html"
+                },
+                {
+                    "blank": 5,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/cursos/lista-curso/lista-curso.component.spec.ts"
+                },
+                {
+                    "blank": 19,
+                    "code": 116,
+                    "comment": 2,
+                    "filename": "client/src/app/componentes/cursos/lista-curso/lista-curso.component.ts"
+                },
+                {
+                    "blank": 5,
+                    "code": 21,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/materias/agregar-materia/agregar-materia.component.css"
+                },
+                {
+                    "blank": 7,
+                    "code": 19,
+                    "comment": 5,
+                    "filename": "client/src/app/componentes/materias/agregar-materia/agregar-materia.component.html"
+                },
+                {
+                    "blank": 5,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/materias/agregar-materia/agregar-materia.component.spec.ts"
+                },
+                {
+                    "blank": 16,
+                    "code": 66,
+                    "comment": 4,
+                    "filename": "client/src/app/componentes/materias/agregar-materia/agregar-materia.component.ts"
+                },
+                {
+                    "blank": 5,
+                    "code": 21,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/materias/editar-materia/editar-materia.component.css"
+                },
+                {
+                    "blank": 6,
+                    "code": 18,
+                    "comment": 6,
+                    "filename": "client/src/app/componentes/materias/editar-materia/editar-materia.component.html"
+                },
+                {
+                    "blank": 5,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/materias/editar-materia/editar-materia.component.spec.ts"
+                },
+                {
+                    "blank": 6,
+                    "code": 43,
+                    "comment": 3,
+                    "filename": "client/src/app/componentes/materias/editar-materia/editar-materia.component.ts"
+                },
+                {
+                    "blank": 6,
+                    "code": 24,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/materias/lista-materias/lista-materias.component.css"
+                },
+                {
+                    "blank": 7,
+                    "code": 23,
+                    "comment": 7,
+                    "filename": "client/src/app/componentes/materias/lista-materias/lista-materias.component.html"
+                },
+                {
+                    "blank": 5,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/materias/lista-materias/lista-materias.component.spec.ts"
+                },
+                {
+                    "blank": 15,
+                    "code": 80,
+                    "comment": 5,
+                    "filename": "client/src/app/componentes/materias/lista-materias/lista-materias.component.ts"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/materias/materias.component.css"
+                },
+                {
+                    "blank": 2,
+                    "code": 14,
+                    "comment": 1,
+                    "filename": "client/src/app/componentes/materias/materias.component.html"
+                },
+                {
+                    "blank": 5,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/materias/materias.component.spec.ts"
+                },
+                {
+                    "blank": 5,
+                    "code": 29,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/materias/materias.component.ts"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/navegacion/footer/footer.component.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/navegacion/footer/footer.component.html"
+                },
+                {
+                    "blank": 5,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/navegacion/footer/footer.component.spec.ts"
+                },
+                {
+                    "blank": 4,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/navegacion/footer/footer.component.ts"
+                },
+                {
+                    "blank": 1,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/navegacion/home/home.component.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/navegacion/home/home.component.html"
+                },
+                {
+                    "blank": 5,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/navegacion/home/home.component.spec.ts"
+                },
+                {
+                    "blank": 4,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/navegacion/home/home.component.ts"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/navegacion/navbar/navbar.component.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/navegacion/navbar/navbar.component.html"
+                },
+                {
+                    "blank": 5,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/navegacion/navbar/navbar.component.spec.ts"
+                },
+                {
+                    "blank": 4,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/navegacion/navbar/navbar.component.ts"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/navegacion/not-found/not-found.component.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/navegacion/not-found/not-found.component.html"
+                },
+                {
+                    "blank": 5,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/navegacion/not-found/not-found.component.spec.ts"
+                },
+                {
+                    "blank": 4,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/navegacion/not-found/not-found.component.ts"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/navegacion/side-bar/side-bar.component.css"
+                },
+                {
+                    "blank": 6,
+                    "code": 42,
+                    "comment": 10,
+                    "filename": "client/src/app/componentes/navegacion/side-bar/side-bar.component.html"
+                },
+                {
+                    "blank": 5,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/navegacion/side-bar/side-bar.component.spec.ts"
+                },
+                {
+                    "blank": 5,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/navegacion/side-bar/side-bar.component.ts"
+                },
+                {
+                    "blank": 7,
+                    "code": 27,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/plan-estudio/agregar-plan/agregar-plan.component.css"
+                },
+                {
+                    "blank": 1,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/plan-estudio/agregar-plan/agregar-plan.component.html"
+                },
+                {
+                    "blank": 5,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/plan-estudio/agregar-plan/agregar-plan.component.spec.ts"
+                },
+                {
+                    "blank": 6,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/plan-estudio/agregar-plan/agregar-plan.component.ts"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/plan-estudio/dialog-materias/dialog-materias.component.css"
+                },
+                {
+                    "blank": 16,
+                    "code": 76,
+                    "comment": 11,
+                    "filename": "client/src/app/componentes/plan-estudio/dialog-materias/dialog-materias.component.html"
+                },
+                {
+                    "blank": 5,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/plan-estudio/dialog-materias/dialog-materias.component.spec.ts"
+                },
+                {
+                    "blank": 9,
+                    "code": 58,
+                    "comment": 3,
+                    "filename": "client/src/app/componentes/plan-estudio/dialog-materias/dialog-materias.component.ts"
+                },
+                {
+                    "blank": 10,
+                    "code": 38,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/plan-estudio/lista-planes/lista-planes.component.css"
+                },
+                {
+                    "blank": 8,
+                    "code": 44,
+                    "comment": 21,
+                    "filename": "client/src/app/componentes/plan-estudio/lista-planes/lista-planes.component.html"
+                },
+                {
+                    "blank": 5,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/plan-estudio/lista-planes/lista-planes.component.spec.ts"
+                },
+                {
+                    "blank": 11,
+                    "code": 52,
+                    "comment": 5,
+                    "filename": "client/src/app/componentes/plan-estudio/lista-planes/lista-planes.component.ts"
+                },
+                {
+                    "blank": 13,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/plan-estudio/plan-estudio.component.css"
+                },
+                {
+                    "blank": 3,
+                    "code": 42,
+                    "comment": 5,
+                    "filename": "client/src/app/componentes/plan-estudio/plan-estudio.component.html"
+                },
+                {
+                    "blank": 5,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/componentes/plan-estudio/plan-estudio.component.spec.ts"
+                },
+                {
+                    "blank": 18,
+                    "code": 91,
+                    "comment": 1,
+                    "filename": "client/src/app/componentes/plan-estudio/plan-estudio.component.ts"
+                },
+                {
+                    "blank": 7,
+                    "code": 27,
+                    "comment": 0,
+                    "filename": "client/src/app/docentes/componentes/docente-materia/asignar-materia/asignar-materia.component.css"
+                },
+                {
+                    "blank": 9,
+                    "code": 111,
+                    "comment": 12,
+                    "filename": "client/src/app/docentes/componentes/docente-materia/asignar-materia/asignar-materia.component.html"
+                },
+                {
+                    "blank": 5,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/docentes/componentes/docente-materia/asignar-materia/asignar-materia.component.spec.ts"
+                },
+                {
+                    "blank": 22,
+                    "code": 128,
+                    "comment": 17,
+                    "filename": "client/src/app/docentes/componentes/docente-materia/asignar-materia/asignar-materia.component.ts"
+                },
+                {
+                    "blank": 13,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": "client/src/app/docentes/componentes/docente-materia/docente-materia.component.css"
+                },
+                {
+                    "blank": 11,
+                    "code": 41,
+                    "comment": 5,
+                    "filename": "client/src/app/docentes/componentes/docente-materia/docente-materia.component.html"
+                },
+                {
+                    "blank": 5,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/docentes/componentes/docente-materia/docente-materia.component.spec.ts"
+                },
+                {
+                    "blank": 12,
+                    "code": 56,
+                    "comment": 61,
+                    "filename": "client/src/app/docentes/componentes/docente-materia/docente-materia.component.ts"
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/docentes/docentes.module.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "client/src/app/empleados/componentes/editar-empleado/editar-empleado.component.css"
+                },
+                {
+                    "blank": 14,
+                    "code": 66,
+                    "comment": 14,
+                    "filename": "client/src/app/empleados/componentes/editar-empleado/editar-empleado.component.html"
+                },
+                {
+                    "blank": 5,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/empleados/componentes/editar-empleado/editar-empleado.component.spec.ts"
+                },
+                {
+                    "blank": 10,
+                    "code": 78,
+                    "comment": 6,
+                    "filename": "client/src/app/empleados/componentes/editar-empleado/editar-empleado.component.ts"
+                },
+                {
+                    "blank": 10,
+                    "code": 34,
+                    "comment": 0,
+                    "filename": "client/src/app/empleados/componentes/empleado-historico/empleado-historico.component.css"
+                },
+                {
+                    "blank": 10,
+                    "code": 56,
+                    "comment": 9,
+                    "filename": "client/src/app/empleados/componentes/empleado-historico/empleado-historico.component.html"
+                },
+                {
+                    "blank": 5,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/empleados/componentes/empleado-historico/empleado-historico.component.spec.ts"
+                },
+                {
+                    "blank": 10,
+                    "code": 58,
+                    "comment": 5,
+                    "filename": "client/src/app/empleados/componentes/empleado-historico/empleado-historico.component.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "client/src/app/empleados/componentes/formacion/formacion.component.css"
+                },
+                {
+                    "blank": 3,
+                    "code": 43,
+                    "comment": 3,
+                    "filename": "client/src/app/empleados/componentes/formacion/formacion.component.html"
+                },
+                {
+                    "blank": 5,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/empleados/componentes/formacion/formacion.component.spec.ts"
+                },
+                {
+                    "blank": 11,
+                    "code": 60,
+                    "comment": 3,
+                    "filename": "client/src/app/empleados/componentes/formacion/formacion.component.ts"
+                },
+                {
+                    "blank": 10,
+                    "code": 34,
+                    "comment": 0,
+                    "filename": "client/src/app/empleados/componentes/lista-empleados/lista-empleados.component.css"
+                },
+                {
+                    "blank": 13,
+                    "code": 74,
+                    "comment": 12,
+                    "filename": "client/src/app/empleados/componentes/lista-empleados/lista-empleados.component.html"
+                },
+                {
+                    "blank": 5,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/empleados/componentes/lista-empleados/lista-empleados.component.spec.ts"
+                },
+                {
+                    "blank": 18,
+                    "code": 145,
+                    "comment": 11,
+                    "filename": "client/src/app/empleados/componentes/lista-empleados/lista-empleados.component.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "client/src/app/empleados/componentes/nuevo-empleado/nuevo-empleado.component.css"
+                },
+                {
+                    "blank": 18,
+                    "code": 176,
+                    "comment": 24,
+                    "filename": "client/src/app/empleados/componentes/nuevo-empleado/nuevo-empleado.component.html"
+                },
+                {
+                    "blank": 5,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/empleados/componentes/nuevo-empleado/nuevo-empleado.component.spec.ts"
+                },
+                {
+                    "blank": 21,
+                    "code": 130,
+                    "comment": 41,
+                    "filename": "client/src/app/empleados/componentes/nuevo-empleado/nuevo-empleado.component.ts"
+                },
+                {
+                    "blank": 4,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "client/src/app/empleados/componentes/perfil-empleado/perfil-empleado.component.css"
+                },
+                {
+                    "blank": 4,
+                    "code": 23,
+                    "comment": 4,
+                    "filename": "client/src/app/empleados/componentes/perfil-empleado/perfil-empleado.component.html"
+                },
+                {
+                    "blank": 5,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/empleados/componentes/perfil-empleado/perfil-empleado.component.spec.ts"
+                },
+                {
+                    "blank": 5,
+                    "code": 62,
+                    "comment": 1,
+                    "filename": "client/src/app/empleados/componentes/perfil-empleado/perfil-empleado.component.ts"
+                },
+                {
+                    "blank": 1,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/empleados/empleados.module.ts"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "client/src/app/login/login/login.component.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "client/src/app/login/login/login.component.html"
+                },
+                {
+                    "blank": 5,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/login/login/login.component.spec.ts"
+                },
+                {
+                    "blank": 4,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/login/login/login.component.ts"
+                },
+                {
+                    "blank": 6,
+                    "code": 83,
+                    "comment": 1,
+                    "filename": "client/src/app/material/material.module.ts"
+                },
+                {
+                    "blank": 1,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "client/src/app/models/curso-model.spec.ts"
+                },
+                {
+                    "blank": 3,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "client/src/app/models/curso-model.ts"
+                },
+                {
+                    "blank": 1,
+                    "code": 6,
+                    "comment": 1,
+                    "filename": "client/src/app/models/materia-model.spec.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/src/app/models/materia-model.ts"
+                },
+                {
+                    "blank": 1,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "client/src/app/models/nivel-model.spec.ts"
+                },
+                {
+                    "blank": 1,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "client/src/app/models/plan-estudio-model.ts"
+                },
+                {
+                    "blank": 3,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "client/src/app/servicios/aula/aula.service.spec.ts"
+                },
+                {
+                    "blank": 12,
+                    "code": 61,
+                    "comment": 14,
+                    "filename": "client/src/app/servicios/aula/aula.service.ts"
+                },
+                {
+                    "blank": 3,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "client/src/app/servicios/auth-service.service.spec.ts"
+                },
+                {
+                    "blank": 11,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "client/src/app/servicios/auth-service.service.ts"
+                },
+                {
+                    "blank": 3,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "client/src/app/servicios/cursos/curso.service.spec.ts"
+                },
+                {
+                    "blank": 17,
+                    "code": 63,
+                    "comment": 15,
+                    "filename": "client/src/app/servicios/cursos/curso.service.ts"
+                },
+                {
+                    "blank": 3,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "client/src/app/servicios/docentes/docente.service.spec.ts"
+                },
+                {
+                    "blank": 21,
+                    "code": 104,
+                    "comment": 24,
+                    "filename": "client/src/app/servicios/docentes/docente.service.ts"
+                },
+                {
+                    "blank": 3,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "client/src/app/servicios/empleados/empleado.service.spec.ts"
+                },
+                {
+                    "blank": 20,
+                    "code": 89,
+                    "comment": 31,
+                    "filename": "client/src/app/servicios/empleados/empleado.service.ts"
+                },
+                {
+                    "blank": 3,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "client/src/app/servicios/materias/materia.service.spec.ts"
+                },
+                {
+                    "blank": 19,
+                    "code": 100,
+                    "comment": 16,
+                    "filename": "client/src/app/servicios/materias/materia.service.ts"
+                },
+                {
+                    "blank": 3,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "client/src/app/servicios/niveles/nivel.service.spec.ts"
+                },
+                {
+                    "blank": 8,
+                    "code": 29,
+                    "comment": 7,
+                    "filename": "client/src/app/servicios/niveles/nivel.service.ts"
+                },
+                {
+                    "blank": 3,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "client/src/app/servicios/planEstudio/plan-estudio.service.spec.ts"
+                },
+                {
+                    "blank": 11,
+                    "code": 50,
+                    "comment": 8,
+                    "filename": "client/src/app/servicios/planEstudio/plan-estudio.service.ts"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "client/src/assets/.gitkeep"
+                },
+                {
+                    "filename": "client/src/assets/404.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 1,
+                    "filename": "client/src/assets/css/custom.css"
+                },
+                {
+                    "blank": 31,
+                    "code": 116,
+                    "comment": 0,
+                    "filename": "client/src/assets/css/fontastic.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "client/src/assets/css/grasp_mobile_progress_circle-1.0.0.min.css"
+                },
+                {
+                    "blank": 536,
+                    "code": 2435,
+                    "comment": 151,
+                    "filename": "client/src/assets/css/style.blue.css"
+                },
+                {
+                    "blank": 536,
+                    "code": 2437,
+                    "comment": 152,
+                    "filename": "client/src/assets/css/style.default.css"
+                },
+                {
+                    "filename": "client/src/assets/fonts/dashboard.eot",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 1,
+                    "code": 65,
+                    "comment": 0,
+                    "filename": "client/src/assets/fonts/dashboard.svg"
+                },
+                {
+                    "filename": "client/src/assets/fonts/dashboard.ttf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "client/src/assets/fonts/dashboard.woff",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "client/src/assets/icons-reference/fonts/dashboard.eot",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 1,
+                    "code": 65,
+                    "comment": 0,
+                    "filename": "client/src/assets/icons-reference/fonts/dashboard.svg"
+                },
+                {
+                    "filename": "client/src/assets/icons-reference/fonts/dashboard.ttf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "client/src/assets/icons-reference/fonts/dashboard.woff",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 29,
+                    "code": 421,
+                    "comment": 0,
+                    "filename": "client/src/assets/icons-reference/icons-reference.html"
+                },
+                {
+                    "blank": 31,
+                    "code": 116,
+                    "comment": 0,
+                    "filename": "client/src/assets/icons-reference/styles.css"
+                },
+                {
+                    "blank": 15,
+                    "code": 50,
+                    "comment": 21,
+                    "filename": "client/src/assets/js/front.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 8466,
+                    "comment": 0,
+                    "filename": "client/src/assets/json/departamentos.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 81100,
+                    "comment": 0,
+                    "filename": "client/src/assets/json/localidades-censales.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 29026,
+                    "comment": 0,
+                    "filename": "client/src/assets/json/municipios.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 314,
+                    "comment": 0,
+                    "filename": "client/src/assets/json/provincias.json"
+                },
+                {
+                    "filename": "client/src/assets/logo.ico",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "client/src/assets/profile.jpeg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "client/src/assets/sgicolegio.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 890,
+                    "code": 3511,
+                    "comment": 7,
+                    "filename": "client/src/assets/vendor/bootstrap/css/bootstrap-grid.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 7,
+                    "filename": "client/src/assets/vendor/bootstrap/css/bootstrap-grid.min.css"
+                },
+                {
+                    "blank": 55,
+                    "code": 257,
+                    "comment": 8,
+                    "filename": "client/src/assets/vendor/bootstrap/css/bootstrap-reboot.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 8,
+                    "filename": "client/src/assets/vendor/bootstrap/css/bootstrap-reboot.min.css"
+                },
+                {
+                    "blank": 1965,
+                    "code": 8693,
+                    "comment": 7,
+                    "filename": "client/src/assets/vendor/bootstrap/css/bootstrap.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 7,
+                    "filename": "client/src/assets/vendor/bootstrap/css/bootstrap.min.css"
+                },
+                {
+                    "blank": 1107,
+                    "code": 4324,
+                    "comment": 1418,
+                    "filename": "client/src/assets/vendor/bootstrap/js/bootstrap.bundle.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 6,
+                    "filename": "client/src/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"
+                },
+                {
+                    "blank": 794,
+                    "code": 3098,
+                    "comment": 389,
+                    "filename": "client/src/assets/vendor/bootstrap/js/bootstrap.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 6,
+                    "filename": "client/src/assets/vendor/bootstrap/js/bootstrap.min.js"
+                },
+                {
+                    "blank": 712,
+                    "code": 2327,
+                    "comment": 10,
+                    "filename": "client/src/assets/vendor/font-awesome/css/font-awesome.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/font-awesome/css/font-awesome.min.css"
+                },
+                {
+                    "filename": "client/src/assets/vendor/font-awesome/fonts/fontawesome-webfont.eot",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 1442,
+                    "comment": 0,
+                    "filename": "client/src/assets/vendor/font-awesome/fonts/fontawesome-webfont.svg"
+                },
+                {
+                    "filename": "client/src/assets/vendor/font-awesome/fonts/fontawesome-webfont.ttf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "client/src/assets/vendor/font-awesome/fonts/fontawesome-webfont.woff",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "client/src/assets/vendor/font-awesome/fonts/fontawesome-webfont.woff2",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "client/src/assets/vendor/font-awesome/fonts/FontAwesome.otf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "client/src/assets/vendor/font-awesome/HELP-US-OUT.txt"
+                },
+                {
+                    "blank": 116,
+                    "code": 573,
+                    "comment": 387,
+                    "filename": "client/src/assets/vendor/jquery-validation/additional-methods.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/additional-methods.min.js"
+                },
+                {
+                    "blank": 148,
+                    "code": 774,
+                    "comment": 126,
+                    "filename": "client/src/assets/vendor/jquery-validation/jquery.validate.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/jquery.validate.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_ar.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_ar.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_az.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_az.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_bg.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_bg.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_bn_BD.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_bn_BD.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_ca.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_ca.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 31,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_cs.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_cs.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 41,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_da.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_da.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 77,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_de.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_de.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_el.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_el.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 33,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_es.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_es.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 33,
+                    "comment": 5,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_es_AR.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_es_AR.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 33,
+                    "comment": 5,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_es_PE.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_es_PE.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 28,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_et.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_et.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_eu.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_eu.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 34,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_fa.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_fa.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 28,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_fi.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_fi.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 58,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_fr.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_fr.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 29,
+                    "comment": 5,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_ge.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_ge.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 35,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_gl.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_gl.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_he.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_he.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_hr.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_hr.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_hu.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_hu.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_hy_AM.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_hy_AM.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 29,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_id.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_id.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 28,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_is.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_is.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 34,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_it.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_it.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 31,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_ja.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_ja.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_ka.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_ka.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_kk.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_kk.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_ko.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_ko.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_lt.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_lt.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_lv.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_lv.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_mk.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_mk.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_my.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_my.min.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 39,
+                    "comment": 5,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_nl.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_nl.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_no.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_no.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 33,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_pl.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_pl.min.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 81,
+                    "comment": 7,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_pt_BR.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_pt_BR.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 33,
+                    "comment": 5,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_pt_PT.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_pt_PT.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_ro.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_ro.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_ru.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_ru.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_sd.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_sd.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_si.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_si.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 28,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_sk.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_sk.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_sl.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_sl.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_sr.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_sr.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_sr_lat.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_sr_lat.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_sv.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_sv.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_th.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_th.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_tj.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_tj.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 31,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_tr.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_tr.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_uk.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_uk.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_ur.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_ur.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_vi.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_vi.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 31,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_zh.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_zh.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 5,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_zh_TW.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/messages_zh_TW.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 19,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/methods_de.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/methods_de.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 19,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/methods_es_CL.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/methods_es_CL.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 19,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/methods_fi.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/methods_fi.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 19,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/methods_it.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/methods_it.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 19,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/methods_nl.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/methods_nl.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 16,
+                    "comment": 4,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/methods_pt.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "client/src/assets/vendor/jquery-validation/localization/methods_pt.min.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "client/src/assets/vendor/jquery.cookie/component.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 32,
+                    "comment": 0,
+                    "filename": "client/src/assets/vendor/jquery.cookie/cookie.jquery.json"
+                },
+                {
+                    "blank": 11,
+                    "code": 40,
+                    "comment": 13,
+                    "filename": "client/src/assets/vendor/jquery.cookie/jquery.cookie.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "client/src/assets/vendor/jquery.cookie/MIT-LICENSE.txt"
+                },
+                {
+                    "blank": 85,
+                    "code": 255,
+                    "comment": 60,
+                    "filename": "client/src/assets/vendor/jquery/core.js"
+                },
+                {
+                    "blank": 1831,
+                    "code": 6712,
+                    "comment": 1724,
+                    "filename": "client/src/assets/vendor/jquery/jquery.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 2,
+                    "filename": "client/src/assets/vendor/jquery/jquery.min.js"
+                },
+                {
+                    "blank": 1474,
+                    "code": 5328,
+                    "comment": 1394,
+                    "filename": "client/src/assets/vendor/jquery/jquery.slim.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 1,
+                    "filename": "client/src/assets/vendor/jquery/jquery.slim.min.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 2,
+                    "filename": "client/src/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"
+                },
+                {
+                    "blank": 334,
+                    "code": 1268,
+                    "comment": 119,
+                    "filename": "client/src/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css"
+                },
+                {
+                    "blank": 253,
+                    "code": 2028,
+                    "comment": 597,
+                    "filename": "client/src/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js"
+                },
+                {
+                    "filename": "client/src/assets/vendor/malihu-custom-scrollbar-plugin/mCSB_buttons.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 136,
+                    "code": 643,
+                    "comment": 354,
+                    "filename": "client/src/assets/vendor/popper.js/esm/popper-utils.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 5,
+                    "filename": "client/src/assets/vendor/popper.js/esm/popper-utils.min.js"
+                },
+                {
+                    "blank": 315,
+                    "code": 1236,
+                    "comment": 1030,
+                    "filename": "client/src/assets/vendor/popper.js/esm/popper.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 5,
+                    "filename": "client/src/assets/vendor/popper.js/esm/popper.min.js"
+                },
+                {
+                    "blank": 122,
+                    "code": 606,
+                    "comment": 354,
+                    "filename": "client/src/assets/vendor/popper.js/popper-utils.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 5,
+                    "filename": "client/src/assets/vendor/popper.js/popper-utils.min.js"
+                },
+                {
+                    "blank": 284,
+                    "code": 1120,
+                    "comment": 1031,
+                    "filename": "client/src/assets/vendor/popper.js/popper.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 5,
+                    "filename": "client/src/assets/vendor/popper.js/popper.min.js"
+                },
+                {
+                    "blank": 139,
+                    "code": 649,
+                    "comment": 354,
+                    "filename": "client/src/assets/vendor/popper.js/umd/popper-utils.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 5,
+                    "filename": "client/src/assets/vendor/popper.js/umd/popper-utils.min.js"
+                },
+                {
+                    "blank": 317,
+                    "code": 1243,
+                    "comment": 1030,
+                    "filename": "client/src/assets/vendor/popper.js/umd/popper.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 5,
+                    "filename": "client/src/assets/vendor/popper.js/umd/popper.min.js"
+                },
+                {
+                    "blank": 19,
+                    "code": 133,
+                    "comment": 0,
+                    "filename": "client/src/assets/vendor/popper.js/umd/poppper.js.flow"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "client/src/environments/environment.prod.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 3,
+                    "comment": 11,
+                    "filename": "client/src/environments/environment.ts"
+                },
+                {
+                    "blank": 5,
+                    "code": 37,
+                    "comment": 9,
+                    "filename": "client/src/index.html"
+                },
+                {
+                    "blank": 3,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "client/src/main.ts"
+                },
+                {
+                    "blank": 7,
+                    "code": 1,
+                    "comment": 56,
+                    "filename": "client/src/polyfills.ts"
+                },
+                {
+                    "blank": 540,
+                    "code": 2442,
+                    "comment": 152,
+                    "filename": "client/src/styles.css"
+                },
+                {
+                    "blank": 3,
+                    "code": 13,
+                    "comment": 4,
+                    "filename": "client/src/test.ts"
+                },
+                {
+                    "blank": 2,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "client/tsconfig.app.json"
+                },
+                {
+                    "blank": 2,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "client/tsconfig.json"
+                },
+                {
+                    "blank": 3,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "client/tsconfig.spec.json"
+                },
+                {
+                    "blank": 9,
+                    "code": 83,
+                    "comment": 0,
+                    "filename": "client/tslint.json"
+                },
+                {
+                    "blank": 2,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "common/models/aula.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 31,
+                    "comment": 0,
+                    "filename": "common/models/aula.json"
+                },
+                {
+                    "blank": 2,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "common/models/curso.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 37,
+                    "comment": 0,
+                    "filename": "common/models/curso.json"
+                },
+                {
+                    "blank": 2,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "common/models/detalle-plan-materia.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 21,
+                    "comment": 0,
+                    "filename": "common/models/detalle-plan-materia.json"
+                },
+                {
+                    "blank": 2,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "common/models/docente-curso.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 27,
+                    "comment": 0,
+                    "filename": "common/models/docente-curso.json"
+                },
+                {
+                    "blank": 2,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "common/models/empleado-historico.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 66,
+                    "comment": 0,
+                    "filename": "common/models/empleado-historico.json"
+                },
+                {
+                    "blank": 2,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "common/models/empleado.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 65,
+                    "comment": 0,
+                    "filename": "common/models/empleado.json"
+                },
+                {
+                    "blank": 2,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "common/models/formacion-empleado.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": "common/models/formacion-empleado.json"
+                },
+                {
+                    "blank": 2,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "common/models/lista-planes-y-materias.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 35,
+                    "comment": 0,
+                    "filename": "common/models/lista-planes-y-materias.json"
+                },
+                {
+                    "blank": 2,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "common/models/materia-docente.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 30,
+                    "comment": 0,
+                    "filename": "common/models/materia-docente.json"
+                },
+                {
+                    "blank": 2,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "common/models/materia.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 27,
+                    "comment": 0,
+                    "filename": "common/models/materia.json"
+                },
+                {
+                    "blank": 2,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "common/models/materias-x-docente.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 30,
+                    "comment": 0,
+                    "filename": "common/models/materias-x-docente.json"
+                },
+                {
+                    "blank": 2,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "common/models/nivel.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "common/models/nivel.json"
+                },
+                {
+                    "blank": 2,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "common/models/plan-estudio.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 24,
+                    "comment": 0,
+                    "filename": "common/models/plan-estudio.json"
+                },
+                {
+                    "blank": 2,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "common/models/plan-materia.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 27,
+                    "comment": 0,
+                    "filename": "common/models/plan-materia.json"
+                },
+                {
+                    "blank": 2,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "common/models/usuario.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 35,
+                    "comment": 0,
+                    "filename": "common/models/usuario.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 3046,
+                    "comment": 0,
+                    "filename": "package-lock.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 34,
+                    "comment": 0,
+                    "filename": "package.json"
+                },
+                {
+                    "blank": 4,
+                    "code": 9,
+                    "comment": 2,
+                    "filename": "README.md"
+                },
+                {
+                    "blank": 2,
+                    "code": 4,
+                    "comment": 5,
+                    "filename": "server/boot/authentication.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 6,
+                    "comment": 5,
+                    "filename": "server/boot/root.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "server/component-config.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 22,
+                    "comment": 0,
+                    "filename": "server/config.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "server/create-lb-tables.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "server/datasources.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "server/middleware.development.json"
+                },
+                {
+                    "blank": 1,
+                    "code": 49,
+                    "comment": 0,
+                    "filename": "server/middleware.json"
+                },
+                {
+                    "blank": 2,
+                    "code": 96,
+                    "comment": 0,
+                    "filename": "server/model-config.json"
+                },
+                {
+                    "blank": 8,
+                    "code": 21,
+                    "comment": 4,
+                    "filename": "server/server.js"
+                }
+            ]
+        }
+    ]
+}
