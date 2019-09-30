@@ -52,6 +52,20 @@
             <li><a routerLink="/listaEmpleados" routerLinkActive="active">Lista de empleados</a></li>
           </ul>
         </li>
+
+        <!-- Dropdown Alumnos -->
+        <li><a href="#alumnosDropdown" aria-expanded="false" data-toggle="collapse">
+            <mat-icon style="margin-right: 5px">school</mat-icon>Alumnos
+          </a>
+
+          <!-- Dropdown items -->
+          <ul id="alumnosDropdown" class="collapse list-unstyled ">
+            <li><a routerLink="/nuevoEmpleado" routerLinkActive="active">Inscribir alumno</a></li>
+          </ul>
+          <ul id="alumnosDropdown" class="collapse list-unstyled ">
+            <li><a routerLink="/listaEmpleados" routerLinkActive="active">Lista de alumnos</a></li>
+          </ul>
+        </li>
       </ul>
     </div>
   </div>
