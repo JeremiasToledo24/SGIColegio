@@ -1,0 +1,184 @@
+<mat-card id="Perfil">
+  <mat-card-title>Perfil del alumno</mat-card-title>
+  <div class="row justify-md-center">
+    <!-- Foto de perfil -->
+    <div class="col-4 align-items-center">
+      <mat-card class="mat-elevation-z8">
+        <img src="../../../../assets/profile.jpeg" width="100%" style="border-radius:5%">
+      </mat-card>
+
+      <!-- Botón VOLVER -->
+      <div style="margin-top: 3rem">
+        <button mat-raised-button color="primary" style="margin-left: 2.4rem" (click)="volver()">Volver</button>
+      </div>
+    </div>
+
+    <mat-accordion class="col-8">
+      <mat-expansion-panel expanded="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>Alumno</mat-panel-title>
+        </mat-expansion-panel-header>
+        <!-- DATOS GENERALES del alumno -->
+        <div class="col-12">
+          <table mat-table [dataSource]="datosAlumno" class="mat-elevation-z8">
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="label">
+              <th mat-header-cell *matHeaderCellDef style="font-size: 12px">Datos generales del alumno</th>
+              <td mat-cell *matCellDef="let element"> {{element.label}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="data">
+              <th mat-header-cell *matHeaderCellDef></th>
+              <td mat-cell *matCellDef="let element" class="celdaData">&nbsp;&nbsp;&nbsp;&nbsp;{{element.data}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </div>
+      </mat-expansion-panel>
+
+      <!-- Panel TUTOR-->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Tutor</mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <!-- DATOS DEL TUTOR del alumno -->
+        <div class="col-12">
+          <table mat-table [dataSource]="datosTutor" class="mat-elevation-z8">
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="label">
+              <th mat-header-cell *matHeaderCellDef style="font-size: 12px">Datos del tutor</th>
+              <td mat-cell *matCellDef="let element"> {{element.label}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="data">
+              <th mat-header-cell *matHeaderCellDef></th>
+              <td mat-cell *matCellDef="let element" class="celdaData">&nbsp;&nbsp;&nbsp;&nbsp;{{element.data}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </div>
+      </mat-expansion-panel>
+
+      <!-- Panel FICHA MEDICA-->
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Ficha médica</mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <!-- CONTACTO DE EMERGENCIA -->
+        <div class="col-12">
+          <table mat-table [dataSource]="datosFichaEmergencia" class="mat-elevation-z8">
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="label">
+              <th mat-header-cell *matHeaderCellDef style="font-size: 12px">Contacto de emergencia</th>
+              <td mat-cell *matCellDef="let element"> {{element.label}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="data">
+              <th mat-header-cell *matHeaderCellDef></th>
+              <td mat-cell *matCellDef="let element" class="celdaData">&nbsp;&nbsp;&nbsp;&nbsp;{{element.data}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </div>
+
+        <!-- OBRA SOCIAL -->
+        <div class="col-12">
+          <table mat-table [dataSource]="datosFichaObra" class="mat-elevation-z8">
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="label">
+              <th mat-header-cell *matHeaderCellDef style="font-size: 12px">Obra social</th>
+              <td mat-cell *matCellDef="let element"> {{element.label}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="data">
+              <th mat-header-cell *matHeaderCellDef></th>
+              <td mat-cell *matCellDef="let element" class="celdaData">&nbsp;&nbsp;&nbsp;&nbsp;{{element.data}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </div>
+
+        <!-- ALERGIAS -->
+        <div class="col-12">
+          <table mat-table [dataSource]="datosFichaAlergia" class="mat-elevation-z8">
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="label">
+              <th mat-header-cell *matHeaderCellDef style="font-size: 12px">Alergias</th>
+              <td mat-cell *matCellDef="let element"> {{element.label}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="data">
+              <th mat-header-cell *matHeaderCellDef></th>
+              <td mat-cell *matCellDef="let element" class="celdaData">&nbsp;&nbsp;&nbsp;&nbsp;{{element.data}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </div>
+
+        <!-- MÉDICO DE CABECERA -->
+        <div class="col-12">
+          <table mat-table [dataSource]="datosFichaMedico" class="mat-elevation-z8">
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="label">
+              <th mat-header-cell *matHeaderCellDef style="font-size: 12px">Medico de cabecera</th>
+              <td mat-cell *matCellDef="let element"> {{element.label}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="data">
+              <th mat-header-cell *matHeaderCellDef></th>
+              <td mat-cell *matCellDef="let element" class="celdaData">&nbsp;&nbsp;&nbsp;&nbsp;{{element.data}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </div>
+
+        <!-- MEDICACIÓN HABITUAL -->
+        <div class="col-12">
+          <table mat-table [dataSource]="datosFichaMedicacion" class="mat-elevation-z8">
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="label">
+              <th mat-header-cell *matHeaderCellDef style="font-size: 12px">Medicación habitual</th>
+              <td mat-cell *matCellDef="let element"> {{element.label}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="data">
+              <th mat-header-cell *matHeaderCellDef></th>
+              <td mat-cell *matCellDef="let element" class="celdaData">&nbsp;&nbsp;&nbsp;&nbsp;{{element.data}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</mat-card>

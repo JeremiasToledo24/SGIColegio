@@ -1,23 +1,31 @@
 table {
-    width: 100%;
-  }
-  
-  mat-card {
-    width: auto;
-    display: block;
-    background-color: #E8EAF6;
-    margin: 2rem;
-  }
-  
-  th {
-    background-color: #3F51B5;
-    color: beige;
-  }
-  
-  td {
-    background-color: #C5CAE9;
-  }
-  
-  mat-cell {
-    background-color: #C5CAE9;
-  }
+  width: 100%;
+}
+
+mat-card {
+  width: auto;
+  display: block;
+  background-color: #E8EAF6;
+  margin: 2rem;
+}
+
+th {
+  background-color: #3F51B5;
+  color: beige;
+}
+
+td {
+  background-color: #C5CAE9;
+}
+
+mat-cell {
+  background-color: #C5CAE9;
+}
+
+.mat-column-label {
+  width: 50% !important;
+}
+
+.celdaData {
+  background-color: rgb(225, 228, 245);
+}

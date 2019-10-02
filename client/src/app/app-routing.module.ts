@@ -19,6 +19,7 @@ import { LoginComponent } from './login/login/login.component';
 import { PerfilEmpleadoComponent } from './empleados/componentes/perfil-empleado/perfil-empleado.component';
 import { InscribirComponent } from './alumnos/componentes/inscribir/inscribir.component';
 import { ListaAlumnosComponent } from './alumnos/componentes/lista-alumnos/lista-alumnos.component';
+import { PerfilAlumnoComponent } from './alumnos/componentes/perfil-alumno/perfil-alumno.component';
 
 
 const routes: Routes = [
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'listaEmpleadosHistoricos', component: EmpleadoHistoricoComponent },
   { path: 'inscribirAlumno', component: InscribirComponent },
   { path: 'listaAlumnos', component: ListaAlumnosComponent },
+  { path: 'perfilAlumno/:id', component: PerfilAlumnoComponent },
   { path: 'asignarCursos/:id', component: AsignarCursosComponent },
   { path: '**', redirectTo: 'error' },
 

@@ -37,6 +37,32 @@ export class AlumnoService {
     );
   }
 
+  // Obtener alumnos registrados en el sistema
+  getAlumnos(): Observable<any> {
+    return this.http.get('http://localhost:3000/api/Alumnos').pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  // Obtener alumno por DNI
+  getAlumnoDNI(dni: any): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/Alumnos/${dni}`).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  // Obtener datos del tutor de un alumno determinado
+  getTutor(dni: any): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/AlumnoTutors?filter=%7B%22where%22%3A%7B%22DNIAlumno%22%3A${dni}%7D%7D`)
+  }
+
+  // Obtener ficha medica de un alumno determinado
+  getFichaMedica(dni): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/AlumnoFichaMedicas?filter=%7B%22where%22%3A%7B%22DNIAlumno%22%3A%22${dni}%22%7D%7D`).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   // ---------------------------------------------------------------//
   // -------------- MANEJO DE ERRORES SEGUN HTTP RES ---------------//
   // ---------------------------------------------------------------//
