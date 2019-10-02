@@ -17,7 +17,7 @@
       "type": "number"
     },
     "idMateria": {
-      "type":"number"
+      "type": "number"
     }
   },
   "validations": [],

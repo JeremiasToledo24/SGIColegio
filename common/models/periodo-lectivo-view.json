@@ -1,23 +1,20 @@
 {
-  "name": "PlanMateria",
+  "name": "PeriodoLectivoView",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "idPlan": {
-      "type": "number"
-    },
-    "idPlanMateria": {
+    "idPeriodoLectivo": {
       "type": "number",
       "id": true
     },
-    "anio": {
+    "periodo": {
       "type": "string"
     },
-    "codMateria": {
-      "type": "number"
+    "nombre": {
+      "type": "string"
     }
   },
   "validations": [],

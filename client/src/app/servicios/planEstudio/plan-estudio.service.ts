@@ -1,7 +1,7 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {PlanEstudioModel} from 'src/app/models/plan-estudio-model';
-import {MatSnackBar} from '@angular/material';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { PlanEstudioModel } from 'src/app/models/plan-estudio-model';
+import { MatSnackBar } from '@angular/material';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
@@ -18,28 +18,35 @@ export class PlanEstudioService {
   openSnackBar(m: string) {
     this._snackBar.open(
       m, '', {
-        duration: 1500
-      }
+      duration: 1500
+    }
     )
   }
 
 
   agregarPlan(plan): Observable<any> {
     return this.http.post(`http://localhost:3000/api/PlanEstudios`, plan)
-    .pipe(
-      catchError(this.handleError)
-    );
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
-  nuevoPlanMateria(plan_materia): Observable<any>{
+  nuevoPlanMateria(plan_materia): Observable<any> {
     return this.http.post('http://localhost:3000/api/PlanMateria', plan_materia)
-    .pipe(
-      catchError(this.handleError)
-    )
+      .pipe(
+        catchError(this.handleError)
+      )
   }
 
   listarPlanes() {
-    return this.http.get(`http://localhost:3000/api/ListaPlanesYMaterias`);
+    return this.http.get(`http://localhost:3000/api/PlanMateriaViews`);
+  }
+
+  listarPlanesAgrupados(): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/PlanEstudios`)
+      .pipe(
+        catchError(this.handleError)
+      )
   }
 
   eliminarPlan(id: number) {
@@ -48,6 +55,20 @@ export class PlanEstudioService {
 
   editarPlan() {
 
+  }
+
+  registrarPeriodoLectivo(pl): Observable<any> {
+    return this.http.post(`http://localhost:3000/api/PeriodoLectivos`, pl)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
+  listarPeriodos(): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/PeriodoLectivoViews`)
+      .pipe(
+        catchError(this.handleError)
+      )
   }
 
   // Manejo de errores segun la respuesta HTTP y mostrar en consola un resumen del error

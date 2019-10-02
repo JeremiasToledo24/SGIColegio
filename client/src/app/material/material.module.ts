@@ -81,7 +81,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatSidenavModule,
     MatNativeDateModule,
     MatStepperModule,
-    MatRadioModule
+    MatRadioModule,
   ],
   providers: [MatNativeDateModule]
 })

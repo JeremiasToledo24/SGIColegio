@@ -17,6 +17,8 @@ import { AsignarCursosComponent } from './aulas/componentes/asignar-cursos/asign
 import { EmpleadoHistoricoComponent } from './empleados/componentes/empleado-historico/empleado-historico.component';
 import { LoginComponent } from './login/login/login.component';
 import { PerfilEmpleadoComponent } from './empleados/componentes/perfil-empleado/perfil-empleado.component';
+import { CrearLectivosComponent } from './lectivos/crear-lectivos/crear-lectivos.component';
+import { ListaPeriodosLectivosComponent } from './lectivos/lista-periodos-lectivos/lista-periodos-lectivos.component';
 
 
 const routes: Routes = [
@@ -35,6 +37,10 @@ const routes: Routes = [
   { path: 'listaEmpleados', component: ListaEmpleadosComponent },
   { path: 'listaEmpleadosHistoricos', component: EmpleadoHistoricoComponent },
   { path: 'asignarCursos/:id', component: AsignarCursosComponent },
+  { path: 'periodosLectivos', component: CrearLectivosComponent },
+  { path: 'listaPeriodosLectivos', component: ListaPeriodosLectivosComponent },
+
+
   { path: '**', redirectTo: 'error' },
 
 ];

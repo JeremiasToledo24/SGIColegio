@@ -14,7 +14,7 @@
       "type": "number"
     },
     "nombrePlan": {
-      "type":"string"
+      "type": "string"
     }
   },
   "validations": [],

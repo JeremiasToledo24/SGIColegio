@@ -38,6 +38,7 @@ import { EmpleadosModule } from './empleados/empleados.module';
 import { LoginComponent } from './login/login/login.component';
 import { AgregarPlanComponent } from './componentes/plan-estudio/agregar-plan/agregar-plan.component';
 import { DialogMateriasComponent } from './componentes/plan-estudio/dialog-materias/dialog-materias.component';
+import { LectivosModule } from './lectivos/lectivos.module';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { DialogMateriasComponent } from './componentes/plan-estudio/dialog-mater
     HttpClientModule,
     LayoutModule,
     MaterialModule,
-    EmpleadosModule
+    EmpleadosModule,
+    LectivosModule
   ],
   providers: [MateriaService, CursoService, NivelService],
   bootstrap: [AppComponent],
@@ -82,7 +84,7 @@ import { DialogMateriasComponent } from './componentes/plan-estudio/dialog-mater
     ConfirmDialogComponent,
     EditarCursoComponent,
     AgregarPlanComponent,
-  DialogMateriasComponent],
+    DialogMateriasComponent],
   exports: [ListaMateriasComponent],
 
 })
