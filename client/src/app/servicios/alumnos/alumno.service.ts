@@ -63,6 +63,13 @@ export class AlumnoService {
     );
   }
 
+  // Asignar alumno a curso
+  asignAlumno(asignacion): Observable<any> {
+    return this.http.post('http://localhost:3000/api/AlumnoCursos', asignacion).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   // ---------------------------------------------------------------//
   // -------------- MANEJO DE ERRORES SEGUN HTTP RES ---------------//
   // ---------------------------------------------------------------//

@@ -1,0 +1,26 @@
+{
+    "name": "AlumnoCurso",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
+    },
+    "properties": {
+        "idAlumnoCurso": {
+            "type": "number"
+        },
+        "DNIAlumno": {
+            "type": "number",
+            "required": true,
+            "id": true
+        },
+        "idCurso": {
+            "type": "number",
+            "required": true
+        }
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
+}

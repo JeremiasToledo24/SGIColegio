@@ -106,5 +106,9 @@
   "AlumnoFichaMedica": {
     "dataSource": "db",
     "public": true
+  },
+  "AlumnoCurso": {
+    "dataSource": "db",
+    "public": true
   }
 }
