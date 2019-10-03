@@ -1,0 +1,71 @@
+{
+    "name": "AlumnoFichaMedica",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
+    },
+    "properties": {
+        "DNIAlumno": {
+            "type": "number",
+            "required": true,
+            "id": true
+        },
+        "tieneObraSocial": {
+            "type": "string",
+            "required": true
+        },
+        "obraSocialNom": {
+            "type": "string"
+        },
+        "obraSocialNroAfil": {
+            "type": "string"
+        },
+        "tieneAlergia": {
+            "type": "string",
+            "required": true
+        },
+        "alergiaMed": {
+            "type": "string"
+        },
+        "alergiaDetalle": {
+            "type": "string"
+        },
+        "emergenciaNom": {
+            "type": "string",
+            "required": true
+        },
+        "emergenciaTel": {
+            "type": "string",
+            "required": true
+        },
+        "emergenciaVinculo": {
+            "type": "string",
+            "required": true
+        },
+        "tieneMedicoCab": {
+            "type": "string",
+            "required": true
+        },
+        "medicoCabNom": {
+            "type": "string"
+        },
+        "medicoCabTel": {
+            "type": "string"
+        },
+        "tieneMedHab": {
+            "type": "string",
+            "required": true
+        },
+        "medHabNom": {
+            "type": "string"
+        },
+        "medHabDosis": {
+            "type": "string"
+        }
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
+}

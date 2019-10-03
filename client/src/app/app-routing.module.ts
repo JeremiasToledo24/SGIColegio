@@ -17,8 +17,15 @@ import { AsignarCursosComponent } from './aulas/componentes/asignar-cursos/asign
 import { EmpleadoHistoricoComponent } from './empleados/componentes/empleado-historico/empleado-historico.component';
 import { LoginComponent } from './login/login/login.component';
 import { PerfilEmpleadoComponent } from './empleados/componentes/perfil-empleado/perfil-empleado.component';
+
+  import { InscribirComponent } from './alumnos/componentes/inscribir/inscribir.component';
+import { ListaAlumnosComponent } from './alumnos/componentes/lista-alumnos/lista-alumnos.component';
+import { PerfilAlumnoComponent } from './alumnos/componentes/perfil-alumno/perfil-alumno.component';
+import { AlumnoCursoComponent } from './alumnos/componentes/alumno-curso/alumno-curso.component';
 import { CrearLectivosComponent } from './lectivos/crear-lectivos/crear-lectivos.component';
 import { ListaPeriodosLectivosComponent } from './lectivos/lista-periodos-lectivos/lista-periodos-lectivos.component';
+import { DocentesCursosComponent } from './docentes/componentes/docentes-cursos/docentes-cursos.component';
+
 
 
 const routes: Routes = [
@@ -30,12 +37,16 @@ const routes: Routes = [
   { path: 'crearPlan', component: PlanEstudioComponent },
   { path: 'error', component: NotFoundComponent },
   { path: 'perfilEmpleado/:id', component: PerfilEmpleadoComponent },
-  { path: 'docenteMateria', component: DocenteMateriaComponent },
+  { path: 'docenteMateria', component: DocentesCursosComponent },
   { path: 'asignarMateria/:id', component: AsignarMateriaComponent },
   { path: 'Aulas', component: AulasComponent },
   { path: 'nuevoEmpleado', component: NuevoEmpleadoComponent },
   { path: 'listaEmpleados', component: ListaEmpleadosComponent },
   { path: 'listaEmpleadosHistoricos', component: EmpleadoHistoricoComponent },
+  { path: 'inscribirAlumno', component: InscribirComponent },
+  { path: 'listaAlumnos', component: ListaAlumnosComponent },
+  { path: 'perfilAlumno/:id', component: PerfilAlumnoComponent },
+  { path: 'asignarAlumno', component: AlumnoCursoComponent},
   { path: 'asignarCursos/:id', component: AsignarCursosComponent },
   { path: 'periodosLectivos', component: CrearLectivosComponent },
   { path: 'listaPeriodosLectivos', component: ListaPeriodosLectivosComponent },

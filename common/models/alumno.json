@@ -1,0 +1,55 @@
+{
+    "name": "Alumno",
+    "plural": "Alumnos",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+      "validateUpsert": true
+    },
+    "properties": {
+      "DNIAlumno": {
+        "type": "number",
+        "required": true,
+        "id": true
+      },
+      "nombre": {
+        "type": "string",
+        "required": true
+      },
+      "apellido": {
+        "type": "string",
+        "required": true
+      },
+      "sexo": {
+        "type": "string",
+        "required": true
+      },
+      "cuil": {
+        "type": "string",
+        "required": true
+      },
+      "fechaNacimiento": {
+        "type": "string",
+        "required": true
+      },
+      "domicilio": {
+        "type": "string",
+        "required": true
+      },
+      "telefono": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string"
+      },
+      "fechaIngColegio": {
+        "type": "string",
+        "required": true
+      }
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
+  }
+  

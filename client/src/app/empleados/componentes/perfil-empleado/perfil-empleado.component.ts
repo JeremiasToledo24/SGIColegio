@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EmpleadoService } from 'src/app/servicios/empleados/empleado.service';
 import { MatSnackBar } from '@angular/material';
 
@@ -16,6 +16,7 @@ export class PerfilEmpleadoComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private empleadoService: EmpleadoService,
     private snackBar: MatSnackBar
   ) { }
@@ -55,6 +56,11 @@ export class PerfilEmpleadoComponent implements OnInit {
       error => {
         this.openSnackBar("Hubo un error. Intente mas tarde", 'OK')
       }
+  }
+
+  // Redirigir a lista
+  volver() {
+    this.router.navigate(['/listaEmpleados']);
   }
 
   // Mostrar SnackBar

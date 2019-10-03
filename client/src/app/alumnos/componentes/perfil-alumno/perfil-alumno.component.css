@@ -1,0 +1,47 @@
+table {
+    width: 100%;
+    margin-top: 2.5%;
+}
+
+mat-card {
+    width: auto;
+    display: block;
+    background-color: #E8EAF6;
+    margin: 2rem;
+}
+
+th {
+    background-color: #3F51B5;
+    color: beige;
+}
+
+td {
+    background-color: #C5CAE9;
+}
+
+mat-cell {
+    background-color: #C5CAE9;
+}
+
+.mat-column-label {
+    width: 40% !important;
+}
+
+.celdaData {
+    background-color: rgb(225, 228, 245);
+}
+
+/* Estilo del acordeon */
+
+mat-expansion-panel-header {
+    background-color: #3F51B5;
+    font-size: 16px;
+}
+
+mat-expansion-panel {
+    background-color: rgb(179, 190, 255);
+}
+
+mat-panel-title {
+    color: beige;
+}

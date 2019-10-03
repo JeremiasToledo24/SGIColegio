@@ -1,0 +1,31 @@
+.backGroundCard {
+    background-color: #E8EAF6;
+    margin: 2rem;
+}
+
+mat-card {
+    margin-bottom: 2rem;
+}
+
+button {
+    margin: 10px;
+}
+
+/* CSS TABLA */
+
+table {
+    width: 100%;
+}
+
+th {
+    background-color: #3F51B5;
+    color: beige;
+}
+
+td {
+    background-color: #C5CAE9;
+}
+
+mat-cell {
+    background-color: #C5CAE9;
+}
