@@ -108,20 +108,21 @@
     "public": true
   },
   "AlumnoCurso": {
-  "PlanMateriaView": {
-    "dataSource": "db",
-    "public": true
-  },
-  "PlanesGroupView": {
-    "dataSource": "db",
-    "public": true
-  },
-  "PeriodoLectivo": {
-    "dataSource": "db",
-    "public": true
-  },
-  "PeriodoLectivoView": {
-    "dataSource": "db",
-    "public": true
+    "PlanMateriaView": {
+      "dataSource": "db",
+      "public": true
+    },
+    "PlanesGroupView": {
+      "dataSource": "db",
+      "public": true
+    },
+    "PeriodoLectivo": {
+      "dataSource": "db",
+      "public": true
+    },
+    "PeriodoLectivoView": {
+      "dataSource": "db",
+      "public": true
+    }
   }
 }
