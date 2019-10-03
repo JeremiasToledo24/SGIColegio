@@ -20,7 +20,7 @@ import {
   MatDatepickerModule,
   MatNativeDateModule,
   MatStepperModule,
-  MatRadioModule
+  MatRadioModule,
 } from '@angular/material';
 
 
@@ -54,7 +54,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatDatepickerModule,
     MatNativeDateModule,
     MatStepperModule,
-    MatRadioModule
+    MatRadioModule,
+    MatExpansionModule
   ],
   exports: [
     MatExpansionModule,
@@ -82,6 +83,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatNativeDateModule,
     MatStepperModule,
     MatRadioModule,
+    MatExpansionModule,
+
   ],
   providers: [MatNativeDateModule]
 })

@@ -95,6 +95,19 @@
     "dataSource": "db",
     "public": true
   },
+  "Alumno": {
+    "dataSource": "db",
+    "public": true
+  },
+  "AlumnoTutor": {
+    "dataSource": "db",
+    "public": true
+  },
+  "AlumnoFichaMedica": {
+    "dataSource": "db",
+    "public": true
+  },
+  "AlumnoCurso": {
   "PlanMateriaView": {
     "dataSource": "db",
     "public": true
