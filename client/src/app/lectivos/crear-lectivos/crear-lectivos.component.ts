@@ -19,7 +19,7 @@ export class PeriodoLectivo {
   periodo;
   idPlanEstudio;
   idCurso;
-  constructor(periodo, idPlanEstudio, idCurso) {
+  constructor(periodo?, idPlanEstudio?, idCurso?) {
     this.periodo = periodo;
     this.idPlanEstudio = idPlanEstudio;
     this.idCurso = idCurso

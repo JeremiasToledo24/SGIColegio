@@ -15,6 +15,12 @@
     },
     "nombre": {
       "type": "string"
+    },
+    "idPlanEstudio": {
+      "type":"number"
+    },
+    "idCurso":{
+      "type":"number"
     }
   },
   "validations": [],

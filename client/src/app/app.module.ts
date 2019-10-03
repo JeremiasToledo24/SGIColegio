@@ -39,6 +39,7 @@ import { LoginComponent } from './login/login/login.component';
 import { AgregarPlanComponent } from './componentes/plan-estudio/agregar-plan/agregar-plan.component';
 import { DialogMateriasComponent } from './componentes/plan-estudio/dialog-materias/dialog-materias.component';
 import { LectivosModule } from './lectivos/lectivos.module';
+import { AsignarDocenteComponent } from './docentes/componentes/docentes-cursos/asignar-docente/asignar-docente.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,8 @@ import { LectivosModule } from './lectivos/lectivos.module';
     ConfirmDialogComponent,
     EditarCursoComponent,
     AgregarPlanComponent,
-    DialogMateriasComponent],
+    DialogMateriasComponent,
+    AsignarDocenteComponent],
   exports: [ListaMateriasComponent],
 
 })

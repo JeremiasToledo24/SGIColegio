@@ -19,6 +19,7 @@ import { LoginComponent } from './login/login/login.component';
 import { PerfilEmpleadoComponent } from './empleados/componentes/perfil-empleado/perfil-empleado.component';
 import { CrearLectivosComponent } from './lectivos/crear-lectivos/crear-lectivos.component';
 import { ListaPeriodosLectivosComponent } from './lectivos/lista-periodos-lectivos/lista-periodos-lectivos.component';
+import { DocentesCursosComponent } from './docentes/componentes/docentes-cursos/docentes-cursos.component';
 
 
 const routes: Routes = [
@@ -30,7 +31,7 @@ const routes: Routes = [
   { path: 'crearPlan', component: PlanEstudioComponent },
   { path: 'error', component: NotFoundComponent },
   { path: 'perfilEmpleado/:id', component: PerfilEmpleadoComponent },
-  { path: 'docenteMateria', component: DocenteMateriaComponent },
+  { path: 'docenteMateria', component: DocentesCursosComponent },
   { path: 'asignarMateria/:id', component: AsignarMateriaComponent },
   { path: 'Aulas', component: AulasComponent },
   { path: 'nuevoEmpleado', component: NuevoEmpleadoComponent },

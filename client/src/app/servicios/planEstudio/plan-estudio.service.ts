@@ -57,6 +57,13 @@ export class PlanEstudioService {
 
   }
 
+  listarMateriasPlan(id): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/PlanMateriaViews?filter=%7B%22where%22%3A%7B%22idPlanEstudio%22%3A%22${id}%22%7D%7D`)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
   registrarPeriodoLectivo(pl): Observable<any> {
     return this.http.post(`http://localhost:3000/api/PeriodoLectivos`, pl)
       .pipe(
@@ -64,8 +71,16 @@ export class PlanEstudioService {
       )
   }
 
+
   listarPeriodos(): Observable<any> {
     return this.http.get(`http://localhost:3000/api/PeriodoLectivoViews`)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
+  getPeriodos(): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/PeriodoLectivos`)
       .pipe(
         catchError(this.handleError)
       )
