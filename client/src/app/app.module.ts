@@ -80,7 +80,7 @@ import { AsignarDocenteComponent } from './docentes/componentes/docentes-cursos/
     MaterialModule,
     EmpleadosModule,
 
-    AlumnosModule
+    AlumnosModule,
     LectivosModule
 
   ],
