@@ -1,0 +1,40 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Periodos de estudio Registrado</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <!--Columna año del periodo -->
+            <ng-container matColumnDef="idPeriodoLectivo">
+                <th mat-header-cell *matHeaderCellDef> Numero de Identificacion del Periodo</th>
+                <td mat-cell *matCellDef="let periodo"> {{periodo.idPeriodoLectivo}} </td>
+            </ng-container>
+
+            <!--Columna nivel -->
+            <ng-container matColumnDef="periodo">
+                <th mat-header-cell *matHeaderCellDef>Año lectivo correspondiente</th>
+                <td mat-cell *matCellDef="let periodo">
+                    {{periodo.periodo}}
+                </td>
+            </ng-container>
+
+            <!--Columna nombre periodo -->
+            <ng-container matColumnDef="nombre">
+                <th mat-header-cell *matHeaderCellDef> Curso Asignado</th>
+                <td mat-cell *matCellDef="let periodo"> {{periodo.nombre}} </td>
+            </ng-container>
+
+            <!--Columna operaciones -->
+            <ng-container matColumnDef="operaciones">
+                <th mat-header-cell *matHeaderCellDef> Operaciones</th>
+                <td mat-cell *matCellDef="let periodo">
+                    <button mat-raised-button style="background-color: khaki">
+                    </button>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </mat-card-content>
+</mat-card>

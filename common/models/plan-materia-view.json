@@ -1,23 +1,32 @@
 {
-  "name": "PlanMateria",
+  "name": "PlanMateriaView",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "idPlan": {
-      "type": "number"
-    },
-    "idPlanMateria": {
+    "idPlanEstudio": {
       "type": "number",
       "id": true
+    },
+    "idNivel": {
+      "type": "number"
+    },
+    "nombrePlan": {
+      "type": "string"
+    },
+    "idPlanMateria": {
+      "type": "number"
     },
     "anio": {
       "type": "string"
     },
     "codMateria": {
       "type": "number"
+    },
+    "nombreMateria": {
+      "type": "string"
     }
   },
   "validations": [],

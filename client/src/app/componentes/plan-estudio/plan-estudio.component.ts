@@ -6,6 +6,7 @@ import { MateriaService } from 'src/app/servicios/materias/materia.service';
 import { MatDialog, MatTableDataSource, MatPaginator } from '@angular/material';
 import { Materia } from 'src/app/docentes/componentes/docente-materia/asignar-materia/asignar-materia.component';
 import { AgregarPlanComponent } from './agregar-plan/agregar-plan.component';
+import { DialogMateriasComponent } from './dialog-materias/dialog-materias.component';
 
 //CLASE PLAN X MATERIA
 class PlanMat {
@@ -23,6 +24,10 @@ export interface Nivel {
   nombre: string;
 }
 
+export interface ListaAnios {
+  nombreAnio: any, listaMaterias: Materia[]
+}
+
 @Component({
   selector: 'app-plan-estudio',
   templateUrl: './plan-estudio.component.html',
@@ -30,19 +35,12 @@ export interface Nivel {
 })
 
 export class PlanEstudioComponent implements OnInit {
-  planForm = new FormGroup({
-    idNivel: new FormControl('',Validators.required)
-  });
 
-  niveles: Nivel[] = [
-    { idNivel: 1, nombre: 'Primaria' },
-    { idNivel: 2, nombre: 'Secundaria' }
-  ];
-  displayedColumns: string[] = ['codigo', 'nombre', 'quitar'];
-  dataSource = new MatTableDataSource<Materia>();
-  dataSourceS = new MatTableDataSource<Materia>();
-  listaMaterias: Materia[] = [];
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  nivelControl = new FormControl('', Validators.required)
+  nombreControl = new FormControl('', Validators.required)
+
+  listaAnios: ListaAnios[]
+
   constructor(private planService: PlanEstudioService, private cursoService: CursoService, private materiaService: MateriaService,
     public dialog: MatDialog
   ) {
@@ -50,92 +48,63 @@ export class PlanEstudioComponent implements OnInit {
 
 
   ngOnInit() {
-    /* inicia el dataSoruce, que muestra la lista de materias seleccionadas */
-    this.materiaService.listarMaterias()
-      .subscribe(
-        res => {
-          let materias;
-          materias = res as Materia;
-          this.dataSource = new MatTableDataSource<Materia>(materias)
-          this.dataSource.paginator = this.paginator;
-
-        }
-      );
+    this.listaAnios = []
   }
 
-  seleccionarNivel(nivel){
-    console.log(nivel)
-  }
 
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
-
-  /* quitar la materia de la lista de materias seleccionadas */
-  quitar(materia) {
-    this.listaMaterias = this.listaMaterias.filter(obj => obj.codigo !== materia.codigo);
-    console.log(this.listaMaterias)
-    this.dataSourceS = new MatTableDataSource<Materia>(this.listaMaterias)
-  }
-
-  /* agregar materias a la lista de materias seleccionadas */
-  agregar(materia) {
-    const _mat = this.listaMaterias.filter(
-      x => x.codigo === materia.codigo
+  openDialogMaterias(): void {
+    const dialogRef = this.dialog.open(DialogMateriasComponent, {
+      data: ''
+    });
+    dialogRef.afterClosed().subscribe(
+      (result: ListaAnios) => {
+        this.listaAnios.push(result);
+        console.log(this.listaAnios)
+      }
     );
-    if (_mat.length === 0) {
-      this.listaMaterias.push(materia);
-      this.dataSourceS = new MatTableDataSource<Materia>(this.listaMaterias)
-    } else {
-      this.planService.openSnackBar('la materia ya esta en la lista');
-    }
   }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(AgregarPlanComponent, {
-      data: {planForm: this.planForm, listaMaterias: this.listaMaterias}
+      data: { idNivel: this.nivelControl, nombrePlan: this.nombreControl, listaAnios: this.listaAnios }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      let idPlan;
+      if (result == 'S') {
+        let plan = { idNivel: this.nivelControl.value, nombrePlan: this.nombreControl.value }
+        this.planService.agregarPlan(plan)
+          .subscribe(
+            res => {
+              idPlan = res.idPlanEstudio;
+              this.planService.openSnackBar('plan creado');
+              this.listaAnios.forEach(anio => {
+                anio.listaMaterias.forEach(_listamateria => {
+                  const planMateria = { idPlan: idPlan, anio: anio.nombreAnio, codMateria: _listamateria.idMateria }
+                  console.log(planMateria)
+                  this.planService.nuevoPlanMateria(planMateria)
+                    .subscribe(
+                      res => {
+                        console.log(res)
+                        this.listaAnios = [];
+                        this.nombreControl.reset();
+                        this.nivelControl.reset();
+                      }
+                    )
+                });
+              });
+            })
+      }
     });
   }
 
-  formValid(){
-    if ((this.listaMaterias.length > 0)){
+  formValid() {
+    if (this.nombreControl.valid && this.nivelControl.valid) {
       this.openDialog()
-    }else {
-      this.planService.openSnackBar('Primero debe agregar Materias a la lista')
-    }
-    
-  }
-
-  /* crear plan de estudio */
-  /* crearPlan(planForm: NgForm, dataSource: MateriaModel[]) {
-    if (!(planForm.value.annio === undefined) && (dataSource.length > 0)) {
-      let plan = new PlanEstudioModel(planForm.value.annio, planForm.value.idCurso, planForm.value.idNivel);
-      this.planService.agregarPlan(plan).subscribe(
-        (res: PlanEstudioModel) => {
-          this.planService.openSnackBar('El plan fue crado en la base de datos');
-          dataSource.forEach(element => {
-            let planxmateria = new PlanMat(res.idPlanEstudio, element.idMateria);
-            this.materiaService.agregarMatPlan(planxmateria).subscribe(
-              x => {
-                this.planService.openSnackBar('Materia Agregada al Plan');
-              }
-            );
-          });
-        }
-      );
     } else {
-      console.log('error');
+      this.planService.openSnackBar('Complete los campos')
     }
 
-  } */
-
-  
-
-
-
+  }
 }
 

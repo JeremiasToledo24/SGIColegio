@@ -37,7 +37,13 @@ import { EditarCursoComponent } from './componentes/cursos/editar-curso/editar-c
 import { EmpleadosModule } from './empleados/empleados.module';
 import { LoginComponent } from './login/login/login.component';
 import { AgregarPlanComponent } from './componentes/plan-estudio/agregar-plan/agregar-plan.component';
-import { AlumnosModule } from './alumnos/alumnos.module';
+
+  import { AlumnosModule } from './alumnos/alumnos.module';
+
+import { DialogMateriasComponent } from './componentes/plan-estudio/dialog-materias/dialog-materias.component';
+import { LectivosModule } from './lectivos/lectivos.module';
+import { AsignarDocenteComponent } from './docentes/componentes/docentes-cursos/asignar-docente/asignar-docente.component';
+
 
 @NgModule({
   declarations: [
@@ -59,7 +65,8 @@ import { AlumnosModule } from './alumnos/alumnos.module';
     PlanEstudioComponent,
     SideBarComponent,
     LoginComponent,
-    AgregarPlanComponent
+    AgregarPlanComponent,
+    DialogMateriasComponent
   ],
   imports: [
     AppRoutingModule,
@@ -72,7 +79,10 @@ import { AlumnosModule } from './alumnos/alumnos.module';
     LayoutModule,
     MaterialModule,
     EmpleadosModule,
+
     AlumnosModule
+    LectivosModule
+
   ],
   providers: [MateriaService, CursoService, NivelService],
   bootstrap: [AppComponent],
@@ -81,7 +91,9 @@ import { AlumnosModule } from './alumnos/alumnos.module';
     EditarMateriaComponent,
     ConfirmDialogComponent,
     EditarCursoComponent,
-    AgregarPlanComponent],
+    AgregarPlanComponent,
+    DialogMateriasComponent,
+    AsignarDocenteComponent],
   exports: [ListaMateriasComponent],
 
 })

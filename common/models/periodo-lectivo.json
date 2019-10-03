@@ -1,22 +1,22 @@
 {
-  "name": "PlanMateria",
+  "name": "PeriodoLectivo",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "idPlan": {
-      "type": "number"
-    },
-    "idPlanMateria": {
+    "idPeriodoLectivo": {
       "type": "number",
       "id": true
     },
-    "anio": {
+    "periodo": {
       "type": "string"
     },
-    "codMateria": {
+    "idPlanEstudio": {
+      "type": "number"
+    },
+    "idCurso": {
       "type": "number"
     }
   },

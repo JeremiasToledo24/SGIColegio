@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { PlanEstudioService } from 'src/app/servicios/planEstudio/plan-estudio.service';
 
 @Component({
   selector: 'app-agregar-plan',
@@ -12,15 +13,11 @@ export class AgregarPlanComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data) { }
 
   ngOnInit() {
-    console.log(this.data.planForm.value)
   }
 
-  onNoClick(): void {
-    this.dialogRef.close();
+  onNoClick(operation): void {
+    this.dialogRef.close(operation);
   }
 
-  crearPlan(){
-    
-  }
-
+  
 }

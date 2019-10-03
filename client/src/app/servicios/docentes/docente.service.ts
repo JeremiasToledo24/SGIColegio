@@ -1,8 +1,8 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {Observable, throwError} from 'rxjs';
-import {catchError} from 'rxjs/operators';
-import {MatSnackBar} from '@angular/material';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material';
 
 @Injectable({
   providedIn: 'root'
@@ -32,8 +32,8 @@ export class DocenteService {
   openSnackBar(m: string, a: string) {
     this.snackBar.open(
       m, a, {
-        duration: 4000
-      }
+      duration: 4000
+    }
     );
   }
 
@@ -60,9 +60,18 @@ export class DocenteService {
 
   // Traer la lista de todos los docentes registrados en la BD
   listarDocentes() {
-    return this.http.get('http://localhost:3000/api/Docentes').pipe(
-      catchError(this.handleError)
-    )
+    return this.http.get('http://localhost:3000/api/Docentes')
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
+  registrarMateriaDocente(md): Observable<any> {
+    return this.http.post(`http://localhost:3000/api/DocenteCursos`, md)
+      .pipe(
+        catchError(this.handleError)
+
+      )
   }
 
   // Obtener docentes dados de baja¿
