@@ -19,10 +19,12 @@ export class PeriodoLectivo {
   periodo;
   idPlanEstudio;
   idCurso;
+  
   constructor(periodo, idPlanEstudio, idCurso) {
     this.periodo = periodo;
     this.idPlanEstudio = idPlanEstudio;
     this.idCurso = idCurso
+  
   }
 }
 
@@ -50,7 +52,11 @@ export class CrearLectivosComponent implements OnInit {
   plan: any[] = [];
   displayedColumns: string[] = ['idPlanEstudio', 'idNivel', 'nombrePlan', 'operaciones'];
   displayedColumnsCursos: string[] = ['idCurso', 'nombre', 'division', 'idNivel', 'operaciones'];
+  displayedColumns1: string[] = ['idPlanEstudio', 'idNivel', 'nombrePlan'];
+  displayedColumnsCursos1: string[] = ['idCurso', 'nombre', 'division', 'idNivel'];
+  
   curso: any[] = [];
+
 
   dataSource;
   dataSourceSelected;
