@@ -1,216 +1,200 @@
 <mat-card>
-    <mat-card-header>
-        <mat-card-title>Configurar Nuevo Periodo Lectivo</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Configurar Nuevo Periodo Lectivo</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
 
-        <!-- seleccion del periodo correspondiente -->
-        <mat-form-field>
-            <mat-label>Periodo correspondiente</mat-label>
-            <mat-select [formControl]="periodoControl" required>
-                <mat-option *ngFor="let periodo of periodos" [value]="periodo.anio">
-                    {{periodo.anio}}
-                </mat-option>
-            </mat-select>
-            <mat-error *ngIf="periodoControl.hasError('required')">Por favor, seleccione una opcion</mat-error>
-        </mat-form-field>
-    </mat-card-content>
+            <!-- seleccion del periodo correspondiente -->
+            <mat-form-field>
+                <mat-label>Periodo correspondiente</mat-label>
+                <mat-select [formControl]="periodoControl" required>
+                    <mat-option *ngFor="let periodo of periodos" [value]="periodo.anio">
+                        {{periodo.anio}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="periodoControl.hasError('required')">Por favor, seleccione una opcion</mat-error>
+            </mat-form-field>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Seleccione un Plan de estudio Registrado</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                <!--Columna año del plan -->
+                <ng-container matColumnDef="idPlanEstudio">
+                    <th mat-header-cell *matHeaderCellDef> Id Plan</th>
+                    <td mat-cell *matCellDef="let plan"> {{plan.idPlanEstudio}} </td>
+                </ng-container>
+
+                <!--Columna nivel -->
+                <ng-container matColumnDef="idNivel">
+                    <th mat-header-cell *matHeaderCellDef> Nivel del Plan</th>
+                    <td mat-cell *matCellDef="let plan">
+                        <div *ngIf="plan.idNivel ===1">Primaria</div>
+                        <div *ngIf="plan.idNivel ===2">Secundaria</div>
+                    </td>
+                </ng-container>
+
+                <!--Columna nombre plan -->
+                <ng-container matColumnDef="nombrePlan">
+                    <th mat-header-cell *matHeaderCellDef> Nombre del Plan</th>
+                    <td mat-cell *matCellDef="let plan"> {{plan.nombrePlan}} </td>
+                </ng-container>
+
+                <!--Columna operaciones -->
+                <ng-container matColumnDef="operaciones">
+                    <th mat-header-cell *matHeaderCellDef> Operaciones</th>
+                    <td mat-cell *matCellDef="let plan">
+                        <button (click)="agregar(plan)" type="button" mat-raised-button color="primary" >
+                            <mat-icon>library_add</mat-icon>Agregar
+                        </button>
+                    </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Plan de estudio seleccionado</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <table mat-table [dataSource]="dataSourceSelected" class="mat-elevation-z8">
+
+                <!--Columna año del plan -->
+                <ng-container matColumnDef="idPlanEstudio">
+                    <th mat-header-cell *matHeaderCellDef> Id Plan</th>
+                    <td mat-cell *matCellDef="let plan"> {{plan.idPlanEstudio}} </td>
+                </ng-container>
+
+                <!--Columna nivel -->
+                <ng-container matColumnDef="idNivel">
+                    <th mat-header-cell *matHeaderCellDef> Nivel del Plan</th>
+                    <td mat-cell *matCellDef="let plan">
+                        <div *ngIf="plan.idNivel ===1">Primaria</div>
+                        <div *ngIf="plan.idNivel ===2">Secundaria</div>
+                    </td>
+                </ng-container>
+
+                <!--Columna nombre plan -->
+                <ng-container matColumnDef="nombrePlan">
+                    <th mat-header-cell *matHeaderCellDef> Nombre del Plan</th>
+                    <td mat-cell *matCellDef="let plan"> {{plan.nombrePlan}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns1;"></tr>
+            </table>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Seleccione un curso</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <table mat-table [dataSource]="dataSourceCursos" class="mat-elevation-z8">
+
+                <!--Columna id del curso -->
+                <ng-container matColumnDef="idCurso">
+                    <th mat-header-cell *matHeaderCellDef> Id Curso</th>
+                    <td mat-cell *matCellDef="let curso"> {{curso.idCurso}} </td>
+                </ng-container>
+
+                <!--Columna nombre curso -->
+                <ng-container matColumnDef="nombre">
+                    <th mat-header-cell *matHeaderCellDef> Nombre del Curso</th>
+                    <td mat-cell *matCellDef="let curso">
+                        {{curso.nombre}}
+                    </td>
+                </ng-container>
+
+                <!--Columna division plan -->
+                <ng-container matColumnDef="division">
+                    <th mat-header-cell *matHeaderCellDef> Division del Curso</th>
+                    <td mat-cell *matCellDef="let curso"> {{curso.division}} </td>
+                </ng-container>
+
+                <!--Columna nivel -->
+                <ng-container matColumnDef="idNivel">
+                    <th mat-header-cell *matHeaderCellDef> Nivel del Curso</th>
+                    <td mat-cell *matCellDef="let curso">
+                        <div *ngIf="curso.idNivel ===1">Primaria</div>
+                        <div *ngIf="curso.idNivel ===2">Secundaria</div>
+                    </td>
+                </ng-container>
+
+                <!--Columna operaciones -->
+                <ng-container matColumnDef="operaciones">
+                    <th mat-header-cell *matHeaderCellDef> Operaciones</th>
+                    <td mat-cell *matCellDef="let curso">
+                        <button (click)="agregarCurso(curso)"type="button" mat-raised-button color="primary" >
+                            <mat-icon>library_add</mat-icon>Agregar
+                        </button>
+                    </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumnsCursos"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumnsCursos;"></tr>
+            </table>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Curso Seleccionado</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <table mat-table [dataSource]="dataSourceCursosSelected" class="mat-elevation-z8">
+
+                <!--Columna id del curso -->
+                <ng-container matColumnDef="idCurso">
+                    <th mat-header-cell *matHeaderCellDef> Id Curso</th>
+                    <td mat-cell *matCellDef="let curso"> {{curso.idCurso}} </td>
+                </ng-container>
+
+                <!--Columna nombre curso -->
+                <ng-container matColumnDef="nombre">
+                    <th mat-header-cell *matHeaderCellDef> Nombre del Curso</th>
+                    <td mat-cell *matCellDef="let curso">
+                        {{curso.nombre}}
+                    </td>
+                </ng-container>
+
+                <!--Columna division plan -->
+                <ng-container matColumnDef="division">
+                    <th mat-header-cell *matHeaderCellDef> Division del Curso</th>
+                    <td mat-cell *matCellDef="let curso"> {{curso.division}} </td>
+                </ng-container>
+
+                <!--Columna nivel -->
+                <ng-container matColumnDef="idNivel">
+                    <th mat-header-cell *matHeaderCellDef> Nivel del Curso</th>
+                    <td mat-cell *matCellDef="let curso">
+                        <div *ngIf="curso.idNivel ===1">Primaria</div>
+                        <div *ngIf="curso.idNivel ===2">Secundaria</div>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumnsCursos1"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumnsCursos1;"></tr>
+            </table>
+        </mat-card-content>
+    </mat-card>
+
+    <div class="d-flex justify-content-center">
+        <!-- Cancel -->
+        <button type="reset" mat-raised-button color="warn">Cancelar</button>
+
+        <!-- Submit -->
+        <button type="button" mat-raised-button color="primary" (click)="formValid()">
+            Registrar Periodo Lectivo
+        </button>
+    </div>
 </mat-card>
-
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>Seleccione un Plan de estudio Registrado</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-            <!--Columna año del plan -->
-            <ng-container matColumnDef="idPlanEstudio">
-                <th mat-header-cell *matHeaderCellDef> Numero de Identificacion del Plan</th>
-                <td mat-cell *matCellDef="let plan"> {{plan.idPlanEstudio}} </td>
-            </ng-container>
-
-            <!--Columna nivel -->
-            <ng-container matColumnDef="idNivel">
-                <th mat-header-cell *matHeaderCellDef> Nivel del Plan</th>
-                <td mat-cell *matCellDef="let plan">
-                    <div *ngIf="plan.idNivel ===1">Primaria</div>
-                    <div *ngIf="plan.idNivel ===2">Secundaria</div>
-                </td>
-            </ng-container>
-
-            <!--Columna nombre plan -->
-            <ng-container matColumnDef="nombrePlan">
-                <th mat-header-cell *matHeaderCellDef> Nombre del Plan</th>
-                <td mat-cell *matCellDef="let plan"> {{plan.nombrePlan}} </td>
-            </ng-container>
-
-            <!--Columna operaciones -->
-            <ng-container matColumnDef="operaciones">
-                <th mat-header-cell *matHeaderCellDef> Operaciones</th>
-                <td mat-cell *matCellDef="let plan">
-                    <button (click)="agregar(plan)" mat-raised-button style="background-color: khaki">
-                        <mat-icon>library_add</mat-icon>
-                    </button>
-                </td>
-            </ng-container>
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-    </mat-card-content>
-</mat-card>
-
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>Plan de estudio seleccionado</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <table mat-table [dataSource]="dataSourceSelected" class="mat-elevation-z8">
-
-            <!--Columna año del plan -->
-            <ng-container matColumnDef="idPlanEstudio">
-                <th mat-header-cell *matHeaderCellDef> Numero de Identificacion del Plan</th>
-                <td mat-cell *matCellDef="let plan"> {{plan.idPlanEstudio}} </td>
-            </ng-container>
-
-            <!--Columna nivel -->
-            <ng-container matColumnDef="idNivel">
-                <th mat-header-cell *matHeaderCellDef> Nivel del Plan</th>
-                <td mat-cell *matCellDef="let plan">
-                    <div *ngIf="plan.idNivel ===1">Primaria</div>
-                    <div *ngIf="plan.idNivel ===2">Secundaria</div>
-                </td>
-            </ng-container>
-
-            <!--Columna nombre plan -->
-            <ng-container matColumnDef="nombrePlan">
-                <th mat-header-cell *matHeaderCellDef> Nombre del Plan</th>
-                <td mat-cell *matCellDef="let plan"> {{plan.nombrePlan}} </td>
-            </ng-container>
-
-            <!--Columna operaciones -->
-            <ng-container matColumnDef="operaciones">
-                <th mat-header-cell *matHeaderCellDef> Operaciones</th>
-                <td mat-cell *matCellDef="let plan">
-                    <button mat-raised-button style="background-color: khaki">
-                        <mat-icon>library_add</mat-icon>
-                    </button>
-                </td>
-            </ng-container>
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-    </mat-card-content>
-</mat-card>
-
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>Seleccione un curso</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <table mat-table [dataSource]="dataSourceCursos" class="mat-elevation-z8">
-
-            <!--Columna id del curso -->
-            <ng-container matColumnDef="idCurso">
-                <th mat-header-cell *matHeaderCellDef> Numero de Identificacion del Curso</th>
-                <td mat-cell *matCellDef="let curso"> {{curso.idCurso}} </td>
-            </ng-container>
-
-            <!--Columna nombre curso -->
-            <ng-container matColumnDef="nombre">
-                <th mat-header-cell *matHeaderCellDef> Nombre del Curso</th>
-                <td mat-cell *matCellDef="let curso">
-                    {{curso.nombre}}
-                </td>
-            </ng-container>
-
-            <!--Columna division plan -->
-            <ng-container matColumnDef="division">
-                <th mat-header-cell *matHeaderCellDef> Division del Curso</th>
-                <td mat-cell *matCellDef="let curso"> {{curso.division}} </td>
-            </ng-container>
-
-            <!--Columna nivel -->
-            <ng-container matColumnDef="idNivel">
-                <th mat-header-cell *matHeaderCellDef> Nivel del Curso</th>
-                <td mat-cell *matCellDef="let curso">
-                    <div *ngIf="curso.idNivel ===1">Primaria</div>
-                    <div *ngIf="curso.idNivel ===2">Secundaria</div>
-                </td>
-            </ng-container>
-
-            <!--Columna operaciones -->
-            <ng-container matColumnDef="operaciones">
-                <th mat-header-cell *matHeaderCellDef> Operaciones</th>
-                <td mat-cell *matCellDef="let curso">
-                    <button (click)="agregarCurso(curso)" mat-raised-button style="background-color: khaki">
-                        <mat-icon>library_add</mat-icon>
-                    </button>
-                </td>
-            </ng-container>
-            <tr mat-header-row *matHeaderRowDef="displayedColumnsCursos"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumnsCursos;"></tr>
-        </table>
-    </mat-card-content>
-</mat-card>
-
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>Curso Seleccionado</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <table mat-table [dataSource]="dataSourceCursosSelected" class="mat-elevation-z8">
-
-            <!--Columna id del curso -->
-            <ng-container matColumnDef="idCurso">
-                <th mat-header-cell *matHeaderCellDef> Numero de Identificacion del Curso</th>
-                <td mat-cell *matCellDef="let curso"> {{curso.idCurso}} </td>
-            </ng-container>
-
-            <!--Columna nombre curso -->
-            <ng-container matColumnDef="nombre">
-                <th mat-header-cell *matHeaderCellDef> Nombre del Curso</th>
-                <td mat-cell *matCellDef="let curso">
-                    {{curso.nombre}}
-                </td>
-            </ng-container>
-
-            <!--Columna division plan -->
-            <ng-container matColumnDef="division">
-                <th mat-header-cell *matHeaderCellDef> Division del Curso</th>
-                <td mat-cell *matCellDef="let curso"> {{curso.division}} </td>
-            </ng-container>
-
-            <!--Columna nivel -->
-            <ng-container matColumnDef="idNivel">
-                <th mat-header-cell *matHeaderCellDef> Nivel del Curso</th>
-                <td mat-cell *matCellDef="let curso">
-                    <div *ngIf="curso.idNivel ===1">Primaria</div>
-                    <div *ngIf="curso.idNivel ===2">Secundaria</div>
-                </td>
-            </ng-container>
-
-            <!--Columna operaciones -->
-            <ng-container matColumnDef="operaciones">
-                <th mat-header-cell *matHeaderCellDef> Operaciones</th>
-                <td mat-cell *matCellDef="let curso">
-                    <button  mat-raised-button style="background-color: khaki">
-                        <mat-icon>library_add</mat-icon>
-                    </button>
-                </td>
-            </ng-container>
-            <tr mat-header-row *matHeaderRowDef="displayedColumnsCursos"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumnsCursos;"></tr>
-        </table>
-    </mat-card-content>
-</mat-card>
-
-<div class="d-flex justify-content-center">
-    <!-- Cancel -->
-    <button type="reset" mat-raised-button color="warn">Cancelar</button>
-
-    <!-- Submit -->
-    <button type="button" mat-raised-button color="primary" (click)="formValid()">
-      Registrar Periodo Lectivo
-    </button>
-  </div>
