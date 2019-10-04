@@ -32,14 +32,14 @@
       <mat-card-subtitle></mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      <mat-list   role="list">
+      <!-- <mat-list   role="list">
         <h3 mat-subheader>Años:</h3>
         <mat-list-item  *ngFor="let anio of listaAnios; let i=index" role="listitem">
           <h4 *ngFor="let item of anio">{{anio.nombreAnio}}</h4>
           <h4>{{anio.listaMaterias[i].nombre}}</h4>
           <h4>{{anio.listaMaterias[i].idMateria}}</h4>
         </mat-list-item>
-      </mat-list>
+      </mat-list> -->
 
       <button mat-button (click)="openDialogMaterias()" type="reset" mat-raised-button color="primary">Agregar</button>
     </mat-card-content>
