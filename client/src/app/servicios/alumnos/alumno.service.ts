@@ -70,6 +70,11 @@ export class AlumnoService {
     );
   }
 
+  // Obtener curso al que pertenece el alumno
+  getAlumnoCurso(dni): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/AlumnoCursos?filter=%7B%22where%22%3A%7B%22DNIAlumno%22%3A${dni}%7D%7D`)
+  }
+
   // ---------------------------------------------------------------//
   // -------------- MANEJO DE ERRORES SEGUN HTTP RES ---------------//
   // ---------------------------------------------------------------//
