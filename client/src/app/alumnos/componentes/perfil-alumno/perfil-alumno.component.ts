@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AlumnoService } from 'src/app/servicios/alumnos/alumno.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
+import { CursoService } from 'src/app/servicios/cursos/curso.service';
 
 @Component({
   selector: 'app-perfil-alumno',
@@ -12,14 +13,19 @@ export class PerfilAlumnoComponent implements OnInit {
 
   constructor(
     private alumnoService: AlumnoService,
+    private cursoService: CursoService,
     private route: ActivatedRoute,
     private router: Router,
     private snackBar: MatSnackBar,
   ) { }
 
+  // Variable idCurso al que pertenece
+  CursoID: number = null;
+
   // Datos tablas
   displayedColumns: string[] = ['label', 'data'];
   datosAlumno = [];
+  datosCurso = [];
   datosTutor = [];
   datosFicha = [];
 
@@ -76,6 +82,37 @@ export class PerfilAlumnoComponent implements OnInit {
             this.datosAlumno.push({ label: 'Correo electrónico', data: res.email });
           }
 
+          // Obtener curso al que pertenece el alumno
+          this.alumnoService.getAlumnoCurso(this.id).subscribe(
+            res => {
+              if (res[0] === undefined) {
+                this.datosCurso = [];
+                this.datosCurso.push({ label: 'Curso', data: 'No asignado'});
+              } else {
+                this.CursoID = res[0].idCurso;
+                this.cursoService.obtenerCurso(this.CursoID).subscribe(
+                  res => {
+                    this.datosCurso = [];
+                    switch (res.idNivel) {
+                      case 1:
+                        this.datosCurso.push({ label: 'Division', data: 'Primaria' });
+                        break;
+
+                      case 2:
+                        this.datosCurso.push({ label: 'Division', data: 'Secundaria' });
+                        break;
+                    }
+                    this.datosCurso.push({ label: 'Curso', data: res.nombre });
+                    this.datosCurso.push({ label: 'Division', data: res.division });
+                  }
+                );
+              }
+            },
+          );
+
+          // Colocar los datos del curso al que pertenece el alumno
+
+
           // Obtener tutor del alumno
           this.alumnoService.getTutor(this.id)
             .subscribe(
@@ -84,7 +121,19 @@ export class PerfilAlumnoComponent implements OnInit {
                 this.datosTutor.push({ label: 'DNI', data: res[0].DNITutor });
                 this.datosTutor.push({ label: 'CUIL', data: res[0].cuil });
                 this.datosTutor.push({ label: 'Apellido y nombre', data: res[0].apellido + ', ' + res[0].nombre });
-                this.datosTutor.push({ label: 'Sexo', data: res[0].sexo });
+                switch (res[0].sexo) {
+                  case 'M':
+                    this.datosTutor.push({ label: 'Sexo', data: 'Masculino' })
+                    break;
+                  case 'F':
+                    this.datosTutor.push({ label: 'Sexo', data: 'Femenino' })
+                    break;
+                  case 'O':
+                    this.datosTutor.push({ label: 'Sexo', data: 'Otro' })
+                    break;
+                  default:
+                    break;
+                };
                 this.datosTutor.push({ label: 'Parentezco', data: res[0].parentezco });
                 this.datosTutor.push({ label: 'Fecha de nacimiento', data: res[0].fechaNacimiento });
                 this.datosTutor.push({ label: 'Domicilio', data: res[0].domicilio });
@@ -155,6 +204,11 @@ export class PerfilAlumnoComponent implements OnInit {
   // Redirigir a lista
   volver() {
     this.router.navigate(['/listaAlumnos']);
+  }
+
+  // Redirigir a asignar
+  irAsignar() {
+    this.router.navigate(['/asignarAlumno']);
   }
 
   // Mostrar SnackBar

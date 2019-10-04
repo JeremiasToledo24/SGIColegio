@@ -27,7 +27,11 @@ boot(app, __dirname, function(err) {
   if (require.main === module)
     app.start();
 });
-
+/* 
+app.get('/DocenteCurso/:dni/:idCurso/:idMateria', function(req, res){
+  console.log(req.params)
+});
+ */
 app;
 
 

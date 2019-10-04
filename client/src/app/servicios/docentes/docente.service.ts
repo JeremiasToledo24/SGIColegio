@@ -37,6 +37,13 @@ export class DocenteService {
     );
   }
 
+  docenteCurso(dni, idMateria,idCurso): Observable<any>{
+    return this.http.get(`http://localhost:3000/api/DocenteCursos?filter[where][and][0][idCurso]=${idCurso}&filter[where][and][1][DNIDocente]=${dni}&filter[where][and][2][idMateria]=${idMateria}`)
+    .pipe(
+      catchError(this.handleError)
+    )
+  }
+
 
   // Agregar docente a BD
   agregarDocente(Docente: any): Observable<any> {

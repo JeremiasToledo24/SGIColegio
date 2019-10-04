@@ -40,6 +40,7 @@ export class PlanEstudioComponent implements OnInit {
   nombreControl = new FormControl('', Validators.required)
 
   listaAnios: ListaAnios[]
+  listamat = [];
 
   constructor(private planService: PlanEstudioService, private cursoService: CursoService, private materiaService: MateriaService,
     public dialog: MatDialog
@@ -48,7 +49,7 @@ export class PlanEstudioComponent implements OnInit {
 
 
   ngOnInit() {
-    this.listaAnios = []
+    this.listaAnios = [{nombreAnio: 'hola',listaMaterias:[{codigo:'123',nombre:'lengua',idMateria:8}]}]
   }
 
 

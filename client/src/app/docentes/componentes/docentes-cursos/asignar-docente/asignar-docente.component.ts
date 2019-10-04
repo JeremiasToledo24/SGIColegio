@@ -5,11 +5,11 @@ import { DocenteService } from 'src/app/servicios/docentes/docente.service';
 
 
 /* INTERFACES: */
-  export interface Docente {
-    dni;
-    nombre;
-    apellido;
-  }
+export interface Docente {
+  dni;
+  nombre;
+  apellido;
+}
 
 
 @Component({
@@ -37,7 +37,7 @@ export class AsignarDocenteComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log('this.data :', this.data);
+    console.log('this.data :', this.data.materia.nombreMateria);
     this.empleadoService.getEmpleadosDocentes().subscribe(
       (res: Docente[]) => {
         res.forEach(element => {
@@ -53,15 +53,27 @@ export class AsignarDocenteComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  asignarDocente(dni){
-    const md = {idCurso: this.data.periodo.idCurso, DNIDocente: dni, idMateria: this.data.materia.codMateria}
-     this.docenteService.registrarMateriaDocente(md)
-     .subscribe(
-       res => {
-         this.docenteService.openSnackBar('Docente asignado', 'ok')
-         this.dialogRef.close();
-       }
-     )
-   }
+  asignarDocente(dni) {
+    const md = { idCurso: this.data.periodo.idCurso, DNIDocente: dni, idMateria: this.data.materia.codMateria }
+    console.log('md :', md);
+    this.docenteService.registrarMateriaDocente(md)
+      .subscribe(
+        res => {
+          this.docenteService.openSnackBar('Docente Asignado', 'ok')
 
+        }
+      )
+    /* this.docenteService.docenteCurso(dni,md.idMateria, md.idCurso )
+      .subscribe(
+        (res: []) => {
+          if (res.length === 0) {
+            console.log(res)
+            
+          }else{
+            
+          }
+        }
+      ) */
+
+  }
 }

@@ -34,7 +34,7 @@ export class CursoService {
 
   //obtener curso por id
    obtenerCurso(id: number):Observable<any> {
-    return this.http.get('http://localhost:3000/api/Cursos' + `${id}`)
+    return this.http.get(`http://localhost:3000/api/Cursos/${id}`)
     .pipe(
       catchError(this.handleError)
     );
