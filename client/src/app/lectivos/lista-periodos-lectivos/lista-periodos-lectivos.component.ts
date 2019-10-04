@@ -11,6 +11,7 @@ import { MatTableDataSource } from '@angular/material';
 export class ListaPeriodosLectivosComponent implements OnInit {
 
   displayedColumns: string[] = ['idPeriodoLectivo', 'periodo', 'nombre', 'operaciones'];
+  displayedColumns3: string[] = ['idPeriodoLectivo', 'periodo', 'nombre'];
   dataSource;
 
   constructor(private planService: PlanEstudioService) { }
