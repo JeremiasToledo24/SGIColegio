@@ -46,3 +46,8 @@ td {
 mat-cell {
   background-color: #C5CAE9;
 }
+
+
+.mat-column-idPlan{
+  width: 15% !important;
+}

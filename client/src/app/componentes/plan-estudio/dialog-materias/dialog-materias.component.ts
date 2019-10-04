@@ -60,6 +60,10 @@ export class DialogMateriasComponent implements OnInit {
     }
   }
 
+  cerrar() {
+    this.dialogRef.close();
+  }
+
   onNoClick(): void {
     if (this.nombreControl.valid && this.listaMaterias.length > 0) {
       this.dialogRef.close({ nombreAnio: this.nombreControl.value, listaMaterias: this.listaMaterias });
