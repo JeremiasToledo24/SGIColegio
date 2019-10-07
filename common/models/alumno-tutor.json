@@ -1,58 +1,58 @@
 {
-    "name": "AlumnoTutor",
-    "base": "PersistedModel",
-    "idInjection": true,
-    "options": {
-        "validateUpsert": true
+  "name": "AlumnoTutor",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "DNITutor": {
+      "type": "number",
+      "id": true,
+      "required": true
     },
-    "properties": {
-        "DNITutor": {
-            "type": "number",
-            "required": true,
-            "id": true
-        },
-        "nombre": {
-            "type": "string",
-            "required": true
-        },
-        "apellido": {
-            "type": "string",
-            "required": true
-        },
-        "sexo": {
-            "type": "string",
-            "required": true
-        },
-        "fechaNacimiento": {
-            "type": "string",
-            "required": true
-        },
-        "domicilio": {
-            "type": "string",
-            "required": true
-        },
-        "telefonoPersonal": {
-            "type": "string",
-            "required": true
-        },
-        "telefonoTrabajo": {
-            "type": "string"
-        },
-        "cuil": {
-            "type": "string",
-            "required": true
-        },
-        "parentezco": {
-            "type": "string",
-            "required": true
-        },
-        "DNIAlumno": {
-            "type": "number",
-            "required": true
-        }
+    "nombre": {
+      "type": "string",
+      "required": true
     },
-    "validations": [],
-    "relations": {},
-    "acls": [],
-    "methods": {}
+    "apellido": {
+      "type": "string",
+      "required": true
+    },
+    "sexo": {
+      "type": "string",
+      "required": true
+    },
+    "fechaNacimiento": {
+      "type": "string",
+      "required": true
+    },
+    "domicilio": {
+      "type": "string",
+      "required": true
+    },
+    "telefonoPersonal": {
+      "type": "string",
+      "required": true
+    },
+    "telefonoTrabajo": {
+      "type": "string"
+    },
+    "cuil": {
+      "type": "string",
+      "required": true
+    },
+    "parentezco": {
+      "type": "string",
+      "required": true
+    },
+    "DNIAlumno": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
 }

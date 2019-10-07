@@ -23,6 +23,37 @@ export class PlanEstudioService {
     )
   }
 
+  getPlanesViews(): Observable<any>{
+    return this.http.get(`http://localhost:3000/api/PlanEstudioViews`)
+    .pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  getAllPlanes(): Observable<any>{
+    return this.http.get(`http://localhost:3000/api/PlanEstudios`)
+    .pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  traerPlanPorNivel(nivel):Observable<any>{
+    return this.http.get(`http://localhost:3000/api/PlanEstudios?filter[where][idNivel]=${nivel}`)
+  }
+
+  getMateriasPlan(id, year):Observable<any>{
+    return this.http.get(`http://localhost:3000/api/PlanMateriaViews?filter[where][and][0][anio]=${year}&filter[where][and][1][idPlanEstudio]=${id}`)
+    .pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  /* getMateriasPlan(id): Observable<any>{
+    return this.http.get(`http://localhost:3000/api/PlanMateriaViews?filter=%7B%22where%22%3A%7B%22idPlanEstudio%22%3A%22${id}%22%7D%7D`)
+    .pipe(
+      catchError(this.handleError)
+    )
+  } */
 
   agregarPlan(plan): Observable<any> {
     return this.http.post(`http://localhost:3000/api/PlanEstudios`, plan)

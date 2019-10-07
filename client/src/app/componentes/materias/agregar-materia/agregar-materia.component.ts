@@ -32,7 +32,7 @@ export class AgregarMateriaComponent implements OnInit {
   }
 
   // Agregar materia y reiniciar el formulario
-  addMateria(form: NgForm) {
+  /* addMateria(form: NgForm) {
     try {
       if (form.value.nombre.length === 0 || form.value.codigo.length === 0) {
         this.openSnackBar(
@@ -63,7 +63,7 @@ export class AgregarMateriaComponent implements OnInit {
     } catch (error) {
     }
 
-  }
+  } */
 
   // Mostrar SnackBar al agregar materia
   openSnackBar(m: string, a: string) {

@@ -48,8 +48,11 @@ export class CrearLectivosComponent implements OnInit {
     { anio: 2030 },
   ];
   plan: any[] = [];
-  displayedColumns: string[] = ['idPlanEstudio', 'idNivel', 'nombrePlan', 'operaciones'];
+
+  displayedColumns: string[] = [ 'idNivel', 'nombrePlan', 'operaciones'];
   displayedColumnsCursos: string[] = ['idCurso', 'nombre', 'division', 'idNivel', 'operaciones'];
+
+
   displayedColumns1: string[] = ['idPlanEstudio', 'idNivel', 'nombrePlan'];
   displayedColumnsCursos1: string[] = ['idCurso', 'nombre', 'division', 'idNivel'];
   

@@ -1,9 +1,9 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {MateriaModel} from 'src/app/models/materia-model';
-import {MatSnackBar} from '@angular/material';
-import {Observable, throwError} from 'rxjs';
-import {catchError} from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { MateriaModel } from 'src/app/models/materia-model';
+import { MatSnackBar } from '@angular/material';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 
 @Injectable({
@@ -27,26 +27,26 @@ export class MateriaService {
   openSnackBar(m: string) {
     this._snackBar.open(
       m, '', {
-        duration: 1500
-      }
+      duration: 1500
+    }
     );
   }
 
   // Obtener listado de materias
   listarMaterias(): Observable<any> {
     return this.http.get('http://localhost:3000/api/Materias')
-    .pipe(
-      catchError(this.handleError)
-    );
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
   // Agregar Materia
-  async agregarMateria(Materia: MateriaModel) {
-    try {
-      return await this.http.post('http://localhost:3000/api/Materias', Materia).toPromise();
-    } catch (error) {
-      this.openSnackBar(error);
-    }
+  agregarMateria(Materia): Observable<any> {
+    return this.http.post('http://localhost:3000/api/Materias', Materia)
+      .pipe(
+        catchError(this.handleError)
+      );
+
   }
 
   async getExist(id: number) {

@@ -1,13 +1,17 @@
 <mat-card>
-    <mat-card>
-        <mat-card-header>
-            <mat-card-title>Configurar Nuevo Periodo Lectivo</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
 
-            <!-- seleccion del periodo correspondiente -->
+    <mat-card-header>
+        <mat-card-title>Crear periodos Lectivos</mat-card-title>
+        <mat-card-subtitle>Seleccione las opciones correspondientes</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        
+
+
+
+         <div class="col-sm-6">
+            <mat-label>Seleccione el periodo correspondiente</mat-label>
             <mat-form-field>
-                <mat-label>Periodo correspondiente</mat-label>
                 <mat-select [formControl]="periodoControl" required>
                     <mat-option *ngFor="let periodo of periodos" [value]="periodo.anio">
                         {{periodo.anio}}
@@ -15,14 +19,10 @@
                 </mat-select>
                 <mat-error *ngIf="periodoControl.hasError('required')">Por favor, seleccione una opcion</mat-error>
             </mat-form-field>
-        </mat-card-content>
-    </mat-card>
+        </div> 
+        <div class="col-sm-6">
+            <mat-label>Seleccione un plan de estudio: </mat-label>
 
-    <mat-card>
-        <mat-card-header>
-            <mat-card-title>Seleccione un Plan de estudio Registrado</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
             <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
                 <!--Columna año del plan -->
@@ -48,18 +48,21 @@
 
                 <!--Columna operaciones -->
                 <ng-container matColumnDef="operaciones">
-                    <th mat-header-cell *matHeaderCellDef> Operaciones</th>
+                    <th mat-header-cell *matHeaderCellDef> Seleccionar</th>
                     <td mat-cell *matCellDef="let plan">
-                        <button (click)="agregar(plan)" type="button" mat-raised-button color="primary" >
-                            <mat-icon>library_add</mat-icon>Agregar
-                        </button>
+                        <mat-radio-group>
+                            <mat-radio-button value="1"></mat-radio-button>
+                        </mat-radio-group>
+
                     </td>
                 </ng-container>
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
-        </mat-card-content>
-    </mat-card>
+        </div>
+
+
+    </mat-card-content>
 
     <mat-card>
         <mat-card-header>
@@ -135,7 +138,7 @@
                 <ng-container matColumnDef="operaciones">
                     <th mat-header-cell *matHeaderCellDef> Operaciones</th>
                     <td mat-cell *matCellDef="let curso">
-                        <button (click)="agregarCurso(curso)"type="button" mat-raised-button color="primary" >
+                        <button (click)="agregarCurso(curso)" type="button" mat-raised-button color="primary">
                             <mat-icon>library_add</mat-icon>Agregar
                         </button>
                     </td>

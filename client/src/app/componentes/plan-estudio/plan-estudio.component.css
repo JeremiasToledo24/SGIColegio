@@ -1,6 +1,6 @@
-mat-card {
+.background-card{
   background-color: #E8EAF6;
-  margin: 2rem;
+  margin: 0;
 }
 
 mat-card-title {
@@ -9,6 +9,7 @@ mat-card-title {
 
 mat-card-content {
   text-align: center;
+  margin: 0;
 }
 
 mat-form-field {
@@ -46,6 +47,24 @@ td {
 
 mat-cell {
   background-color: #C5CAE9;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}
+
+/* acordeon */
+mat-expansion-panel-header {
+/*   background-color: #3F51B5;
+ */  font-size: 16px;
+}
+
+mat-expansion-panel {
+/*   background-color: rgb(179, 190, 255);
+ */}
+
+mat-panel-title {
+  color: beige;
 }
 
 

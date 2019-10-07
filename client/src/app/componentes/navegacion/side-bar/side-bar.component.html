@@ -54,7 +54,7 @@
         </li>
 
         <!-- Dropdown Alumnos -->
-        <li><a href="#alumnosDropdown" aria-expanded="false" data-toggle="collapse">
+        <li><a href="#alumnosDropdown" (click)="redirigir('alumno')" aria-expanded="false" data-toggle="collapse">
             <mat-icon style="margin-right: 5px">school</mat-icon>Alumnos
           </a>
 
@@ -62,9 +62,9 @@
           <ul id="alumnosDropdown" class="collapse list-unstyled ">
             <li><a routerLink="/inscribirAlumno" routerLinkActive="active">Inscribir alumno</a></li>
           </ul>
-          <ul id="alumnosDropdown" class="collapse list-unstyled ">
+          <!-- <ul id="alumnosDropdown" class="collapse list-unstyled ">
             <li><a routerLink="/listaAlumnos" routerLinkActive="active">Lista de alumnos</a></li>
-          </ul>
+          </ul> -->
           <ul id="alumnosDropdown" class="collapse list-unstyled ">
             <li><a routerLink="/asignarAlumno" routerLinkActive="active">Asignar curso</a></li>
           </ul>

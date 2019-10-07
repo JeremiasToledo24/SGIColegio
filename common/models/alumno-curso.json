@@ -1,26 +1,26 @@
 {
-    "name": "AlumnoCurso",
-    "base": "PersistedModel",
-    "idInjection": true,
-    "options": {
-        "validateUpsert": true
+  "name": "AlumnoCurso",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "idAlumnoCurso": {
+      "type": "number"
     },
-    "properties": {
-        "idAlumnoCurso": {
-            "type": "number"
-        },
-        "DNIAlumno": {
-            "type": "number",
-            "required": true,
-            "id": true
-        },
-        "idCurso": {
-            "type": "number",
-            "required": true
-        }
+    "DNIAlumno": {
+      "type": "number",
+      "id": true,
+      "required": true
     },
-    "validations": [],
-    "relations": {},
-    "acls": [],
-    "methods": {}
+    "idCurso": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
 }

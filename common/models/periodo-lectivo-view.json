@@ -17,10 +17,10 @@
       "type": "string"
     },
     "idPlanEstudio": {
-      "type":"number"
+      "type": "number"
     },
-    "idCurso":{
-      "type":"number"
+    "idCurso": {
+      "type": "number"
     }
   },
   "validations": [],
