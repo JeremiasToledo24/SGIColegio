@@ -5,6 +5,7 @@ import { MatTableDataSource, MatDialog } from '@angular/material';
 import { PeriodoLectivo } from 'src/app/lectivos/crear-lectivos/crear-lectivos.component';
 import { AsignarDocenteComponent } from './asignar-docente/asignar-docente.component';
 import { DocenteService } from 'src/app/servicios/docentes/docente.service';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-docentes-cursos',
@@ -12,29 +13,36 @@ import { DocenteService } from 'src/app/servicios/docentes/docente.service';
   styleUrls: ['./docentes-cursos.component.css']
 })
 export class DocentesCursosComponent implements OnInit {
-  displayedColumns: string[] = ['idPeriodoLectivo', 'periodo', 'nombre', 'idPlanEstudio', 'operaciones'];
+  /* displayedColumns: string[] = ['idPeriodoLectivo', 'periodo', 'nombre', 'idPlanEstudio', 'operaciones'];
   displayedColumnsMateriasPeriodo: string[] = ['idPlanEstudio', 'anio', 'nombreMateria', 'operaciones']
   dataSource;
   dataSourceMateriasPeriodo;
   periodo;
-  materiaPlan = [];
+  materiaPlan = []; */
+
+  nivelControl = new FormControl('', Validators.required)
 
 
   constructor(
     private planService: PlanEstudioService,
     public dialog: MatDialog) { }
 
+
+  seleccionarNivel(nivel: string) {
+
+  }
+
   ngOnInit() {
 
 
-    this.planService.listarPeriodos().subscribe(res => {
+    /* this.planService.listarPeriodos().subscribe(res => {
       let data = res;
       this.dataSource = new MatTableDataSource(data)
     });
-    this.periodo = ''
+    this.periodo = '' */
   }
 
-  seleccionarPeriodo(periodo) {
+  /* seleccionarPeriodo(periodo) {
     console.log('periodo :', periodo.idPlanEstudio);
     this.periodo = periodo
     this.planService.listarMateriasPlan(periodo.idPlanEstudio)
@@ -44,9 +52,9 @@ export class DocentesCursosComponent implements OnInit {
           this.dataSourceMateriasPeriodo = new MatTableDataSource(this.materiaPlan);
         }
       )
-  }
+  } */
 
-  asignarDocente(materia) {
+  /* asignarDocente(materia) {
     const dialogRef = this.dialog.open(AsignarDocenteComponent, {
       data: { materia: materia, periodo: this.periodo }
     });
@@ -54,7 +62,7 @@ export class DocentesCursosComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
-  }
+  } */
 
 
 }

@@ -111,7 +111,7 @@ export class PlanEstudioService {
   }
 
   getPeriodos(): Observable<any> {
-    return this.http.get(`http://localhost:3000/api/PeriodoLectivos`)
+    return this.http.get(`http://localhost:3000/api/PeriodoLectivoViews`)
       .pipe(
         catchError(this.handleError)
       )

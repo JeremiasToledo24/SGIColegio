@@ -44,6 +44,7 @@ import { DialogMateriasComponent } from './componentes/plan-estudio/dialog-mater
 import { LectivosModule } from './lectivos/lectivos.module';
 import { AsignarDocenteComponent } from './docentes/componentes/docentes-cursos/asignar-docente/asignar-docente.component';
 import { AddMateriaComponent } from './componentes/plan-estudio/add-materia/add-materia.component';
+import { CrearLectivosComponent } from './lectivos/crear-lectivos/crear-lectivos.component';
 
 
 @NgModule({
@@ -96,7 +97,8 @@ import { AddMateriaComponent } from './componentes/plan-estudio/add-materia/add-
     AgregarPlanComponent,
     DialogMateriasComponent,
     AsignarDocenteComponent,
-  AddMateriaComponent],
+  AddMateriaComponent,
+CrearLectivosComponent],
   exports: [ListaMateriasComponent],
 
 })

@@ -7,6 +7,8 @@ import {DocenteMateriaComponent} from './componentes/docente-materia/docente-mat
 import {AsignarMateriaComponent} from './componentes/docente-materia/asignar-materia/asignar-materia.component';
 import { DocentesCursosComponent } from './componentes/docentes-cursos/docentes-cursos.component';
 import { AsignarDocenteComponent } from './componentes/docentes-cursos/asignar-docente/asignar-docente.component';
+import { DocentePrimariaComponent } from './componentes/docente-primaria/docente-primaria.component';
+import { DocenteSecundariaComponent } from './componentes/docente-secundaria/docente-secundaria.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +16,8 @@ import { AsignarDocenteComponent } from './componentes/docentes-cursos/asignar-d
     AsignarMateriaComponent,
     DocentesCursosComponent,
     AsignarDocenteComponent,
+    DocentePrimariaComponent,
+    DocenteSecundariaComponent,
   ],
   imports: [
     CommonModule,

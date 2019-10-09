@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { PlanEstudioService } from 'src/app/servicios/planEstudio/plan-estudio.service';
 import { Planes } from 'src/app/componentes/plan-estudio/lista-planes/lista-planes.component';
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { CursoService } from 'src/app/servicios/cursos/curso.service';
 import { Cursos } from 'src/app/aulas/componentes/asignar-cursos/asignar-cursos.component';
 
@@ -47,15 +47,20 @@ export class CrearLectivosComponent implements OnInit {
     { anio: 2029 },
     { anio: 2030 },
   ];
+  listaPlanes: [];
+
+
+
+
   plan: any[] = [];
 
-  displayedColumns: string[] = [ 'idNivel', 'nombrePlan', 'operaciones'];
+  displayedColumns: string[] = ['idNivel', 'nombrePlan', 'operaciones'];
   displayedColumnsCursos: string[] = ['idCurso', 'nombre', 'division', 'idNivel', 'operaciones'];
 
 
   displayedColumns1: string[] = ['idPlanEstudio', 'idNivel', 'nombrePlan'];
   displayedColumnsCursos1: string[] = ['idCurso', 'nombre', 'division', 'idNivel'];
-  
+
   curso: any[] = [];
 
 
@@ -64,27 +69,44 @@ export class CrearLectivosComponent implements OnInit {
   dataSourceCursos;
   dataSourceCursosSelected;
 
-  constructor(private planService: PlanEstudioService, private cursoService: CursoService) { }
+  constructor(private planService: PlanEstudioService, private cursoService: CursoService,
+    public dialogRef: MatDialogRef<CrearLectivosComponent>,
+    @Inject(MAT_DIALOG_DATA) public data) { }
+
+
+
+  onNoClick(operacion: string): void {
+    this.dialogRef.close(operacion);
+  }
 
   ngOnInit() {
-    this.planService.listarPlanesAgrupados().subscribe(res => {
+    console.log('this.data.plan.nombrePlan :', this.data.plan.nombrePlan);
+    console.log('this.data.anio :', this.data.anio);
+    /* this.planService.listarPlanesAgrupados().subscribe(res => {
       let data = res as Planes[]
       this.dataSource = new MatTableDataSource<Planes>(data)
-    });
+    }); */
 
-    this.cursoService.listarCursos()
+    /* this.cursoService.listarCursos()
       .subscribe(
         res => {
           let data = res as Curso[];
           this.dataSourceCursos = new MatTableDataSource<Curso>(data);
         }
 
-      )
+      ) */
+
+    /* this.planService.getAllPlanes()
+      .subscribe(
+        res => {
+          this.listaPlanes = res as [];
+        }
+      ) */
 
 
   }
 
-  agregar(plan) {
+ /*  agregar(plan) {
     this.plan = [];
     this.plan.push(plan)
     this.dataSourceSelected = new MatTableDataSource<Planes>(this.plan);
@@ -115,6 +137,6 @@ export class CrearLectivosComponent implements OnInit {
           }
         )
     }
-  }
+  } */
 
 }

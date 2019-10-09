@@ -33,12 +33,16 @@
 
         <!-- Dropdown Docentes -->
         <li><a href="#docentesDropdown" aria-expanded="false" data-toggle="collapse">
-            <i class="icon-interface-windows"></i>Docentes</a>
+            <i class="icon-interface-windows"></i>Asignación Docente</a>
 
           <!-- Dropdown items -->
           <ul id="docentesDropdown" class="collapse list-unstyled ">
-            <li><a routerLink="/docenteMateria" routerLinkActive="active">Asignacion de Docentes</a></li>
+            <li><a routerLink="/docentesPrimaria" routerLinkActive="active">Primaria</a></li>
           </ul>
+          <!-- Dropdown items -->
+          <ul id="docentesDropdown" class="collapse list-unstyled ">
+              <li><a routerLink="/docentesSecundaria" routerLinkActive="active">Secundaria</a></li>
+            </ul>
         </li>
         <!-- Dropdown empleados -->
         <li><a href="#empleadosDropdown" aria-expanded="false" data-toggle="collapse">
@@ -72,15 +76,15 @@
 
 
         <li><a href="#periodoDropdown" aria-expanded="false" data-toggle="collapse">
-            <mat-icon style="margin-right: 5px">assignment</mat-icon>Perdiodos Lectivos
+            <mat-icon style="margin-right: 5px">assignment</mat-icon>Ciclos Lectivos
           </a>
 
           <!-- Dropdown items -->
           <ul id="periodoDropdown" class="collapse list-unstyled ">
-            <li><a routerLink="/periodosLectivos" routerLinkActive="active">Configurar Nuevo Periodo Lectivo</a></li>
+            <li><a routerLink="/periodosPrimaria" routerLinkActive="active">Primaria</a></li>
           </ul>
           <ul id="periodoDropdown" class="collapse list-unstyled ">
-            <li><a routerLink="/listaPeriodosLectivos" routerLinkActive="active">Listar Periodos Vigentes</a></li>
+            <li><a routerLink="/periodosSecundaria" routerLinkActive="active">Secundaria</a></li>
           </ul>
         </li>
       </ul>

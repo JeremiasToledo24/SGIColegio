@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Crear Ciclo lectivo para nivel Primario</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div>
+                    <mat-form-field>
+                        <label>
+                            Seleccione el año lectivo
+                        </label>
+                        <mat-select [formControl]="periodoControl" required>
+                            <mat-option *ngFor="let periodo of periodos" [value]="periodo.anio">
+                                {{periodo.anio}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="periodoControl.hasError('required')">Por favor, seleccione una opcion
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+
+                <div>
+                    <label>
+                        Seleccione un Plan de Estudio disponible
+                    </label>
+                    <mat-list>
+                        <mat-list-item *ngFor="let plan of listaPlanes">
+                            <div class="col">
+                                {{plan.nombrePlan}}
+
+                            </div>
+                            <div class="col">
+                                <button (click)="formValid(plan)" mat-button>Seleccionar</button>
+                            </div>
+                        </mat-list-item>
+                    </mat-list>
+                </div>
+
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Lista de Ciclos Lectivos</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-list>
+                    <mat-list-item *ngFor="let item of listaPeriodos">Nombre del Plan: {{item.nombrePlan}} Periodo:
+                        {{item.periodo}}</mat-list-item>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+</div>

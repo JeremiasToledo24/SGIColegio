@@ -1,0 +1,124 @@
+<mat-card style="margin: 2rem">
+    <div class="row justify-content-md-center">
+        <mat-card-header>
+            <mat-card-title >Asiganción de Docentes</mat-card-title>
+        </mat-card-header>
+    </div>
+    <mat-card-content>
+        <div class="row">
+            <div class="col">
+                <mat-card>
+                    <mat-card-header>
+                        <mat-card-title>Periodos de estudio Registrado</mat-card-title>
+                        <mat-card-subtitle>Seleccione un Periodo Lectivo</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                            <!--Columna año del periodo -->
+                            <ng-container matColumnDef="idPeriodoLectivo">
+                                <th mat-header-cell *matHeaderCellDef> Id Periodo</th>
+                                <td mat-cell *matCellDef="let periodo"> {{periodo.idPeriodoLectivo}} </td>
+                            </ng-container>
+
+                            <!--Columna nivel -->
+                            <ng-container matColumnDef="periodo">
+                                <th mat-header-cell *matHeaderCellDef>Año lectivo correspondiente</th>
+                                <td mat-cell *matCellDef="let periodo">
+                                    {{periodo.periodo}}
+                                </td>
+                            </ng-container>
+
+                            <!--Columna nombre periodo -->
+                            <ng-container matColumnDef="nombre">
+                                <th mat-header-cell *matHeaderCellDef> Curso Asignado</th>
+                                <td mat-cell *matCellDef="let periodo"> {{periodo.nombre}} </td>
+                            </ng-container>
+
+                            <!--Columna nombre periodo -->
+                            <ng-container matColumnDef="idPlanEstudio">
+                                <th mat-header-cell *matHeaderCellDef> id Plan de Estudio</th>
+                                <td mat-cell *matCellDef="let periodo"> {{periodo.idPlanEstudio}} </td>
+                            </ng-container>
+
+                            <!--Columna operaciones -->
+                            <ng-container matColumnDef="operaciones">
+                                <th mat-header-cell *matHeaderCellDef> Operaciones</th>
+                                <td mat-cell *matCellDef="let periodo">
+                                    <button (click)="seleccionarPeriodo(periodo)" type="button" mat-raised-button
+                                        color="primary">
+                                        <mat-icon>library_add</mat-icon>Agregar
+                                    </button>
+                                </td>
+                            </ng-container>
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+                    </mat-card-content>
+                </mat-card>
+
+
+            </div>
+            <div class="col-sm-4">
+                <mat-card style="height: 100%">
+                    <mat-card-header>
+                        <mat-card-title>Periodo Seleccionado</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <mat-list>
+                            <mat-list-item>
+                                <h4 mat-line>Id Periodo: {{this.periodo.idPeriodoLectivo}}</h4>
+                            </mat-list-item>
+                            <mat-list-item>
+                                <h4 mat-line>Año: {{this.periodo.periodo}}</h4>
+                            </mat-list-item>
+                            <mat-list-item>
+                                <h4 mat-line>Plan de estudio: {{this.periodo.idPlanEstudio}}</h4>
+                            </mat-list-item>
+                        </mat-list>
+                    </mat-card-content>
+
+                </mat-card>
+
+            </div>
+        </div>
+    </mat-card-content>
+
+    <div class="row-xs">
+        <table mat-table [dataSource]="dataSourceMateriasPeriodo" class="mat-elevation-z8">
+
+            <!--Columna nombre periodo -->
+            <ng-container matColumnDef="idPlanEstudio">
+                <th mat-header-cell *matHeaderCellDef> id Plan de Estudio</th>
+                <td mat-cell *matCellDef="let matperiodo"> {{matperiodo.idPlanEstudio}} </td>
+            </ng-container>
+
+            <!--Columna año del periodo -->
+            <ng-container matColumnDef="anio">
+                <th mat-header-cell *matHeaderCellDef> Año de la Materia</th>
+                <td mat-cell *matCellDef="let matperiodo"> {{matperiodo.anio}} </td>
+            </ng-container>
+
+            <!--Columna nivel -->
+            <ng-container matColumnDef="nombreMateria">
+                <th mat-header-cell *matHeaderCellDef>Nombre de la Materia</th>
+                <td mat-cell *matCellDef="let matperiodo">
+                    {{matperiodo.nombreMateria}}
+                </td>
+            </ng-container>
+
+            <!--Columna operaciones -->
+            <ng-container matColumnDef="operaciones">
+                <th mat-header-cell *matHeaderCellDef> Operaciones</th>
+                <td mat-cell *matCellDef="let matperiodo">
+                    <button (click)="asignarDocente(matperiodo)" type="button" mat-raised-button color="primary">
+                        <mat-icon>library_add</mat-icon>Agregar
+                    </button>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumnsMateriasPeriodo"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumnsMateriasPeriodo;"></tr>
+        </table>
+    </div>
+
+</mat-card>

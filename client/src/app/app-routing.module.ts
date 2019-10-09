@@ -25,6 +25,10 @@ import { AlumnoCursoComponent } from './alumnos/componentes/alumno-curso/alumno-
 import { CrearLectivosComponent } from './lectivos/crear-lectivos/crear-lectivos.component';
 import { ListaPeriodosLectivosComponent } from './lectivos/lista-periodos-lectivos/lista-periodos-lectivos.component';
 import { DocentesCursosComponent } from './docentes/componentes/docentes-cursos/docentes-cursos.component';
+import { DocentePrimariaComponent } from './docentes/componentes/docente-primaria/docente-primaria.component';
+import { DocenteSecundariaComponent } from './docentes/componentes/docente-secundaria/docente-secundaria.component';
+import { PeriodosPrimariaComponent } from './lectivos/periodos-primaria/periodos-primaria.component';
+import { PeriodosSecundariaComponent } from './lectivos/periodos-secundaria/periodos-secundaria.component';
 
 
 
@@ -50,6 +54,11 @@ const routes: Routes = [
   { path: 'asignarCursos/:id', component: AsignarCursosComponent },
   { path: 'periodosLectivos', component: CrearLectivosComponent },
   { path: 'listaPeriodosLectivos', component: ListaPeriodosLectivosComponent },
+
+  { path: 'docentesPrimaria', component: DocentePrimariaComponent },
+  { path: 'docentesSecundaria', component: DocenteSecundariaComponent },
+  { path: 'periodosPrimaria', component: PeriodosPrimariaComponent },
+  { path: 'periodosSecundaria', component: PeriodosSecundariaComponent },
 
 
   { path: '**', redirectTo: 'error' },

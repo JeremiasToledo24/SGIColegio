@@ -19,15 +19,9 @@
       "type": "string",
       "required": true
     },
-    "idNivel": {
-      "type": "number",
+    "nivel": {
+      "type": "string",
       "required": true
-    },
-    "AnioLectivo": {
-      "type": "string"
-    },
-    "idPlan": {
-      "type": "number"
     }
   },
   "validations": [],
