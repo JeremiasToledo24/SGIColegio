@@ -16,9 +16,9 @@
 
         <!-- Items sidebar -->
         <li><a href=""><i class="icon-home"></i>Inicio</a></li>
-        <li><a routerLink="/Materias" routerLinkActive="active"><i class="icon-form"></i>Administrar materias</a></li>
-        <li><a routerLink="/Cursos" routerLinkActive="active"><i class="fa fa-bar-chart"></i>Administrar cursos</a></li>
-        <li><a routerLink="/Aulas" routerLinkActive="active"><i class="fa fa-bar-chart"></i>Administrar aulas</a></li>
+        <!-- <li><a routerLink="/Materias" routerLinkActive="active"><i class="icon-form"></i>Administrar materias</a></li> -->
+        <!-- <li><a routerLink="/Cursos" routerLinkActive="active"><i class="fa fa-bar-chart"></i>Administrar cursos</a></li> -->
+        <!-- <li><a routerLink="/Aulas" routerLinkActive="active"><i class="fa fa-bar-chart"></i>Administrar aulas</a></li> -->
 
         <!-- Dropdown Plan de estudio-->
         <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse">
@@ -27,7 +27,7 @@
           <!-- Dropdown items -->
           <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
             <li><a routerLink="/crearPlan" routerLinkActive="active">Crear plan</a></li>
-            <li><a routerLink="/listaPlanes" routerLinkActive="active">Lista de planes</a></li>
+            <!-- <li><a routerLink="/listaPlanes" routerLinkActive="active">Lista de planes</a></li> -->
           </ul>
         </li>
 
@@ -41,8 +41,8 @@
           </ul>
           <!-- Dropdown items -->
           <ul id="docentesDropdown" class="collapse list-unstyled ">
-              <li><a routerLink="/docentesSecundaria" routerLinkActive="active">Secundaria</a></li>
-            </ul>
+            <li><a routerLink="/docentesSecundaria" routerLinkActive="active">Secundaria</a></li>
+          </ul>
         </li>
         <!-- Dropdown empleados -->
         <li><a href="#empleadosDropdown" aria-expanded="false" data-toggle="collapse">
@@ -64,17 +64,18 @@
 
           <!-- Dropdown items -->
           <ul id="alumnosDropdown" class="collapse list-unstyled ">
-            <li><a routerLink="/inscribirAlumno" routerLinkActive="active">Inscribir alumno</a></li>
+            <li><a routerLink="/inscribirAlumno" routerLinkActive="active">Registrar Nuevo Alumno</a></li>
           </ul>
           <!-- <ul id="alumnosDropdown" class="collapse list-unstyled ">
             <li><a routerLink="/listaAlumnos" routerLinkActive="active">Lista de alumnos</a></li>
           </ul> -->
           <ul id="alumnosDropdown" class="collapse list-unstyled ">
-            <li><a routerLink="/asignarAlumno" routerLinkActive="active">Asignar curso</a></li>
+            <li><a routerLink="/asignarAlumno" routerLinkActive="active">Inscribir Alumno</a></li>
           </ul>
         </li>
 
 
+        <!-- periodos -->
         <li><a href="#periodoDropdown" aria-expanded="false" data-toggle="collapse">
             <mat-icon style="margin-right: 5px">assignment</mat-icon>Ciclos Lectivos
           </a>
@@ -87,6 +88,21 @@
             <li><a routerLink="/periodosSecundaria" routerLinkActive="active">Secundaria</a></li>
           </ul>
         </li>
+
+        <!-- cobros -->
+        <li><a href="#cobrosDropdown" routerLink="/cobros" routerLinkActive="active" >
+            <mat-icon style="margin-right: 5px">monetization_on</mat-icon>Cobros
+          </a>
+
+          <!-- Dropdown items -->
+          <!-- <ul id="cobrosDropdown" class="collapse list-unstyled ">
+            <li><a routerLink="/cobros" routerLinkActive="active">Cuotas y Matriculas</a></li>
+          </ul> -->
+          
+        </li>
+
+
+
       </ul>
     </div>
   </div>

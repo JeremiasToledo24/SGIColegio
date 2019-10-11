@@ -29,6 +29,7 @@ import { DocentePrimariaComponent } from './docentes/componentes/docente-primari
 import { DocenteSecundariaComponent } from './docentes/componentes/docente-secundaria/docente-secundaria.component';
 import { PeriodosPrimariaComponent } from './lectivos/periodos-primaria/periodos-primaria.component';
 import { PeriodosSecundariaComponent } from './lectivos/periodos-secundaria/periodos-secundaria.component';
+import { CobrosComponent } from './cobros/componentes/cobros/cobros.component';
 
 
 
@@ -59,7 +60,7 @@ const routes: Routes = [
   { path: 'docentesSecundaria', component: DocenteSecundariaComponent },
   { path: 'periodosPrimaria', component: PeriodosPrimariaComponent },
   { path: 'periodosSecundaria', component: PeriodosSecundariaComponent },
-
+  { path: 'cobros', component: CobrosComponent },
 
   { path: '**', redirectTo: 'error' },
 

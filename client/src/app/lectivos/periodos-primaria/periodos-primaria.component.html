@@ -42,13 +42,22 @@
         </mat-card>
     </div>
     <div class="col">
-        <mat-card>
+        <mat-card style="height:100%">
             <mat-card-header>
                 <mat-card-title>Lista de Ciclos Lectivos</mat-card-title>
             </mat-card-header>
             <mat-card-content>
-                <mat-list>
-                    <mat-list-item *ngFor="let item of listaPeriodos">Nombre del Plan: {{item.nombrePlan}} Periodo: {{item.periodo}}</mat-list-item>
+                <mat-list *ngFor="let item of listaPeriodos">
+                    <mat-list-item>
+                        <div class="col">
+                            Nombre del Plan: {{item.nombrePlan}}
+                            Periodo: {{item.periodo}}
+                        </div>
+                        <div class="col" style="text-align: right">
+                            <button (click)="verPlan(item)" mat-button>Ver Plan</button>
+                            <button (click)="openDialog(item)" mat-button>Eliminar</button>
+                        </div>
+                    </mat-list-item>
                 </mat-list>
             </mat-card-content>
         </mat-card>

@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>Plan de estudio</h1>
+<div mat-dialog-content>
+    <p>Nombre del Plan: {{this.data.plan.nombrePlan}}</p>
+    <b>Materias del Plan</b>
+    <div class="row">
+        <div class="col">
+            <b>Nombre</b>
+        </div>
+        <div class="col">
+            <b>Año</b>
+        </div>
+    </div>
+
+    <mat-list>
+        <mat-list-item *ngFor="let item of materiasPlan">
+            <div class="col" style="text-align: left;">
+                &nbsp;&nbsp;&nbsp;&nbsp;{{item.nombreMateria}}
+
+            </div>
+            <div class="col" style="text-align: right;">
+                &nbsp;&nbsp;&nbsp;&nbsp;{{item.anio}}
+
+            </div>
+        </mat-list-item>
+    </mat-list>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Aceptar</button>
+</div>

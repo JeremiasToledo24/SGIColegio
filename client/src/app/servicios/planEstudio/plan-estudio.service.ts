@@ -23,26 +23,42 @@ export class PlanEstudioService {
     )
   }
 
-  getPlanesViews(): Observable<any>{
+ 
+
+  eliminarPeriodo(id): Observable<any> {
+    return this.http.delete(`http://localhost:3000/api/PeriodoLectivos/${id}`)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
+  getPlanesViews(): Observable<any> {
     return this.http.get(`http://localhost:3000/api/PlanEstudioViews`)
-    .pipe(
-      catchError(this.handleError)
-    )
+      .pipe(
+        catchError(this.handleError)
+      )
   }
 
-  getAllPlanes(): Observable<any>{
+  getAllPlanes(): Observable<any> {
     return this.http.get(`http://localhost:3000/api/PlanEstudios`)
-    .pipe(
-      catchError(this.handleError)
-    )
+      .pipe(
+        catchError(this.handleError)
+      )
   }
 
-  traerPlanPorNivel(nivel):Observable<any>{
+  traerPlanPorNivel(nivel): Observable<any> {
     return this.http.get(`http://localhost:3000/api/PlanEstudios?filter[where][idNivel]=${nivel}`)
   }
 
-  getMateriasPlan(id, year):Observable<any>{
+  getMateriasPlan(id, year): Observable<any> {
     return this.http.get(`http://localhost:3000/api/PlanMateriaViews?filter[where][and][0][anio]=${year}&filter[where][and][1][idPlanEstudio]=${id}`)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
+  getPlanId(id): Observable<any>{
+    return this.http.get(`http://localhost:3000/api/PlanEstudios/${id}`)
     .pipe(
       catchError(this.handleError)
     )

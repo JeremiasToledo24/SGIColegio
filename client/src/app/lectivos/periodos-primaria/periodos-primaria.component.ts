@@ -3,6 +3,8 @@ import { FormControl, Validators } from '@angular/forms';
 import { PlanEstudioService } from 'src/app/servicios/planEstudio/plan-estudio.service';
 import { MatDialog } from '@angular/material';
 import { CrearLectivosComponent } from '../crear-lectivos/crear-lectivos.component';
+import { EliminarDialogComponent } from '../eliminar-dialog/eliminar-dialog.component';
+import { VerPlanComponent } from '../ver-plan/ver-plan.component';
 
 @Component({
   selector: 'app-periodos-primaria',
@@ -54,6 +56,19 @@ export class PeriodosPrimariaComponent implements OnInit {
     }
   }
 
+
+  verPlan(item){
+    console.log('item :', item);
+    this.planService.getPlanId(item.idPlanEstudio)
+    .subscribe(
+      res => {
+        const dialogRef = this.dialog.open(VerPlanComponent,
+          
+          {data: {plan: item}})
+      }
+    )
+  }
+
   openDialog(plan): void {
     const dialogRef = this.dialog.open(CrearLectivosComponent, {
       data: { plan: plan, anio: this.periodoControl.value }
@@ -61,7 +76,7 @@ export class PeriodosPrimariaComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result: string) => {
       if (result.match('S')) {
-        const _plan = { periodo: this.periodoControl.value, idPlanEstudio: plan.idPlanEstudio }
+        const _plan = { periodo: this.periodoControl.value, idPlanEstudio: plan.idPlanEstudio, idNivel: 1 }
         this.planService.registrarPeriodoLectivo(_plan)
           .subscribe(
             res => {
@@ -80,5 +95,28 @@ export class PeriodosPrimariaComponent implements OnInit {
         console.log('no :', 'no');
       }
     });
+  }
+
+  openDialogEliminar(ciclo){
+    const dialogRef = this.dialog.open(EliminarDialogComponent,{
+      data: {ciclo: ciclo}
+    })
+  }
+
+  eliminar(ciclo) {
+    console.log('ciclo :', ciclo);
+    this.planService.eliminarPeriodo(ciclo.idPeriodoLectivo)
+      .subscribe(
+        res => {
+          this.planService.openSnackBar("Ciclo Eliminado")
+          this.planService.getPeriodos()
+            .subscribe(
+              res => {
+                this.listaPeriodos = res as [];
+                console.log('this.listaPeriodos :', this.listaPeriodos);
+              }
+            )
+        }
+      )
   }
 }

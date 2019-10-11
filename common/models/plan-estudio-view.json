@@ -8,7 +8,7 @@
   "properties": {
     "nombrePlan": {
       "type": "string",
-      "id":true
+      "id": true
     },
     "anio": {
       "type": "string"

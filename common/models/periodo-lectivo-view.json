@@ -11,10 +11,16 @@
     },
     "idPlanEstudio": {
       "type": "number",
-      "id":true
+      "id": true
     },
     "nombrePlan": {
       "type": "string"
+    },
+    "idPeriodoLectivo": {
+      "type": "string"
+    },
+    "idNivel": {
+      "type": "number"
     }
   },
   "validations": [],

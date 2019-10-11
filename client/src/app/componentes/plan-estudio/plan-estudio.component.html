@@ -20,23 +20,23 @@
               <mat-radio-button (click)="seleccionarNivel('secundaria')" value="2">Secundaria
               </mat-radio-button>
             </mat-radio-group>
-          </div >
+          </div>
           <div *ngIf="nivel==='primaria'">
-            <mat-accordion >
+            <mat-accordion>
 
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
                   Primero
                 </mat-expansion-panel-header>
                 <mat-card>
-  
+
                   <mat-card-content>
                     <div class="row">
                       <div class="col-sm-6">
                         <mat-label>Materias a agregar:</mat-label>
-  
+
                         <mat-list role="list" style="text-align: left">
-  
+
                           <mat-list-item *ngFor="let materia of listaPrimero" role="listitem">
                             {{materia.nombre}}
                             <div class="col" style="text-align: right">
@@ -44,15 +44,15 @@
                                 <mat-icon>remove</mat-icon>
                               </button>
                             </div>
-  
+
                           </mat-list-item>
-  
+
                         </mat-list>
-  
+
                       </div>
                       <div class="col-sm-6">
                         <mat-label>Materias ya registradas en el sistema</mat-label>
-  
+
                         <mat-list style="text-align: left">
                           <mat-list-item *ngFor="let materia of listaMaterias" role="listitem">
                             {{materia.nombre}}
@@ -61,11 +61,11 @@
                                 <mat-icon>add</mat-icon>
                               </button>
                             </div>
-  
+
                           </mat-list-item>
                         </mat-list>
-  
-  
+
+
                       </div>
                     </div>
                   </mat-card-content>
@@ -76,25 +76,25 @@
                     <mat-icon>add</mat-icon>
                   </button>
                 </label>
-  
-  
-  
+
+
+
               </mat-expansion-panel>
-  
+
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
                   Segundo
                 </mat-expansion-panel-header>
-  
+
                 <mat-card>
-  
+
                   <mat-card-content>
                     <div class="row">
                       <div class="col-sm-6">
                         <mat-label>Materias a agregar:</mat-label>
-  
+
                         <mat-list role="list" style="text-align: left">
-  
+
                           <mat-list-item *ngFor="let materia of listaSegundo" role="listitem">
                             {{materia.nombre}}
                             <div class="col" style="text-align: right">
@@ -102,15 +102,15 @@
                                 <mat-icon>remove</mat-icon>
                               </button>
                             </div>
-  
+
                           </mat-list-item>
-  
+
                         </mat-list>
-  
+
                       </div>
                       <div class="col-sm-6">
                         <mat-label>Materias ya registradas en el sistema</mat-label>
-  
+
                         <mat-list style="text-align: left">
                           <mat-list-item *ngFor="let materia of listaMaterias" role="listitem">
                             {{materia.nombre}}
@@ -119,11 +119,11 @@
                                 <mat-icon>add</mat-icon>
                               </button>
                             </div>
-  
+
                           </mat-list-item>
                         </mat-list>
-  
-  
+
+
                       </div>
                     </div>
                   </mat-card-content>
@@ -134,23 +134,23 @@
                     <mat-icon>add</mat-icon>
                   </button>
                 </label>
-  
+
               </mat-expansion-panel>
-  
+
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
                   Tercero
                 </mat-expansion-panel-header>
-  
+
                 <mat-card>
-  
+
                   <mat-card-content>
                     <div class="row">
                       <div class="col-sm-6">
                         <mat-label>Materias a agregar:</mat-label>
-  
+
                         <mat-list role="list" style="text-align: left">
-  
+
                           <mat-list-item *ngFor="let materia of listaTercero" role="listitem">
                             {{materia.nombre}}
                             <div class="col" style="text-align: right">
@@ -158,15 +158,15 @@
                                 <mat-icon>remove</mat-icon>
                               </button>
                             </div>
-  
+
                           </mat-list-item>
-  
+
                         </mat-list>
-  
+
                       </div>
                       <div class="col-sm-6">
                         <mat-label>Materias ya registradas en el sistema</mat-label>
-  
+
                         <mat-list style="text-align: left">
                           <mat-list-item *ngFor="let materia of listaMaterias" role="listitem">
                             {{materia.nombre}}
@@ -175,39 +175,39 @@
                                 <mat-icon>add</mat-icon>
                               </button>
                             </div>
-  
+
                           </mat-list-item>
                         </mat-list>
-  
-  
+
+
                       </div>
                     </div>
                   </mat-card-content>
                 </mat-card>
-  
+
                 <label>
                   O agrege una materia que no esta en la lista:
                   <button (click)="agregarMateria('tercero')" mat-raised-button>
                     <mat-icon>add</mat-icon>
                   </button>
                 </label>
-  
+
               </mat-expansion-panel>
-  
+
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
                   Cuarto
                 </mat-expansion-panel-header>
-  
+
                 <mat-card>
-  
+
                   <mat-card-content>
                     <div class="row">
                       <div class="col-sm-6">
                         <mat-label>Materias a agregar:</mat-label>
-  
+
                         <mat-list role="list" style="text-align: left">
-  
+
                           <mat-list-item *ngFor="let materia of listaCuarto" role="listitem">
                             {{materia.nombre}}
                             <div class="col" style="text-align: right">
@@ -215,15 +215,15 @@
                                 <mat-icon>remove</mat-icon>
                               </button>
                             </div>
-  
+
                           </mat-list-item>
-  
+
                         </mat-list>
-  
+
                       </div>
                       <div class="col-sm-6">
                         <mat-label>Materias ya registradas en el sistema</mat-label>
-  
+
                         <mat-list style="text-align: left">
                           <mat-list-item *ngFor="let materia of listaMaterias" role="listitem">
                             {{materia.nombre}}
@@ -232,39 +232,39 @@
                                 <mat-icon>add</mat-icon>
                               </button>
                             </div>
-  
+
                           </mat-list-item>
                         </mat-list>
-  
-  
+
+
                       </div>
                     </div>
                   </mat-card-content>
                 </mat-card>
-  
+
                 <label>
                   O agrege una materia que no esta en la lista:
                   <button (click)="agregarMateria('cuarto')" mat-raised-button>
                     <mat-icon>add</mat-icon>
                   </button>
                 </label>
-  
+
               </mat-expansion-panel>
-  
+
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
                   Quinto
                 </mat-expansion-panel-header>
-  
+
                 <mat-card>
-  
+
                   <mat-card-content>
                     <div class="row">
                       <div class="col-sm-6">
                         <mat-label>Materias a agregar:</mat-label>
-  
+
                         <mat-list role="list" style="text-align: left">
-  
+
                           <mat-list-item *ngFor="let materia of listaQuinto" role="listitem">
                             {{materia.nombre}}
                             <div class="col" style="text-align: right">
@@ -272,15 +272,15 @@
                                 <mat-icon>remove</mat-icon>
                               </button>
                             </div>
-  
+
                           </mat-list-item>
-  
+
                         </mat-list>
-  
+
                       </div>
                       <div class="col-sm-6">
                         <mat-label>Materias ya registradas en el sistema</mat-label>
-  
+
                         <mat-list style="text-align: left">
                           <mat-list-item *ngFor="let materia of listaMaterias" role="listitem">
                             {{materia.nombre}}
@@ -289,11 +289,11 @@
                                 <mat-icon>add</mat-icon>
                               </button>
                             </div>
-  
+
                           </mat-list-item>
                         </mat-list>
-  
-  
+
+
                       </div>
                     </div>
                   </mat-card-content>
@@ -304,23 +304,23 @@
                     <mat-icon>add</mat-icon>
                   </button>
                 </label>
-  
+
               </mat-expansion-panel>
-  
+
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
                   Sexto
                 </mat-expansion-panel-header>
-  
+
                 <mat-card>
-  
+
                   <mat-card-content>
                     <div class="row">
                       <div class="col-sm-6">
                         <mat-label>Materias a agregar:</mat-label>
-  
+
                         <mat-list role="list" style="text-align: left">
-  
+
                           <mat-list-item *ngFor="let materia of listaSexto" role="listitem">
                             {{materia.nombre}}
                             <div class="col" style="text-align: right">
@@ -328,15 +328,15 @@
                                 <mat-icon>remove</mat-icon>
                               </button>
                             </div>
-  
+
                           </mat-list-item>
-  
+
                         </mat-list>
-  
+
                       </div>
                       <div class="col-sm-6">
                         <mat-label>Materias ya registradas en el sistema</mat-label>
-  
+
                         <mat-list style="text-align: left">
                           <mat-list-item *ngFor="let materia of listaMaterias" role="listitem">
                             {{materia.nombre}}
@@ -345,11 +345,11 @@
                                 <mat-icon>add</mat-icon>
                               </button>
                             </div>
-  
+
                           </mat-list-item>
                         </mat-list>
-  
-  
+
+
                       </div>
                     </div>
                   </mat-card-content>
@@ -360,23 +360,23 @@
                     <mat-icon>add</mat-icon>
                   </button>
                 </label>
-  
+
               </mat-expansion-panel>
-  
+
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
                   Séptimo
                 </mat-expansion-panel-header>
-  
+
                 <mat-card>
-  
+
                   <mat-card-content>
                     <div class="row">
                       <div class="col-sm-6">
                         <mat-label>Materias a agregar:</mat-label>
-  
+
                         <mat-list role="list" style="text-align: left">
-  
+
                           <mat-list-item *ngFor="let materia of listaSeptimo" role="listitem">
                             {{materia.nombre}}
                             <div class="col" style="text-align: right">
@@ -384,15 +384,15 @@
                                 <mat-icon>remove</mat-icon>
                               </button>
                             </div>
-  
+
                           </mat-list-item>
-  
+
                         </mat-list>
-  
+
                       </div>
                       <div class="col-sm-6">
                         <mat-label>Materias ya registradas en el sistema</mat-label>
-  
+
                         <mat-list style="text-align: left">
                           <mat-list-item *ngFor="let materia of listaMaterias" role="listitem">
                             {{materia.nombre}}
@@ -401,11 +401,11 @@
                                 <mat-icon>add</mat-icon>
                               </button>
                             </div>
-  
+
                           </mat-list-item>
                         </mat-list>
-  
-  
+
+
                       </div>
                     </div>
                   </mat-card-content>
@@ -416,41 +416,41 @@
                     <mat-icon>add</mat-icon>
                   </button>
                 </label>
-  
+
               </mat-expansion-panel>
               <div class="row justify-content-md-center">
                 <!-- Botones del formulario -->
                 <div class="d-flex justify-content-center">
                   <!-- Cancel -->
                   <button type="reset" mat-raised-button color="warn">Cancelar</button>
-      
+
                   <!-- Submit -->
                   <button type="button" mat-raised-button color="primary" (click)="formValid('primaria')">
                     Crear Plan de Estudio
                   </button>
                 </div>
               </div>
-  
-  
-  
+
+
+
             </mat-accordion>
           </div>
           <div *ngIf="nivel==='secundaria'">
-            <mat-accordion >
+            <mat-accordion>
 
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
                   Primero
                 </mat-expansion-panel-header>
                 <mat-card>
-  
+
                   <mat-card-content>
                     <div class="row">
                       <div class="col-sm-6">
                         <mat-label>Materias a agregar:</mat-label>
-  
+
                         <mat-list role="list" style="text-align: left">
-  
+
                           <mat-list-item *ngFor="let materia of primero" role="listitem">
                             {{materia.nombre}}
                             <div class="col" style="text-align: right">
@@ -458,15 +458,15 @@
                                 <mat-icon>remove</mat-icon>
                               </button>
                             </div>
-  
+
                           </mat-list-item>
-  
+
                         </mat-list>
-  
+
                       </div>
                       <div class="col-sm-6">
                         <mat-label>Materias ya registradas en el sistema</mat-label>
-  
+
                         <mat-list style="text-align: left">
                           <mat-list-item *ngFor="let materia of listaMaterias" role="listitem">
                             {{materia.nombre}}
@@ -475,11 +475,11 @@
                                 <mat-icon>add</mat-icon>
                               </button>
                             </div>
-  
+
                           </mat-list-item>
                         </mat-list>
-  
-  
+
+
                       </div>
                     </div>
                   </mat-card-content>
@@ -490,25 +490,25 @@
                     <mat-icon>add</mat-icon>
                   </button>
                 </label>
-  
-  
-  
+
+
+
               </mat-expansion-panel>
-  
+
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
                   Segundo
                 </mat-expansion-panel-header>
-  
+
                 <mat-card>
-  
+
                   <mat-card-content>
                     <div class="row">
                       <div class="col-sm-6">
                         <mat-label>Materias a agregar:</mat-label>
-  
+
                         <mat-list role="list" style="text-align: left">
-  
+
                           <mat-list-item *ngFor="let materia of segundo" role="listitem">
                             {{materia.nombre}}
                             <div class="col" style="text-align: right">
@@ -516,15 +516,15 @@
                                 <mat-icon>remove</mat-icon>
                               </button>
                             </div>
-  
+
                           </mat-list-item>
-  
+
                         </mat-list>
-  
+
                       </div>
                       <div class="col-sm-6">
                         <mat-label>Materias ya registradas en el sistema</mat-label>
-  
+
                         <mat-list style="text-align: left">
                           <mat-list-item *ngFor="let materia of listaMaterias" role="listitem">
                             {{materia.nombre}}
@@ -533,11 +533,11 @@
                                 <mat-icon>add</mat-icon>
                               </button>
                             </div>
-  
+
                           </mat-list-item>
                         </mat-list>
-  
-  
+
+
                       </div>
                     </div>
                   </mat-card-content>
@@ -548,23 +548,23 @@
                     <mat-icon>add</mat-icon>
                   </button>
                 </label>
-  
+
               </mat-expansion-panel>
-  
+
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
                   Tercero
                 </mat-expansion-panel-header>
-  
+
                 <mat-card>
-  
+
                   <mat-card-content>
                     <div class="row">
                       <div class="col-sm-6">
                         <mat-label>Materias a agregar:</mat-label>
-  
+
                         <mat-list role="list" style="text-align: left">
-  
+
                           <mat-list-item *ngFor="let materia of tercero" role="listitem">
                             {{materia.nombre}}
                             <div class="col" style="text-align: right">
@@ -572,15 +572,15 @@
                                 <mat-icon>remove</mat-icon>
                               </button>
                             </div>
-  
+
                           </mat-list-item>
-  
+
                         </mat-list>
-  
+
                       </div>
                       <div class="col-sm-6">
                         <mat-label>Materias ya registradas en el sistema</mat-label>
-  
+
                         <mat-list style="text-align: left">
                           <mat-list-item *ngFor="let materia of listaMaterias" role="listitem">
                             {{materia.nombre}}
@@ -589,11 +589,11 @@
                                 <mat-icon>add</mat-icon>
                               </button>
                             </div>
-  
+
                           </mat-list-item>
                         </mat-list>
-  
-  
+
+
                       </div>
                     </div>
                   </mat-card-content>
@@ -604,23 +604,23 @@
                     <mat-icon>add</mat-icon>
                   </button>
                 </label>
-  
+
               </mat-expansion-panel>
-  
+
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
                   Cuarto
                 </mat-expansion-panel-header>
-  
+
                 <mat-card>
-  
+
                   <mat-card-content>
                     <div class="row">
                       <div class="col-sm-6">
                         <mat-label>Materias a agregar:</mat-label>
-  
+
                         <mat-list role="list" style="text-align: left">
-  
+
                           <mat-list-item *ngFor="let materia of cuarto" role="listitem">
                             {{materia.nombre}}
                             <div class="col" style="text-align: right">
@@ -628,15 +628,15 @@
                                 <mat-icon>remove</mat-icon>
                               </button>
                             </div>
-  
+
                           </mat-list-item>
-  
+
                         </mat-list>
-  
+
                       </div>
                       <div class="col-sm-6">
                         <mat-label>Materias ya registradas en el sistema</mat-label>
-  
+
                         <mat-list style="text-align: left">
                           <mat-list-item *ngFor="let materia of listaMaterias" role="listitem">
                             {{materia.nombre}}
@@ -645,11 +645,11 @@
                                 <mat-icon>add</mat-icon>
                               </button>
                             </div>
-  
+
                           </mat-list-item>
                         </mat-list>
-  
-  
+
+
                       </div>
                     </div>
                   </mat-card-content>
@@ -660,23 +660,23 @@
                     <mat-icon>add</mat-icon>
                   </button>
                 </label>
-  
+
               </mat-expansion-panel>
-  
+
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
                   Quinto
                 </mat-expansion-panel-header>
-  
+
                 <mat-card>
-  
+
                   <mat-card-content>
                     <div class="row">
                       <div class="col-sm-6">
                         <mat-label>Materias a agregar:</mat-label>
-  
+
                         <mat-list role="list" style="text-align: left">
-  
+
                           <mat-list-item *ngFor="let materia of quinto" role="listitem">
                             {{materia.nombre}}
                             <div class="col" style="text-align: right">
@@ -684,15 +684,15 @@
                                 <mat-icon>remove</mat-icon>
                               </button>
                             </div>
-  
+
                           </mat-list-item>
-  
+
                         </mat-list>
-  
+
                       </div>
                       <div class="col-sm-6">
                         <mat-label>Materias ya registradas en el sistema</mat-label>
-  
+
                         <mat-list style="text-align: left">
                           <mat-list-item *ngFor="let materia of listaMaterias" role="listitem">
                             {{materia.nombre}}
@@ -701,11 +701,11 @@
                                 <mat-icon>add</mat-icon>
                               </button>
                             </div>
-  
+
                           </mat-list-item>
                         </mat-list>
-  
-  
+
+
                       </div>
                     </div>
                   </mat-card-content>
@@ -716,16 +716,16 @@
                     <mat-icon>add</mat-icon>
                   </button>
                 </label>
-  
+
               </mat-expansion-panel>
-  
+
             </mat-accordion>
             <div class="row justify-content-md-center">
               <!-- Botones del formulario -->
               <div class="d-flex justify-content-center">
                 <!-- Cancel -->
                 <button type="reset" mat-raised-button color="warn">Cancelar</button>
-    
+
                 <!-- Submit -->
                 <button type="button" mat-raised-button color="primary" (click)="formValid('secundaria')">
                   Crear Plan de Estudio
@@ -733,12 +733,12 @@
               </div>
             </div>
           </div>
-          
 
-          
-          
+
+
+
         </div>
-        
+
         <div class="col">
 
 
@@ -758,15 +758,72 @@
           </mat-radio-button>
         </mat-radio-group>
         <mat-accordion>
-          <mat-expansion-panel (click)="traerMaterias(plan)" *ngFor="let plan of listaPlanes">
-            <mat-expansion-panel-header>
+          <mat-expansion-panel *ngFor="let plan of listaPlanes">
+            <mat-expansion-panel-header (click)="traerMaterias(plan)">
               {{plan.nombrePlan}}
             </mat-expansion-panel-header>
-            <mat-list *ngFor="let item of materiasPlan">
+            <b>Materias del Plan</b>
+            <br>
+            <b>Primero</b>
+            <mat-list *ngFor="let item of listaPrimeroV">
               <mat-list-item>
-                &nbsp;&nbsp;&nbsp;&nbsp;{{item.nombreMateria}}
+                <div class="col" style="text-align: left;">
+                  &nbsp;&nbsp;&nbsp;&nbsp;{{item.nombreMateria}}
+                </div>
               </mat-list-item>
             </mat-list>
+            <b>Segundo</b>
+            <mat-list *ngFor="let item of listaSegundoV">
+              <mat-list-item>
+                <div class="col" style="text-align: left;">
+                  &nbsp;&nbsp;&nbsp;&nbsp;{{item.nombreMateria}}
+                </div>
+              </mat-list-item>
+            </mat-list>
+            <b>Tercero</b>
+            <mat-list *ngFor="let item of listaTerceroV">
+              <mat-list-item>
+                <div class="col" style="text-align: left;">
+                  &nbsp;&nbsp;&nbsp;&nbsp;{{item.nombreMateria}}
+                </div>
+              </mat-list-item>
+            </mat-list>
+            <b>Cuarto</b>
+            <mat-list *ngFor="let item of listaCuartoV">
+              <mat-list-item>
+                <div class="col" style="text-align: left;">
+                  &nbsp;&nbsp;&nbsp;&nbsp;{{item.nombreMateria}}
+                </div>
+              </mat-list-item>
+            </mat-list>
+            <b>Quinto</b>
+            <mat-list *ngFor="let item of listaQuintoV">
+              <mat-list-item>
+                <div class="col" style="text-align: left;">
+                  &nbsp;&nbsp;&nbsp;&nbsp;{{item.nombreMateria}}
+                </div>
+              </mat-list-item>
+            </mat-list>
+            <div *ngIf="selectedLevel === 1">
+              <b>Sexto</b>
+              <mat-list *ngFor="let item of listaSextoV">
+                <mat-list-item>
+                  <div class="col" style="text-align: left;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;{{item.nombreMateria}}
+                  </div>
+                </mat-list-item>
+              </mat-list>
+            </div>
+            <div *ngIf="selectedLevel === 1">
+              <b>Septimo</b>
+              <mat-list *ngFor="let item of listaSeptimoV">
+                <mat-list-item>
+                  <div class="col" style="text-align: left;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;{{item.nombreMateria}}
+                  </div>
+                </mat-list-item>
+              </mat-list>
+            </div>
           </mat-expansion-panel>
         </mat-accordion>
       </mat-card-content>

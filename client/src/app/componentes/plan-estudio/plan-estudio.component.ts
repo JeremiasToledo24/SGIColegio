@@ -38,6 +38,9 @@ export interface ListaAnios {
 export class PlanEstudioComponent implements OnInit {
   /* nivel */
   nivel;
+
+  /* nivel seleccionad */
+  selectedLevel = 1;
   /* lista de materias por anio */
   listaPrimero = []
   listaSegundo = []
@@ -47,6 +50,14 @@ export class PlanEstudioComponent implements OnInit {
   listaSexto = []
   listaSeptimo = []
 
+  /* listas de vista */
+  listaPrimeroV = []
+  listaSegundoV = []
+  listaTerceroV = []
+  listaCuartoV = []
+  listaQuintoV = []
+  listaSextoV = []
+  listaSeptimoV = []
   /* lista de materias secundaria */
   primero = []
   segundo = []
@@ -56,6 +67,14 @@ export class PlanEstudioComponent implements OnInit {
   sexto = []
   septimo = []
 
+  /* lista de materias secundaria vista */
+  primeroV = []
+  segundoV = []
+  terceroV = []
+  cuartoV = []
+  quintoV = []
+  sextoV = []
+  septimoV = []
   /* materia agregada */
   materia;
 
@@ -249,7 +268,8 @@ export class PlanEstudioComponent implements OnInit {
     }
   }
 
-  getLevel(nivel: string) {
+  getLevel(nivel) {
+    this.selectedLevel = nivel;
     this.planService.traerPlanPorNivel(nivel)
       .subscribe(
         res => {
@@ -259,27 +279,48 @@ export class PlanEstudioComponent implements OnInit {
   }
 
   traerMaterias(plan) {
+    console.log('this.materiasPlan :', this.materiasPlan);
+    this.materiasPlan = [];
+    this.listaPrimeroV = []
+    this.listaSegundoV = []
+    this.listaTerceroV = []
+    this.listaCuartoV = []
+    this.listaQuintoV = []
+    this.listaSextoV = []
+    this.listaSeptimoV = []
     this.planService.listarMateriasPlan(plan.idPlanEstudio)
       .subscribe(
         res => {
-          console.log('res :', res);
+          this.materiasPlan = [];
           this.materiasPlan = res;
+          this.materiasPlan.forEach(element => {
+            if (element.anio === 'PRIMERO') {
+              this.listaPrimeroV.push(element)
+            }
+            if (element.anio === 'SEGUNDO') {
+              this.listaSegundoV.push(element)
+            }
+            if (element.anio === 'TERCERO') {
+              this.listaTerceroV.push(element)
+            }
+            if (element.anio === 'CUARTO') {
+              this.listaCuartoV.push(element)
+            }
+            if (element.anio === 'QUINTO') {
+              this.listaQuintoV.push(element)
+            }
+            if (element.anio === 'SEXTO') {
+              this.listaSextoV.push(element)
+            }
+            if (element.anio === 'SEPTIMO') {
+              this.listaSeptimoV.push(element)
+            }
+          });
         }
       )
 
 
   }
-
-  /* groupBy(objectArray, property) {
-    return objectArray.reduce(function (acc, obj) {
-      var key = obj[property];
-      if (!acc[key]) {
-        acc[key] = [];
-      }
-      acc[key].push(obj);
-      return acc;
-    }, {});
-  } */
 
   ngOnInit() {
     this.planService.traerPlanPorNivel(1)
@@ -292,6 +333,7 @@ export class PlanEstudioComponent implements OnInit {
       .subscribe(
         res => {
           this.listaMaterias = res as [];
+
           console.log(this.listaMaterias)
         }
       )
@@ -483,25 +525,5 @@ export class PlanEstudioComponent implements OnInit {
       }
     });
   }
-
-
-
-
-
-  /* openDialogMaterias(): void {
-    const dialogRef = this.dialog.open(DialogMateriasComponent, {
-      data: ''
-    });
-    dialogRef.afterClosed().subscribe(
-      (result: ListaAnios) => {
-        this.listaAnios.push(result);
-        console.log(this.listaAnios)
-      }
-    );
-  } */
-
-
-
-
 }
 

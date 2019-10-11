@@ -18,6 +18,9 @@
     },
     "idCurso": {
       "type": "number"
+    },
+    "idNivel": {
+      "type": "number"
     }
   },
   "validations": [],

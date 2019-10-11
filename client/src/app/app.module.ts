@@ -38,13 +38,17 @@ import { EmpleadosModule } from './empleados/empleados.module';
 import { LoginComponent } from './login/login/login.component';
 import { AgregarPlanComponent } from './componentes/plan-estudio/agregar-plan/agregar-plan.component';
 
-  import { AlumnosModule } from './alumnos/alumnos.module';
+import { AlumnosModule } from './alumnos/alumnos.module';
 
 import { DialogMateriasComponent } from './componentes/plan-estudio/dialog-materias/dialog-materias.component';
 import { LectivosModule } from './lectivos/lectivos.module';
 import { AsignarDocenteComponent } from './docentes/componentes/docentes-cursos/asignar-docente/asignar-docente.component';
 import { AddMateriaComponent } from './componentes/plan-estudio/add-materia/add-materia.component';
 import { CrearLectivosComponent } from './lectivos/crear-lectivos/crear-lectivos.component';
+import { EliminarDialogComponent } from './lectivos/eliminar-dialog/eliminar-dialog.component';
+import { VerPlanComponent } from './lectivos/ver-plan/ver-plan.component';
+import { ListaDocenteComponent } from './docentes/componentes/lista-docente/lista-docente.component';
+import { CobrosModule } from './cobros/cobros.module';
 
 
 @NgModule({
@@ -84,7 +88,8 @@ import { CrearLectivosComponent } from './lectivos/crear-lectivos/crear-lectivos
     EmpleadosModule,
 
     AlumnosModule,
-    LectivosModule
+    LectivosModule,
+    CobrosModule
 
   ],
   providers: [MateriaService, CursoService, NivelService],
@@ -97,8 +102,11 @@ import { CrearLectivosComponent } from './lectivos/crear-lectivos/crear-lectivos
     AgregarPlanComponent,
     DialogMateriasComponent,
     AsignarDocenteComponent,
-  AddMateriaComponent,
-CrearLectivosComponent],
+    AddMateriaComponent,
+    CrearLectivosComponent,
+    EliminarDialogComponent,
+    VerPlanComponent,
+  ListaDocenteComponent],
   exports: [ListaMateriasComponent],
 
 })

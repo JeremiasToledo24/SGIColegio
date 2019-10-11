@@ -1,0 +1,42 @@
+{
+  "name": "AsignacionDocente",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "idAsignacionDocente": {
+      "type": "number",
+      "id":true
+    },
+    "DNIDocente": {
+      "type": "number"
+    },
+    "idPeriodo": {
+      "type": "number"
+    },
+    "curso": {
+      "type": "string"
+    },
+    "materia": {
+      "type": "string"
+    },
+    "nombreDocente": {
+      "type": "string"
+    },
+    "apellidoDocente": {
+      "type": "string"
+    },
+    "division": {
+      "type": "string"
+    },
+    "nivel":{
+      "type":"number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

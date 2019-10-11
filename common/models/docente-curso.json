@@ -10,8 +10,11 @@
       "type": "number",
       "id": true
     },
-    "idCurso": {
-      "type": "number"
+    "curso": {
+      "type": "string"
+    },
+    "seccion": {
+      "type": "string"
     },
     "DNIDocente": {
       "type": "number"

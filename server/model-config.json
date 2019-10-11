@@ -130,5 +130,9 @@
   "PlanEstudioView": {
     "dataSource": "db",
     "public": true
+  },
+  "AsignacionDocente": {
+    "dataSource": "db",
+    "public": true
   }
 }
