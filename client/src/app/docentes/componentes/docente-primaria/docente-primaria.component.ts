@@ -101,14 +101,14 @@ export class DocentePrimariaComponent implements OnInit {
   asignarDocente(materia, curso: string): void {
     const dialogRef = this.dialog.open(ListaDocenteComponent, {
       width: '600px',
-      data: { materia: materia, curso: curso, seccion: this.divisionControl.value }
+      data: { materia: materia, curso: curso, seccion: this.divisionControl.value , periodo: this.cicloControl.value}
     });
 
     dialogRef.afterClosed().subscribe(result => {
     });
   }
 
-  obtenerDocente(nivel, curso) {
+  /* obtenerDocente(nivel, curso) {
     if (curso === 'PRIMERO') {
       this.docentesPrimero = [];
       this.listaPrimero.forEach(element => {
@@ -120,7 +120,8 @@ export class DocentePrimariaComponent implements OnInit {
           )
       });
 
+
     }
-  }
+  } */
 
 }

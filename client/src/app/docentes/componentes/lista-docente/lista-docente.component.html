@@ -1,12 +1,51 @@
 <div mat-dialog-content>
-    <p>Materia: {{this.data.nombreMateria}}</p>
-    <p>Lista de Docentes registrados en el sistema</p>
-    <p>Seleccione un Docente a asignar</p>
+    <div class="row">
+        <div class="col">
+            <label><b>Materia:</b> {{this.data.materia.nombreMateria}}</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label><b>Curso:</b> {{this.data.curso}}</label>
+        </div>
+        <div class="col">
+            <label><b>Division:</b> {{this.data.seccion}}</label>
+        </div>
+    </div>
+    <div *ngIf="this.docente !== undefined">
+        <div class="row">
+            <div class="col">
+                <label for=""><b>Docente Asignado</b></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label><b>Docente:</b> {{this.docente.apellidoDocente}}, {{this.docente.nombreDocente}}</label>
+            </div>
+            <div class="col">
+                <label><b>DNI:</b> {{this.docente.DNIDocente}}</label>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="this.docente === undefined">
+        <div class="row">
+            <div class="col">
+                <label for="" style="color: #FF0000;"><b>La materia no tiene un docente asignado</b>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label>Ó Seleccione un Docente a asignar</label>
+        </div>
+    </div>
 </div>
 <div class="row justify-content-md-center">
     <!-- Buscador -->
     <mat-form-field class="col-sm-12">
-        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar docente">
+        <input matInput (keyup)="applyFilter($event.target.value)"
+            placeholder="Buscar docente por Nombre, Apellido o DNI">
     </mat-form-field>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -46,5 +85,5 @@
 </div>
 
 <div>
-    
+
 </div>

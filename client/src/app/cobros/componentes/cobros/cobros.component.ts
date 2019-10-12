@@ -10,6 +10,7 @@ export class CobrosComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

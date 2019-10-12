@@ -1,1 +1,8 @@
-<p>cobros works!</p>
+<mat-card>
+    <mat-form-field>
+        <input matInput type="text" placeholder="Buscar Alumno por DNI">
+        <button mat-button *ngIf="value" matSuffix mat-icon-button>
+            <mat-icon>search</mat-icon>
+        </button>
+    </mat-form-field>
+</mat-card>

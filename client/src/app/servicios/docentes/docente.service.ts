@@ -143,7 +143,7 @@ export class DocenteService {
   }
 
   obtenerDocenteMateria(periodo, nivel, curso, division, materia): Observable<any> {
-    return this.http.get(`http://localhost:3000/api/AsignacionDocentes?filter[where][and][0][periodo]=${periodo}&filter[where][and][1][curso]=${curso}&filter[where][and][2][materia]=${materia}&filter[where][and][3][division]=${division}&filter[where][and][4][nivel]=${nivel}`)
+    return this.http.get(`http://localhost:3000/api/AsignacionDocentes?filter[where][and][0][idPeriodo]=${periodo}&filter[where][and][1][curso]=${curso}&filter[where][and][2][materia]=${materia}&filter[where][and][3][division]=${division}&filter[where][and][4][nivel]=${nivel}`)
       .pipe(
         catchError(this.handleError)
       )
