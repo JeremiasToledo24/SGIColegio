@@ -1,146 +1,255 @@
-<div class="row justify-content-md-center">
-  <mat-card class="col-md-10 backGroundCard">
-    <mat-card-title style="text-align: center">Asignar alumno a un curso</mat-card-title>
-    <mat-card-content>
-      <mat-vertical-stepper [linear]="isLinear" #stepper style="background-color: #E8EAF6">
-        
-        <!-- STEP ALUMNO -->
-        <mat-step label="Seleccionar alumno" [stepControl]="alumnoFormGroup">
-          <!-- Buscador -->
-          <div class="row">
-            <!-- Buscador -->
-            <div class="col-sm-6">
-              <mat-form-field class="col-sm-12">
-                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar alumno">
-              </mat-form-field>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Inscribir Alumnos de Primaria</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="col">
+      <mat-form-field>
+        <label>Seleccione un ciclo Lectivo</label>
+        <mat-select [formControl]="cicloControl">
+          <mat-option *ngFor="let ciclo of ciclos" [value]="ciclo.idPeriodoLectivo">
+            {{ciclo.periodo}} {{ciclo.nombrePlan}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Nivel -->
+      <div class="row">
+        <label>
+          Seleccione el la Division
+        </label>
+        <mat-radio-group [formControl]="divisionControl" style="margin-left: 3rem" aria-label="Seleccione una Opción">
+          <mat-radio-button (click)="closeAllPanels()" value="A">Division A</mat-radio-button>
+          <mat-radio-button (click)="closeAllPanels()" value="B">Division B</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <mat-accordion [multi]="true" #accordion="matAccordion">
+
+        <!-- PRIMERO -->
+
+        <mat-expansion-panel [expanded]="this.isExpanded">
+          <mat-expansion-panel-header (click)="obtenerAlumnos(1,'PRIMERO')">
+            Primero
+          </mat-expansion-panel-header>
+          <mat-list role="list">
+            <mat-label>Lista de Alumnos:</mat-label>
+            <div class="row">
+              <div class="col">
+                <label for="">Dni:</label>
+              </div>
+              <div class="col">
+                <label for="">Nombre y Apellido</label>
+              </div>
+              <mat-list-item *ngFor="let alumno of listaPrimero;" role="listitem">
+                <div class="col">
+                  {{alumno.DNIAlumno}}
+                </div>
+                <div class="col">
+                  {{alumno.nombre}} {{alumno.apellido}}
+                </div>
+              </mat-list-item>
+              <div class="col">
+                <button (click)="inscribirAlumno(alumno,'PRIMERO')" mat-button>Inscribir Alumno en este curso</button>
+              </div>
+              <div class="col">
+                  <button (click)="eliminarAlumno(alumno,'PRIMERO')" mat-button>Dar de Baja</button>
+                </div>
             </div>
-          </div>
-          <!-- Tabla de alumnos -->
-          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          </mat-list>
+        </mat-expansion-panel>
+        <!-- segundo -->
+        <mat-expansion-panel>
+          <mat-expansion-panel-header (click)="obtenerAlumnos(1,'SEGUNDO')">
+            Segundo
+          </mat-expansion-panel-header>
 
-            <!-- Columna DNI -->
-            <ng-container matColumnDef="dni">
-              <th mat-header-cell *matHeaderCellDef>DNI</th>
-              <td mat-cell *matCellDef="let alumno">{{alumno.DNIAlumno}}</td>
-            </ng-container>
-
-            <!-- Columna Apellido -->
-            <ng-container matColumnDef="apellido">
-              <th mat-header-cell *matHeaderCellDef>Apellido</th>
-              <td mat-cell *matCellDef="let alumno">{{alumno.apellido}}</td>
-            </ng-container>
-
-            <!-- Columna Nombre -->
-            <ng-container matColumnDef="nombre">
-              <th mat-header-cell *matHeaderCellDef>Nombre</th>
-              <td mat-cell *matCellDef="let alumno">{{alumno.nombre}}</td>
-            </ng-container>
-
-            <!-- Columna operaciones -->
-            <ng-container matColumnDef="seleccionar">
-              <th mat-header-cell *matHeaderCellDef style="text-align: center">Seleccionar alumno</th>
-              <td mat-cell *matCellDef="let alumno" style="text-align: center" [formGroup]="alumnoFormGroup">
-                <mat-radio-group formControlName="seleccionado">
-                  <mat-radio-button value="Selected" (click)="seleccionAlumno(alumno)" aria-required="true">
-                  </mat-radio-button>
-                </mat-radio-group>
-              </td>
-            </ng-container>
-
-            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table>
-          <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-
-          <!-- Boton siguiente del stepper -->
-          <div style="text-align: right">
-            <button mat-raised-button color="primary" matStepperNext>Siguiente
-              <mat-icon>arrow_forward</mat-icon>
-            </button>
-          </div>
-        </mat-step>
-
-        <!-- STEP CRUSO -->
-        <mat-step label="Seleccionar curso" [stepControl]="cursoFormGroup">
-          <!-- Buscador -->
           <div class="row">
-            <!-- Buscador -->
-            <div class="col-sm-6">
-              <mat-form-field class="col-sm-12">
-                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar curso">
-              </mat-form-field>
-            </div>
+            <mat-list role="list">
+              <mat-label>Lista de Alumnos:</mat-label>
+              <div class="row">
+                <div class="col">
+                  <label for="">Dni:</label>
+                </div>
+                <div class="col">
+                  <label for="">Nombre y Apellido</label>
+                </div>
+                <mat-list-item *ngFor="let alumno of listaSegundo;" role="listitem">
+                  <div class="col">
+                    {{alumno.DNIAlumno}}
+                  </div>
+                  <div class="col">
+                    {{alumno.nombre}} {{alumno.apellido}}
+                  </div>
+                </mat-list-item>
+                <div class="col">
+                  <button (click)="inscribirAlumno(alumno,'SEGUNDO')" mat-button>Inscribir Alumno en este curso</button>
+                </div>
+              </div>
+            </mat-list>
           </div>
-          <!-- Tabla de alumnos -->
-          <table mat-table [dataSource]="dataCurso" class="mat-elevation-z8">
+        </mat-expansion-panel>
+        <!-- tercero -->
+        <mat-expansion-panel>
+          <mat-expansion-panel-header (click)="obtenerAlumnos(1,'TERCERO')">
+            Tercero
+          </mat-expansion-panel-header>
 
-            <!-- Columna NIVEL -->
-            <ng-container matColumnDef="nivel">
-              <th mat-header-cell *matHeaderCellDef>Nivel</th>
-              <td mat-cell *matCellDef="let curso">
-                <div *ngIf="curso.idNivel == 1">Primaria</div>
-                <div *ngIf="curso.idNivel == 2">Secundaria</div>
-              </td>
-            </ng-container>
+          <div class="row">
+            <mat-list role="list">
+              <mat-label>Lista de Alumnos:</mat-label>
+              <div class="row">
+                <div class="col">
+                  <label for="">Dni:</label>
+                </div>
+                <div class="col">
+                  <label for="">Nombre y Apellido</label>
+                </div>
+                <mat-list-item *ngFor="let alumno of listaTercero;" role="listitem">
+                  <div class="col">
+                    {{alumno.DNIAlumno}}
+                  </div>
+                  <div class="col">
+                    {{alumno.nombre}} {{alumno.apellido}}
+                  </div>
+                </mat-list-item>
+                <div class="col">
+                  <button (click)="inscribirAlumno(alumno,'TERCERO')" mat-button>Inscribir Alumno en este curso</button>
+                </div>
 
-            <!-- Columna CURSO -->
-            <ng-container matColumnDef="curso">
-              <th mat-header-cell *matHeaderCellDef>Curso</th>
-              <td mat-cell *matCellDef="let curso">{{curso.nombre}}</td>
-            </ng-container>
+                
 
-            <!-- Columna DIVISION -->
-            <ng-container matColumnDef="division">
-              <th mat-header-cell *matHeaderCellDef>División</th>
-              <td mat-cell *matCellDef="let curso">{{curso.division}}</td>
-            </ng-container>
-
-            <!-- Columna operaciones -->
-            <ng-container matColumnDef="seleccionar">
-              <th mat-header-cell *matHeaderCellDef style="text-align: center">Seleccionar curso</th>
-              <td mat-cell *matCellDef="let curso" style="text-align: center" [formGroup]="cursoFormGroup">
-                <mat-radio-group formControlName="seleccionado">
-                  <mat-radio-button value="Selected" (click)="seleccionCurso(curso)" aria-required="true">
-                  </mat-radio-button>
-                </mat-radio-group>
-              </td>
-            </ng-container>
-
-            <tr mat-header-row *matHeaderRowDef="columnasCurso; sticky: true"></tr>
-            <tr mat-row *matRowDef="let row; columns: columnasCurso;"></tr>
-          </table>
-          <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-
-          <!-- Vovler o continuar-->
-          <div class="d-flex justify-content-between">
-            <button mat-raised-button color="primary" matStepperPrevious>
-              <mat-icon>arrow_back</mat-icon>
-              Volver
-            </button>
-            <button mat-raised-button color="primary" matStepperNext>Siguiente
-              <mat-icon>arrow_forward</mat-icon>
-            </button>
+              </div>
+            </mat-list>
           </div>
-        </mat-step>
+        </mat-expansion-panel>
 
-        <!-- Step FINALIZAR -->
-        <mat-step label="Finalizar">
-          <div class="d-flex justify-content-center">
-            <button mat-raised-button (click)="stepper.reset()" color="warn">
-              <mat-icon>refresh</mat-icon>
-              Reiniciar
-            </button>
-            <!-- Submit -->
-            <button type="submit" (click)="asignarAlumno()" mat-raised-button
-              color="primary">
-              <mat-icon>check</mat-icon>
-              Confirmar asignación
-            </button>
+        <!-- CUARTO -->
+        <mat-expansion-panel>
+          <mat-expansion-panel-header (click)="obtenerAlumnos(1,'CUARTO')">
+            Cuarto
+          </mat-expansion-panel-header>
+
+          <div class="row">
+            <mat-list role="list">
+              <mat-label>Lista de Alumnos:</mat-label>
+              <div class="row">
+                <div class="col">
+                  <label for="">Dni:</label>
+                </div>
+                <div class="col">
+                  <label for="">Nombre y Apellido</label>
+                </div>
+                <mat-list-item *ngFor="let alumno of listaCuarto;" role="listitem">
+                  <div class="col">
+                    {{alumno.DNIAlumno}}
+                  </div>
+                  <div class="col">
+                    {{alumno.nombre}} {{alumno.apellido}}
+                  </div>
+                </mat-list-item>
+                <div class="col">
+                  <button (click)="inscribirAlumno(alumno,'CUARTO')" mat-button>Inscribir Alumno en este curso</button>
+                </div>
+              </div>
+            </mat-list>
           </div>
-        </mat-step>
-      </mat-vertical-stepper>
+        </mat-expansion-panel>
 
+        <!-- quinto -->
+        <mat-expansion-panel>
+          <mat-expansion-panel-header (click)="obtenerAlumnos(1,'QUINTO')">
+            Quinto
+          </mat-expansion-panel-header>
 
-    </mat-card-content>
-  </mat-card>
-</div>
+          <div class="row">
+            <mat-list role="list">
+              <mat-label>Lista de Alumnos:</mat-label>
+              <div class="row">
+                <div class="col">
+                  <label for="">Dni:</label>
+                </div>
+                <div class="col">
+                  <label for="">Nombre y Apellido</label>
+                </div>
+                <mat-list-item *ngFor="let alumno of listaQuinto;" role="listitem">
+                  <div class="col">
+                    {{alumno.DNIAlumno}}
+                  </div>
+                  <div class="col">
+                    {{alumno.nombre}} {{alumno.apellido}}
+                  </div>
+                </mat-list-item>
+                <div class="col">
+                  <button (click)="inscribirAlumno(alumno,'QUINTO')" mat-button>Inscribir Alumno en este curso</button>
+                </div>
+              </div>
+            </mat-list>
+          </div>
+        </mat-expansion-panel>
+        <!-- sexto -->
+        <mat-expansion-panel>
+          <mat-expansion-panel-header (click)="obtenerAlumnos(1,'SEXTO')">
+            Sexto
+          </mat-expansion-panel-header>
+
+          <div class="row">
+            <mat-list role="list">
+              <mat-label>Lista de Alumnos:</mat-label>
+              <div class="row">
+                <div class="col">
+                  <label for="">Dni:</label>
+                </div>
+                <div class="col">
+                  <label for="">Nombre y Apellido</label>
+                </div>
+                <mat-list-item *ngFor="let alumno of listaSexto;" role="listitem">
+                  <div class="col">
+                    {{alumno.DNIAlumno}}
+                  </div>
+                  <div class="col">
+                    {{alumno.nombre}} {{alumno.apellido}}
+                  </div>
+                </mat-list-item>
+                <div class="col">
+                  <button (click)="inscribirAlumno(alumno,'SEXTO')" mat-button>Inscribir Alumno en este curso</button>
+                </div>
+              </div>
+            </mat-list>
+          </div>
+        </mat-expansion-panel>
+        <!-- septimo -->
+        <mat-expansion-panel>
+          <mat-expansion-panel-header (click)="obtenerAlumnos(1,'SEPTIMO')">
+            Septimo
+          </mat-expansion-panel-header>
+
+          <div class="row">
+            <mat-list role="list">
+              <mat-label>Lista de Alumnos:</mat-label>
+              <div class="row">
+                <div class="col">
+                  <label for="">Dni:</label>
+                </div>
+                <div class="col">
+                  <label for="">Nombre y Apellido</label>
+                </div>
+                <mat-list-item *ngFor="let alumno of listaSeptimo;" role="listitem">
+                  <div class="col">
+                    {{alumno.DNIAlumno}}
+                  </div>
+                  <div class="col">
+                    {{alumno.nombre}} {{alumno.apellido}}
+                  </div>
+                </mat-list-item>
+                <div class="col">
+                  <button (click)="inscribirAlumno(alumno,'SEPTIMO')" mat-button>Inscribir Alumno en este curso</button>
+                </div>
+              </div>
+            </mat-list>
+          </div>
+        </mat-expansion-panel>
+
+      </mat-accordion>
+    </div>
+  </mat-card-content>
+</mat-card>

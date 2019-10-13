@@ -30,6 +30,7 @@ import { DocenteSecundariaComponent } from './docentes/componentes/docente-secun
 import { PeriodosPrimariaComponent } from './lectivos/periodos-primaria/periodos-primaria.component';
 import { PeriodosSecundariaComponent } from './lectivos/periodos-secundaria/periodos-secundaria.component';
 import { CobrosComponent } from './cobros/componentes/cobros/cobros.component';
+import { AlumnoCursoSecundariaComponent } from './alumnos/componentes/alumno-curso-secundaria/alumno-curso-secundaria.component';
 
 
 
@@ -51,7 +52,8 @@ const routes: Routes = [
   { path: 'inscribirAlumno', component: InscribirComponent },
   { path: 'listaAlumnos', component: ListaAlumnosComponent },
   { path: 'perfilAlumno/:id', component: PerfilAlumnoComponent },
-  { path: 'asignarAlumno', component: AlumnoCursoComponent},
+  { path: 'asignarAlumnoPrimaria', component: AlumnoCursoComponent},
+  { path: 'asignarAlumnoSecundaria', component: AlumnoCursoSecundariaComponent},
   { path: 'asignarCursos/:id', component: AsignarCursosComponent },
   { path: 'periodosLectivos', component: CrearLectivosComponent },
   { path: 'listaPeriodosLectivos', component: ListaPeriodosLectivosComponent },

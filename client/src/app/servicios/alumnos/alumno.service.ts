@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpErrorResponse, HttpClient } from '@angular/common/http';
 import { throwError, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,8 @@ import { catchError } from 'rxjs/operators';
 export class AlumnoService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private snackBar: MatSnackBar
   ) { }
 
   // ---------------------------------------------------------------//
@@ -73,6 +75,42 @@ export class AlumnoService {
   // Obtener curso al que pertenece el alumno
   getAlumnoCurso(dni): Observable<any> {
     return this.http.get(`http://localhost:3000/api/AlumnoCursos?filter=%7B%22where%22%3A%7B%22DNIAlumno%22%3A${dni}%7D%7D`)
+  }
+
+  getAlumnosInscriptos(periodo,curso,division, nivel): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/vInscripcionAlumnos?filter[where][and][0][idPeriodo]=${periodo}&filter[where][and][1][curso]=${curso}&filter[where][and][2][division]=${division}&filter[where][and][4][nivel]=${nivel}`)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
+  VerificarAlumnoInscripto(periodo,curso,division, nivel, apellido, nombre, dni): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/vInscripcionAlumnos?filter[where][and][0][idPeriodo]=${periodo}&filter[where][and][1][DNIAlumno]=${dni}`)
+      .pipe(
+        catchError(this.handleError)
+      )
+      /* &filter[where][and][1][curso]=${curso}&filter[where][and][2][division]=${division}&filter[where][and][3][nivel]=${nivel}&filter[where][and][4][nombre]=${nombre}&filter[where][and][5][apellido]=${apellido}&filter[where][and][6][DNIAlumno]=${dni} */
+  }
+
+  VerificarAlumnoInscriptoCursos(periodo,division, nivel, apellido, nombre, dni): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/vInscripcionAlumnos?filter[where][and][0][idPeriodo]=${periodo}&filter[where][and][1][division]=${division}&filter[where][and][2][nivel]=${nivel}&filter[where][and][3][nombre]=${nombre}&filter[where][and][4][apellido]=${apellido}&filter[where][and][5][DNIAlumno]=${dni}`)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+  inscribirAlumno(alumno): Observable<any>{
+    return this.http.post(`http://localhost:3000/api/InscripcionAlumnos`,alumno)
+    .pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  openSnackBar(m: string, a: string) {
+    this.snackBar.open(
+      m, a, {
+      duration: 4000
+    }
+    );
   }
 
   // ---------------------------------------------------------------//

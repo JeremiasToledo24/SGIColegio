@@ -1,8 +1,28 @@
 <mat-card>
-    <mat-form-field>
-        <input matInput type="text" placeholder="Buscar Alumno por DNI">
-        <button mat-button *ngIf="value" matSuffix mat-icon-button>
-            <mat-icon>search</mat-icon>
-        </button>
-    </mat-form-field>
+    <div class="row">
+        <div class="col">
+            <mat-form-field>
+                <input (keyup)="buscarAlumno($event)" matInput type="text" placeholder="Buscar Alumno por DNI"
+                    [formControl]="dniControl">
+                <button mat-button *ngIf="value" matSuffix mat-icon-button>
+                    <mat-icon>search</mat-icon>
+                </button>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label for=""><b>DATOS DEL ALUMNO</b></label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label for=""><b>Alumno:</b> {{alumno.apellido}}, {{alumno.nombre}}</label>
+            <br>
+            <label for=""><b>DNI:</b> {{alumno.DNIAlumno}}</label>
+        </div>
+        <div class="col">
+            
+        </div>
+    </div>
 </mat-card>

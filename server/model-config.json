@@ -134,5 +134,13 @@
   "AsignacionDocente": {
     "dataSource": "db",
     "public": true
+  },
+  "InscripcionAlumno": {
+    "dataSource": "db",
+    "public": true
+  },
+  "vInscripcionAlumno": {
+    "dataSource": "db",
+    "public": true
   }
 }

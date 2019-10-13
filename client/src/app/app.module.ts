@@ -49,6 +49,7 @@ import { EliminarDialogComponent } from './lectivos/eliminar-dialog/eliminar-dia
 import { VerPlanComponent } from './lectivos/ver-plan/ver-plan.component';
 import { ListaDocenteComponent } from './docentes/componentes/lista-docente/lista-docente.component';
 import { CobrosModule } from './cobros/cobros.module';
+import { DialogInscribirComponent } from './alumnos/componentes/dialog-inscribir/dialog-inscribir.component';
 
 
 @NgModule({
@@ -106,7 +107,8 @@ import { CobrosModule } from './cobros/cobros.module';
     CrearLectivosComponent,
     EliminarDialogComponent,
     VerPlanComponent,
-  ListaDocenteComponent],
+    ListaDocenteComponent,
+    DialogInscribirComponent],
   exports: [ListaMateriasComponent],
 
 })

@@ -1,8 +1,11 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { AlumnoService } from 'src/app/servicios/alumnos/alumno.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { MatTableDataSource, MatPaginator, MatSnackBar } from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatSnackBar, MatDialog, MatAccordion } from '@angular/material';
 import { CursoService } from 'src/app/servicios/cursos/curso.service';
+import { PlanEstudioService } from 'src/app/servicios/planEstudio/plan-estudio.service';
+import { Ciclos } from 'src/app/docentes/componentes/docente-primaria/docente-primaria.component';
+import { DialogInscribirComponent } from '../dialog-inscribir/dialog-inscribir.component';
 
 // Clase alumno
 export class Alumno {
@@ -39,8 +42,22 @@ export class AlumnoCursoComponent implements OnInit {
     private alumnoService: AlumnoService,
     private cursoService: CursoService,
     private _formBuilder: FormBuilder,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private planService: PlanEstudioService,
+    public dialog: MatDialog
   ) { }
+
+  ciclos: Ciclos[];
+  divisionControl = new FormControl('', Validators.required);
+  cicloControl = new FormControl('', Validators.required);
+  listaPrimero: Alumno[] = [];
+  listaSegundo: Alumno[] = [];
+  listaTercero: Alumno[] = [];
+  listaCuarto:  Alumno[] = [];
+  listaQuinto:  Alumno[] = [];
+  listaSexto:   Alumno[] = [];
+  listaSeptimo: Alumno[] = [];
+  listaAlumnos: Alumno[] = [] = []
 
   // Stepper
   isLinear = true;
@@ -94,7 +111,112 @@ export class AlumnoCursoComponent implements OnInit {
       }
     );
 
+    this.planService.listarPeriodos()
+      .subscribe(
+        res => {
+          this.ciclos = res as Ciclos[]
+          console.log('this.ciclos :', this.ciclos);
+        }
+      )
   }
+
+  //CIERRA EL ACORDEON
+  @ViewChild('accordion', { static: true }) Accordion: MatAccordion
+  closeAllPanels() {
+     this.Accordion.closeAll();
+  }
+
+
+  /* obtener alumnos por curso */
+  obtenerAlumnos(nivel, curso) {
+    if (curso === 'PRIMERO') {
+      this.alumnoService.getAlumnosInscriptos(this.cicloControl.value, curso, this.divisionControl.value, nivel)
+      .subscribe(
+        (res) => {
+          this.listaPrimero = []
+          res.forEach(element => {
+            this.listaPrimero.push(element)
+          });
+        });
+    }
+    if (curso === 'SEGUNDO') {
+      this.alumnoService.getAlumnosInscriptos(this.cicloControl.value, curso, this.divisionControl.value, nivel)
+      .subscribe(
+        (res) => {
+          this.listaSegundo = []
+          res.forEach(element => {
+            this.listaSegundo.push(element)
+          });
+        });
+    }
+    if (curso === 'TERCERO') {
+      this.alumnoService.getAlumnosInscriptos(this.cicloControl.value, curso, this.divisionControl.value, nivel)
+      .subscribe(
+        (res) => {
+          this.listaTercero = []
+          res.forEach(element => {
+            this.listaTercero.push(element)
+          });
+        });
+    }
+    if (curso === 'CUARTO') {
+      this.alumnoService.getAlumnosInscriptos(this.cicloControl.value, curso, this.divisionControl.value, nivel)
+      .subscribe(
+        (res) => {
+          this.listaCuarto = []
+          res.forEach(element => {
+            this.listaCuarto.push(element)
+          });
+        });
+    }
+    if (curso === 'QUINTO') {
+      this.alumnoService.getAlumnosInscriptos(this.cicloControl.value, curso, this.divisionControl.value, nivel)
+      .subscribe(
+        (res) => {
+          this.listaQuinto = []
+          res.forEach(element => {
+            this.listaQuinto.push(element)
+          });
+        });
+    }
+    if (curso === 'SEXTO') {
+      this.alumnoService.getAlumnosInscriptos(this.cicloControl.value, curso, this.divisionControl.value, nivel)
+      .subscribe(
+        (res) => {
+          this.listaSexto = []
+          res.forEach(element => {
+            this.listaSexto.push(element)
+          });
+        });
+    }
+    if (curso === 'SEPTIMO') {
+      this.alumnoService.getAlumnosInscriptos(this.cicloControl.value, curso, this.divisionControl.value, nivel)
+      .subscribe(
+        (res) => {
+          this.listaSeptimo = []
+          res.forEach(element => {
+            this.listaSeptimo.push(element)
+          });
+        });
+    }
+    
+  }
+
+  eliminarAlumno(){
+    
+  }
+
+  inscribirAlumno(alumno, curso) {
+    console.log('this.cicloControl.value :', this.cicloControl.value);
+    const dialogRef = this.dialog.open(DialogInscribirComponent, {
+      width: '600px',
+      data: { idPeriodo: this.cicloControl.value, curso: curso, division: this.divisionControl.value, nivel: 1 }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.obtenerAlumnos(1, curso)
+    });
+  }
+
 
   // Buscador 
   buscadorForm = new FormGroup({
@@ -117,7 +239,7 @@ export class AlumnoCursoComponent implements OnInit {
   }
 
   // Asignar alumno
-  asignarAlumno(){
+  asignarAlumno() {
     this.alumnoService.asignAlumno({
       'DNIAlumno': this.AlumnoDNI,
       'idCurso': this.CursoID

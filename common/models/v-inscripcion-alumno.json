@@ -1,0 +1,36 @@
+{
+  "name": "vInscripcionAlumno",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "DNIAlumno": {
+      "type": "number",
+      "id":true
+    },
+    "nombre": {
+      "type": "string"
+    },
+    "apellido": {
+      "type": "string"
+    },
+    "idPeriodo":{
+      "type": "number"
+    },
+    "curso":{
+      "type": "string"
+    },
+    "division":{
+      "type":"string"
+    },
+    "nivel":{
+      "type":"number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
