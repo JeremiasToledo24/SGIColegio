@@ -8,9 +8,10 @@ import { PerfilAlumnoComponent } from './componentes/perfil-alumno/perfil-alumno
 import { AlumnoCursoComponent } from './componentes/alumno-curso/alumno-curso.component';
 import { DialogInscribirComponent } from './componentes/dialog-inscribir/dialog-inscribir.component';
 import { AlumnoCursoSecundariaComponent } from './componentes/alumno-curso-secundaria/alumno-curso-secundaria.component';
+import { DialogoEliminarComponent } from './componentes/dialogo-eliminar/dialogo-eliminar.component';
 
 @NgModule({
-  declarations: [InscribirComponent, ListaAlumnosComponent, PerfilAlumnoComponent, AlumnoCursoComponent, DialogInscribirComponent, AlumnoCursoSecundariaComponent],
+  declarations: [InscribirComponent, ListaAlumnosComponent, PerfilAlumnoComponent, AlumnoCursoComponent, DialogInscribirComponent, AlumnoCursoSecundariaComponent, DialogoEliminarComponent],
   imports: [
     CommonModule,
     MaterialModule

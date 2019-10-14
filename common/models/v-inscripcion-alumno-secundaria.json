@@ -1,12 +1,12 @@
 {
-  "name": "vInscripcionAlumno",
+  "name": "vInscripcionAlumnoSecundaria",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "idInscripcionAlumno": {
+    "idInscripcionAlumnoSecundaria": {
       "type": "number",
       "id": true
     },

@@ -60,7 +60,8 @@ export class PeriodosSecundariaComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result: string) => {
       if (result.match('S')) {
-        const _plan = { periodo: this.periodoControl.value, idPlanEstudio: plan.idPlanEstudio }
+        const _plan = { periodo: this.periodoControl.value, idPlanEstudio: plan.idPlanEstudio,
+          idNivel: 2 }
         this.planService.registrarPeriodoLectivo(_plan)
           .subscribe(
             res => {

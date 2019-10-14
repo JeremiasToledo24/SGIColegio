@@ -46,7 +46,7 @@ export class DocentePrimariaComponent implements OnInit {
 
   ngOnInit() {
 
-    this.planService.listarPeriodos()
+    this.planService.listarPeriodos(1)
       .subscribe(
         res => {
           this.ciclos = res as Ciclos[]
@@ -95,33 +95,18 @@ export class DocentePrimariaComponent implements OnInit {
   validaDivision(materia, curso: string) {
     if (this.divisionControl.valid) {
       this.asignarDocente(materia, curso)
+    } else {
+      this.docenteService.openSnackBar('Por favor, seleccione una division', 'OK')
     }
   }
 
   asignarDocente(materia, curso: string): void {
     const dialogRef = this.dialog.open(ListaDocenteComponent, {
       width: '600px',
-      data: { materia: materia, curso: curso, seccion: this.divisionControl.value , periodo: this.cicloControl.value}
+      data: { nivel: 1, materia: materia, curso: curso, seccion: this.divisionControl.value, periodo: this.cicloControl.value }
     });
 
     dialogRef.afterClosed().subscribe(result => {
     });
   }
-
-  /* obtenerDocente(nivel, curso) {
-    if (curso === 'PRIMERO') {
-      this.docentesPrimero = [];
-      this.listaPrimero.forEach(element => {
-        this.docenteService.obtenerDocenteMateria(this.cicloControl.value, nivel, curso, this.divisionControl.value, element.nombreMateria)
-          .subscribe(
-            res => {
-              this.docentesPrimero.push(res)
-            }
-          )
-      });
-
-
-    }
-  } */
-
 }

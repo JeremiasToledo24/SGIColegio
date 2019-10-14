@@ -25,6 +25,13 @@ export class AlumnoService {
     );
   }
 
+  bajaAlumno(id): Observable<any> {
+    return this.http.delete(`http://localhost:3000/api/InscripcionAlumnos/${id}`)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
   // Registrar tutor legal
   addTutor(Tutor: any): Observable<any> {
     return this.http.post('http://localhost:3000/api/AlumnoTutors', Tutor).pipe(
@@ -77,32 +84,32 @@ export class AlumnoService {
     return this.http.get(`http://localhost:3000/api/AlumnoCursos?filter=%7B%22where%22%3A%7B%22DNIAlumno%22%3A${dni}%7D%7D`)
   }
 
-  getAlumnosInscriptos(periodo,curso,division, nivel): Observable<any> {
-    return this.http.get(`http://localhost:3000/api/vInscripcionAlumnos?filter[where][and][0][idPeriodo]=${periodo}&filter[where][and][1][curso]=${curso}&filter[where][and][2][division]=${division}&filter[where][and][4][nivel]=${nivel}`)
+  getAlumnosInscriptos(periodo, curso, division, nivel): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/vInscripcionAlumnos?filter[where][and][0][idPeriodo]=${periodo}&filter[where][and][1][curso]=${curso}&filter[where][and][2][division]=${division}&filter[where][and][3][nivel]=${nivel}`)
       .pipe(
         catchError(this.handleError)
       )
   }
 
-  VerificarAlumnoInscripto(periodo,curso,division, nivel, apellido, nombre, dni): Observable<any> {
+  VerificarAlumnoInscripto(periodo, curso, division, nivel, apellido, nombre, dni): Observable<any> {
     return this.http.get(`http://localhost:3000/api/vInscripcionAlumnos?filter[where][and][0][idPeriodo]=${periodo}&filter[where][and][1][DNIAlumno]=${dni}`)
       .pipe(
         catchError(this.handleError)
       )
-      /* &filter[where][and][1][curso]=${curso}&filter[where][and][2][division]=${division}&filter[where][and][3][nivel]=${nivel}&filter[where][and][4][nombre]=${nombre}&filter[where][and][5][apellido]=${apellido}&filter[where][and][6][DNIAlumno]=${dni} */
+
   }
 
-  VerificarAlumnoInscriptoCursos(periodo,division, nivel, apellido, nombre, dni): Observable<any> {
+  VerificarAlumnoInscriptoCursos(periodo, division, nivel, apellido, nombre, dni): Observable<any> {
     return this.http.get(`http://localhost:3000/api/vInscripcionAlumnos?filter[where][and][0][idPeriodo]=${periodo}&filter[where][and][1][division]=${division}&filter[where][and][2][nivel]=${nivel}&filter[where][and][3][nombre]=${nombre}&filter[where][and][4][apellido]=${apellido}&filter[where][and][5][DNIAlumno]=${dni}`)
       .pipe(
         catchError(this.handleError)
       )
   }
-  inscribirAlumno(alumno): Observable<any>{
-    return this.http.post(`http://localhost:3000/api/InscripcionAlumnos`,alumno)
-    .pipe(
-      catchError(this.handleError)
-    )
+  inscribirAlumno(alumno): Observable<any> {
+    return this.http.post(`http://localhost:3000/api/InscripcionAlumnos`, alumno)
+      .pipe(
+        catchError(this.handleError)
+      )
   }
 
   openSnackBar(m: string, a: string) {

@@ -36,14 +36,13 @@ export class DialogInscribirComponent implements OnInit {
   inscribir(alumno) {
     this.alumnoService.VerificarAlumnoInscripto(this.data.idPeriodo, this.data.curso, this.data.division, this.data.nivel, alumno.apellido, alumno.nombre, alumno.DNIAlumno)
       .subscribe(
-        (res: []) => {
-          console.log('res :', res);
+        (res) => {
           if (res.length === 0) {
             const iA = { DNIAlumno: alumno.DNIAlumno, idPeriodo: this.data.idPeriodo, curso: this.data.curso, division: this.data.division, nivel: this.data.nivel }
             this.alumnoService.inscribirAlumno(iA)
               .subscribe(
                 res => {
-                  console.log('res :', res);
+                  this.dialogRef.close()
                 }
               )
           } else {

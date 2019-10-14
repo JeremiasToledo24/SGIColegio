@@ -57,13 +57,10 @@ const routes: Routes = [
   { path: 'asignarCursos/:id', component: AsignarCursosComponent },
   { path: 'periodosLectivos', component: CrearLectivosComponent },
   { path: 'listaPeriodosLectivos', component: ListaPeriodosLectivosComponent },
-
   { path: 'docentesPrimaria', component: DocentePrimariaComponent },
   { path: 'docentesSecundaria', component: DocenteSecundariaComponent },
   { path: 'periodosPrimaria', component: PeriodosPrimariaComponent },
   { path: 'periodosSecundaria', component: PeriodosSecundariaComponent },
-  { path: 'cobros', component: CobrosComponent },
-
   { path: '**', redirectTo: 'error' },
 
 ];

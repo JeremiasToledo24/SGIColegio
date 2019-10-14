@@ -142,5 +142,14 @@
   "vInscripcionAlumno": {
     "dataSource": "db",
     "public": true
+  },
+  "InscripcionAlumnoSecundaria": {
+    "dataSource": "db",
+    "public": true
+  }
+  ,
+  "vInscripcionAlumnoSecundaria": {
+    "dataSource": "db",
+    "public": true
   }
 }

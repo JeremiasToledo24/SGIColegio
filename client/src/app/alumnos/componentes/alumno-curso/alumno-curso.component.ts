@@ -6,6 +6,7 @@ import { CursoService } from 'src/app/servicios/cursos/curso.service';
 import { PlanEstudioService } from 'src/app/servicios/planEstudio/plan-estudio.service';
 import { Ciclos } from 'src/app/docentes/componentes/docente-primaria/docente-primaria.component';
 import { DialogInscribirComponent } from '../dialog-inscribir/dialog-inscribir.component';
+import { DialogoEliminarComponent } from '../dialogo-eliminar/dialogo-eliminar.component';
 
 // Clase alumno
 export class Alumno {
@@ -53,9 +54,9 @@ export class AlumnoCursoComponent implements OnInit {
   listaPrimero: Alumno[] = [];
   listaSegundo: Alumno[] = [];
   listaTercero: Alumno[] = [];
-  listaCuarto:  Alumno[] = [];
-  listaQuinto:  Alumno[] = [];
-  listaSexto:   Alumno[] = [];
+  listaCuarto: Alumno[] = [];
+  listaQuinto: Alumno[] = [];
+  listaSexto: Alumno[] = [];
   listaSeptimo: Alumno[] = [];
   listaAlumnos: Alumno[] = [] = []
 
@@ -111,7 +112,7 @@ export class AlumnoCursoComponent implements OnInit {
       }
     );
 
-    this.planService.listarPeriodos()
+    this.planService.listarPeriodos(1)
       .subscribe(
         res => {
           this.ciclos = res as Ciclos[]
@@ -123,7 +124,7 @@ export class AlumnoCursoComponent implements OnInit {
   //CIERRA EL ACORDEON
   @ViewChild('accordion', { static: true }) Accordion: MatAccordion
   closeAllPanels() {
-     this.Accordion.closeAll();
+    this.Accordion.closeAll();
   }
 
 
@@ -131,83 +132,100 @@ export class AlumnoCursoComponent implements OnInit {
   obtenerAlumnos(nivel, curso) {
     if (curso === 'PRIMERO') {
       this.alumnoService.getAlumnosInscriptos(this.cicloControl.value, curso, this.divisionControl.value, nivel)
-      .subscribe(
-        (res) => {
-          this.listaPrimero = []
-          res.forEach(element => {
-            this.listaPrimero.push(element)
+        .subscribe(
+          (res) => {
+            this.listaPrimero = []
+            res.forEach(element => {
+              this.listaPrimero.push(element)
+            });
           });
-        });
     }
     if (curso === 'SEGUNDO') {
       this.alumnoService.getAlumnosInscriptos(this.cicloControl.value, curso, this.divisionControl.value, nivel)
-      .subscribe(
-        (res) => {
-          this.listaSegundo = []
-          res.forEach(element => {
-            this.listaSegundo.push(element)
+        .subscribe(
+          (res) => {
+            this.listaSegundo = []
+            res.forEach(element => {
+              this.listaSegundo.push(element)
+            });
           });
-        });
     }
     if (curso === 'TERCERO') {
       this.alumnoService.getAlumnosInscriptos(this.cicloControl.value, curso, this.divisionControl.value, nivel)
-      .subscribe(
-        (res) => {
-          this.listaTercero = []
-          res.forEach(element => {
-            this.listaTercero.push(element)
+        .subscribe(
+          (res) => {
+            this.listaTercero = []
+            res.forEach(element => {
+              this.listaTercero.push(element)
+            });
           });
-        });
     }
     if (curso === 'CUARTO') {
       this.alumnoService.getAlumnosInscriptos(this.cicloControl.value, curso, this.divisionControl.value, nivel)
-      .subscribe(
-        (res) => {
-          this.listaCuarto = []
-          res.forEach(element => {
-            this.listaCuarto.push(element)
+        .subscribe(
+          (res) => {
+            this.listaCuarto = []
+            res.forEach(element => {
+              this.listaCuarto.push(element)
+            });
           });
-        });
     }
     if (curso === 'QUINTO') {
       this.alumnoService.getAlumnosInscriptos(this.cicloControl.value, curso, this.divisionControl.value, nivel)
-      .subscribe(
-        (res) => {
-          this.listaQuinto = []
-          res.forEach(element => {
-            this.listaQuinto.push(element)
+        .subscribe(
+          (res) => {
+            this.listaQuinto = []
+            res.forEach(element => {
+              this.listaQuinto.push(element)
+            });
           });
-        });
     }
     if (curso === 'SEXTO') {
       this.alumnoService.getAlumnosInscriptos(this.cicloControl.value, curso, this.divisionControl.value, nivel)
-      .subscribe(
-        (res) => {
-          this.listaSexto = []
-          res.forEach(element => {
-            this.listaSexto.push(element)
+        .subscribe(
+          (res) => {
+            this.listaSexto = []
+            res.forEach(element => {
+              this.listaSexto.push(element)
+            });
           });
-        });
     }
     if (curso === 'SEPTIMO') {
       this.alumnoService.getAlumnosInscriptos(this.cicloControl.value, curso, this.divisionControl.value, nivel)
-      .subscribe(
-        (res) => {
-          this.listaSeptimo = []
-          res.forEach(element => {
-            this.listaSeptimo.push(element)
+        .subscribe(
+          (res) => {
+            this.listaSeptimo = []
+            res.forEach(element => {
+              this.listaSeptimo.push(element)
+            });
           });
-        });
     }
-    
+
   }
 
-  eliminarAlumno(){
-    
+  dialogoEliminar(alumno, curso) {
+    const dialogRef = this.dialog.open(DialogoEliminarComponent, {
+      data: { alumno: alumno }
+    });
+
+    dialogRef.afterClosed().subscribe((result: string) => {
+      if (result.match('S')) {
+        this.eliminarAlumno(alumno.idInscripcionAlumno, curso)
+      }
+    });
+  }
+
+  eliminarAlumno(id,curso) {
+    this.alumnoService.bajaAlumno(id)
+      .subscribe(
+        res => {
+          this.alumnoService.openSnackBar('El alumno fue desvinculado del curso', 'ok');
+          this.obtenerAlumnos(1,curso);
+        }
+      )
   }
 
   inscribirAlumno(alumno, curso) {
-    console.log('this.cicloControl.value :', this.cicloControl.value);
     const dialogRef = this.dialog.open(DialogInscribirComponent, {
       width: '600px',
       data: { idPeriodo: this.cicloControl.value, curso: curso, division: this.divisionControl.value, nivel: 1 }

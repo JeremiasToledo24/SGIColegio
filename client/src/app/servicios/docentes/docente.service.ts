@@ -74,7 +74,7 @@ export class DocenteService {
   }
 
   registrarMateriaDocente(md): Observable<any> {
-    return this.http.post(`http://localhost:3000/api/DocenteCursos`, md)
+    return this.http.post(`http://localhost:3000/api/AsignacionDocentes`, md)
       .pipe(
         catchError(this.handleError)
 

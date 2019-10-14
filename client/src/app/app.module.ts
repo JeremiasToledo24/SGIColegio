@@ -50,6 +50,7 @@ import { VerPlanComponent } from './lectivos/ver-plan/ver-plan.component';
 import { ListaDocenteComponent } from './docentes/componentes/lista-docente/lista-docente.component';
 import { CobrosModule } from './cobros/cobros.module';
 import { DialogInscribirComponent } from './alumnos/componentes/dialog-inscribir/dialog-inscribir.component';
+import { DialogoEliminarComponent } from './alumnos/componentes/dialogo-eliminar/dialogo-eliminar.component';
 
 
 @NgModule({
@@ -108,7 +109,8 @@ import { DialogInscribirComponent } from './alumnos/componentes/dialog-inscribir
     EliminarDialogComponent,
     VerPlanComponent,
     ListaDocenteComponent,
-    DialogInscribirComponent],
+    DialogInscribirComponent,
+  DialogoEliminarComponent],
   exports: [ListaMateriasComponent],
 
 })

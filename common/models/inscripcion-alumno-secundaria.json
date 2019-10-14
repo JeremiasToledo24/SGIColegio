@@ -1,23 +1,17 @@
 {
-  "name": "vInscripcionAlumno",
+  "name": "InscripcionAlumnoSecundaria",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "idInscripcionAlumno": {
+    "idInscripcionAlumnoSecundaria": {
       "type": "number",
-      "id": true
+      "id":true
     },
     "DNIAlumno": {
       "type": "number"
-    },
-    "nombre": {
-      "type": "string"
-    },
-    "apellido": {
-      "type": "string"
     },
     "idPeriodo": {
       "type": "number"

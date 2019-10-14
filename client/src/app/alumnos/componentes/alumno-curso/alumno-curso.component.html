@@ -47,13 +47,14 @@
                 <div class="col">
                   {{alumno.nombre}} {{alumno.apellido}}
                 </div>
+                <div class="col">
+                  <button (click)="dialogoEliminar(alumno,'PRIMERO')" mat-button>Dar de Baja</button>
+                </div>
               </mat-list-item>
               <div class="col">
                 <button (click)="inscribirAlumno(alumno,'PRIMERO')" mat-button>Inscribir Alumno en este curso</button>
               </div>
-              <div class="col">
-                  <button (click)="eliminarAlumno(alumno,'PRIMERO')" mat-button>Dar de Baja</button>
-                </div>
+
             </div>
           </mat-list>
         </mat-expansion-panel>
@@ -80,6 +81,9 @@
                   <div class="col">
                     {{alumno.nombre}} {{alumno.apellido}}
                   </div>
+                  <div class="col">
+                    <button (click)="dialogoEliminar(alumno,'SEGUNDO')" mat-button>Dar de Baja</button>
+                  </div>
                 </mat-list-item>
                 <div class="col">
                   <button (click)="inscribirAlumno(alumno,'SEGUNDO')" mat-button>Inscribir Alumno en este curso</button>
@@ -90,7 +94,7 @@
         </mat-expansion-panel>
         <!-- tercero -->
         <mat-expansion-panel>
-          <mat-expansion-panel-header (click)="obtenerAlumnos(1,'TERCERO')">
+          <mat-expansion-panel-header (click)="obtenerAlumnos(1,'SEGUNDO')">
             Tercero
           </mat-expansion-panel-header>
 
@@ -111,12 +115,15 @@
                   <div class="col">
                     {{alumno.nombre}} {{alumno.apellido}}
                   </div>
+                  <div class="col">
+                    <button (click)="dialogoEliminar(alumno,'TERCERO')" mat-button>Dar de Baja</button>
+                  </div>
                 </mat-list-item>
                 <div class="col">
                   <button (click)="inscribirAlumno(alumno,'TERCERO')" mat-button>Inscribir Alumno en este curso</button>
                 </div>
 
-                
+
 
               </div>
             </mat-list>
@@ -145,6 +152,9 @@
                   </div>
                   <div class="col">
                     {{alumno.nombre}} {{alumno.apellido}}
+                  </div>
+                  <div class="col">
+                    <button (click)="dialogoEliminar(alumno,'CUARTO')" mat-button>Dar de Baja</button>
                   </div>
                 </mat-list-item>
                 <div class="col">
@@ -178,6 +188,9 @@
                   <div class="col">
                     {{alumno.nombre}} {{alumno.apellido}}
                   </div>
+                  <div class="col">
+                    <button (click)="dialogoEliminar(alumno,'QUINTO')" mat-button>Dar de Baja</button>
+                  </div>
                 </mat-list-item>
                 <div class="col">
                   <button (click)="inscribirAlumno(alumno,'QUINTO')" mat-button>Inscribir Alumno en este curso</button>
@@ -209,6 +222,9 @@
                   <div class="col">
                     {{alumno.nombre}} {{alumno.apellido}}
                   </div>
+                  <div class="col">
+                    <button (click)="dialogoEliminar(alumno,'SEXTO')" mat-button>Dar de Baja</button>
+                  </div>
                 </mat-list-item>
                 <div class="col">
                   <button (click)="inscribirAlumno(alumno,'SEXTO')" mat-button>Inscribir Alumno en este curso</button>
@@ -239,6 +255,9 @@
                   </div>
                   <div class="col">
                     {{alumno.nombre}} {{alumno.apellido}}
+                  </div>
+                  <div class="col">
+                    <button (click)="dialogoEliminar(alumno,'SEPTIMO')" mat-button>Dar de Baja</button>
                   </div>
                 </mat-list-item>
                 <div class="col">

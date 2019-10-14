@@ -119,8 +119,8 @@ export class PlanEstudioService {
   }
 
 
-  listarPeriodos(): Observable<any> {
-    return this.http.get(`http://localhost:3000/api/PeriodoLectivoViews`)
+  listarPeriodos(nivel?): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/PeriodoLectivoViews?filter=%7B%22where%22%3A%7B%22idNivel%22%3A%22${nivel}%22%7D%7D`)
       .pipe(
         catchError(this.handleError)
       )

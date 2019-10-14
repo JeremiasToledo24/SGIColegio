@@ -27,6 +27,7 @@ export class ListaDocenteComponent implements OnInit {
     private docenteService: DocenteService,
   ) { }
   ngOnInit() {
+    console.log('this.data :', this.data);
     this.docenteService.obtenerDocenteMateria(this.data.periodo, this.data.materia.idNivel, this.data.curso, this.data.seccion, this.data.materia.nombreMateria)
       .subscribe(
         (res: Docente) => {
@@ -61,12 +62,23 @@ export class ListaDocenteComponent implements OnInit {
   }
 
   asignar(empleado) {
-    const md = { curso: this.data.curso, seccion: this.data.seccion, DNIDocente: empleado.dni, idMateria: this.data.materia.codMateria }
-    console.log('md :', md);
+    const md = { 
+      DNIDocente: empleado.dni, 
+      idPeriodo: this.data.periodo,
+      curso: this.data.curso, 
+      division: this.data.seccion, 
+      materia: this.data.materia.nombreMateria,
+      nombreDocente: empleado.nombre,
+      apellidoDocente: empleado.apellido,
+      nivel: this.data.nivel
+     }
+     console.log('md :', md);
     this.docenteService.registrarMateriaDocente(md)
       .subscribe(
         res => {
-          this.dialogRef.close()
+          console.log('res :', res);
+          this.dialogRef.close();
+          this.docenteService.openSnackBar('Docente vinculado','ok')
         }
       )
 
