@@ -32,13 +32,13 @@
             Primero
           </mat-expansion-panel-header>
           <mat-list role="list">
-            <mat-label>Lista de Alumnos:</mat-label>
+            <mat-label> <b> Lista de Alumnos: </b> </mat-label>
             <div class="row">
               <div class="col">
-                <label for="">Dni:</label>
+                <label for=""><b>Dni</b></label>
               </div>
               <div class="col">
-                <label for="">Nombre y Apellido</label>
+                <label for=""> <b> Nombre y Apellido </b></label>
               </div>
               <mat-list-item *ngFor="let alumno of listaPrimero;" role="listitem">
                 <div class="col">
@@ -49,29 +49,28 @@
                 </div>
               </mat-list-item>
               <div class="col">
-                <button (click)="inscribirAlumno(alumno,'PRIMERO')" mat-button>Inscribir Alumno en este curso</button>
+                <button (click)="inscribirAlumno(alumno,'PRIMERO')" mat-raised-button color
+                ="primary">Inscribir Alumno en este curso</button>
               </div>
               <div class="col">
-                  <button (click)="eliminarAlumno(alumno,'PRIMERO')" mat-button>Dar de Baja</button>
-                </div>
+                  <button (click)="eliminarAlumno(alumno,'PRIMERO')" mat-raised-button color="warn" >Dar de Baja</button>
+              </div>
             </div>
           </mat-list>
         </mat-expansion-panel>
         <!-- segundo -->
-        <mat-expansion-panel>
+        <mat-expansion-panel [expanded]="this.isExpanded" >
           <mat-expansion-panel-header (click)="obtenerAlumnos(1,'SEGUNDO')">
             Segundo
           </mat-expansion-panel-header>
-
-          <div class="row">
             <mat-list role="list">
-              <mat-label>Lista de Alumnos:</mat-label>
+              <mat-label> <b> Lista de Alumnos:</b></mat-label>
               <div class="row">
                 <div class="col">
-                  <label for="">Dni:</label>
+                  <label for=""><b>Dni</b></label>
                 </div>
                 <div class="col">
-                  <label for="">Nombre y Apellido</label>
+                  <label for=""> <b> Nombre y Apellido </b></label>
                 </div>
                 <mat-list-item *ngFor="let alumno of listaSegundo;" role="listitem">
                   <div class="col">
@@ -82,27 +81,28 @@
                   </div>
                 </mat-list-item>
                 <div class="col">
-                  <button (click)="inscribirAlumno(alumno,'SEGUNDO')" mat-button>Inscribir Alumno en este curso</button>
+                  <button (click)="inscribirAlumno(alumno,'SEGUNDO')" mat-raised-button color
+                  ="primary">Inscribir Alumno en este curso</button>
+                </div>
+                <div class="col">
+                    <button (click)="eliminarAlumno(alumno,'SEGUNDO')" mat-raised-button color="warn" >Dar de Baja</button>
                 </div>
               </div>
             </mat-list>
-          </div>
         </mat-expansion-panel>
         <!-- tercero -->
         <mat-expansion-panel>
           <mat-expansion-panel-header (click)="obtenerAlumnos(1,'TERCERO')">
             Tercero
           </mat-expansion-panel-header>
-
-          <div class="row">
             <mat-list role="list">
-              <mat-label>Lista de Alumnos:</mat-label>
+              <mat-label> <b> Lista de Alumnos:</b></mat-label>
               <div class="row">
                 <div class="col">
-                  <label for="">Dni:</label>
+                  <label for=""><b>Dni</b></label>
                 </div>
                 <div class="col">
-                  <label for="">Nombre y Apellido</label>
+                  <label for=""> <b> Nombre y Apellido </b></label>
                 </div>
                 <mat-list-item *ngFor="let alumno of listaTercero;" role="listitem">
                   <div class="col">
@@ -113,14 +113,14 @@
                   </div>
                 </mat-list-item>
                 <div class="col">
-                  <button (click)="inscribirAlumno(alumno,'TERCERO')" mat-button>Inscribir Alumno en este curso</button>
+                  <button (click)="inscribirAlumno(alumno,'TERCERO')" mat-raised-button color
+                  ="primary">Inscribir Alumno en este curso</button>
                 </div>
-
-                
-
+                <div class="col">
+                    <button (click)="eliminarAlumno(alumno,'TERCERO')" mat-raised-button color="warn" >Dar de Baja</button>
+                </div>
               </div>
             </mat-list>
-          </div>
         </mat-expansion-panel>
 
         <!-- CUARTO -->
@@ -128,16 +128,14 @@
           <mat-expansion-panel-header (click)="obtenerAlumnos(1,'CUARTO')">
             Cuarto
           </mat-expansion-panel-header>
-
-          <div class="row">
             <mat-list role="list">
-              <mat-label>Lista de Alumnos:</mat-label>
+              <mat-label> <b> Lista de Alumnos:</b></mat-label>
               <div class="row">
                 <div class="col">
-                  <label for="">Dni:</label>
+                  <label for=""><b>Dni</b></label>
                 </div>
                 <div class="col">
-                  <label for="">Nombre y Apellido</label>
+                  <label for=""> <b> Nombre y Apellido </b></label>
                 </div>
                 <mat-list-item *ngFor="let alumno of listaCuarto;" role="listitem">
                   <div class="col">
@@ -148,11 +146,14 @@
                   </div>
                 </mat-list-item>
                 <div class="col">
-                  <button (click)="inscribirAlumno(alumno,'CUARTO')" mat-button>Inscribir Alumno en este curso</button>
+                  <button (click)="inscribirAlumno(alumno,'CUARTO')" mat-raised-button color
+                  ="primary">Inscribir Alumno en este curso</button>
+                </div>
+                <div class="col">
+                    <button (click)="eliminarAlumno(alumno,'CUARTO')" mat-raised-button color="warn" >Dar de Baja</button>
                 </div>
               </div>
             </mat-list>
-          </div>
         </mat-expansion-panel>
 
         <!-- quinto -->
@@ -160,16 +161,14 @@
           <mat-expansion-panel-header (click)="obtenerAlumnos(1,'QUINTO')">
             Quinto
           </mat-expansion-panel-header>
-
-          <div class="row">
             <mat-list role="list">
-              <mat-label>Lista de Alumnos:</mat-label>
+              <mat-label> <b> Lista de Alumnos:</b></mat-label>
               <div class="row">
                 <div class="col">
-                  <label for="">Dni:</label>
+                  <label for=""><b>Dni</b></label>
                 </div>
                 <div class="col">
-                  <label for="">Nombre y Apellido</label>
+                  <label for=""> <b> Nombre y Apellido </b></label>
                 </div>
                 <mat-list-item *ngFor="let alumno of listaQuinto;" role="listitem">
                   <div class="col">
@@ -180,27 +179,28 @@
                   </div>
                 </mat-list-item>
                 <div class="col">
-                  <button (click)="inscribirAlumno(alumno,'QUINTO')" mat-button>Inscribir Alumno en este curso</button>
+                  <button (click)="inscribirAlumno(alumno,'QUINTO')" mat-raised-button color
+                  ="primary">Inscribir Alumno en este curso</button>
+                </div>
+                <div class="col">
+                    <button (click)="eliminarAlumno(alumno,'QUINTO')" mat-raised-button color="warn" >Dar de Baja</button>
                 </div>
               </div>
             </mat-list>
-          </div>
         </mat-expansion-panel>
         <!-- sexto -->
         <mat-expansion-panel>
           <mat-expansion-panel-header (click)="obtenerAlumnos(1,'SEXTO')">
             Sexto
           </mat-expansion-panel-header>
-
-          <div class="row">
             <mat-list role="list">
-              <mat-label>Lista de Alumnos:</mat-label>
+              <mat-label> <b> Lista de Alumnos:</b></mat-label>
               <div class="row">
                 <div class="col">
-                  <label for="">Dni:</label>
+                  <label for=""><b>Dni</b></label>
                 </div>
                 <div class="col">
-                  <label for="">Nombre y Apellido</label>
+                  <label for=""> <b> Nombre y Apellido </b></label>
                 </div>
                 <mat-list-item *ngFor="let alumno of listaSexto;" role="listitem">
                   <div class="col">
@@ -211,27 +211,28 @@
                   </div>
                 </mat-list-item>
                 <div class="col">
-                  <button (click)="inscribirAlumno(alumno,'SEXTO')" mat-button>Inscribir Alumno en este curso</button>
+                  <button (click)="inscribirAlumno(alumno,'SEXTO')" mat-raised-button color
+                  ="primary">Inscribir Alumno en este curso</button>
+                </div>
+                <div class="col">
+                    <button (click)="eliminarAlumno(alumno,'SEXTO')" mat-raised-button color="warn" >Dar de Baja</button>
                 </div>
               </div>
             </mat-list>
-          </div>
         </mat-expansion-panel>
         <!-- septimo -->
         <mat-expansion-panel>
           <mat-expansion-panel-header (click)="obtenerAlumnos(1,'SEPTIMO')">
             Septimo
           </mat-expansion-panel-header>
-
-          <div class="row">
             <mat-list role="list">
-              <mat-label>Lista de Alumnos:</mat-label>
+              <mat-label> <b> Lista de Alumnos:</b></mat-label>
               <div class="row">
                 <div class="col">
-                  <label for="">Dni:</label>
+                  <label for=""><b>Dni</b></label>
                 </div>
                 <div class="col">
-                  <label for="">Nombre y Apellido</label>
+                  <label for=""> <b> Nombre y Apellido </b></label>
                 </div>
                 <mat-list-item *ngFor="let alumno of listaSeptimo;" role="listitem">
                   <div class="col">
@@ -242,11 +243,14 @@
                   </div>
                 </mat-list-item>
                 <div class="col">
-                  <button (click)="inscribirAlumno(alumno,'SEPTIMO')" mat-button>Inscribir Alumno en este curso</button>
+                  <button (click)="inscribirAlumno(alumno,'SEPTIMO')" mat-raised-button color
+                  ="primary">Inscribir Alumno en este curso</button>
+                </div>
+                <div class="col">
+                    <button (click)="eliminarAlumno(alumno,'SEPTIMO')" mat-raised-button color="warn" >Dar de Baja</button>
                 </div>
               </div>
             </mat-list>
-          </div>
         </mat-expansion-panel>
 
       </mat-accordion>

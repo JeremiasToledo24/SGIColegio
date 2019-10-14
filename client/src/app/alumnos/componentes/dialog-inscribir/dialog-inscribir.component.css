@@ -1,0 +1,43 @@
+.backGroundCard {
+    background-color: #E8EAF6;
+    margin: 2rem;
+}
+
+mat-card {
+    margin-bottom: 2rem;
+}
+
+button {
+    margin: 10px;
+}
+dialog{
+    width: 500px;
+    height:400px;
+}
+
+/* TABLA */
+
+table {
+    width: 100%;
+}
+
+th {
+    background-color: #3F51B5;
+    color: beige;
+}
+
+td {
+    background-color: #C5CAE9;
+}
+
+.buscador-form {
+    width: 50%;
+}
+
+.buscador-full-width {
+    width: 50%;
+}
+
+.mat-column-seleccionar {
+    width:20% !important;
+}
