@@ -31,6 +31,7 @@ import { PeriodosPrimariaComponent } from './lectivos/periodos-primaria/periodos
 import { PeriodosSecundariaComponent } from './lectivos/periodos-secundaria/periodos-secundaria.component';
 import { CobrosComponent } from './cobros/componentes/cobros/cobros.component';
 import { AlumnoCursoSecundariaComponent } from './alumnos/componentes/alumno-curso-secundaria/alumno-curso-secundaria.component';
+import { ConfigFacturaComponent } from './cobros/componentes/config-factura/config-factura.component';
 
 
 
@@ -62,6 +63,7 @@ const routes: Routes = [
   { path: 'periodosPrimaria', component: PeriodosPrimariaComponent },
   { path: 'periodosSecundaria', component: PeriodosSecundariaComponent },
   { path: 'cobros', component: CobrosComponent },
+  { path: 'configFactura', component: ConfigFacturaComponent},
   { path: '**', redirectTo: 'error' },
 
 ];
