@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>Ingresar monto de factura</h2>
+
+
+<mat-dialog-content>
+  <form>
+    <!-- 1er vencimiento -->
+    <mat-form-field appearance="outline" hideRequiredMarker>
+      <mat-label>1er vencimiento</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <!-- 2do vencimiento -->
+    <mat-form-field appearance="outline" hideRequiredMarker>
+      <mat-label>2do vencimiento</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <div style="text-align:center">
+      <!-- Cancel -->
+      <button type="reset" mat-raised-button color="warn" (click)="close()">Cancelar</button>
+      <!-- Submit -->
+      <button type="submit" mat-raised-button color="primary">Confirmar</button>
+    </div>
+  </form>
+</mat-dialog-content>
