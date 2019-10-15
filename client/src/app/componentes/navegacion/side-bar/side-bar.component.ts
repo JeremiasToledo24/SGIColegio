@@ -23,4 +23,9 @@ export class SideBarComponent implements OnInit {
     }
   }
 
+  // Abrir cobros
+  cobros() {
+    this.router.navigate(['/cobros']);
+  }
+
 }

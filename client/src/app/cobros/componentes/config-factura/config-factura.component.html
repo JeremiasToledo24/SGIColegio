@@ -14,11 +14,7 @@
 
       <div class="d-flex justify-content-start">
         <!-- Concepto -->
-        <label>Seleccione el concepto</label>
-        <mat-radio-group style="margin-left: 2rem;">
-          <mat-radio-button value="Matricula">Matricula</mat-radio-button>
-          <mat-radio-button style="margin-left: 24px;" value="Cuota">Cuota</mat-radio-button>
-        </mat-radio-group>
+        <label>Seleccione el periodo</label>
 
         <!-- Periodo -->
         <mat-select>
@@ -39,7 +35,7 @@
           <!-- Columna CONCEPTO-->
           <ng-container matColumnDef="concepto">
             <th mat-header-cell *matHeaderCellDef>Concepto</th>
-            <td mat-cell *matCellDef="let factura"></td>
+            <td mat-cell *matCellDef="let factura">{{factura.concepto}}</td>
           </ng-container>
 
           <!-- Columna MODIFICAR-->
@@ -75,18 +71,21 @@
             <td mat-cell *matCellDef="let factura"></td>
           </ng-container>
 
-          <!-- Columna Monto -->
-          <ng-container matColumnDef="monto">
-            <th mat-header-cell *matHeaderCellDef>Monto</th>
+          <!-- Columna Monto FECHA VENC 1-->
+          <ng-container matColumnDef="monto1">
+            <th mat-header-cell *matHeaderCellDef>1° Vto</th>
             <td mat-cell *matCellDef="let factura"></td>
           </ng-container>
-          <tr mat-header-row *matHeaderRowDef="['periodo','concepto','monto']"></tr>
-          <tr mat-row *matRowDef="let row; columns: ['periodo','concepto','monto'];"></tr>
+
+          <!-- Columna Monto FECHA VENC 2-->
+          <ng-container matColumnDef="monto2">
+            <th mat-header-cell *matHeaderCellDef>2° Vto</th>
+            <td mat-cell *matCellDef="let factura"></td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="['periodo','concepto','monto1','monto2']"></tr>
+          <tr mat-row *matRowDef="let row; columns: ['periodo','concepto','monto1','monto2'];"></tr>
         </table>
       </div>
     </div>
-
-    <!-- SOLO PARA TESTEAR, BORRAR !-->
-    <button (click)="openConfigDialog()">TEST DIALOG</button>
   </mat-card-content>
 </mat-card>

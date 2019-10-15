@@ -71,7 +71,8 @@
           </ul> -->
           <ul id="alumnosDropdown" class="collapse list-unstyled ">
             <li><a routerLink="/asignarAlumnoPrimaria" routerLinkActive="active">Inscribir Alumnos de Primaria</a></li>
-            <li><a routerLink="/asignarAlumnoSecundaria" routerLinkActive="active">Inscribir Alumnos de Secundaria</a></li>
+            <li><a routerLink="/asignarAlumnoSecundaria" routerLinkActive="active">Inscribir Alumnos de Secundaria</a>
+            </li>
           </ul>
         </li>
 
@@ -90,20 +91,16 @@
           </ul>
         </li>
 
-        <!-- cobros -->
-        <li><a href="#cobrosDropdown" routerLink="/cobros" routerLinkActive="active" >
+        <!-- Cobros Dropdown-->
+        <li><a href="#cobrosDropdown" (click)="cobros()" aria-expanded="false" data-toggle="collapse">
             <mat-icon style="margin-right: 5px">monetization_on</mat-icon>Cobros
           </a>
 
           <!-- Dropdown items -->
-          <!-- <ul id="cobrosDropdown" class="collapse list-unstyled ">
-            <li><a routerLink="/cobros" routerLinkActive="active">Cuotas y Matriculas</a></li>
-          </ul> -->
-          
+          <ul id="cobrosDropdown" class="collapse list-unstyled ">
+            <li><a routerLink="/configFactura" routerLinkActive="active">Configurar factura</a></li>
+          </ul>
         </li>
-
-
-
       </ul>
     </div>
   </div>

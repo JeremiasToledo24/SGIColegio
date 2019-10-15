@@ -13,6 +13,11 @@ export class ConfigFacturaComponent implements OnInit {
     private dialog: MatDialog
   ) { }
 
+  dataSource = [
+    { concepto: 'Inscripción'},
+    { concepto: 'Cuota'}
+  ];
+
   ngOnInit() {
   }
 

@@ -14,6 +14,8 @@ export class CobrosComponent implements OnInit {
 
   dniControl = new FormControl('')
   alumno = '';
+  nombreAlumno = '';
+  cursoAlumno = '';
 
   constructor(
     private alumnoService: AlumnoService,
@@ -34,8 +36,14 @@ export class CobrosComponent implements OnInit {
       this.alumnoService.getAlumnoDNI(this.dniControl.value)
         .subscribe(
           res => {
+            // Solo nombre
+            this.nombreAlumno = res.apellido + ', ' + res.nombre;
+
+            // Resto de datos
             this.alumno = res;
             console.log('res :', res);
+
+            // Obtener nivel y division
           }
         )
     }
