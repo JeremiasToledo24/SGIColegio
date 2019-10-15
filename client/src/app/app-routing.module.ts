@@ -18,7 +18,7 @@ import { EmpleadoHistoricoComponent } from './empleados/componentes/empleado-his
 import { LoginComponent } from './login/login/login.component';
 import { PerfilEmpleadoComponent } from './empleados/componentes/perfil-empleado/perfil-empleado.component';
 
-  import { InscribirComponent } from './alumnos/componentes/inscribir/inscribir.component';
+import { InscribirComponent } from './alumnos/componentes/inscribir/inscribir.component';
 import { ListaAlumnosComponent } from './alumnos/componentes/lista-alumnos/lista-alumnos.component';
 import { PerfilAlumnoComponent } from './alumnos/componentes/perfil-alumno/perfil-alumno.component';
 import { AlumnoCursoComponent } from './alumnos/componentes/alumno-curso/alumno-curso.component';
@@ -52,8 +52,8 @@ const routes: Routes = [
   { path: 'inscribirAlumno', component: InscribirComponent },
   { path: 'listaAlumnos', component: ListaAlumnosComponent },
   { path: 'perfilAlumno/:id', component: PerfilAlumnoComponent },
-  { path: 'asignarAlumnoPrimaria', component: AlumnoCursoComponent},
-  { path: 'asignarAlumnoSecundaria', component: AlumnoCursoSecundariaComponent},
+  { path: 'asignarAlumnoPrimaria', component: AlumnoCursoComponent },
+  { path: 'asignarAlumnoSecundaria', component: AlumnoCursoSecundariaComponent },
   { path: 'asignarCursos/:id', component: AsignarCursosComponent },
   { path: 'periodosLectivos', component: CrearLectivosComponent },
   { path: 'listaPeriodosLectivos', component: ListaPeriodosLectivosComponent },
@@ -61,6 +61,7 @@ const routes: Routes = [
   { path: 'docentesSecundaria', component: DocenteSecundariaComponent },
   { path: 'periodosPrimaria', component: PeriodosPrimariaComponent },
   { path: 'periodosSecundaria', component: PeriodosSecundariaComponent },
+  { path: 'cobros', component: CobrosComponent },
   { path: '**', redirectTo: 'error' },
 
 ];
