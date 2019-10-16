@@ -1,8 +1,10 @@
+CREATE DATABASE  IF NOT EXISTS `SGIColegio` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `SGIColegio`;
 -- MySQL dump 10.13  Distrib 5.7.27, for Linux (x86_64)
 --
 -- Host: 127.0.0.1    Database: SGIColegio
 -- ------------------------------------------------------
--- Server version	5.7.27-0ubuntu0.19.04.1
+-- Server version	5.7.27-0ubuntu0.18.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -97,7 +99,7 @@ CREATE TABLE `Alumno` (
 
 LOCK TABLES `Alumno` WRITE;
 /*!40000 ALTER TABLE `Alumno` DISABLE KEYS */;
-INSERT INTO `Alumno` VALUES (39364294,'Jeremias Ruben','Toledo Medrano','M','1996-02-24','brown 81','4912680',NULL,'2019-10-03','545646');
+INSERT INTO `Alumno` VALUES (39364294,'Jeremias Ruben','Toledo Medrano','M','1996-02-24','brown 81','4912680',NULL,'2019-10-03','545646'),(42916547,'Rocio Alexandra','Farfan','F','2000-12-14','cornejo 711','3874699199','alexandrafarfan123@gmail.com','2019-10-13','24429165478');
 /*!40000 ALTER TABLE `Alumno` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -213,8 +215,8 @@ DROP TABLE IF EXISTS `AsignacionDocente`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `AsignacionDocente` (
-  `idAsignacionDocente` int(11) NOT NULL,
-  `DNIDocente` bigint(50) DEFAULT NULL,
+  `idAsignacionDocente` int(11) NOT NULL AUTO_INCREMENT,
+  `DNIDocente` int(8) DEFAULT NULL,
   `idPeriodo` varchar(45) DEFAULT NULL,
   `curso` varchar(45) DEFAULT NULL,
   `materia` varchar(45) DEFAULT NULL,
@@ -222,8 +224,10 @@ CREATE TABLE `AsignacionDocente` (
   `apellidoDocente` varchar(45) DEFAULT NULL,
   `division` varchar(45) DEFAULT NULL,
   `nivel` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idAsignacionDocente`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`idAsignacionDocente`),
+  KEY `dniDoc_idx` (`DNIDocente`),
+  CONSTRAINT `dniDoc` FOREIGN KEY (`DNIDocente`) REFERENCES `Empleado` (`dni`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -232,7 +236,7 @@ CREATE TABLE `AsignacionDocente` (
 
 LOCK TABLES `AsignacionDocente` WRITE;
 /*!40000 ALTER TABLE `AsignacionDocente` DISABLE KEYS */;
-INSERT INTO `AsignacionDocente` VALUES (1,43396665,'25','PRIMERO','Lengua','Carolina','Toledo','A','1');
+INSERT INTO `AsignacionDocente` VALUES (1,43396665,'26','PRIMERO','Lengua y Literatura','Carolina','Toledo','A','2');
 /*!40000 ALTER TABLE `AsignacionDocente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -297,13 +301,15 @@ DROP TABLE IF EXISTS `Cuota`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Cuota` (
   `idCuota` int(11) NOT NULL AUTO_INCREMENT,
-  `dniAlumno` bigint(30) DEFAULT NULL,
-  `nroCuota` varchar(45) DEFAULT NULL,
+  `dniAlumno` bigint(30) NOT NULL,
+  `nroCuota` varchar(45) NOT NULL,
+  `fechVenc1` varchar(45) NOT NULL,
+  `fechVenc2` varchar(45) NOT NULL,
+  `anio` varchar(45) NOT NULL,
   `mes` varchar(45) DEFAULT NULL,
-  `vencimiento` varchar(45) DEFAULT NULL,
-  `anio` varchar(45) DEFAULT NULL,
-  `importe` double DEFAULT NULL,
-  `saldo` double DEFAULT NULL,
+  `importeVenc1` double NOT NULL,
+  `importeVenc2` double NOT NULL,
+  `saldo` double NOT NULL,
   PRIMARY KEY (`idCuota`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -470,7 +476,7 @@ CREATE TABLE `DocenteCurso` (
   KEY `Materia_idx` (`idMateria`),
   CONSTRAINT `DNIDocente` FOREIGN KEY (`DNIDocente`) REFERENCES `Empleado` (`dni`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `Materia` FOREIGN KEY (`idMateria`) REFERENCES `Materia` (`idMateria`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -479,7 +485,7 @@ CREATE TABLE `DocenteCurso` (
 
 LOCK TABLES `DocenteCurso` WRITE;
 /*!40000 ALTER TABLE `DocenteCurso` DISABLE KEYS */;
-INSERT INTO `DocenteCurso` VALUES (1,'PRIMERO',43396665,1,'A');
+INSERT INTO `DocenteCurso` VALUES (1,'PRIMERO',43396665,1,'A'),(2,'PRIMERO',43396665,11,'A'),(3,'PRIMERO',43396665,11,'A'),(4,'PRIMERO',43396665,2,'A');
 /*!40000 ALTER TABLE `DocenteCurso` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -641,6 +647,112 @@ INSERT INTO `FormacionEmpleado` VALUES (1,'Título Terciario','sss','2019-09-02'
 UNLOCK TABLES;
 
 --
+-- Table structure for table `InscripcionAlumno`
+--
+
+DROP TABLE IF EXISTS `InscripcionAlumno`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `InscripcionAlumno` (
+  `idInscripcionAlumno` int(11) NOT NULL AUTO_INCREMENT,
+  `DNIAlumno` int(11) DEFAULT NULL,
+  `idPeriodo` int(11) DEFAULT NULL,
+  `curso` varchar(45) DEFAULT NULL,
+  `division` varchar(45) DEFAULT NULL,
+  `nivel` int(11) DEFAULT NULL,
+  `fechaInscripcion` date DEFAULT NULL,
+  PRIMARY KEY (`idInscripcionAlumno`),
+  KEY `DNIAlumno_idx` (`DNIAlumno`),
+  CONSTRAINT `dniAlumno` FOREIGN KEY (`DNIAlumno`) REFERENCES `Alumno` (`DNIAlumno`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `InscripcionAlumno`
+--
+
+LOCK TABLES `InscripcionAlumno` WRITE;
+/*!40000 ALTER TABLE `InscripcionAlumno` DISABLE KEYS */;
+INSERT INTO `InscripcionAlumno` VALUES (1,39364294,5,'PRIMERO','A',2,'2019-10-14');
+/*!40000 ALTER TABLE `InscripcionAlumno` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER InscripcionAlumno_BEFORE_INSERT BEFORE INSERT ON InscripcionAlumno FOR EACH ROW
+BEGIN
+	set new.fechaInscripcion = NOW();
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `SGIColegio`.`InscripcionAlumno_AFTER_DELETE` AFTER DELETE ON `InscripcionAlumno` FOR EACH ROW
+BEGIN
+INSERT INTO `SGIColegio`.`InscripcionAlumnoHistorico`
+    (`DNIAlumno`,`idPeriodo`,`curso`,`division`,`nivel`,`fechaInscripcion`,`fechaBaja`)
+VALUES
+(old.DNIAlumno,
+old.idPeriodo,
+old.curso,
+old.division,
+old.nivel,
+old.fechaInscripcion,
+NOW());
+
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+
+--
+-- Table structure for table `InscripcionAlumnoHistorico`
+--
+
+DROP TABLE IF EXISTS `InscripcionAlumnoHistorico`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `InscripcionAlumnoHistorico` (
+  `DNIAlumno` int(11) NOT NULL,
+  `idPeriodo` int(11) DEFAULT NULL,
+  `curso` varchar(45) DEFAULT NULL,
+  `division` varchar(45) DEFAULT NULL,
+  `nivel` int(11) DEFAULT NULL,
+  `fechaInscripcion` varchar(45) DEFAULT NULL,
+  `fechaBaja` date DEFAULT NULL,
+  PRIMARY KEY (`DNIAlumno`),
+  KEY `DNIAlumno_idx` (`DNIAlumno`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `InscripcionAlumnoHistorico`
+--
+
+LOCK TABLES `InscripcionAlumnoHistorico` WRITE;
+/*!40000 ALTER TABLE `InscripcionAlumnoHistorico` DISABLE KEYS */;
+/*!40000 ALTER TABLE `InscripcionAlumnoHistorico` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `Materia`
 --
 
@@ -771,7 +883,7 @@ CREATE TABLE `PeriodoLectivo` (
   CONSTRAINT `idCurso` FOREIGN KEY (`idCurso`) REFERENCES `Curso` (`idCurso`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `idNivel` FOREIGN KEY (`idNivel`) REFERENCES `Nivel` (`idNivel`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `idPlanEstudio` FOREIGN KEY (`idPlanEstudio`) REFERENCES `PlanEstudio` (`idPlanEstudio`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -780,7 +892,7 @@ CREATE TABLE `PeriodoLectivo` (
 
 LOCK TABLES `PeriodoLectivo` WRITE;
 /*!40000 ALTER TABLE `PeriodoLectivo` DISABLE KEYS */;
-INSERT INTO `PeriodoLectivo` VALUES (3,'2020',25,NULL,1),(4,'2021',25,NULL,1);
+INSERT INTO `PeriodoLectivo` VALUES (3,'2020',25,NULL,1),(4,'2021',25,NULL,1),(5,'2020',26,NULL,2);
 /*!40000 ALTER TABLE `PeriodoLectivo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -984,6 +1096,25 @@ LOCK TABLES `User` WRITE;
 UNLOCK TABLES;
 
 --
+-- Temporary table structure for view `vInscripcionAlumno`
+--
+
+DROP TABLE IF EXISTS `vInscripcionAlumno`;
+/*!50001 DROP VIEW IF EXISTS `vInscripcionAlumno`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `vInscripcionAlumno` AS SELECT 
+ 1 AS `idInscripcionAlumno`,
+ 1 AS `DNIAlumno`,
+ 1 AS `nombre`,
+ 1 AS `apellido`,
+ 1 AS `idPeriodo`,
+ 1 AS `curso`,
+ 1 AS `division`,
+ 1 AS `nivel`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Final view structure for view `PeriodoLectivoView`
 --
 
@@ -1054,6 +1185,24 @@ UNLOCK TABLES;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vInscripcionAlumno`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vInscripcionAlumno`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vInscripcionAlumno` AS select `IA`.`idInscripcionAlumno` AS `idInscripcionAlumno`,`A`.`DNIAlumno` AS `DNIAlumno`,`A`.`nombre` AS `nombre`,`A`.`apellido` AS `apellido`,`IA`.`idPeriodo` AS `idPeriodo`,`IA`.`curso` AS `curso`,`IA`.`division` AS `division`,`IA`.`nivel` AS `nivel` from (`Alumno` `A` join `InscripcionAlumno` `IA` on((`IA`.`DNIAlumno` = `A`.`DNIAlumno`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -1064,4 +1213,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-10-12 16:08:38
+-- Dump completed on 2019-10-15 20:45:19

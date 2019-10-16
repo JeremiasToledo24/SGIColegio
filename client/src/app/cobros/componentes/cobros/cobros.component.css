@@ -2,3 +2,27 @@
     background-color: #E8EAF6;
     margin: 1rem 4rem 1rem 4rem;
 }
+
+/* Estilos de tabla */
+
+table {
+    width: 100%;
+}
+
+th {
+    background-color: #3F51B5;
+    color: beige;
+    text-align: center;
+}
+
+td {
+    background-color: #C5CAE9;
+}
+
+mat-cell {
+    background-color: #C5CAE9;
+}
+
+.mat-column-concepto{
+    width: 25% !important;
+}
