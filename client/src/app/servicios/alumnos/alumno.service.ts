@@ -3,6 +3,7 @@ import { HttpErrorResponse, HttpClient } from '@angular/common/http';
 import { throwError, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material';
+import { Cobro, DetalleCobro } from 'src/app/cobros/componentes/cobros/cobros.component';
 
 @Injectable({
   providedIn: 'root'
@@ -20,11 +21,27 @@ export class AlumnoService {
 
   // Registrar alumno
   addAlumno(Alumno: any): Observable<any> {
-    return this.http.post('http://localhost:3000/api/Alumnos', Alumno).pipe(
-      catchError(this.handleError)
-    );
+    return this.http.post('http://localhost:3000/api/Alumnos', Alumno)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
+  /* nuevo cobro */
+  nuevoCobro(cobro: Cobro): Observable<any> {
+    return this.http.put(`http://localhost:3000/api/Cobros`, cobro)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  /* detalle cobro */
+  nuevoDetalle(detalle: DetalleCobro): Observable<any> {
+    return this.http.put(`http://localhost:3000/api/DetalleCobros`, detalle)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
   bajaAlumno(id): Observable<any> {
     return this.http.delete(`http://localhost:3000/api/InscripcionAlumnos/${id}`)
       .pipe(
@@ -84,11 +101,22 @@ export class AlumnoService {
     return this.http.get(`http://localhost:3000/api/AlumnoCursos?filter=%7B%22where%22%3A%7B%22DNIAlumno%22%3A${dni}%7D%7D`)
   }
 
+  getCursoDivision(dni): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/InscripcionAlumnos?filter[where][DNIAlumno]=${dni}`)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
   getAlumnosInscriptos(periodo, curso, division, nivel): Observable<any> {
     return this.http.get(`http://localhost:3000/api/vInscripcionAlumnos?filter[where][and][0][idPeriodo]=${periodo}&filter[where][and][1][curso]=${curso}&filter[where][and][2][division]=${division}&filter[where][and][3][nivel]=${nivel}`)
       .pipe(
         catchError(this.handleError)
       )
+  }
+
+  getCuotasAlumno(dni, idPeriodo): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/vCuotas?filter[where][and][0][idPeriodo]=${idPeriodo}&filter[where][and][1][dniAlumno]=${dni}`)
   }
 
   VerificarAlumnoInscripto(periodo, curso, division, nivel, apellido, nombre, dni): Observable<any> {

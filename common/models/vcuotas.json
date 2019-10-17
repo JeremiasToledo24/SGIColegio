@@ -1,29 +1,44 @@
 {
-  "name": "InscripcionAlumnoSecundaria",
+  "name": "vCuotas",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "idInscripcionAlumnoSecundaria": {
+    "idCuota": {
       "type": "number",
       "id": true
     },
-    "DNIAlumno": {
+    "dniAlumno": {
       "type": "number"
+    },
+    "nroCuota": {
+      "type": "number"
+    },
+    "mes": {
+      "type": "string"
+    },
+    "vencimiento1": {
+      "type": "string"
+    },
+    "vencimiento2": {
+      "type": "string"
     },
     "idPeriodo": {
       "type": "number"
     },
-    "curso": {
-      "type": "string"
-    },
-    "division": {
-      "type": "string"
-    },
-    "nivel": {
+    "importe": {
       "type": "number"
+    },
+    "saldo": {
+      "type": "number"
+    },
+    "idInscripcionAlumno": {
+      "type": "number"
+    },
+    "periodo": {
+      "type": "string"
     }
   },
   "validations": [],
