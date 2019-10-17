@@ -50,3 +50,8 @@ mat-card {
 .buscador-full-width {
   width: 100%;
 }
+
+.backgroundCard {
+  background-color: #E8EAF6;
+  margin: 1rem 4rem 1rem 4rem;
+}
