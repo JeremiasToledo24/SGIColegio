@@ -1,16 +1,15 @@
-<form [formGroup]="materia">
-
-    <label>
-        Codigo de la Materia
-        <input type="text" formControlName="codigoControl">
-    </label>
-
-    <label>
-        Nombre de la Materia
-        <input type="text" formControlName="materiaControl">
-    </label>
-
-</form>
-<div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">Agregar</button>
+<div>
+  <form [formGroup]="materia">
+    <mat-form-field appearance="outline">
+      <mat-label>Codigo de la materia</mat-label>
+      <input type="text" matInput formControlName="codigoControl">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre de la materia</mat-label>
+      <input type="text" matInput formControlName="materiaControl">
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions style="text-align: right;">
+  <button mat-raised-button (click)="onNoClick()" color="primary">Agregar</button>
 </div>
