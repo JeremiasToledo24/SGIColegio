@@ -51,6 +51,8 @@ import { ListaDocenteComponent } from './docentes/componentes/lista-docente/list
 import { CobrosModule } from './cobros/cobros.module';
 import { DialogInscribirComponent } from './alumnos/componentes/dialog-inscribir/dialog-inscribir.component';
 import { DialogoEliminarComponent } from './alumnos/componentes/dialogo-eliminar/dialogo-eliminar.component';
+import { DialogCobrosComponent } from './cobros/componentes/dialog-cobros/dialog-cobros.component';
+import { DialogConfigComponent } from './cobros/componentes/dialog-config/dialog-config.component';
 
 
 @NgModule({
@@ -110,7 +112,9 @@ import { DialogoEliminarComponent } from './alumnos/componentes/dialogo-eliminar
     VerPlanComponent,
     ListaDocenteComponent,
     DialogInscribirComponent,
-  DialogoEliminarComponent],
+    DialogoEliminarComponent,
+    DialogCobrosComponent,
+    DialogConfigComponent],
   exports: [ListaMateriasComponent],
 
 })

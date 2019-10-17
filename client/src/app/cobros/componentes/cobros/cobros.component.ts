@@ -1,8 +1,11 @@
+/* imports angular */
+
 import { Component, OnInit } from '@angular/core';
 import { AlumnoService } from 'src/app/servicios/alumnos/alumno.service';
 import { FormControl } from '@angular/forms';
 import { MatDialog, MatTableDataSource } from '@angular/material';
 import { Router } from '@angular/router';
+import { DialogCobrosComponent } from '../dialog-cobros/dialog-cobros.component';
 
 export class Cuota {
   dniAlumno: number;
@@ -38,18 +41,19 @@ export class DetalleCobro {
 })
 export class CobrosComponent implements OnInit {
 
-  dniControl = new FormControl('')
+  dniControl = new FormControl('');
   alumno = '';
   nombreAlumno = '';
   cursoAlumno = '';
-  divisionAlumno = ''
+  divisionAlumno = '';
   nivelAlumno = '';
-
+  idPeriodo = '';
   dataSource1;
   dataSource2;
   constructor(
     private alumnoService: AlumnoService,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -79,11 +83,12 @@ export class CobrosComponent implements OnInit {
                   this.cursoAlumno = res[0].curso;
                   this.divisionAlumno = res[0].division;
                   this.nivelAlumno = res[0].nivel;
-                  this.getCuotas(res[0].DNIAlumno, res[0].idPeriodo)
+                  this.idPeriodo = res[0].idPeriodo;
+                  this.getCuotas(res[0].DNIAlumno, res[0].idPeriodo);
                 }
-              )
+              );
           }
-        )
+        );
     }
   }
 
@@ -92,14 +97,27 @@ export class CobrosComponent implements OnInit {
       .subscribe(
         res => {
           console.log('res :', res);
-          this.dataSource1 = new MatTableDataSource<Cuota>(res)
+          this.dataSource1 = new MatTableDataSource<Cuota>(res);
         }
-      )
+      );
+  }
+
+  openDialogPagar(boleta) {
+    const dialogRef = this.dialog.open(DialogCobrosComponent, {
+      data: ''
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('result :', result);
+      if (result === 'S') {
+        this.pagarCuota(boleta)
+      }
+    });
   }
 
   pagarCuota(boleta) {
-    var f = new Date();
-    const fecha = (f.getFullYear() + "-" + (f.getMonth() + 1) + "-" + f.getDate());
+    const f = new Date();
+    const fecha = (f.getFullYear() + '-' + (f.getMonth() + 1) + '-' + f.getDate());
     const cobro = new Cobro();
     cobro.fecha = fecha;
     cobro.dniAlumno = this.dniControl.value;
@@ -114,17 +132,22 @@ export class CobrosComponent implements OnInit {
           detalleCobro.nroCuota = boleta.nroCuota;
           detalleCobro.importe = boleta.importe;
           detalleCobro.idCuota = boleta.idCuota;
-
           this.alumnoService.nuevoDetalle(detalleCobro)
-          .subscribe(
-            res =>{
-              console.log('res :', res);
-            }
-          )
+            .subscribe(
+              res => {
+                this.alumnoService.getCuotasAlumno(this.dniControl.value, this.idPeriodo)
+                  .subscribe(
+                    res => {
+                      this.dataSource1 = new MatTableDataSource<Cuota>(res);
+                    }
+                  )
+              }
+            );
 
         }
-      )
+      );
   }
+
 }
 
 
