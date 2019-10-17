@@ -32,3 +32,7 @@ mat-card {
   background-color: #E8EAF6;
   margin: 1rem;
 }
+.backgroundCard {
+  background-color: #E8EAF6;
+  margin: 1rem 4rem 1rem 4rem;
+}

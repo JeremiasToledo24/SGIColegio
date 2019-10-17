@@ -1,194 +1,189 @@
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>Asignar Docentes de Primaria</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <div class="col">
-            <mat-form-field>
-                <label>Seleccione un ciclo Lectivo</label>
-                <mat-select [formControl]="cicloControl">
-                    <mat-option (click)="traerPlan()" *ngFor="let ciclo of ciclos" [value]="ciclo.idPlanEstudio">
-                        {{ciclo.periodo}} {{ciclo.nombrePlan}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
+<mat-card class="backgroundCard">
+  <mat-card-header>
+    <mat-card-title>Asignar Docentes de Primaria</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <label style="margin-left: 20px">Seleccione un ciclo Lectivo</label>
+    <mat-form-field style="margin-left: 20px">
+      <mat-select [formControl]="cicloControl">
+        <mat-option (click)="traerPlan()" *ngFor="let ciclo of ciclos" [value]="ciclo.idPlanEstudio">
+          {{ciclo.periodo}} {{ciclo.nombrePlan}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <!-- Nivel -->
+    <div class="row">
+      <label style="margin-left: 35px">Seleccione el la Division</label>
+      <mat-radio-group style="margin-left: 40px" [formControl]="divisionControl" aria-label="Seleccione una Opción">
+        <mat-radio-button value="A">Division A</mat-radio-button>
+        <mat-radio-button style="margin-left: 20px" value="B">Division B</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header (click)="obtenerDocente(1,'PRIMERO')">
+          Primero
+        </mat-expansion-panel-header>
+        <mat-list role="list">
+          <label style="margin:10px">
+            <b>Materia </b>
+          </label>
+          <div class="row" style="background-color: rgb(227,231,255)">
+            <mat-list-item *ngFor="let materia of listaPrimero" role="listitem">
+              <div class="col">
+                {{materia.nombreMateria}}
+              </div>
+              <div class="col">
+                <button (click)="validaDivision(materia,'PRIMERO')" mat-raised-button color="primary">Ver Docente
+                  Asignado
+                </button>
+              </div>
+            </mat-list-item>
+          </div>
+        </mat-list>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header (click)="obtenerDocente(2,'SEGUNDO')">
+          Segundo
+        </mat-expansion-panel-header>
+        <mat-list role="list">
+          <mat-label> <b>Materia</b></mat-label>
+          <div class="row" style="background-color: rgb(227,231,255)">
+            <mat-list-item *ngFor="let materia of listaSegundo" role="listitem">
+              <div class="col">
+                {{materia.nombreMateria}}
+              </div>
+              <div class="col">
+                <button (click)="validaDivision(materia,'SEGUNDO')" mat-raised-button color="primary">Ver docente
+                  asignado</button>
+              </div>
+            </mat-list-item>
+          </div>
+        </mat-list>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header (click)="obtenerDocente(3,'TERCERO')">
+          Tercero
+        </mat-expansion-panel-header>
+        <mat-list role="list">
+          <label style="margin:10px">
+            <b>Materia </b>
+          </label>
+          <div class="row" style="background-color: rgb(227,231,255)">
+            <mat-list-item *ngFor="let materia of listaTercero" role="listitem">
+              <div class="col">
+                {{materia.nombreMateria}}
+              </div>
+              <div class="col">
+                <button (click)="validaDivision(materia,'TERCERO')" mat-raised-button color="primary">
+                  Ver docente asignado
+                </button>
+              </div>
+            </mat-list-item>
+          </div>
+        </mat-list>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header (click)="obtenerDocente(4,'CUARTO')">
+          Cuarto
+        </mat-expansion-panel-header>
+        <mat-list role="list">
+          <label style="margin:10px">
+            <b>Materia </b>
+          </label>
+          <div class="row" style="background-color: rgb(227,231,255)">
+            <mat-list-item *ngFor="let materia of listaCuarto" role="listitem">
+              <div class="col">
+                {{materia.nombreMateria}}
+              </div>
+              <div class="col">
+                <button (click)="validaDivision(materia,'CUARTO')" mat-raised-button color="primary">
+                  Ver docente asignado
+                </button>
+              </div>
+            </mat-list-item>
+          </div>
+        </mat-list>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header (click)="obtenerDocente(5, 'QUINTO')">
+          Quinto
+        </mat-expansion-panel-header>
+        <mat-list role="list">
+          <label style="margin:10px">
+            <b>Materia </b>
+          </label>
+          <div class="row" style="background-color: rgb(227,231,255)">
+            <mat-list-item *ngFor="let materia of listaQuinto" role="listitem">
+              <div class="col">
+                {{materia.nombreMateria}}
+              </div>
+              <div class="col">
+                <button (click)="validaDivision(materia,'QUINTO')" mat-raised-button color="primary">
+                  Ver docente asignado
+                </button>
+              </div>
+            </mat-list-item>
+          </div>
+        </mat-list>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header (click)="obtenerDocente(6,'SEXTO')">
+          Sexto
+        </mat-expansion-panel-header>
+        <mat-list role="list">
+          <label style="margin:10px">
+            <b>Materia </b>
+          </label>
+          <div class="row" style="background-color: rgb(227,231,255)">
+            <mat-list-item *ngFor="let materia of listaSexto" role="listitem">
+              <div class="col">
+                {{materia.nombreMateria}}
+              </div>
+              <div class="col">
+                <button (click)="validaDivision(materia,'SEXTO')" mat-raised-button color="primary">
+                  Ver docente asignado
+                </button>
+              </div>
+            </mat-list-item>
+          </div>
+        </mat-list>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header (click)="obtenerDocente(7,'SEPTIMO')">
+          Séptimo
+        </mat-expansion-panel-header>
+        <mat-list role="list">
+          <label style="margin:10px">
+            <b>Materia </b>
+          </label>
+          <div class="row" style="background-color: rgb(227,231,255)">
+            <mat-list-item *ngFor="let materia of listaSeptimo" role="listitem">
+              <div class="col">
+                {{materia.nombreMateria}}
+              </div>
+              <div class="col">
+                <button (click)="validaDivision(materia,'SEPTIMO')" mat-raised-button color="primary">Ver docente
+                  asignado
+                </button>
+              </div>
+            </mat-list-item>
+          </div>
+        </mat-list>
+      </mat-expansion-panel>
 
-            <!-- Nivel -->
-            <div class="row">
-                <label>
-                    Seleccione el la Division
-                </label>
-                <mat-radio-group [formControl]="divisionControl" style="margin-left: 3rem"
-                    aria-label="Seleccione una Opción">
-                    <mat-radio-button value="A">Division A</mat-radio-button>
-                    <mat-radio-button value="B">Division B</mat-radio-button>
-                </mat-radio-group>
-            </div>
-            <mat-accordion>
-
-                <mat-expansion-panel>
-                    <mat-expansion-panel-header (click)="obtenerDocente(1,'PRIMERO')">
-                        Primero
-                    </mat-expansion-panel-header>
-                    <mat-list role="list">
-                        <mat-label>Materia:</mat-label>
-                        <div class="row">
-                            <mat-list-item *ngFor="let materia of listaPrimero" role="listitem">
-                                <div class="col">
-                                    {{materia.nombreMateria}}
-                                </div>
-                                <div class="col">
-                                    <button (click)="validaDivision(materia,'PRIMERO')" mat-button>Ver Docente
-                                        Asignado</button>
-                                </div>
-                            </mat-list-item>
-                        </div>
-                    </mat-list>
-                </mat-expansion-panel>
-                <mat-expansion-panel>
-                    <mat-expansion-panel-header>
-                        Segundo
-                    </mat-expansion-panel-header>
-
-                    <div class="row">
-                        <mat-list role="list" style="text-align: left">
-                            <mat-label>Materia:</mat-label>
-                            <mat-list-item *ngFor="let materia of listaSegundo" role="listitem">
-                                <div class="col">
-                                    {{materia.nombreMateria}}
-                                </div>
-                                <div class="col">
-                                    <button style="text-align: left" (click)="addMateria(materia,'primero')"
-                                        mat-icon-button>
-                                        <mat-icon>add</mat-icon>ASIGNAR DOCENTE
-                                    </button>
-                                </div>
-                            </mat-list-item>
-                        </mat-list>
-                    </div>
-                </mat-expansion-panel>
-
-                <mat-expansion-panel>
-                    <mat-expansion-panel-header>
-                        Tercero
-                    </mat-expansion-panel-header>
-                    <div class="row">
-                        <mat-list role="list" style="text-align: left">
-                            <mat-label>Materia:</mat-label>
-                            <mat-list-item *ngFor="let materia of listaTercero" role="listitem">
-                                <div class="col">
-                                    {{materia.nombreMateria}}
-                                </div>
-                                <div class="col">
-                                    <button style="text-align: left" (click)="addMateria(materia,'primero')"
-                                        mat-icon-button>
-                                        <mat-icon>add</mat-icon>ASIGNAR DOCENTE
-                                    </button>
-                                </div>
-                            </mat-list-item>
-                        </mat-list>
-                    </div>
-                </mat-expansion-panel>
-                <mat-expansion-panel>
-                    <mat-expansion-panel-header>
-                        Cuarto
-                    </mat-expansion-panel-header>
-                    <div class="row">
-                        <mat-list role="list" style="text-align: left">
-                            <mat-label>Materia:</mat-label>
-                            <mat-list-item *ngFor="let materia of listaCuarto" role="listitem">
-                                <div class="col">
-                                    {{materia.nombreMateria}}
-                                </div>
-                                <div class="col">
-                                    <button style="text-align: left" (click)="addMateria(materia,'primero')"
-                                        mat-icon-button>
-                                        <mat-icon>add</mat-icon>ASIGNAR DOCENTE
-                                    </button>
-                                </div>
-                            </mat-list-item>
-                        </mat-list>
-                    </div>
-                </mat-expansion-panel>
-                <mat-expansion-panel>
-                    <mat-expansion-panel-header>
-                        Quinto
-                    </mat-expansion-panel-header>
-                    <div class="row">
-                        <mat-list role="list" style="text-align: left">
-                            <mat-label>Materia:</mat-label>
-                            <mat-list-item *ngFor="let materia of listaQuinto" role="listitem">
-                                <div class="col">
-                                    {{materia.nombreMateria}}
-                                </div>
-                                <div class="col">
-                                    <button style="text-align: left" (click)="addMateria(materia,'primero')"
-                                        mat-icon-button>
-                                        <mat-icon>add</mat-icon>ASIGNAR DOCENTE
-                                    </button>
-                                </div>
-                            </mat-list-item>
-                        </mat-list>
-                    </div>
-                </mat-expansion-panel>
-
-                <mat-expansion-panel>
-                    <mat-expansion-panel-header>
-                        Sexto
-                    </mat-expansion-panel-header>
-                    <div class="row">
-                        <mat-list role="list" style="text-align: left">
-                            <mat-label>Materia:</mat-label>
-                            <mat-list-item *ngFor="let materia of listaSexto" role="listitem">
-                                <div class="col">
-                                    {{materia.nombreMateria}}
-                                </div>
-                                <div class="col">
-                                    <button style="text-align: left" (click)="addMateria(materia,'primero')"
-                                        mat-icon-button>
-                                        <mat-icon>add</mat-icon>ASIGNAR DOCENTE
-                                    </button>
-                                </div>
-                            </mat-list-item>
-                        </mat-list>
-                    </div>
-                </mat-expansion-panel>
-                <mat-expansion-panel>
-                    <mat-expansion-panel-header>
-                        Séptimo
-                    </mat-expansion-panel-header>
-                    <div class="row">
-                        <mat-list role="list" style="text-align: left">
-                            <mat-label>Materia:</mat-label>
-                            <mat-list-item *ngFor="let materia of listaSeptimo" role="listitem">
-                                <div class="col">
-                                    {{materia.nombreMateria}}
-                                </div>
-                                <div class="col">
-                                    <button style="text-align: left" (click)="addMateria(materia,'primero')"
-                                        mat-icon-button>
-                                        <mat-icon>add</mat-icon>ASIGNAR DOCENTE
-                                    </button>
-                                </div>
-                            </mat-list-item>
-                        </mat-list>
-                    </div>
-                </mat-expansion-panel>
-                <div class="row justify-content-md-center">
-                    <!-- Botones del formulario -->
+      <!--  <div class="row justify-content-md-center">
+                     Botones del formulario 
                     <div class="d-flex justify-content-center">
-                        <!-- Cancel -->
+                         Cancel
                         <button type="reset" mat-raised-button color="warn">Cancelar</button>
 
-                        <!-- Submit -->
+                         Submit 
                         <button type="button" mat-raised-button color="primary" (click)="formValid('primaria')">
                             Crear Plan de Estudio
                         </button>
                     </div>
-                </div>
-            </mat-accordion>
-        </div>
-        <div class="col">
-        </div>
-    </mat-card-content>
+                </div> -->
+    </mat-accordion>
+  </mat-card-content>
 </mat-card>
