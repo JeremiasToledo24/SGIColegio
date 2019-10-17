@@ -32,6 +32,7 @@ export class PlanEstudioService {
       )
   }
 
+
   getPlanesViews(): Observable<any> {
     return this.http.get(`http://localhost:3000/api/PlanEstudioViews`)
       .pipe(

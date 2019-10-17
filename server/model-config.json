@@ -146,9 +146,24 @@
   "InscripcionAlumnoSecundaria": {
     "dataSource": "db",
     "public": true
-  }
-  ,
+  },
   "vInscripcionAlumnoSecundaria": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Cuota": {
+    "dataSource": "db",
+    "public": true
+  },
+  "vCuotas": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Cobro": {
+    "dataSource": "db",
+    "public": true
+  },
+  "DetalleCobro": {
     "dataSource": "db",
     "public": true
   }

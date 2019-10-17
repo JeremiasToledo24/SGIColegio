@@ -1,28 +1,25 @@
 {
-  "name": "InscripcionAlumnoSecundaria",
+  "name": "DetalleCobro",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "idInscripcionAlumnoSecundaria": {
+    "idDetalleCobro": {
       "type": "number",
       "id": true
     },
-    "DNIAlumno": {
+    "nroCuota": {
       "type": "number"
     },
-    "idPeriodo": {
+    "importe": {
       "type": "number"
     },
-    "curso": {
-      "type": "string"
+    "idCobro": {
+      "type": "number"
     },
-    "division": {
-      "type": "string"
-    },
-    "nivel": {
+    "idCuota": {
       "type": "number"
     }
   },

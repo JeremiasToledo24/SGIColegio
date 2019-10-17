@@ -1,28 +1,22 @@
 {
-  "name": "InscripcionAlumnoSecundaria",
+  "name": "Cobro",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "idInscripcionAlumnoSecundaria": {
+    "idCobro": {
       "type": "number",
       "id": true
     },
-    "DNIAlumno": {
-      "type": "number"
-    },
-    "idPeriodo": {
-      "type": "number"
-    },
-    "curso": {
+    "fecha": {
       "type": "string"
     },
-    "division": {
-      "type": "string"
+    "dniAlumno": {
+      "type": "number"
     },
-    "nivel": {
+    "idFormapago": {
       "type": "number"
     }
   },
