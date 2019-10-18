@@ -1,0 +1,7 @@
+gastos y pago de facutras
+  -registrar factura pagada
+  -facturas de proveedores por pagar
+  
+ -ingresos
+  -mostrar cuotas pagadas en un rango de fechas
+  -mostrar cuanto tengo por cobrar en un rango de fechas
