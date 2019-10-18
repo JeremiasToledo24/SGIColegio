@@ -19,13 +19,16 @@ export class FacturaComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.data)
     const f = new Date();
     this.fecha = (f.getDate() + '-' + (f.getMonth() + 1) + '-' + f.getFullYear());
-    console.log('this.data :', this.data);
+    
+  }
+
+  generaBoleta() {
     const doc = new jsdPDF();
     doc.fromHTML(document.getElementById('factura'), 10, 10);
     doc.save('factura');
-    this.onNoClick();
   }
 
 }

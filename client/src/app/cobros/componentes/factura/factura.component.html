@@ -38,23 +38,25 @@
                     <th scope="col">Nro de Factura</th>
                     <th scope="col">Concepto</th>
                     <th scope="col">Precio Unitario</th>
-                    <th scope="col">Subtotal</th>
+                    <th scope="col">Total</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <th>{{this.data.boleta.idCuota}}</th>
                     <td>{{this.data.boleta.mes}}</td>
-                    <td>{{this.data.boleta.importe}}</td>
-                    <td>{{this.data.boleta.importe}}</td>
+                    <td>{{this.data.boleta.importeVencimiento1}}</td>
+                    <td>{{this.data.boleta.importeVencimiento1}}</td>
                 </tr>
             </tbody>
-            <tfoot>
+            <!-- <tfoot>
                 <tr>
                     <th>Total</th>
-                    <td colspan="3">{{this.data.importe}}</td>
+                    <td>{{this.data.boleta.importeVencimiento1}}</td>
                 </tr>
-            </tfoot>
+            </tfoot> -->
         </table>
     </div>
+</div>
+<div> <button mat-button (click)="generaBoleta()">Generar Factura</button>
 </div>
