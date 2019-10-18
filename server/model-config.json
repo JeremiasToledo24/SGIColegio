@@ -166,5 +166,9 @@
   "DetalleCobro": {
     "dataSource": "db",
     "public": true
+  },
+  "Arancel": {
+    "dataSource": "db",
+    "public": true
   }
 }

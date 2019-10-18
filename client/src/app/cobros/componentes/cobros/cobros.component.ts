@@ -3,9 +3,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AlumnoService } from 'src/app/servicios/alumnos/alumno.service';
 import { FormControl } from '@angular/forms';
-import { MatDialog, MatTableDataSource } from '@angular/material';
+import { MatDialog, MatTableDataSource, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Router } from '@angular/router';
 import { DialogCobrosComponent } from '../dialog-cobros/dialog-cobros.component';
+import { FacturaComponent } from '../factura/factura.component';
+import { FacturaPDFComponent } from '../factura-pdf/factura-pdf.component';
 
 export class Cuota {
   dniAlumno: number;
@@ -87,6 +89,9 @@ export class CobrosComponent implements OnInit {
                   this.getCuotas(res[0].DNIAlumno, res[0].idPeriodo);
                 }
               );
+          },
+          error =>{
+            this.alumnoService.openSnackBar('Alumno no encontrado', 'ok')
           }
         );
     }
@@ -100,6 +105,16 @@ export class CobrosComponent implements OnInit {
           this.dataSource1 = new MatTableDataSource<Cuota>(res);
         }
       );
+  }
+
+  generarBoleta(boleta){
+    const dialogRef = this.dialog.open(FacturaComponent,{
+      data: {boleta: boleta, nombreAlumno: this.nombreAlumno} 
+    })
+
+    dialogRef.afterClosed().subscribe( result => {
+      console.log('result :', result);
+    })
   }
 
   openDialogPagar(boleta) {

@@ -28,7 +28,10 @@
     "idPeriodo": {
       "type": "number"
     },
-    "importe": {
+    "importeVencimiento1": {
+      "type": "number"
+    },
+    "importeVencimiento2": {
       "type": "number"
     },
     "saldo": {

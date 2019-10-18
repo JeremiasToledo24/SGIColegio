@@ -6,20 +6,20 @@
     <!-- 1er vencimiento -->
     <mat-form-field appearance="outline" hideRequiredMarker>
       <mat-label>1er vencimiento</mat-label>
-      <input matInput>
+      <input matInput [formControl]="vencimiento1">
     </mat-form-field>
 
     <!-- 2do vencimiento -->
     <mat-form-field appearance="outline" hideRequiredMarker>
       <mat-label>2do vencimiento</mat-label>
-      <input matInput>
+      <input matInput [formControl]="vencimiento2">
     </mat-form-field>
 
     <div style="text-align:center">
       <!-- Cancel -->
       <button type="reset" mat-raised-button color="warn" (click)="close()">Cancelar</button>
       <!-- Submit -->
-      <button type="submit" mat-raised-button color="primary">Confirmar</button>
+      <button type="submit" mat-raised-button color="primary" (click)="actualizarArancel()">Confirmar</button>
     </div>
   </form>
 </mat-dialog-content>

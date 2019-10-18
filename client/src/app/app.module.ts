@@ -53,6 +53,8 @@ import { DialogInscribirComponent } from './alumnos/componentes/dialog-inscribir
 import { DialogoEliminarComponent } from './alumnos/componentes/dialogo-eliminar/dialogo-eliminar.component';
 import { DialogCobrosComponent } from './cobros/componentes/dialog-cobros/dialog-cobros.component';
 import { DialogConfigComponent } from './cobros/componentes/dialog-config/dialog-config.component';
+import { FacturaComponent } from './cobros/componentes/factura/factura.component';
+import { FacturaPDFComponent } from './cobros/componentes/factura-pdf/factura-pdf.component';
 
 
 @NgModule({
@@ -90,11 +92,9 @@ import { DialogConfigComponent } from './cobros/componentes/dialog-config/dialog
     LayoutModule,
     MaterialModule,
     EmpleadosModule,
-
     AlumnosModule,
     LectivosModule,
     CobrosModule
-
   ],
   providers: [MateriaService, CursoService, NivelService],
   bootstrap: [AppComponent],
@@ -114,7 +114,9 @@ import { DialogConfigComponent } from './cobros/componentes/dialog-config/dialog
     DialogInscribirComponent,
     DialogoEliminarComponent,
     DialogCobrosComponent,
-    DialogConfigComponent],
+    DialogConfigComponent,
+    FacturaComponent,
+    FacturaPDFComponent],
   exports: [ListaMateriasComponent],
 
 })

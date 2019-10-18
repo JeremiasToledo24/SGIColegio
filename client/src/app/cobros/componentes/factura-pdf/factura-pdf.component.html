@@ -1,0 +1,57 @@
+<div class="container" id="factura">
+    <div class="row border">
+        <h1>ORIGINAL</h1>
+    </div>
+    <div class="row border">
+        <div class="col border">
+            <h1>INSTITUTO MODELO</h1>
+            <h3>Instituo de Educacion Primaria y Secundaria</h3>
+        </div>
+        <div class="col border">
+            <h1>FACTURA</h1>
+            <label for="">Comprobande Nro {{nroComprobante}}</label>
+            <br>
+            <label for="">Fecha de Emision: {{fehcaHoy}}</label>
+        </div>
+    </div>
+    <div class="row border">
+        <label for="">Periodo Facturado: {{fechaFactura}}</label>
+    </div>
+    <div class="row border">
+        <div class="col border">
+            <label for="">Consumidor: Final</label>
+            <br>
+            <label for="">Condicion de Venta: Contado</label>
+        </div>
+        <div class="col border">
+            <label for="">Nombre y Apellido: {{nombre}}{{apellido}}</label>
+        </div>
+
+    </div>
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Nro de Factura</th>
+                    <th scope="col">Concepto</th>
+                    <th scope="col">Precio Unitario</th>
+                    <th scope="col">Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>{{idBoleta}}</th>
+                    <td>{{mes}}</td>
+                    <td>{{importe}}</td>
+                    <td>{{importe}}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Total</th>
+                    <td colspan="3">{{importe}}</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
