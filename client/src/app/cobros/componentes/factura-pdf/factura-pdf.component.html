@@ -1,57 +1,105 @@
-<div class="container" id="factura">
-    <div class="row border">
-        <h1>ORIGINAL</h1>
-    </div>
-    <div class="row border">
-        <div class="col border">
-            <h1>INSTITUTO MODELO</h1>
-            <h3>Instituo de Educacion Primaria y Secundaria</h3>
-        </div>
-        <div class="col border">
-            <h1>FACTURA</h1>
-            <label for="">Comprobande Nro {{nroComprobante}}</label>
+<!-- Factura -->
+<div class="hoja" id="facturaPrint">
+    <div class="factura">
+  
+      <!-- Original / Copia -->
+      <div class="original"><b>ORIGINAL</b></div>
+  
+      <!-- Encabezado de factura -->
+      <div class="container">
+  
+        <!-- Datos del colegio -->
+        <div class="datosColegioContainer">
+          <h2 style="text-align: center;">INSTITUTO MODELO S.R.L</h2>
+          <div class="datosColegio">
+            <b>Razón social:</b> Instituto Modelo S.R.L.
             <br>
-            <label for="">Fecha de Emision: {{fehcaHoy}}</label>
-        </div>
-    </div>
-    <div class="row border">
-        <label for="">Periodo Facturado: {{fechaFactura}}</label>
-    </div>
-    <div class="row border">
-        <div class="col border">
-            <label for="">Consumidor: Final</label>
+            <b>Domicilio comercial:</b> Radio Sgo. del Estero 563 - Salta, Salta.
             <br>
-            <label for="">Condicion de Venta: Contado</label>
+            <b>Condición frente al IVA: Excento</b>
+          </div>
         </div>
-        <div class="col border">
-            <label for="">Nombre y Apellido: {{nombre}}{{apellido}}</label>
+  
+        <!-- Datos de la factura -->
+        <div class="datosFacturaContainer">
+          <h2 style="text-align: center;">FACTURA</h2>
+          <div class="datosFactura">
+            <b>Comp. Nro: </b>{{this.data.boleta.idCuota}}
+            <br>
+            <b>Fecha de emisión: </b> {{this.data.fechaEmision}}
+            <br>
+            <br>
+            <b>CUIT:</b> 30640382542
+            <br>
+            <b>Ingresos Bruros:</b> 30640382542
+            <br>
+            <b>Fecha de inicio de actividades:</b> 01/03/1990
+          </div>
         </div>
-
+      </div>
+  
+      <!-- Datos del alumno-->
+      <div>
+        <div id="datosAlumnoContainer">
+          <b>Apellido y nombre:</b> {{this.data.nombreAlumno}}
+          <br>
+          <b>DNI:</b> {{this.data.boleta.dniAlumno}}
+          <br>
+          <b>Domicilio:</b> {{this.data.domicilioAlumno}}
+        </div>
+        <div id="condicionContainer">
+          <b>Condición frente al IVA:</b> Consumidor final
+          <br>
+          <b>Condición de venta:</b> Contado
+        </div>
+      </div>
+  
+      <br class="clearBoth" />
+  
+      <!-- Cuerpo de factura -->
+      <div class="cuerpoFactura">
+        <div class="detalleFactura">
+          <table>
+  
+            <!-- Encabezado de tabla-->
+            <tr>
+              <th style="background-color: rgb(160, 160, 160); width: 15%;">N° Factura</th>
+              <th style="background-color: rgb(160, 160, 160);">Concepto</th>
+              <th style="background-color: rgb(160, 160, 160);">Precio Unitario</th>
+              <th style="background-color: rgb(160, 160, 160);">Subtotal</th>
+            </tr>
+  
+            <!-- Conceptos del detalle-->
+            <tr>
+              <td>{{this.data.boleta.idCuota}}</td>
+              <td>Cuota {{this.data.boleta.mes}}</td>
+              <td>${{this.data.boleta.importeVencimiento1}}</td>
+              <td>${{this.data.boleta.importeVencimiento1}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <!-- Pie de factura -->
+      <div class="pieFactura">
+        <div class="total">
+          <div class="detalleTotal">
+            <table>
+              <tr>
+                <th class="th2">Subtotal:</th>
+                <th class="th2">${{this.data.boleta.importeVencimiento1}}
+                </th>
+              </tr>
+              <tr>
+                <td class="td2"><b>Importe otros tributos:</b></td>
+                <td class="td2"><b>$0</b></td>
+              </tr>
+              <tr>
+                <td class="td2"><b>Importe total:</b></td>
+                <td class="td2"><b>${{this.data.boleta.importeVencimiento1}}</b></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="row">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Nro de Factura</th>
-                    <th scope="col">Concepto</th>
-                    <th scope="col">Precio Unitario</th>
-                    <th scope="col">Subtotal</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th>{{idBoleta}}</th>
-                    <td>{{mes}}</td>
-                    <td>{{importe}}</td>
-                    <td>{{importe}}</td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <th>Total</th>
-                    <td colspan="3">{{importe}}</td>
-                </tr>
-            </tfoot>
-        </table>
-    </div>
-</div>
+  </div>

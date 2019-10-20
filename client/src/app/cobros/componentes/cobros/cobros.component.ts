@@ -46,6 +46,7 @@ export class CobrosComponent implements OnInit {
   dniControl = new FormControl('');
   alumno = '';
   nombreAlumno = '';
+  domicilioAlumno = '';
   cursoAlumno = '';
   divisionAlumno = '';
   nivelAlumno = '';
@@ -75,6 +76,8 @@ export class CobrosComponent implements OnInit {
             // Solo nombre
             this.nombreAlumno = res.apellido + ', ' + res.nombre;
 
+            // Direccion
+            this.domicilioAlumno = res.domicilio;
             // Resto de datos
             this.alumno = res;
 
@@ -90,7 +93,7 @@ export class CobrosComponent implements OnInit {
                 }
               );
           },
-          error =>{
+          error => {
             this.alumnoService.openSnackBar('Alumno no encontrado', 'ok')
           }
         );
@@ -107,12 +110,17 @@ export class CobrosComponent implements OnInit {
       );
   }
 
-  generarBoleta(boleta){
-    const dialogRef = this.dialog.open(FacturaComponent,{
-      data: {boleta: boleta, nombreAlumno: this.nombreAlumno} 
+  generarBoleta(boleta) {
+    const dialogRef = this.dialog.open(FacturaComponent, {
+      data: {
+        boleta: boleta,
+        nombreAlumno: this.nombreAlumno,
+        domicilioAlumno: this.domicilioAlumno,
+        fechaEmision: this.fechaEmision()
+      },
     })
 
-    dialogRef.afterClosed().subscribe( result => {
+    dialogRef.afterClosed().subscribe(result => {
       console.log('result :', result);
     })
   }
@@ -163,6 +171,15 @@ export class CobrosComponent implements OnInit {
       );
   }
 
+  // Obtener fecha de emision
+  fechaEmision() {
+    const today = new Date();
+    const dd = String(today.getDate()).padStart(2, '0');
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const yyyy = today.getFullYear();
+    const fechaHoy = dd + '/' + mm + '/' + yyyy;
+    return fechaHoy;
+  }
 }
 
 

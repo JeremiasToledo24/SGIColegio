@@ -18,4 +18,10 @@ export class FacturaPDFComponent implements OnInit {
     this.dialogRef.close();
   }
 
+  // Cerrar dialog
+  close() {
+    this.dialogRef.close();
+  }
+
+
 }
