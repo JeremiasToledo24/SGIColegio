@@ -12,7 +12,8 @@ export class FacturaComponent implements OnInit {
   nombreAlumno
 
   constructor(public dialogRef: MatDialogRef<FacturaComponent>,
-    @Inject(MAT_DIALOG_DATA) public data) { }
+    @Inject(MAT_DIALOG_DATA) public data
+    ) { }
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -27,8 +28,12 @@ export class FacturaComponent implements OnInit {
 
   generaBoleta() {
     const doc = new jsdPDF();
-    doc.fromHTML(document.getElementById('factura'), 10, 10);
-    doc.save('factura');
+    doc.fromHTML(document.getElementById('facturaPrint'),10,10);
+    doc.save('facturaPrint');
   }
 
+  // Cerrar dialog
+  close() {
+    this.dialogRef.close();
+  }
 }
