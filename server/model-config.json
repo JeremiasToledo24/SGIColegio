@@ -170,5 +170,9 @@
   "Arancel": {
     "dataSource": "db",
     "public": true
+  },
+  "vIngresosCuotas": {
+    "dataSource": "db",
+    "public": true
   }
 }

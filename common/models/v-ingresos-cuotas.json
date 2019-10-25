@@ -1,26 +1,26 @@
 {
-  "name": "Arancel",
+  "name": "vIngresosCuotas",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "idArancel": {
+    "importe": {
+      "type": "number"
+    },
+    "dniAlumno": {
+      "type": "string"
+    },
+    "mes": {
+      "type": "string"
+    },
+    "fecha": {
+      "type": "string"
+    },
+    "idCuota": {
       "type": "number",
       "id": true
-    },
-    "importeVencimiento1": {
-      "type": "number"
-    },
-    "importeVencimiento2": {
-      "type": "number"
-    },
-    "nivel": {
-      "type": "number"
-    },
-    "concepto": {
-      "type": "string"
     }
   },
   "validations": [],

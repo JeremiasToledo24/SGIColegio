@@ -149,12 +149,14 @@ export class CobrosComponent implements OnInit {
     this.alumnoService.nuevoCobro(cobro)
       .subscribe(
         res => {
+          console.log(boleta)
           const idCobro = res.idCobro;
           const detalleCobro = new DetalleCobro();
           detalleCobro.idCobro = idCobro;
           detalleCobro.nroCuota = boleta.nroCuota;
-          detalleCobro.importe = boleta.importe;
+          detalleCobro.importe = boleta.importeVencimiento1;
           detalleCobro.idCuota = boleta.idCuota;
+          console.log(detalleCobro)
           this.alumnoService.nuevoDetalle(detalleCobro)
             .subscribe(
               res => {

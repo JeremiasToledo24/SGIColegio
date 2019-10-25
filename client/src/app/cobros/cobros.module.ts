@@ -7,9 +7,10 @@ import { ConfigFacturaComponent } from './componentes/config-factura/config-fact
 import { DialogCobrosComponent } from './componentes/dialog-cobros/dialog-cobros.component';
 import { FacturaComponent } from './componentes/factura/factura.component';
 import { FacturaPDFComponent } from './componentes/factura-pdf/factura-pdf.component';
+import { IngresosComponent } from './componentes/ingresos/ingresos.component';
 
 @NgModule({
-  declarations: [CobrosComponent, DialogConfigComponent, ConfigFacturaComponent, DialogCobrosComponent, FacturaComponent, FacturaPDFComponent],
+  declarations: [CobrosComponent, DialogConfigComponent, ConfigFacturaComponent, DialogCobrosComponent, FacturaComponent, FacturaPDFComponent, IngresosComponent],
   imports: [
     CommonModule,
     MaterialModule
