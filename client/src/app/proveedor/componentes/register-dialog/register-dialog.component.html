@@ -14,7 +14,9 @@
   <!-- Tipo de servicio -->
   <mat-form-field appearance="outline" hideRequiredMarker>
     <mat-label>Tipo de servicio</mat-label>
-    <input formControlName="tipoServicio" type="text" required matInput>
+    <mat-select placeholder="Placeholder" formControlName="tipoServicio" required matInput>
+      <mat-option *ngFor="let item of tipoServicio" [value]="item.tipo">{{item.tipo}}</mat-option>
+    </mat-select>
   </mat-form-field>
 
   <!-- Botones del dialog -->

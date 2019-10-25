@@ -3,6 +3,10 @@ import { MatDialogRef, MatSnackBar } from '@angular/material';
 import { ProveedorService } from 'src/app/servicios/proveedor/proveedor.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+export class Tipo {
+  tipo: String;
+}
+
 @Component({
   selector: 'app-register-dialog',
   templateUrl: './register-dialog.component.html',
@@ -12,6 +16,12 @@ export class RegisterDialogComponent implements OnInit {
 
   // Iniciar FormGroup
   proveedorFormGroup: FormGroup
+
+  // Combo
+  tipoServicio: Tipo[] = [
+    { tipo: 'PRODUCTO' },
+    { tipo: 'SERVICIO' }
+  ];
 
   constructor(
     private snackBar: MatSnackBar,
@@ -40,6 +50,8 @@ export class RegisterDialogComponent implements OnInit {
           this.openSnackBar('No se pudo registrar el proveedor.', 'OK');
           console.log(error);
         });
+    } else {
+      this.snackBar.open('Verifique los campos', 'OK');
     }
   }
 
@@ -51,9 +63,10 @@ export class RegisterDialogComponent implements OnInit {
   // Abrir snackbar
   openSnackBar(m: string, a: string) {
     this.snackBar.open(
-      m, a, {
-      duration: 1500
-    }
+      m, a,
+      {
+        duration: 1500
+      }
     );
   }
 }
