@@ -55,7 +55,7 @@ import { DialogCobrosComponent } from './cobros/componentes/dialog-cobros/dialog
 import { DialogConfigComponent } from './cobros/componentes/dialog-config/dialog-config.component';
 import { FacturaComponent } from './cobros/componentes/factura/factura.component';
 import { FacturaPDFComponent } from './cobros/componentes/factura-pdf/factura-pdf.component';
-
+import { ProveedorModule } from './proveedor/proveedor.module';
 
 @NgModule({
   declarations: [
@@ -94,7 +94,8 @@ import { FacturaPDFComponent } from './cobros/componentes/factura-pdf/factura-pd
     EmpleadosModule,
     AlumnosModule,
     LectivosModule,
-    CobrosModule
+    CobrosModule,
+    ProveedorModule
   ],
   providers: [MateriaService, CursoService, NivelService],
   bootstrap: [AppComponent],

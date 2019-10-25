@@ -1,0 +1,27 @@
+<form [formGroup]="proveedorFormGroup">
+  <!-- Nombre -->
+  <mat-form-field appearance="outline" hideRequiredMarker>
+    <mat-label>Nombre</mat-label>
+    <input formControlName="nombre" type="text" required matInput>
+  </mat-form-field>
+
+  <!-- CUIT/CUIL -->
+  <mat-form-field appearance="outline" hideRequiredMarker>
+    <mat-label>CUIT/CUIL</mat-label>
+    <input formControlName="cuit_cuil" type="text" required matInput>
+  </mat-form-field>
+
+  <!-- Tipo de servicio -->
+  <mat-form-field appearance="outline" hideRequiredMarker>
+    <mat-label>Tipo de servicio</mat-label>
+    <input formControlName="tipoServicio" type="text" required matInput>
+  </mat-form-field>
+
+  <!-- Botones del dialog -->
+  <div>
+    <!-- Limpiar formulario -->
+    <button type="reset" mat-raised-button color="warn" (click)="close()">Cancelar</button>
+    <!-- Registrar aula -->
+    <button type="submit" mat-raised-button (click)="registerProveedor(proveedorFormGroup)" color="primary">Registrar</button>
+  </div>
+</form>
