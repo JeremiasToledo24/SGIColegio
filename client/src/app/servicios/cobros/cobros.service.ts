@@ -21,6 +21,13 @@ export class CobrosService {
       )
   }
 
+  obtenerDetallesCobrosEntreFechas(fechaI, fechaF):Observable<any>{
+    return this.http.get(`http://localhost:3000/api/vIngresosCuotas?filter[where][fecha][between][0]=${fechaI}&filter[where][fecha][between][1]=${fechaF}`)
+  }
+
+  obtenerDetallesCobros():Observable<any>{
+    return this.http.get(`http://localhost:3000/api/vIngresosCuotas`)
+  }
   openSnackBar(m: string, a: string) {
     this.snackBar.open(
       m, a, {
