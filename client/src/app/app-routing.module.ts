@@ -32,6 +32,7 @@ import { PeriodosSecundariaComponent } from './lectivos/periodos-secundaria/peri
 import { CobrosComponent } from './cobros/componentes/cobros/cobros.component';
 import { AlumnoCursoSecundariaComponent } from './alumnos/componentes/alumno-curso-secundaria/alumno-curso-secundaria.component';
 import { ConfigFacturaComponent } from './cobros/componentes/config-factura/config-factura.component';
+import { ProveedorComponent } from './proveedor/componentes/proveedor/proveedor.component';
 import { IngresosComponent } from './cobros/componentes/ingresos/ingresos.component';
 
 
@@ -65,8 +66,8 @@ const routes: Routes = [
   { path: 'periodosSecundaria', component: PeriodosSecundariaComponent },
   { path: 'cobros', component: CobrosComponent },
   { path: 'configFactura', component: ConfigFacturaComponent},
+  { path: 'proveedores', component: ProveedorComponent},
   { path: 'ingresos', component: IngresosComponent},
-
   { path: '**', redirectTo: 'error' },
 
 ];

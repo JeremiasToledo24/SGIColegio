@@ -1,0 +1,28 @@
+{
+  "name": "Proveedor",
+  "plural": "Proveedores",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "idProveedor": {
+      "type": "number",
+      "id": true
+    },
+    "nombre": {
+      "type": "string"
+    },
+    "cuit_cuil": {
+      "type": "string"
+    },
+    "tipoServicio": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

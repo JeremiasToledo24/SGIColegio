@@ -171,6 +171,11 @@
     "dataSource": "db",
     "public": true
   },
+  "Proveedor": {
+    "dataSource": "db",
+    "public": true
+  }
+
   "vIngresosCuotas": {
     "dataSource": "db",
     "public": true

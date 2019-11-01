@@ -28,4 +28,9 @@ export class SideBarComponent implements OnInit {
     this.router.navigate(['/cobros']);
   }
 
+  // Abrir proveedores
+  proveedor() {
+    this.router.navigate(['proveedores']);
+  }
+
 }
