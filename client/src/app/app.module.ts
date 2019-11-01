@@ -55,6 +55,9 @@ import { DialogCobrosComponent } from './cobros/componentes/dialog-cobros/dialog
 import { DialogConfigComponent } from './cobros/componentes/dialog-config/dialog-config.component';
 import { FacturaComponent } from './cobros/componentes/factura/factura.component';
 import { FacturaPDFComponent } from './cobros/componentes/factura-pdf/factura-pdf.component';
+import { GastosModule } from './gastos/gastos.module';
+import { NuevaFacturaComponent } from './gastos/componentes/nueva-factura/nueva-factura.component';
+
 import { ProveedorModule } from './proveedor/proveedor.module';
 
 @NgModule({
@@ -95,6 +98,7 @@ import { ProveedorModule } from './proveedor/proveedor.module';
     AlumnosModule,
     LectivosModule,
     CobrosModule,
+    GastosModule
     ProveedorModule
   ],
   providers: [MateriaService, CursoService, NivelService],
@@ -117,7 +121,7 @@ import { ProveedorModule } from './proveedor/proveedor.module';
     DialogCobrosComponent,
     DialogConfigComponent,
     FacturaComponent,
-    FacturaPDFComponent],
+    FacturaPDFComponent, NuevaFacturaComponent],
   exports: [ListaMateriasComponent],
 
 })
