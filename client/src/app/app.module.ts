@@ -98,7 +98,7 @@ import { ProveedorModule } from './proveedor/proveedor.module';
     AlumnosModule,
     LectivosModule,
     CobrosModule,
-    GastosModule
+    GastosModule,
     ProveedorModule
   ],
   providers: [MateriaService, CursoService, NivelService],
