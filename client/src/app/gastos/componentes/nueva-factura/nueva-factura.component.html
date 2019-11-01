@@ -1,0 +1,11 @@
+<section>
+    <mat-form-field>
+        <mat-label>Seleccione el Proveedor (requerido)</mat-label>
+        <select matNativeControl required [formControl]="selectProveedorControl">
+            <option value="saab">Saab</option>
+        </select>
+        <mat-error *ngIf="selectProveedorControl.hasError('required')">
+            El Campo es Requerido
+        </mat-error>
+    </mat-form-field>
+</section>

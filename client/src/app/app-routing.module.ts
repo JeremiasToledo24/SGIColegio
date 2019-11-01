@@ -33,6 +33,8 @@ import { CobrosComponent } from './cobros/componentes/cobros/cobros.component';
 import { AlumnoCursoSecundariaComponent } from './alumnos/componentes/alumno-curso-secundaria/alumno-curso-secundaria.component';
 import { ConfigFacturaComponent } from './cobros/componentes/config-factura/config-factura.component';
 import { IngresosComponent } from './cobros/componentes/ingresos/ingresos.component';
+import { PanelFacturasComponent } from './gastos/componentes/panel-facturas/panel-facturas.component';
+import { NuevaFacturaComponent } from './gastos/componentes/nueva-factura/nueva-factura.component';
 
 
 
@@ -66,6 +68,8 @@ const routes: Routes = [
   { path: 'cobros', component: CobrosComponent },
   { path: 'configFactura', component: ConfigFacturaComponent},
   { path: 'ingresos', component: IngresosComponent},
+  {path: 'gastos', component: PanelFacturasComponent},
+  {path: 'registrarFactura', component: NuevaFacturaComponent},
 
   { path: '**', redirectTo: 'error' },
 

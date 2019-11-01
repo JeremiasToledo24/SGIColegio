@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {  FormControl, Validators } from '@angular/forms';
 import { CobrosService } from 'src/app/servicios/cobros/cobros.service';
+import * as jsdPDF from 'jspdf'
 
 @Component({
   selector: 'app-ingresos',
@@ -35,5 +36,11 @@ export class IngresosComponent implements OnInit {
       }
     )
   }
+
+  /* generaBoleta() {
+    const doc = new jsdPDF();
+    doc.fromHTML(document.getElementById('facturaPrint'),10,10);
+    doc.save('facturaPrint');
+  } */
 
 }
