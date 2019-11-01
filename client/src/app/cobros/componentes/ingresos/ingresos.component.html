@@ -1,23 +1,41 @@
-<input type="date" [formControl]="fechaInicio">
-<input type="date" [formControl]="fechaFin">
-<button (click)="obtenerDetalles()" mat-button>Buscar</button>
+<mat-card class="backgroundCard">
+    <mat-card-header>
+        <mat-card-title>Ingresos</mat-card-title>
+    </mat-card-header>
+    <mat-card style="margin-left: 20px">
+        <label>Seleccione fecha de cobros</label>
+        <div>
+            <label style="margin-left: 20px">Fecha de Inicio</label>
+            <input style="margin-left: 10px" type="date" [formControl]="fechaInicio">
+            <label style="margin-left: 20px">Fecha fin</label>
+            <input style="margin-left: 20px" type="date" [formControl]="fechaFin">
 
+            <button style="margin-left: 10px" (click)="obtenerDetalles()" mat-raised-button
+                color="primary">Buscar</button>
+        </div>
+    </mat-card>
+    <mat-card style="margin-left: 20px">
+        <label>Lista de cobros</label>
+        <div class="row" style="margin: 2rem 2rem 2rem">
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-    <ng-container matColumnDef="mes">
-        <th mat-header-cell *matHeaderCellDef> Concepto</th>
-        <td mat-cell *matCellDef="let element"> {{element.mes}} </td>
-    </ng-container>
-    <ng-container matColumnDef="importe">
-        <th mat-header-cell *matHeaderCellDef> Importe </th>
-        <td mat-cell *matCellDef="let element"> {{element.importe}} </td>
-    </ng-container>
-    <ng-container matColumnDef="fecha">
-        <th mat-header-cell *matHeaderCellDef> Fecha </th>
-        <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
-    </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                <ng-container matColumnDef="mes">
+                    <th mat-header-cell *matHeaderCellDef> Concepto</th>
+                    <td mat-cell *matCellDef="let element"> {{element.mes}} </td>
+                </ng-container>
+                <ng-container matColumnDef="importe">
+                    <th mat-header-cell *matHeaderCellDef> Importe </th>
+                    <td mat-cell *matCellDef="let element"> {{element.importe}} </td>
+                </ng-container>
+                <ng-container matColumnDef="fecha">
+                    <th mat-header-cell *matHeaderCellDef> Fecha </th>
+                    <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
 
-<button mat-button>Exportar como PDF</button>
+        </div>
+        <button mat-button>Exportar como PDF</button>
+    </mat-card>
+</mat-card>
