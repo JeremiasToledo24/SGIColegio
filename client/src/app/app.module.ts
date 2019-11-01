@@ -58,6 +58,7 @@ import { FacturaPDFComponent } from './cobros/componentes/factura-pdf/factura-pd
 import { GastosModule } from './gastos/gastos.module';
 import { NuevaFacturaComponent } from './gastos/componentes/nueva-factura/nueva-factura.component';
 
+import { ProveedorModule } from './proveedor/proveedor.module';
 
 @NgModule({
   declarations: [
@@ -98,6 +99,7 @@ import { NuevaFacturaComponent } from './gastos/componentes/nueva-factura/nueva-
     LectivosModule,
     CobrosModule,
     GastosModule
+    ProveedorModule
   ],
   providers: [MateriaService, CursoService, NivelService],
   bootstrap: [AppComponent],

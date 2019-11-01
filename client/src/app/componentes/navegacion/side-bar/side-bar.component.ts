@@ -34,4 +34,9 @@ export class SideBarComponent implements OnInit {
   }
 
 
+  // Abrir proveedores
+  proveedor() {
+    this.router.navigate(['proveedores']);
+  }
+
 }
