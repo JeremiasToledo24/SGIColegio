@@ -1,58 +1,62 @@
-<div class="row">
-    <div class="col">
-        <mat-card>
+<div class="row" style="width: 95%; margin-left: 2.5%; margin-top: 2rem;">
+    <div class="col-md-6">
+        <mat-card class="background-card">
             <mat-card-header>
                 <mat-card-title>Crear Ciclo lectivo para nivel Primario</mat-card-title>
             </mat-card-header>
             <mat-card-content>
-                <div>
+                <div class="row" style="margin: 1rem 2rem 0 0;">
+                    <label style="margin:15px">
+                        <b>Seleccione el año lectivo</b>
+                    </label>
                     <mat-form-field>
-                        <label>
-                            Seleccione el año lectivo
-                        </label>
-                        <mat-select [formControl]="periodoControl" required>
+                        <mat-select style="color: snow" [formControl]="periodoControl" required>
                             <mat-option *ngFor="let periodo of periodos" [value]="periodo.anio">
                                 {{periodo.anio}}
                             </mat-option>
                         </mat-select>
-                        <mat-error *ngIf="periodoControl.hasError('required')">Por favor, seleccione una opcion
-                        </mat-error>
                     </mat-form-field>
                 </div>
-
-
+                <mat-error *ngIf="periodoControl.hasError('required')">Por favor, seleccione una opcion</mat-error>
                 <div>
-                    <label>
-                        Seleccione un Plan de Estudio disponible
+                    <label style="margin:15px">
+                        <b>Seleccione un Plan de Estudio disponible</b>
                     </label>
-                    <mat-list>
-                        <mat-list-item *ngFor="let plan of listaPlanes">
-                            <div class="col">
-                                {{plan.nombrePlan}}
-
-                            </div>
-                            <div class="col">
-                                <button (click)="formValid(plan)" mat-button>Seleccionar</button>
-                            </div>
-                        </mat-list-item>
-                    </mat-list>
+                    <mat-card style="background-color:#E8EAF6">
+                        <mat-list>
+                            <mat-list-item *ngFor="let plan of listaPlanes">
+                                <div class="col">
+                                    {{plan.nombrePlan}}
+                                </div>
+                                <div class="col">
+                                    <button (click)="formValid(plan)" mat-button>Seleccionar</button>
+                                </div>
+                            </mat-list-item>
+                        </mat-list>
+                    </mat-card>
                 </div>
-
             </mat-card-content>
         </mat-card>
     </div>
     <div class="col">
-        <mat-card>
+        <mat-card class="background-card" style="height:100%">
             <mat-card-header>
                 <mat-card-title>Lista de Ciclos Lectivos</mat-card-title>
             </mat-card-header>
             <mat-card-content>
-                <mat-list>
-                    <mat-list-item *ngFor="let item of listaPeriodos">Nombre del Plan: {{item.nombrePlan}} Periodo:
-                        {{item.periodo}}</mat-list-item>
+                <mat-list *ngFor="let item of listaPeriodos">
+                    <mat-list-item>
+                        <div class="col">
+                            <b>Nombre del Plan:</b> {{item.nombrePlan}}
+                            <b>Periodo:</b>{{item.periodo}}
+                        </div>
+                        <div class="col-md" style="text-align: right;" style="margin-right:5px">
+                            <button (click)="verPlan(item)" mat-raised-button color="primary">Ver Plan</button>
+                            <button (click)="openDialog(item)" mat-raised-button color="warn">Eliminar</button>
+                        </div>
+                    </mat-list-item>
                 </mat-list>
             </mat-card-content>
         </mat-card>
     </div>
-
 </div>
