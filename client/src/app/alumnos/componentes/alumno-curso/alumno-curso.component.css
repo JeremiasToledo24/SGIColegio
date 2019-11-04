@@ -1,39 +1,4 @@
-.backGroundCard {
+.backgroundCard {
     background-color: #E8EAF6;
-    margin: 2rem;
-}
-
-mat-card {
-    margin-bottom: 2rem;
-}
-
-button {
-    margin: 10px;
-}
-
-/* TABLA */
-
-table {
-    width: 100%;
-}
-
-th {
-    background-color: #3F51B5;
-    color: beige;
-}
-
-td {
-    background-color: #C5CAE9;
-}
-
-.buscador-form {
-    width: 100%;
-}
-
-.buscador-full-width {
-    width: 100%;
-}
-
-.mat-column-seleccionar {
-    width: 20% !important;
+    margin: 1rem 4rem 1rem 4rem;
 }
