@@ -1,11 +1,12 @@
-<form [formGroup]="proveedorFormGroup">
+<h3>Editar información del proveedor</h3>
+<form [formGroup]="proveedorForm">
   <!-- Nombre -->
   <mat-form-field appearance="outline" hideRequiredMarker>
     <mat-label>Nombre</mat-label>
     <input formControlName="nombre" type="text" required matInput>
   </mat-form-field>
 
-  <!-- CUIT/CUIL -->
+  <!-- CUIL/CUIT -->
   <mat-form-field appearance="outline" hideRequiredMarker>
     <mat-label>CUIT/CUIL</mat-label>
     <input formControlName="cuit_cuil" type="text" required matInput>
@@ -18,12 +19,11 @@
       <mat-option *ngFor="let item of tipoServicio" [value]="item.tipo">{{item.tipo}}</mat-option>
     </mat-select>
   </mat-form-field>
-
-  <!-- Botones del dialog -->
-  <div style="text-align: center;">
-    <!-- Limpiar formulario -->
+  <div style="text-align: center;"> 
+    <!-- Cancel -->
     <button type="reset" mat-raised-button color="warn" (click)="close()">Cancelar</button>
-    <!-- Registrar aula -->
-    <button type="submit" mat-raised-button (click)="registerProveedor(proveedorFormGroup)" color="primary">Registrar</button>
+
+    <!-- Submit -->
+    <button type="submit" mat-raised-button color="primary" (click)="editProveedor(proveedorForm)">Confirmar</button>
   </div>
 </form>
