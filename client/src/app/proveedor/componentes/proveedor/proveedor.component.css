@@ -1,3 +1,10 @@
+/* BACKGROUND CARD */
+
+.backGroundCard {
+    margin: 2rem 5rem 2rem 5rem;
+    background-color: #E8EAF6;
+}
+
 /* LISTA DE PROVEEDORES */
 
 table {
@@ -16,4 +23,29 @@ th {
 
 td {
     background-color: #C5CAE9;
+}
+
+.mat-column-nombre {
+    width: 40% !important;
+}
+
+.mat-column-cuit_cuil {
+    width: 20% !important;
+}
+
+.mat-column-tipoServicio {
+    width: 20% !important;
+}
+
+.mat-column-operaciones {
+    width: 20% !important;
+}
+
+
+
+/* BOTONES */
+
+#editButton {
+    margin-right: 10px;
+    background-color: dodgerblue;
 }

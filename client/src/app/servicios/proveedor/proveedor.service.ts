@@ -40,6 +40,20 @@ export class ProveedorService {
     );
   }
 
+  // Editar proveedor
+  editProveedor(Proveedor: any): Observable<any> {
+    return this.http.put('http://localhost:3000/api/Proveedores', Proveedor).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  // Eliminar proveedor
+  deleteProveedor(Proveedor: any): Observable<any> {
+    return this.http.delete(`http://localhost:3000/api/Proveedores/${Proveedor}`).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   // ---------------------------------------------------------------//
   // -------------- MANEJO DE ERRORES SEGUN HTTP RES ---------------//
   // ---------------------------------------------------------------//

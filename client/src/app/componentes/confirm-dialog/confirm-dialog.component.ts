@@ -6,6 +6,7 @@ import { DocenteService } from 'src/app/servicios/docentes/docente.service';
 import { AulaService } from 'src/app/servicios/aula/aula.service';
 import { CursoService } from 'src/app/servicios/cursos/curso.service';
 import { EmpleadoService } from 'src/app/servicios/empleados/empleado.service';
+import { ProveedorService } from 'src/app/servicios/proveedor/proveedor.service';
 
 @Component({
   selector: 'app-confirm-dialog',

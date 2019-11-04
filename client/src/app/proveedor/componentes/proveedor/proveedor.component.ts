@@ -2,6 +2,8 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { MatDialog, MatPaginator, MatTableDataSource } from '@angular/material';
 import { RegisterDialogComponent } from '../register-dialog/register-dialog.component';
 import { ProveedorService } from 'src/app/servicios/proveedor/proveedor.service';
+import { EditDialogComponent } from '../edit-dialog/edit-dialog.component';
+import { ConfirmDialogComponent } from 'src/app/componentes/confirm-dialog/confirm-dialog.component';
 
 export class Proveedor {
   nombre;
@@ -44,11 +46,40 @@ export class ProveedorComponent implements OnInit {
     );
   }
 
-  // Dialogo para regirstar
+  // Buscador
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  // Dialogo para registrar
   registerDialog(Empleado: any) {
     const dialogRef = this.dialog.open(RegisterDialogComponent);
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Register result: ${result}`);
+      if (result) {
+        console.log(result)
+        this.proveedorService.getProveedores().subscribe(
+          res => {
+            this.dataSource = res as any[];
+          }
+        );
+      }
+    }
+    );
+  }
+
+  // Dialogo para editar
+  editDialog(Proveedor: any) {
+    const dialogRef = this.dialog.open(EditDialogComponent, {
+      data: {
+        idProveedor: Proveedor.idProveedor,
+        nombre: Proveedor.nombre,
+        cuit_cuil: Proveedor.cuit_cuil,
+        tipoServicio: Proveedor.tipoServicio
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Edit result: ${result}`);
       if (result) {
         console.log(result)
         this.proveedorService.getProveedores().subscribe(
