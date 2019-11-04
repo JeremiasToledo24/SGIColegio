@@ -1,11 +1,95 @@
-<section>
-    <mat-form-field>
-        <mat-label>Seleccione el Proveedor (requerido)</mat-label>
-        <select matNativeControl required [formControl]="selectProveedorControl">
-            <option value="saab">Saab</option>
-        </select>
-        <mat-error *ngIf="selectProveedorControl.hasError('required')">
-            El Campo es Requerido
-        </mat-error>
-    </mat-form-field>
-</section>
+<div class="container">
+    <form [formGroup]="facturaForm">
+        <div class="row">
+            <div class="col">
+                <mat-form-field>
+                    <label>Seleccione el Proveedor (requerido)</label>
+                    <select matNativeControl required formControlName="proveedorControl">
+                        <option *ngFor="let proveedor of proveedores" [value]="proveedor.idProveedor">
+                            {{proveedor.nombre}}
+                        </option>
+                    </select>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field>
+                    <label for="">Ingrese el codigo de la factura</label>
+                    <input formControlName="codigoControl" matInput>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field>
+                    <label for="">Ingrese el punto de venta o sucursal</label>
+                    <input formControlName="puntoVentaControl" matInput>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <mat-form-field>
+                <label for="">Letra</label>
+                <select matNativeControl required formControlName="letraControl">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="E">E</option>
+                    <option value="X">X</option>
+                </select>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <mat-form-field>
+                    <label>Seleccione la fecha de emision de la factura (requerido)</label>
+                    <input matInput formControlName="fechaEmisionControl" [matDatepicker]="emisionmyDatepicker">
+                    <mat-datepicker-toggle matSuffix [for]="emisionmyDatepicker"></mat-datepicker-toggle>
+                    <mat-datepicker #emisionmyDatepicker></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="col-6">
+                <mat-form-field>
+                    <label>Seleccione la fecha de vencimiento de la factura (requerido)</label>
+                    <input matInput formControlName="fechaVencimientoControl" [matDatepicker]="myDatepicker">
+                    <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+                    <mat-datepicker #myDatepicker></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                    <!-- Concepto Column -->
+                    <ng-container matColumnDef="concepto">
+                        <th mat-header-cell *matHeaderCellDef> Concepto </th>
+                        <td mat-cell *matCellDef="let element"> {{element.concepto}} </td>
+                    </ng-container>
+
+                    <!-- Subtotal Column -->
+                    <ng-container matColumnDef="subtotal">
+                        <th mat-header-cell *matHeaderCellDef> Subtotal </th>
+                        <td mat-cell *matCellDef="let element"> {{element.subtotal}} </td>
+                    </ng-container>
+
+                    <!-- operaciones Column -->
+                    <ng-container matColumnDef="op">
+                        <th mat-header-cell *matHeaderCellDef> Operaciones </th>
+                        <td mat-cell *matCellDef="let element">
+                            <button (click)="eliminarDetalle(element)" mat-button>Quitar</button>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+                <button mat-button (click)="agregarDetalle()">Agregar</button>
+            </div>
+        </div>
+        <div class="row">
+            <label for="">Importe Total</label>
+            <input type="text" readonly value="{{totalFactura.toFixed(2)}}">
+        </div>
+        <div class="row">
+            <button mat-raised-button >Cancelar</button>
+            <button mat-raised-button (click)="onSubmit()">Aceptar</button>
+        </div>
+    </form>
+</div>

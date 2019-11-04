@@ -1,24 +1,23 @@
 {
-  "name": "Proveedor",
-  "plural": "Proveedores",
+  "name": "DetalleFactura",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "idProveedor": {
+    "idDetalleFactura": {
       "type": "number",
       "id": true
     },
-    "nombre": {
+    "idFactura": {
+      "type": "number"
+    },
+    "concepto": {
       "type": "string"
     },
-    "cuit_cuil": {
-      "type": "string"
-    },
-    "tipoServicio": {
-      "type": "string"
+    "subtotal": {
+      "type": "number"
     }
   },
   "validations": [],
