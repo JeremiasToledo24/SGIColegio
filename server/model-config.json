@@ -175,8 +175,15 @@
     "dataSource": "db",
     "public": true
   },
-
   "vIngresosCuotas": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Factura": {
+    "dataSource": "db",
+    "public": true
+  },
+  "DetalleFactura": {
     "dataSource": "db",
     "public": true
   }

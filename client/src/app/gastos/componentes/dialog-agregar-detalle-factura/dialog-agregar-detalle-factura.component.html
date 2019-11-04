@@ -1,0 +1,17 @@
+<form action="" [formGroup]="detalleForm">
+    <div class="row">
+        <mat-form-field>
+            <label>Ingrese el Concepto</label>
+            <input matInput formControlName="conceptoControl">
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field>
+            <label>Subtotal</label>
+            <input matInput type="number" formControlName="subtotalControl">
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <button (click)="agregarDetalle()" class="text-right" mat-button>Aceptar</button>
+    </div>
+</form>
