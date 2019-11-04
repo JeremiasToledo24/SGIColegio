@@ -40,17 +40,13 @@
             <div class="col-6">
                 <mat-form-field>
                     <label>Seleccione la fecha de emision de la factura (requerido)</label>
-                    <input matInput formControlName="fechaEmisionControl" [matDatepicker]="emisionmyDatepicker">
-                    <mat-datepicker-toggle matSuffix [for]="emisionmyDatepicker"></mat-datepicker-toggle>
-                    <mat-datepicker #emisionmyDatepicker></mat-datepicker>
+                    <input matInput type="date" formControlName="fechaEmisionControl">
                 </mat-form-field>
             </div>
             <div class="col-6">
                 <mat-form-field>
                     <label>Seleccione la fecha de vencimiento de la factura (requerido)</label>
-                    <input matInput formControlName="fechaVencimientoControl" [matDatepicker]="myDatepicker">
-                    <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
-                    <mat-datepicker #myDatepicker></mat-datepicker>
+                    <input matInput type="date" formControlName="fechaVencimientoControl">
                 </mat-form-field>
             </div>
         </div>
