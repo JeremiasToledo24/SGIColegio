@@ -36,6 +36,7 @@ import { ProveedorComponent } from './proveedor/componentes/proveedor/proveedor.
 import { IngresosComponent } from './cobros/componentes/ingresos/ingresos.component';
 import { PanelFacturasComponent } from './gastos/componentes/panel-facturas/panel-facturas.component';
 import { NuevaFacturaComponent } from './gastos/componentes/nueva-factura/nueva-factura.component';
+import { DetalleFacturaComponent } from './gastos/componentes/detalle-factura/detalle-factura.component';
 
 
 
@@ -72,6 +73,8 @@ const routes: Routes = [
   { path: 'ingresos', component: IngresosComponent},
   {path: 'gastos', component: PanelFacturasComponent},
   {path: 'registrarFactura', component: NuevaFacturaComponent},
+  { path: 'detalleFactura/:id', component: DetalleFacturaComponent },
+
   { path: '**', redirectTo: 'error' },
 
 ];

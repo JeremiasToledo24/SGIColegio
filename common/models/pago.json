@@ -1,37 +1,25 @@
 {
-  "name": "Factura",
+  "name": "Pago",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "idFactura": {
+    "idPago": {
       "type": "number",
-      "id": true
+      "id":true
     },
-    "fechaEmision": {
-      "type": "string"
-    },
-    "fechaVencimiento": {
-      "type": "string"
-    },
-    "importe": {
+    "total": {
       "type": "number"
+    },
+    "fecha": {
+      "type": "string"
     },
     "idProveedor": {
       "type": "number"
     },
-    "codigo": {
-      "type": "string"
-    },
-    "letra": {
-      "type": "string"
-    },
-    "puntoVenta": {
-      "type": "string"
-    },
-    "saldo": {
+    "idFormaPago": {
       "type": "number"
     }
   },
