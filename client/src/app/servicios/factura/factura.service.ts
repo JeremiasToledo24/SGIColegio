@@ -26,6 +26,13 @@ export class FacturaService {
       )
   }
 
+  listarFacturas() {
+    return this.http.get(`http://localhost:3000/api/Facturas`)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
   registrarDetalleFactura(DetalleFactura): Observable<any> {
     return this.http.post(`http://localhost:3000/api/DetalleFacturas`, DetalleFactura)
       .pipe(

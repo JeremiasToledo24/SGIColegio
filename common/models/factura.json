@@ -30,6 +30,9 @@
     },
     "puntoVenta": {
       "type": "string"
+    },
+    "saldo":{
+      "type":"number"
     }
   },
   "validations": [],

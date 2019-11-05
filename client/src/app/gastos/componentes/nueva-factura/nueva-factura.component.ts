@@ -30,7 +30,6 @@ export class NuevaFacturaComponent implements OnInit {
 
 
   proveedores;
-  facturaPagada;
 
 
   constructor(
@@ -58,7 +57,8 @@ export class NuevaFacturaComponent implements OnInit {
         idProveedor: this.facturaForm.value.proveedorControl,
         letra: this.facturaForm.value.letraControl,
         codigo: this.facturaForm.value.codigoControl,
-        puntoVenta: this.facturaForm.value.puntoVentaControl
+        puntoVenta: this.facturaForm.value.puntoVentaControl,
+        saldo: this.totalFactura.toFixed(2)
       }
       this.facturaService.registrarFactura(Factura)
         .subscribe(
