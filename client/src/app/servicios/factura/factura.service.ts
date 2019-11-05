@@ -19,6 +19,20 @@ export class FacturaService {
     );
   }
 
+  registrarPago(Pago): Observable<any> {
+    return this.http.post(`http://localhost:3000/api/Pagos`, Pago)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
+  registrarDetallePago(DetallePago): Observable<any> {
+    return this.http.post(`http://localhost:3000/api/DetallePagos`, DetallePago)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
   registrarFactura(Factura): Observable<any> {
     return this.http.post(`http://localhost:3000/api/Facturas`, Factura)
       .pipe(
@@ -26,8 +40,8 @@ export class FacturaService {
       )
   }
 
-  listarFacturas() {
-    return this.http.get(`http://localhost:3000/api/Facturas`)
+  listarFacturas(): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/vFacturasProveedores`)
       .pipe(
         catchError(this.handleError)
       )
@@ -35,6 +49,26 @@ export class FacturaService {
 
   registrarDetalleFactura(DetalleFactura): Observable<any> {
     return this.http.post(`http://localhost:3000/api/DetalleFacturas`, DetalleFactura)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
+  getFacturaID(idFactura): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/vFacturasProveedores/${idFactura}`)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
+  facturasPorProveedor(idProveedor): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/vFacturasProveedores?filter[where][idProveedor]=${idProveedor}`)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+  listarDetalleFactura(idFactura): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/DetalleFacturas?filter[where][idFactura]=${idFactura}`)
       .pipe(
         catchError(this.handleError)
       )

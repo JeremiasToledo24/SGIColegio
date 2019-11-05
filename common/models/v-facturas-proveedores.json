@@ -1,11 +1,20 @@
 {
-  "name": "Factura",
+  "name": "vFacturasProveedores",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
+    "idProveedor": {
+      "type": "number"
+    },
+    "nombre": {
+      "type": "string"
+    },
+    "tipoServicio": {
+      "type": "string"
+    },
     "idFactura": {
       "type": "number",
       "id": true
@@ -19,20 +28,17 @@
     "importe": {
       "type": "number"
     },
-    "idProveedor": {
-      "type": "number"
-    },
     "codigo": {
-      "type": "string"
-    },
-    "letra": {
-      "type": "string"
-    },
-    "puntoVenta": {
       "type": "string"
     },
     "saldo": {
       "type": "number"
+    },
+    "puntoVenta": {
+      "type": "string"
+    },
+    "letra": {
+      "type": "string"
     }
   },
   "validations": [],

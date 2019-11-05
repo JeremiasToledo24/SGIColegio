@@ -1,4 +1,36 @@
-<button (click)="registrarFactura()" mat-button>Registrar Factura a Pagar</button>
+<div class="row">
+    <div class="col">
+        <button (click)="registrarFactura()" mat-button>Registrar Factura a Pagar</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <mat-form-field style="width: 100%;">
+            <input matInput (keyup)="applyFilter($event.target.value)"
+                placeholder="Buscar Factura Por Proveedor, Codigo de Factura, Fecha o Importe">
+        </mat-form-field>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col">
+        <label for="">O filtre las facturas por Proveedor</label>
+    </div>
+    <div class="col">
+        <mat-form-field>
+            <label>Seleccione el Proveedor</label>
+            <select matNativeControl required [formControl]="proveedorControl">
+                <option (click)="getFacturasPorProveedor()" [value]="'N'">TODOS LOS PROVEEDORES</option>
+                <option (click)="getFacturasPorProveedor()" *ngFor="let proveedor of proveedores" [value]="proveedor.idProveedor">
+                    {{proveedor.nombre}}
+                </option>
+            </select>
+        </mat-form-field>
+    </div>
+</div>
+
+
 <table mat-table #table [dataSource]="dataSource">
     <ng-container matColumnDef="codigoFactura">
         <th mat-header-cell *matHeaderCellDef> Codigo de la Factura </th>
@@ -6,7 +38,7 @@
     </ng-container>
     <ng-container matColumnDef="proveedor">
         <th mat-header-cell *matHeaderCellDef> Proveedor </th>
-        <td mat-cell *matCellDef="let row"> {{row.proveedor}} </td>
+        <td mat-cell *matCellDef="let row"> {{row.nombre}}</td>
     </ng-container>
     <ng-container matColumnDef="fechaEmision">
         <th mat-header-cell *matHeaderCellDef> Fecha de Emision </th>
@@ -23,11 +55,17 @@
     <ng-container matColumnDef="operaciones">
         <th mat-header-cell *matHeaderCellDef> Operaciones </th>
         <td mat-cell *matCellDef="let row">
-            <button mat-button>Ver Detalles</button>
-            <button mat-button>Pagar</button>
+            <button (click)="verDetalle(row.idFactura)" mat-raised-button>Ver Detalle</button>
+            <button *ngIf="row.saldo !== 0" (click)="openDialog(row)" mat-raised-button>Registrar como
+                Pagada</button>
+            <button *ngIf="row.saldo === 0" mat-raised-button disabled style="color: forestgreen;">Pagada</button>
         </td>
     </ng-container>
-    
-    <tr mat-header-row *matHeaderRowDef="['codigoFactura','proveedor','fechaEmision','fechaVencimiento','importe','operaciones']"></tr>
-    <tr mat-row *matRowDef="let row; columns: ['codigoFactura'];"></tr>
+
+    <tr mat-header-row
+        *matHeaderRowDef="['codigoFactura','proveedor','fechaEmision','fechaVencimiento','importe','operaciones']"></tr>
+    <tr mat-row
+        *matRowDef="let row; columns: ['codigoFactura','proveedor','fechaEmision','fechaVencimiento','importe','operaciones'];">
+    </tr>
 </table>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>

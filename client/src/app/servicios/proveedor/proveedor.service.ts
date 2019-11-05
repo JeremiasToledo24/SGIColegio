@@ -33,6 +33,8 @@ export class ProveedorService {
     );
   }
 
+  
+
   // Registrar nuevo proveedor
   registerProveedor(Proveedor: any): Observable<any> {
     return this.http.post('http://localhost:3000/api/Proveedores', Proveedor).pipe(
