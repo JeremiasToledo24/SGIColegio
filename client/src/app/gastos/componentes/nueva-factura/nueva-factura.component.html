@@ -60,6 +60,19 @@
                         <td mat-cell *matCellDef="let element"> {{element.concepto}} </td>
                     </ng-container>
 
+                    <!-- unitario Column -->
+                    <ng-container matColumnDef="unitario">
+                        <th mat-header-cell *matHeaderCellDef> Precio Unitario </th>
+                        <td mat-cell *matCellDef="let element"> {{element.precioUnitario}} </td>
+                    </ng-container>
+
+                    <!-- cantidad Column -->
+                    <ng-container matColumnDef="cantidad">
+                        <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+                        <td mat-cell *matCellDef="let element"> {{element.cantidad}} </td>
+                    </ng-container>
+
+
                     <!-- Subtotal Column -->
                     <ng-container matColumnDef="subtotal">
                         <th mat-header-cell *matHeaderCellDef> Subtotal </th>
@@ -84,7 +97,7 @@
             <input type="text" readonly value="{{totalFactura.toFixed(2)}}">
         </div>
         <div class="row">
-            <button mat-raised-button >Cancelar</button>
+            <button mat-raised-button>Cancelar</button>
             <button mat-raised-button (click)="onSubmit()">Aceptar</button>
         </div>
     </form>

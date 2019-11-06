@@ -12,9 +12,11 @@
 
             <button style="margin-left: 10px" (click)="obtenerDetalles()" mat-raised-button
                 color="primary">Buscar</button>
+            <button style="margin-left: 10px" (click)="reset()" mat-raised-button
+                color="primary">Reestablecer</button>
         </div>
     </mat-card>
-   
+
     <mat-card style="margin-left: 20px">
         <label>Lista de cobros</label>
         <div class="row" style="margin: 2rem 2rem 2rem">
@@ -35,6 +37,7 @@
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 
         </div>
         <button mat-raised-button color="primary">Exportar como PDF</button>

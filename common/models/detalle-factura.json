@@ -18,6 +18,12 @@
     },
     "subtotal": {
       "type": "number"
+    },
+    "cantidad":{
+      "type": "number"
+    },
+    "precioUnitario":{
+      "type":"number"
     }
   },
   "validations": [],

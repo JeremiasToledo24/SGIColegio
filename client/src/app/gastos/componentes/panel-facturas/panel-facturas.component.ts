@@ -97,10 +97,9 @@ export class PanelFacturasComponent implements OnInit {
 
 
   registrarPago(row) {
-    var d = new Date();
-
-    let f = d.getFullYear() + '/' + (d.getMonth() + 1) + '/' + d.getDate()
-
+    const fecha = new Date();
+    const f = (fecha.getFullYear() + '-' + ('0' + (fecha.getMonth()+1)).slice(-2) + '-' + ('0' + fecha.getDate()).slice(-2) );
+    
     const Pago = {
       total: row.importe,
       idProveedor: row.idProveedor,

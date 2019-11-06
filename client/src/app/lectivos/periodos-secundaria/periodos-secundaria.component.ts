@@ -3,6 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { CrearLectivosComponent } from '../crear-lectivos/crear-lectivos.component';
 import { PlanEstudioService } from 'src/app/servicios/planEstudio/plan-estudio.service';
 import { MatDialog } from '@angular/material';
+import { EliminarDialogComponent } from '../eliminar-dialog/eliminar-dialog.component';
 
 @Component({
   selector: 'app-periodos-secundaria',
@@ -33,15 +34,13 @@ export class PeriodosSecundariaComponent implements OnInit {
       .subscribe(
         res => {
           this.listaPlanes = res as [];
-          console.log('this.listaPlanes :', this.listaPlanes);
         }
       )
 
-    this.planService.getPeriodos()
+    this.planService.getPeriodosNivel(2)
       .subscribe(
         res => {
           this.listaPeriodos = res as [];
-          console.log('this.listaPeriodos :', this.listaPeriodos);
         }
       )
   }
@@ -66,19 +65,44 @@ export class PeriodosSecundariaComponent implements OnInit {
           .subscribe(
             res => {
               this.planService.openSnackBar('Periodo lectivo Creado')
-              this.planService.getPeriodos()
+              this.planService.getPeriodosNivel(2)
                 .subscribe(
                   res => {
                     this.listaPeriodos = res as [];
-                    console.log('this.listaPeriodos :', this.listaPeriodos);
                   }
                 )
             }
           )
       } else {
-        console.log('no :', 'no');
       }
     });
+  }
+
+
+  openDialogEliminar(ciclo){
+    const dialogRef = this.dialog.open(EliminarDialogComponent,{
+      data: {ciclo: ciclo}
+    })
+    dialogRef.afterClosed().subscribe(result =>{
+      if (result === 'S') {
+        this.eliminar(ciclo)
+      }
+    })
+  }
+
+  eliminar(ciclo) {
+    this.planService.eliminarPeriodo(ciclo.idPeriodoLectivo)
+      .subscribe(
+        res => {
+          this.planService.openSnackBar("Ciclo Eliminado")
+          this.planService.getPeriodosNivel(2)
+            .subscribe(
+              res => {
+                this.listaPeriodos = res as [];
+              }
+            )
+        }
+      )
   }
 
 }
