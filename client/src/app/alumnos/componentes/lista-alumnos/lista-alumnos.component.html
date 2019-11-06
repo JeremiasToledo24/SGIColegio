@@ -5,7 +5,9 @@
       <div class="row">
         <!-- Buscador -->
         <div class="col-sm-6">
-
+          <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar Alumno por Nombre, Apellido, o DNI">
+          </mat-form-field>
         </div>
 
         <!-- Alumnos históricos -->

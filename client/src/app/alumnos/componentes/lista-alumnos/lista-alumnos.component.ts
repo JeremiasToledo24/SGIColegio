@@ -48,6 +48,10 @@ export class ListaAlumnosComponent implements OnInit {
     )
   }
 
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
   // Redirigir a perfil
   verPerfil(DNIAlumno) {
     this.router.navigate(['/perfilAlumno', DNIAlumno]);

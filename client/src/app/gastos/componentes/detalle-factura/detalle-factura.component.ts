@@ -80,11 +80,9 @@ export class DetalleFacturaComponent implements OnInit {
 
 
   registrarPago() {
-    var d = new Date();
-
-    let f = d.getFullYear() + '/' + (d.getMonth() + 1) + '/' + d.getDate()
-
-
+    const fecha = new Date();
+    const f = (fecha.getFullYear() + '-' + ('0' + (fecha.getMonth()+1)).slice(-2) + '-' + ('0' + fecha.getDate()).slice(-2) );
+    
     const Pago = {
       total: this.factura.importe,
       idProveedor: this.factura.idProveedor,

@@ -13,10 +13,11 @@ export class EliminarDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data) { }
 
   ngOnInit() {
+    console.log(this.data)
   }
 
-  onNoClick(): void {
-    this.dialogRef.close();
+  onNoClick(op): void {
+    this.dialogRef.close(op);
   }
 
 

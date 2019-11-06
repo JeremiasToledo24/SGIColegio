@@ -39,7 +39,7 @@ export class PeriodosPrimariaComponent implements OnInit {
         }
       )
 
-    this.planService.getPeriodos()
+    this.planService.getPeriodosNivel(1)
       .subscribe(
         res => {
           this.listaPeriodos = res as [];
@@ -81,7 +81,7 @@ export class PeriodosPrimariaComponent implements OnInit {
           .subscribe(
             res => {
               this.planService.openSnackBar('Periodo lectivo Creado')
-              this.planService.getPeriodos()
+              this.planService.getPeriodosNivel(1)
                 .subscribe(
                   res => {
                     this.listaPeriodos = res as [];
@@ -101,6 +101,11 @@ export class PeriodosPrimariaComponent implements OnInit {
     const dialogRef = this.dialog.open(EliminarDialogComponent,{
       data: {ciclo: ciclo}
     })
+    dialogRef.afterClosed().subscribe(result =>{
+      if (result === 'S') {
+        this.eliminar(ciclo)
+      }
+    })
   }
 
   eliminar(ciclo) {
@@ -109,7 +114,7 @@ export class PeriodosPrimariaComponent implements OnInit {
       .subscribe(
         res => {
           this.planService.openSnackBar("Ciclo Eliminado")
-          this.planService.getPeriodos()
+          this.planService.getPeriodosNivel(1)
             .subscribe(
               res => {
                 this.listaPeriodos = res as [];

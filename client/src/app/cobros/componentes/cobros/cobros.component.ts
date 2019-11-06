@@ -136,11 +136,13 @@ export class CobrosComponent implements OnInit {
         this.pagarCuota(boleta)
       }
     });
+
+    
   }
 
   pagarCuota(boleta) {
     const f = new Date();
-    const fecha = (f.getFullYear() + '-' + (f.getMonth() + 1) + '-' + f.getDate());
+    const fecha = (f.getFullYear() + '-' + ('0' + (f.getMonth()+1)).slice(-2) + '-' + ('0' + f.getDate()).slice(-2) );
     const cobro = new Cobro();
     cobro.fecha = fecha;
     cobro.dniAlumno = this.dniControl.value;
