@@ -1,10 +1,10 @@
-<h1 mat-dialog-title>Desea crear el nuevo ciclo Lectivo?</h1>
-
-<div mat-dialog-content>
-  <p>Nombre del Plan: {{data.plan.nombrePlan}}</p>
-  <p>Año: {{data.anio}}</p>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick('N')">No</button>
-  <button mat-button (click)="onNoClick('S')">Si</button>
+<div>
+  <mat-card> ¿Desea crear el nuevo ciclo Lectivo?
+    <h1><label><b>Del Plan:</b> {{data.plan.nombrePlan}} </label></h1> 
+    <label><b>Año:</b> {{data.anio}} </label>
+    <mat-dialog-actions>
+      <button mat-raised-button color="warn" (click)="onNoClick('N')">No</button>
+      <button mat-raised-button color="primary" (click)="onNoClick('S')">Si</button>
+    </mat-dialog-actions>
+  </mat-card>
 </div>

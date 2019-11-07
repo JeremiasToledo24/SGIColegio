@@ -38,9 +38,8 @@ table {
     background-color: #C5CAE9;
   }
   
-  mat-card {
+  mat-card{
     background-color: #E8EAF6;
-    margin: 2rem;
   }
   
   .buscador-form {
