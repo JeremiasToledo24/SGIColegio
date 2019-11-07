@@ -17,7 +17,7 @@
                         </mat-select>
                     </mat-form-field>
                 </div>
-                <mat-error *ngIf="periodoControl.hasError('required')">Por favor, seleccione una opcion</mat-error>
+                <mat-error *ngIf="periodoControl.hasError('required')"><label style="margin:15px"><b>Por favor, seleccione una opcion</b></label></mat-error>
                 <div>
                     <label style="margin:15px">
                         <b>Seleccione un Plan de Estudio disponible</b>
@@ -29,7 +29,7 @@
                                     {{plan.nombrePlan}}
                                 </div>
                                 <div class="col">
-                                    <button (click)="formValid(plan)" mat-button>Seleccionar</button>
+                                    <button (click)="formValid(plan)" mat-raised-button color="primary">Seleccionar</button>
                                 </div>
                             </mat-list-item>
                         </mat-list>

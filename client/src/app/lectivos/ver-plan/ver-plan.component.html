@@ -1,29 +1,102 @@
-<h1 mat-dialog-title>Plan de estudio</h1>
-<div mat-dialog-content>
-    <p>Nombre del Plan: {{this.data.plan.nombrePlan}}</p>
-    <b>Materias del Plan</b>
-    <div class="row">
-        <div class="col">
-            <b>Nombre</b>
-        </div>
-        <div class="col">
-            <b>Año</b>
-        </div>
-    </div>
-
-    <mat-list>
-        <mat-list-item *ngFor="let item of materiasPlan">
-            <div class="col" style="text-align: left;">
-                &nbsp;&nbsp;&nbsp;&nbsp;{{item.nombreMateria}}
-
+<div class="col-md-12">
+    <mat-card class="background-card">
+        <mat-card-header>
+            <mat-card-title> Plan de estudio</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row" style="background-color: rgb(227, 231, 255); margin-bottom: 20px;padding:10px">
+                <label style="text-align: center"> <b>Nombre del Plan:</b> {{this.data.plan.nombrePlan}} </label><br>
+                <b>Materias del Plan</b><br>
             </div>
-            <div class="col" style="text-align: right;">
-                &nbsp;&nbsp;&nbsp;&nbsp;{{item.anio}}
+            <div style="height: 350px;overflow: scroll;">
+                <!-- Primero -->
+                <div class="row" style="background-color: rgb(227, 231, 255); margin-bottom: 20px; padding:10px">
+                    <label style="margin-left: 20px;"><b>Primero</b></label>
+                    <mat-list>
+                        <mat-list-item *ngFor="let item of materiasPlan">
+                            &nbsp;&nbsp;&nbsp;&nbsp;{{item.nombreMateria}}
+                        </mat-list-item>
+                    </mat-list>
+                </div>
 
+                <!-- Segundo -->
+                <div class="row" style="background-color: rgb(227, 231, 255); margin-bottom: 20px;padding:10px">
+                    <label style="margin-left: 20px;"><b>Segundo</b></label>
+                    <mat-list>
+                        <mat-list-item *ngFor="let item of listaSegundoV">
+                            &nbsp;&nbsp;{{item.nombreMateria}}
+                        </mat-list-item>
+                    </mat-list>
+                </div>
+
+                <!-- Tercero -->
+                <div class="row" style="background-color: rgb(227, 231, 255); margin-bottom: 20px;padding:10px">
+                    <label style="margin-left: 20px;"><b>Tercero</b></label>
+                    <mat-list>
+                        <mat-list-item *ngFor="let item of listaTerceroV">
+                            &nbsp;&nbsp;{{item.nombreMateria}}
+                        </mat-list-item>
+                    </mat-list>
+                </div>
+
+                <!-- Cuarto -->
+                <div class="row" style="background-color: rgb(227, 231, 255); margin-bottom: 20px;padding:10px">
+                    <label style="margin-left: 20px;"><b>Cuarto</b></label>
+                    <mat-list>
+                        <mat-list-item *ngFor="let item of listaCuartoV">
+                            &nbsp;&nbsp;{{item.nombreMateria}}
+                        </mat-list-item>
+                    </mat-list>
+                </div>
+
+                <!-- Quinto -->
+                <div class="row" style="background-color: rgb(227, 231, 255); margin-bottom: 20px;padding:10px">
+                    <label style="margin-left: 20px;"><b>Quinto</b></label>
+                    <mat-list>
+                        <mat-list-item *ngFor="let item of listaQuintoV">
+                            &nbsp;&nbsp;{{item.nombreMateria}}
+                        </mat-list-item>
+                    </mat-list>
+                </div>
+
+                <!-- Sexto (SOLO EN PRIMARIA) -->
+                <div class="row" *ngIf="selectedLevel === 1"
+                    style="background-color: rgb(227, 231, 255);padding:10px; margin-bottom: 20px;">
+                    <label style="margin-left: 20px;"><b>Sexto</b></label>
+                    <mat-list>
+                        <mat-list-item *ngFor="let item of listaSextoV">
+                            &nbsp;&nbsp;{{item.nombreMateria}}
+                        </mat-list-item>
+                    </mat-list>
+                </div>
+
+                <!-- Séptimo (SOLO EN PRIMARIA) -->
+                <div class="row" *ngIf="selectedLevel === 1" style="background-color: rgb(227, 231, 255); padding:10px">
+                    <label style="margin-left: 20px;"><b>Séptimo</b></label>
+                    <mat-list>
+                        <mat-list-item *ngFor="let item of listaSeptimoV">
+                            &nbsp;&nbsp;{{item.nombreMateria}}
+                        </mat-list-item>
+                    </mat-list>
+                </div>
+
+                <!-- creo que esto ya no va-->
+                <mat-list>
+                    <mat-list-item *ngFor="let item of listaPrimerov">
+                        <div class="col" style="text-align: left;">
+                            &nbsp;&nbsp;&nbsp;&nbsp;{{item.nombreMateria}}
+
+                        </div>
+                        <div class="col" style="text-align: right;">
+                            &nbsp;&nbsp;&nbsp;&nbsp;{{item.anio}}
+
+                        </div>
+                    </mat-list-item>
+                </mat-list>
             </div>
-        </mat-list-item>
-    </mat-list>
-</div>
-<div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">Aceptar</button>
+        </mat-card-content>
+        <mat-dialog-actions>
+            <button mat-raised-button color="primary" (click)="onNoClick()">Aceptar</button>
+        </mat-dialog-actions>
+    </mat-card>
 </div>

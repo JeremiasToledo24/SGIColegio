@@ -35,20 +35,20 @@
             <b>Lista Alumnos</b>
           </label>
           <div class="row" style="background-color: rgb(227,231,255)">
-            <div class="col">
+            <div class="col-md-4">
               <label style="margin:10px" for=""><b>Dni:</b></label>
             </div>
-            <div class="col">
+            <div class="col-md-4">
               <label style="margin:10px" for=""><b>Nombre y Apellido </b></label>
             </div>
             <mat-list-item *ngFor="let alumno of listaPrimero;" role="listitem">
-              <div class="col">
+              <div class="col-md-4">
                 {{alumno.DNIAlumno}}
               </div>
-              <div class="col">
+              <div class="col-md-4">
                 {{alumno.nombre}} {{alumno.apellido}}
               </div>
-              <div class="col">
+              <div class="col-md-4">
                 <button (click)="dialogoEliminar(alumno,'PRIMERO')" mat-raised-button color="warn">Dar de Baja</button>
               </div>
             </mat-list-item>
@@ -73,17 +73,17 @@
             <div class="col">
               <label style="margin:10px" for=""><b>Dni:</b></label>
             </div>
-            <div class="col">
+            <div class="col-md-4">
               <label style="margin:10px" for=""><b>Nombre y Apellido </b></label>
             </div>
             <mat-list-item *ngFor="let alumno of listaSegundo;" role="listitem">
-              <div class="col">
+              <div class="col-md-4">
                 {{alumno.DNIAlumno}}
               </div>
-              <div class="col">
+              <div class="col-md-4">
                 {{alumno.nombre}} {{alumno.apellido}}
               </div>
-              <div class="col">
+              <div class="col-md-4">
                 <button (click)="dialogoEliminar(alumno,'SEGUNDO')" mat-raised-button color="warn">Dar de Baja</button>
               </div>
             </mat-list-item>
@@ -103,20 +103,20 @@
             <b>Lista Alumnos</b>
           </label>
           <div class="row" style="background-color: rgb(227,231,255)">
-            <div class="col">
+            <div class="col-md-4">
               <label style="margin:10px" for=""><b>Dni:</b></label>
             </div>
-            <div class="col">
+            <div class="col-md-4">
               <label style="margin:10px" for=""><b>Nombre y Apellido </b></label>
             </div>
             <mat-list-item *ngFor="let alumno of listaTercero;" role="listitem">
-              <div class="col">
+              <div class="col-md-4">
                 {{alumno.DNIAlumno}}
               </div>
-              <div class="col">
+              <div class="col-md-4">
                 {{alumno.nombre}} {{alumno.apellido}}
               </div>
-              <div class="col">
+              <div class="col-md-4">
                 <button (click)="dialogoEliminar(alumno,'TERCERO')" mat-raised-button color="warn">Dar de Baja</button>
               </div>
             </mat-list-item>
@@ -137,20 +137,20 @@
             <b>Lista Alumnos</b>
           </label>
           <div class="row" style="background-color: rgb(227,231,255)">
-            <div class="col">
+            <div class="col-md-4">
               <label style="margin:10px" for=""><b>Dni:</b></label>
             </div>
-            <div class="col">
+            <div class="col-md-4">
               <label style="margin:10px" for=""><b>Nombre y Apellido </b></label>
             </div>
             <mat-list-item *ngFor="let alumno of listaCuarto;" role="listitem">
-              <div class="col">
+              <div class="col-md-4">
                 {{alumno.DNIAlumno}}
               </div>
-              <div class="col">
+              <div class="col-md-4">
                 {{alumno.nombre}} {{alumno.apellido}}
               </div>
-              <div class="col">
+              <div class="col-md-4">
                 <button (click)="dialogoEliminar(alumno,'CUARTO')" mat-raised-button color="warn">Dar de Baja</button>
               </div>
             </mat-list-item>
@@ -171,20 +171,20 @@
             <b>Lista Alumnos</b>
           </label>
           <div class="row" style="background-color: rgb(227,231,255)">
-            <div class="col">
+            <div class="col-md-4">
               <label style="margin:10px" for=""><b>Dni:</b></label>
             </div>
-            <div class="col">
+            <div class="col-md-4">
               <label style="margin:10px" for=""><b>Nombre y Apellido </b></label>
             </div>
             <mat-list-item *ngFor="let alumno of listaQuinto;" role="listitem">
-              <div class="col">
+              <div class="col-md-4">
                 {{alumno.DNIAlumno}}
               </div>
-              <div class="col">
+              <div class="col-md-4">
                 {{alumno.nombre}} {{alumno.apellido}}
               </div>
-              <div class="col">
+              <div class="col-md-4">
                 <button (click)="dialogoEliminar(alumno,'QUINTO')" mat-raised-button color="warn">Dar de Baja</button>
               </div>
             </mat-list-item>
