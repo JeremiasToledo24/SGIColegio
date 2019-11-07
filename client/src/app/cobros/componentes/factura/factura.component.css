@@ -4,6 +4,7 @@
     display: flex !important;
     align-items: center !important;
     font-family: 'Franklin Gothic Medium' !important;
+    background-color: white;
 }
 
 .factura {
@@ -73,7 +74,7 @@
 
 #condicionContainer {
     width: 50% !important;
-    height: 63px !important;
+    height: 65px !important;
     padding-left: 1% !important;
     padding-top: 1% !important;
     font-size: 12px !important;
@@ -131,6 +132,7 @@ th:last-child {
     height: 23% !important;
     display: flex !important;
     align-items: center !important;
+    background-color: white;
 }
 
 .total {

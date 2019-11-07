@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="col">
+        <label for="">Proveedor: {{factura.nombre}}</label>
+    </div>
+    <div class="col">
+        <label for=""> Codigo de Factura: {{factura.codigo}}</label>
+    </div>
+    <div class="col">
+        <label for=""> Sucursal: {{factura.puntoVenta}}</label>
+    </div>
+    <div class="col">
+        <label for="">Letra: {{factura.letra}}</label>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <label for="">Fecha de Emision: {{factura.fechaEmision}}</label>
+    </div>
+    <div class="col">
+        <label for="">Fecha de Vencimiento: {{factura.fechaVencimiento}}</label>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <label for="">Detalles de la Factura</label>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <table mat-table #table [dataSource]="dataSource">
+            <ng-container matColumnDef="concepto">
+                <th mat-header-cell *matHeaderCellDef> Concepto </th>
+                <td mat-cell *matCellDef="let row"> {{row.concepto}} </td>
+            </ng-container>
+            <ng-container matColumnDef="subtotal">
+                <th mat-header-cell *matHeaderCellDef> Subtotal </th>
+                <td mat-cell *matCellDef="let row"> {{row.subtotal}} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="['concepto','subtotal']"></tr>
+            <tr mat-row *matRowDef="let row; columns: ['concepto','subtotal'];"></tr>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <label for="">Total: {{factura.importe}}</label>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <button (click)="volver()" mat-raised-button>Volver</button>
+    </div>
+    <div class="col">
+        <button *ngIf="factura.saldo !== 0" (click)="openDialog()" mat-raised-button>Registrar Pago</button>
+        <button *ngIf="factura.saldo === 0" mat-raised-button disabled style="color: forestgreen;">Pagada</button>
+    </div>
+</div>

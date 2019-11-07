@@ -1,7 +1,7 @@
 <mat-dialog-content style="background-color: #E8EAF6">
   <h1 mat-dialog-title>Desea eliminar el ciclo Lectivo?</h1>
-  <p>Nombre del Plan: {{data.plan.nombrePlan}}</p>
-  <p>Año: {{data.periodo}}</p>
+  <p>Plan: {{data.ciclo.nombrePlan}}</p>
+  <p>Periodo: {{data.ciclo.periodo}}</p>
   <button mat-raised-button color="primary" (click)="onNoClick('N')">No</button>
   <button mat-raised-button color="warn" (click)="onNoClick('S')">Si</button>
 </mat-dialog-content>

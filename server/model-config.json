@@ -186,5 +186,17 @@
   "DetalleFactura": {
     "dataSource": "db",
     "public": true
+  },
+  "vFacturasProveedores": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Pago": {
+    "dataSource": "db",
+    "public": true
+  },
+  "DetallePago": {
+    "dataSource": "db",
+    "public": true
   }
 }

@@ -12,7 +12,7 @@ import { FacturaService } from 'src/app/servicios/factura/factura.service';
 })
 export class NuevaFacturaComponent implements OnInit {
 
-  displayedColumns: string[] = ['concepto', 'subtotal', 'op'];
+  displayedColumns: string[] = ['concepto', 'subtotal','unitario','cantidad', 'op'];
   data: any[] = []
   dataSource = new MatTableDataSource(this.data);
 
@@ -30,7 +30,6 @@ export class NuevaFacturaComponent implements OnInit {
 
 
   proveedores;
-  facturaPagada;
 
 
   constructor(
@@ -58,7 +57,8 @@ export class NuevaFacturaComponent implements OnInit {
         idProveedor: this.facturaForm.value.proveedorControl,
         letra: this.facturaForm.value.letraControl,
         codigo: this.facturaForm.value.codigoControl,
-        puntoVenta: this.facturaForm.value.puntoVentaControl
+        puntoVenta: this.facturaForm.value.puntoVentaControl,
+        saldo: this.totalFactura.toFixed(2)
       }
       this.facturaService.registrarFactura(Factura)
         .subscribe(
@@ -67,11 +67,15 @@ export class NuevaFacturaComponent implements OnInit {
               const DetalleFactura = {
                 idFactura: res.idFactura,
                 concepto: detalle.concepto,
-                subtotal: detalle.subtotal
+                subtotal: detalle.subtotal,
+                precioUnitario: detalle.precioUnitario,
+                cantidad: detalle.cantidad
               }
               this.facturaService.registrarDetalleFactura(DetalleFactura)
                 .subscribe(
-                  res => {},
+                  res => {
+
+                  },
                   error => {
                     this.facturaService.openSnackBar('Hubo un error', 'Ok')
                   }
@@ -81,6 +85,8 @@ export class NuevaFacturaComponent implements OnInit {
             this.totalFactura = 0,
             this.data = [];
             this.dataSource = new MatTableDataSource(this.data);
+            this.facturaService.openSnackBar('Factura Registrada', 'Ok')
+
           },
           error => {
             this.facturaService.openSnackBar('Hubo un error', 'Ok')

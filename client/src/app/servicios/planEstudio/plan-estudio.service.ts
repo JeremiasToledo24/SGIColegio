@@ -133,6 +133,12 @@ export class PlanEstudioService {
         catchError(this.handleError)
       )
   }
+  getPeriodosNivel(idNivel): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/PeriodoLectivoViews?filter[where][idNivel]=${idNivel}`)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
 
   // Manejo de errores segun la respuesta HTTP y mostrar en consola un resumen del error
   private handleError(error: HttpErrorResponse) {

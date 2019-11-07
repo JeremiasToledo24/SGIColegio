@@ -1,37 +1,25 @@
 {
-  "name": "Factura",
+  "name": "DetallePago",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "idFactura": {
+    "idDetallePago": {
       "type": "number",
-      "id": true
+      "id":true
     },
-    "fechaEmision": {
+    "concepto": {
       "type": "string"
     },
-    "fechaVencimiento": {
-      "type": "string"
-    },
-    "importe": {
+    "subtotal": {
       "type": "number"
     },
-    "idProveedor": {
+    "idFactura": {
       "type": "number"
     },
-    "codigo": {
-      "type": "string"
-    },
-    "letra": {
-      "type": "string"
-    },
-    "puntoVenta": {
-      "type": "string"
-    },
-    "saldo": {
+    "idPago": {
       "type": "number"
     }
   },

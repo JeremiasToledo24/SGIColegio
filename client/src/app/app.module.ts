@@ -60,6 +60,7 @@ import { NuevaFacturaComponent } from './gastos/componentes/nueva-factura/nueva-
 
 import { ProveedorModule } from './proveedor/proveedor.module';
 import { DialogAgregarDetalleFacturaComponent } from './gastos/componentes/dialog-agregar-detalle-factura/dialog-agregar-detalle-factura.component';
+import { DialogRegistrarPagoFacturaComponent } from './gastos/componentes/dialog-registrar-pago-factura/dialog-registrar-pago-factura.component';
 
 @NgModule({
   declarations: [
@@ -122,7 +123,8 @@ import { DialogAgregarDetalleFacturaComponent } from './gastos/componentes/dialo
     DialogCobrosComponent,
     DialogConfigComponent,
     FacturaComponent,
-    FacturaPDFComponent, NuevaFacturaComponent, DialogAgregarDetalleFacturaComponent],
+    FacturaPDFComponent, NuevaFacturaComponent, DialogAgregarDetalleFacturaComponent,
+  DialogRegistrarPagoFacturaComponent],
   exports: [ListaMateriasComponent],
 
 })
