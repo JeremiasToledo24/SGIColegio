@@ -4,6 +4,7 @@ import { CrearLectivosComponent } from '../crear-lectivos/crear-lectivos.compone
 import { PlanEstudioService } from 'src/app/servicios/planEstudio/plan-estudio.service';
 import { MatDialog } from '@angular/material';
 import { EliminarDialogComponent } from '../eliminar-dialog/eliminar-dialog.component';
+import { VerPlanComponent } from '../ver-plan/ver-plan.component';
 
 @Component({
   selector: 'app-periodos-secundaria',
@@ -88,6 +89,18 @@ export class PeriodosSecundariaComponent implements OnInit {
         this.eliminar(ciclo)
       }
     })
+  }
+
+  verPlan(item){
+    console.log('item :', item);
+    this.planService.getPlanId(item.idPlanEstudio)
+    .subscribe(
+      res => {
+        const dialogRef = this.dialog.open(VerPlanComponent,
+          
+          {data: {plan: item}})
+      }
+    )
   }
 
   eliminar(ciclo) {
