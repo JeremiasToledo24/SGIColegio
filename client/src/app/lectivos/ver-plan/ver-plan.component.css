@@ -1,0 +1,69 @@
+.background-card{
+    background-color: #E8EAF6;
+    margin: 0;
+  }
+  
+  mat-card-title {
+    text-align: left;
+  }
+  
+  mat-card-content {
+    text-align: center;
+    margin: 0;
+  }
+  
+  mat-form-field {
+    display: block;
+    width: auto;
+  }
+  
+  button {
+    margin: 20px 10px 0px 10px;
+  }
+  
+  .search-form {
+    min-width: 150px;
+    max-width: 50%;
+    width: 100%;
+    margin-left: 30px;
+  }
+  
+  .search-full-width {
+    width: 100%;
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  th {
+    background-color: #3F51B5;
+    color: beige;
+  }
+  
+  td {
+    background-color: #C5CAE9;
+  }
+  
+  mat-cell {
+    background-color: #C5CAE9;
+  }
+  
+  .mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+  
+  /* acordeon */
+  mat-expansion-panel-header {
+  /*   background-color: #3F51B5;
+   */  font-size: 16px;
+  }
+  
+  mat-expansion-panel {
+  /*   background-color: rgb(179, 190, 255);
+   */}
+  
+  mat-panel-title {
+    color: beige;
+  }
+  
