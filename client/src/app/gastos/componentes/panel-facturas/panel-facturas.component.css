@@ -1,0 +1,49 @@
+/* BACKGROUND CARD */
+
+.backGroundCard {
+    margin: 2rem 5rem 2rem 5rem;
+    background-color: #E8EAF6;
+}
+
+/* LISTA DE FACTURA */
+
+table {
+    width: 100%;
+}
+
+th {
+    background-color: #3F51B5;
+    color: beige;
+}
+
+td {
+    background-color: rgb(225, 228, 245);
+    text-align: left !important;
+}
+
+.mat-column-codigoFactura {
+    width: 15% !important;
+}
+
+.mat-column-proveedor{
+    width: 25% !important;
+}
+
+.mat-column-fechaEmision {
+    width: 10% !important;
+    text-align: center !important;
+}
+
+.mat-column-fechaVencimiento {
+    width: 15% !important;
+    text-align: center !important;
+}
+
+.mat-column-importe {
+    width: 10%;
+}
+
+.mat-column-operaciones {
+    width: 25% !important;
+    text-align: center !important;
+}
