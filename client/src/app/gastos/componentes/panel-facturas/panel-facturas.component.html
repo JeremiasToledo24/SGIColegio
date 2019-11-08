@@ -1,79 +1,103 @@
-<div class="row">
-    <div class="col">
-        <button (click)="registrarFactura()" mat-button>Registrar Factura a Pagar</button>
-    </div>
-</div>
-<div class="row">
-    <div class="col">
-        <mat-form-field style="width: 100%;">
-            <input matInput (keyup)="applyFilter($event.target.value)"
-                placeholder="Buscar Factura Por Proveedor, Codigo de Factura, Fecha o Importe">
+<mat-card class="backGroundCard">
+  <mat-card-title>Gastos</mat-card-title>
+  <mat-card-content>
+
+
+    <div class="row">
+      <!-- Busqueda GENERAL -->
+      <div class="col-sm-6">
+        <div>
+          <label>Buscar factura por <b>PROVEEDOR</b>, <b>CÓDIGO</b>, <b>FECHA</b> o
+            <b>IMPORTE</b>&nbsp;&nbsp;&nbsp;</label>
+        </div>
+        <div style="margin-left:15px;">
+          <mat-form-field style="width: 80%;">
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar factura">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- Busqueda por PROVEEDOR-->
+      <div class="col-sm-6">
+        <div>
+          <label>Filtre las facturas por <b>PROVEEDOR</b></label>
+        </div>
+        <mat-form-field hideRequiredMarker appearance="outline" class="col-sm-10">
+          <mat-label>Seleccione el Proveedor</mat-label>
+          <mat-select matNativeControl required [formControl]="proveedorControl">
+            <mat-option (click)="getFacturasPorProveedor()" [value]="'N'">TODOS LOS PROVEEDORES</mat-option>
+            <mat-option (click)="getFacturasPorProveedor()" *ngFor="let proveedor of proveedores"
+              [value]="proveedor.idProveedor">
+              {{proveedor.nombre}}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
+      </div>
     </div>
 
-</div>
-
-<div class="row">
-    <div class="col">
-        <label for="">O filtre las facturas por Proveedor</label>
+    <!-- Filtro por PAGADA / NO PAGADA -->
+    <div class="row">
+      <label style="margin-left: 17px;">O filtrar por su estado:</label>
+      <mat-radio-group [formControl]="estadoControl">
+        <mat-radio-button (click)="filtrarEstado()" value="S" style="margin-left: 20px; margin-right:20px">Pagada
+        </mat-radio-button>
+        <mat-radio-button (click)="filtrarEstado()" value="N">No Pagadas</mat-radio-button>
+      </mat-radio-group>
     </div>
-    <div class="col">
-        <mat-form-field>
-            <label>Seleccione el Proveedor</label>
-            <select matNativeControl required [formControl]="proveedorControl">
-                <option (click)="getFacturasPorProveedor()" [value]="'N'">TODOS LOS PROVEEDORES</option>
-                <option (click)="getFacturasPorProveedor()" *ngFor="let proveedor of proveedores"
-                    [value]="proveedor.idProveedor">
-                    {{proveedor.nombre}}
-                </option>
-            </select>
-        </mat-form-field>
+
+    <!-- Registrar nueva factura-->
+    <div class="d-flex justify-content-center">
+      <button (click)="registrarFactura()" mat-raised-button
+        style="background-color: rgb(114, 218, 29); margin: 0px 0px 20px 0px;">Registrar Factura a Pagar</button>
     </div>
-    <div class="col">
 
-        <mat-radio-group [formControl]="estadoControl">
-            <mat-radio-button (click)="filtrarEstado()" value="S">Pagada</mat-radio-button>
-            <mat-radio-button (click)="filtrarEstado()" value="N">No Pagadas</mat-radio-button>
-        </mat-radio-group>
+    <!-- Tabla de facturas registradas-->
+    <div class="row" style="align-items: center; display: block;">
+      <table mat-table #table [dataSource]="dataSource" class="mat-elevation-z8"
+        style="width: 95%; margin: 0% 2.5% 0% 2.5%;">
+        <ng-container matColumnDef="codigoFactura">
+          <th mat-header-cell *matHeaderCellDef> Codigo de la Factura </th>
+          <td mat-cell *matCellDef="let row"> {{row.codigo}} </td>
+        </ng-container>
+        <ng-container matColumnDef="proveedor">
+          <th mat-header-cell *matHeaderCellDef> Proveedor </th>
+          <td mat-cell *matCellDef="let row"> {{row.nombre}}</td>
+        </ng-container>
+        <ng-container matColumnDef="fechaEmision">
+          <th mat-header-cell *matHeaderCellDef> Fecha de Emision </th>
+          <td mat-cell *matCellDef="let row"> {{row.fechaEmision}} </td>
+        </ng-container>
+        <ng-container matColumnDef="fechaVencimiento">
+          <th mat-header-cell *matHeaderCellDef> Fecha de Vencimiento </th>
+          <td mat-cell *matCellDef="let row"> {{row.fechaVencimiento}} </td>
+        </ng-container>
+        <ng-container matColumnDef="importe">
+          <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Importe </th>
+          <td mat-cell *matCellDef="let row" style="text-align: right !important;"> {{row.importe}} &nbsp;&nbsp; </td>
+        </ng-container>
+        <ng-container matColumnDef="operaciones">
+          <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Operaciones </th>
+          <td mat-cell *matCellDef="let row">
+            <button (click)="verDetalle(row.idFactura)" mat-raised-button color="primary"
+              style="margin: 0px 10px 0px 10px">Ver Detalle</button>
+            <button *ngIf="row.saldo !== 0" (click)="openDialog(row)" mat-raised-button
+              style="margin: 0px 10px 0px 10px; background-color: rgb(110, 240, 121);">Registrar como
+              Pagada</button>
+            <button *ngIf="row.saldo === 0" mat-raised-button disabled style="color: forestgreen;"
+              style="margin: 0px 10px 0px 10px">Pagada</button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row
+          *matHeaderRowDef="['codigoFactura','proveedor','fechaEmision','fechaVencimiento','importe','operaciones']">
+        </tr>
+        <tr mat-row
+          *matRowDef="let row; columns: ['codigoFactura','proveedor','fechaEmision','fechaVencimiento','importe','operaciones'];">
+        </tr>
+      </table>
+      <mat-paginator class="mat-elevation-z8" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+        style="width: 95%; margin: 0% 2.5% 0% 2.5%;">
+      </mat-paginator>
     </div>
-</div>
-
-
-<table mat-table #table [dataSource]="dataSource">
-    <ng-container matColumnDef="codigoFactura">
-        <th mat-header-cell *matHeaderCellDef> Codigo de la Factura </th>
-        <td mat-cell *matCellDef="let row"> {{row.codigo}} </td>
-    </ng-container>
-    <ng-container matColumnDef="proveedor">
-        <th mat-header-cell *matHeaderCellDef> Proveedor </th>
-        <td mat-cell *matCellDef="let row"> {{row.nombre}}</td>
-    </ng-container>
-    <ng-container matColumnDef="fechaEmision">
-        <th mat-header-cell *matHeaderCellDef> Fecha de Emision </th>
-        <td mat-cell *matCellDef="let row"> {{row.fechaEmision}} </td>
-    </ng-container>
-    <ng-container matColumnDef="fechaVencimiento">
-        <th mat-header-cell *matHeaderCellDef> Fecha de Vencimiento </th>
-        <td mat-cell *matCellDef="let row"> {{row.fechaVencimiento}} </td>
-    </ng-container>
-    <ng-container matColumnDef="importe">
-        <th mat-header-cell *matHeaderCellDef> Importe </th>
-        <td mat-cell *matCellDef="let row"> {{row.importe}} </td>
-    </ng-container>
-    <ng-container matColumnDef="operaciones">
-        <th mat-header-cell *matHeaderCellDef> Operaciones </th>
-        <td mat-cell *matCellDef="let row">
-            <button (click)="verDetalle(row.idFactura)" mat-raised-button>Ver Detalle</button>
-            <button *ngIf="row.saldo !== 0" (click)="openDialog(row)" mat-raised-button>Registrar como
-                Pagada</button>
-            <button *ngIf="row.saldo === 0" mat-raised-button disabled style="color: forestgreen;">Pagada</button>
-        </td>
-    </ng-container>
-
-    <tr mat-header-row
-        *matHeaderRowDef="['codigoFactura','proveedor','fechaEmision','fechaVencimiento','importe','operaciones']"></tr>
-    <tr mat-row
-        *matRowDef="let row; columns: ['codigoFactura','proveedor','fechaEmision','fechaVencimiento','importe','operaciones'];">
-    </tr>
-</table>
-<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </mat-card-content>
+</mat-card>
