@@ -1,26 +1,32 @@
 {
-  "name": "Pago",
+  "name": "vPagos",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "idPago": {
-      "type": "number",
-      "id": true
-    },
     "total": {
       "type": "number"
     },
     "fecha": {
       "type": "string"
     },
-    "idProveedor": {
+    "importe": {
       "type": "number"
     },
-    "idFormaPago": {
-      "type": "number"
+    "codigo": {
+      "type": "string",
+      "id": true
+    },
+    "nombre":{
+      "type":"string"
+    },
+    "tipoServicio":{
+      "type":"string"
+    },
+    "idProveedor":{
+      "type":"string"
     }
   },
   "validations": [],

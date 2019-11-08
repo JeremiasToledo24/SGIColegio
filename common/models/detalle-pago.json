@@ -8,7 +8,7 @@
   "properties": {
     "idDetallePago": {
       "type": "number",
-      "id":true
+      "id": true
     },
     "concepto": {
       "type": "string"

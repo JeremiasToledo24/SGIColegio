@@ -19,6 +19,7 @@ export class FacturaService {
     );
   }
 
+
   registrarPago(Pago): Observable<any> {
     return this.http.post(`http://localhost:3000/api/Pagos`, Pago)
       .pipe(
@@ -42,6 +43,34 @@ export class FacturaService {
 
   listarFacturas(): Observable<any> {
     return this.http.get(`http://localhost:3000/api/vFacturasProveedores`)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
+  listarPagos(): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/vPagos`)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
+  listarPagosProveedor(idProveedor): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/vPagos?filter[where][idProveedor]=${idProveedor}`)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
+  listarPagosEntreFechas(fechaI, fechaF): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/vPagos?filter[where][fecha][between][0]=${fechaI}&filter[where][fecha][between][1]=${fechaF}`)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
+  listarPagosEntreFechasProveedor(fechaI, fechaF, idProveedor): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/vPagos?filter[where][and][0][idProveedor]=${idProveedor}&filter[where][fecha][between][0]=${fechaI}&filter[where][fecha][between][1]=${fechaF}`)
       .pipe(
         catchError(this.handleError)
       )
