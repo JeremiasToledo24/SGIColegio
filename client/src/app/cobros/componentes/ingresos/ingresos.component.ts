@@ -95,6 +95,8 @@ export class IngresosComponent implements OnInit {
       total: total
     }
 
+    cobros.push({concepto: 'Total', importe: total, fecha: ''})
+
     this.reportesService.cobros = cobros;
     this.reportesService.reporte = reporte;
     

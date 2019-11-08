@@ -72,7 +72,9 @@ export class SaldosComponent implements OnInit {
       total: total
     }
 
-    console.log(cuotas)
+    cuotas.push({ concepto: 'Total', importe: total, fecha: '' })
+
+
 
 
     this.reportesService.cuotas = cuotas;

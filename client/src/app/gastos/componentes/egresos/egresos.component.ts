@@ -128,6 +128,9 @@ export class EgresosComponent implements OnInit {
       fechaF: this.fechaFin.value,
       total: total.toFixed(2)
     }
+
+    pagos.push({ codigo: 'Total',proveedor: '', importe: total.toFixed(2), fecha: '' })
+
     this.reportesService.pagos = pagos;
     this.reportesService.reporte = reporte;
 
