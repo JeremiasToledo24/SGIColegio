@@ -12,7 +12,7 @@ import { FacturaService } from 'src/app/servicios/factura/factura.service';
 })
 export class NuevaFacturaComponent implements OnInit {
 
-  displayedColumns: string[] = ['concepto','cantidad','unitario','subtotal','op'];
+  displayedColumns: string[] = ['concepto', 'cantidad', 'unitario', 'subtotal', 'op'];
   data: any[] = []
   dataSource = new MatTableDataSource(this.data);
 
@@ -36,7 +36,8 @@ export class NuevaFacturaComponent implements OnInit {
     private proveedorService: ProveedorService,
     private fb: FormBuilder,
     public dialog: MatDialog,
-    private facturaService: FacturaService) { }
+    private facturaService: FacturaService,
+  ) { }
 
   ngOnInit() {
     this.proveedorService.getProveedores()
@@ -83,10 +84,9 @@ export class NuevaFacturaComponent implements OnInit {
             });
             this.facturaForm.reset();
             this.totalFactura = 0,
-            this.data = [];
+              this.data = [];
             this.dataSource = new MatTableDataSource(this.data);
-            this.facturaService.openSnackBar('Factura Registrada', 'Ok')
-
+            this.facturaService.openSnackBar('Factura Registrada', 'OK');
           },
           error => {
             this.facturaService.openSnackBar('Hubo un error', 'Ok')
@@ -112,6 +112,7 @@ export class NuevaFacturaComponent implements OnInit {
         this.data.push(result)
         this.dataSource = new MatTableDataSource(this.data)
         this.calcularTotal()
+        this.facturaService.openSnackBar('Concepto agregado a factura', 'OK')
       }
     });
   }
@@ -122,5 +123,4 @@ export class NuevaFacturaComponent implements OnInit {
       this.totalFactura = this.totalFactura + Number(element.subtotal)
     });
   }
-
 }
