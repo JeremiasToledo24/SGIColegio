@@ -4,6 +4,7 @@ import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { ProveedorService } from 'src/app/servicios/proveedor/proveedor.service';
 import { Router } from '@angular/router';
 import { FacturaService } from 'src/app/servicios/factura/factura.service';
+import { ReportesService } from 'src/app/servicios/reportes/reportes.service';
 
 @Component({
   selector: 'app-egresos',
@@ -31,7 +32,8 @@ export class EgresosComponent implements OnInit {
   constructor(
     private proveedorService: ProveedorService,
     private router: Router,
-    private facturaService: FacturaService) { }
+    private facturaService: FacturaService,
+    private reportesService: ReportesService) { }
 
   ngOnInit() {
     this.proveedorService.getProveedores()
@@ -112,6 +114,26 @@ export class EgresosComponent implements OnInit {
           this.dataSource.paginator = this.paginator;
         }
       )
+  }
+
+  generaBoleta() {
+    let total: number = 0;
+    let pagos = [];
+    this.data.forEach(element => {
+      total = total + Number(element.importe)
+      pagos.push({ codigo: element.codigo,proveedor: element.nombre, importe: element.importe, fecha: element.fecha })
+    });
+    const reporte = {
+      fechaI: this.fechaInicio.value,
+      fechaF: this.fechaFin.value,
+      total: total.toFixed(2)
+    }
+    this.reportesService.pagos = pagos;
+    this.reportesService.reporte = reporte;
+
+     this.router.navigate(['/reportesGastos']);
+
+
   }
 
 
