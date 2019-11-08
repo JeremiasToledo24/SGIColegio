@@ -38,6 +38,8 @@ import { PanelFacturasComponent } from './gastos/componentes/panel-facturas/pane
 import { NuevaFacturaComponent } from './gastos/componentes/nueva-factura/nueva-factura.component';
 import { DetalleFacturaComponent } from './gastos/componentes/detalle-factura/detalle-factura.component';
 import { ReporteIngresosComponent } from './cobros/componentes/reporte-ingresos/reporte-ingresos.component';
+import { SaldosComponent } from './cobros/componentes/saldos/saldos.component';
+import { ReporteCuotasComponent } from './cobros/componentes/reporte-cuotas/reporte-cuotas.component';
 
 
 
@@ -76,6 +78,8 @@ const routes: Routes = [
   {path: 'registrarFactura', component: NuevaFacturaComponent},
   { path: 'detalleFactura/:id', component: DetalleFacturaComponent },
   { path: 'reporteIngresos', component: ReporteIngresosComponent },
+  { path: 'saldos', component: SaldosComponent },
+  { path: 'reportesCuotas', component: ReporteCuotasComponent },
 
   { path: '**', redirectTo: 'error' },
 

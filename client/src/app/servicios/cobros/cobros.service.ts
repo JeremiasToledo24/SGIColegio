@@ -13,6 +13,14 @@ export class CobrosService {
     private snackBar: MatSnackBar
   ) { }
 
+  obtenerCuotasConSaldo():Observable<any>{
+    return this.http.get(`http://localhost:3000/api/Cuota?filter[where][saldo][nlike]=0`)
+  }
+
+  obtenerCuotasEntreFechas(fechaI,fechaF): Observable<any>{
+    return this.http.get(`http://localhost:3000/api/Cuota?filter[where][and][0][saldo][nlike]=0&filter[where][vencimiento1][between][0]=${fechaI}&filter[where][vencimiento1][between][1]=${fechaF}`)
+  }
+
 
   actualizarArancel(vencimientos, concepto, nivel): Observable<any> {
     return this.http.post(`http://localhost:3000/api/Arancels/update?[where][and][0][concepto]=${concepto}&[where][and][1][nivel]=${nivel}`, vencimientos)
