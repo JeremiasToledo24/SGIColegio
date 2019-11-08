@@ -1,0 +1,165 @@
+.hoja {
+    width: 210mm !important;
+    height: 298mm !important;
+    display: flex !important;
+    align-items: center !important;
+    font-family: 'Franklin Gothic Medium' !important;
+    background-color: white;
+}
+
+.factura {
+    width: 200mm !important;
+    height: 288mm !important;
+    margin: 0 auto !important;
+    border-bottom: 1px solid black !important;
+    border-top: 1px solid black !important;
+    border-right: 1px solid black !important;
+    border-left: 1px solid black !important;
+    display: block !important;
+}
+
+.original {
+    text-align: center !important;
+    font-size: 20px !important;
+    padding: 10px !important;
+    color: black !important;
+    border-bottom: 1px solid black !important;
+}
+
+/* CONTENEDOR */
+
+.container {
+    display: flex;
+}
+
+/* DATOS DEL COLEGIO */
+
+.datosColegioContainer {
+    -webkit-box-flex: initial !important;
+    flex: initial !important;
+    width: 50% !important;
+    border-right: 1px solid black !important;
+}
+
+.datosColegio {
+    font-size: 12px !important;
+    margin: 0px 0px 10px 10px !important;
+}
+
+/* DATOS DE LA FACTURA */
+
+.datosFacturaContainer {
+    -webkit-box-flex: none !important;
+    flex: none !important;
+    width: 50% !important;
+}
+
+.datosFactura {
+    font-size: 12px !important;
+    margin: 0px 0px 10px 10px !important;
+}
+
+/* DATOS DEL ALUMNO */
+
+#datosAlumnoContainer {
+    width: 50% !important;
+    height: 5% !important;
+    padding-left: 1% !important;
+    padding-top: 1% !important;
+    font-size: 12px !important;
+    border-bottom: 1px solid black !important;
+    border-top: 1px solid black !important;
+    float: left !important;
+}
+
+#condicionContainer {
+    width: 50% !important;
+    height: 65px !important;
+    padding-left: 1% !important;
+    padding-top: 1% !important;
+    font-size: 12px !important;
+    border-top: 1px solid black !important;
+    border-bottom: 1px solid black !important;
+    float: left !important;
+}
+
+.clearBoth {
+    clear: both !important;
+}
+
+/* CUERPO DE FACTURA */
+
+.cuerpoFactura {
+    height: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.detalleFactura {
+    margin: 0 auto !important;
+    width: 190mm !important;
+    height: 94% !important;
+}
+
+table {
+    width: 100% !important;
+    border-collapse: separate !important;
+    color: black;
+}
+
+th {
+    font-size: 14px !important;
+    border: solid 1px black !important;
+    color: black;
+}
+
+td {
+    font-size: 12px !important;
+    color: black;
+}
+
+th:first-child {
+    border-top-left-radius: 6px !important;
+}
+
+th:last-child {
+    border-top-right-radius: 6px !important;
+}
+
+/* PIE DE FACTURA */
+
+.pieFactura {
+    height: 23% !important;
+    display: flex !important;
+    align-items: center !important;
+    background-color: white;
+}
+
+.total {
+    margin: 0 auto !important;
+    width: 190mm !important;
+    height: 90% !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: flex-end !important;
+}
+
+.detalleTotal {
+    margin: 10px !important;
+    padding: 10px !important;
+    width: 40% !important;
+    font-size: 11px !important;
+}
+
+.td2 {
+    font-size: 14px !important;
+    border: solid 1px black !important;
+    color: black;
+}
+
+.th2 {
+    text-align: left !important;
+    font-size: 14px !important;
+    border: solid 1px black !important;
+    color: black;
+}

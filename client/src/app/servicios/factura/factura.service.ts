@@ -34,6 +34,13 @@ export class FacturaService {
       )
   }
 
+  listarFacturasSinPagarProveedor(idProveedor): Observable<any>{
+    return this.http.get(`http://localhost:3000/api/vFacturasProveedores?filter[where][and][0][saldo][nlike]=0&filter[where][and][1][idProveedor]=${idProveedor}`)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
   registrarFactura(Factura): Observable<any> {
     return this.http.post(`http://localhost:3000/api/Facturas`, Factura)
       .pipe(
@@ -76,6 +83,13 @@ export class FacturaService {
       )
   }
 
+  listarFacturasEntreFechasProveedor(fechaI, fechaF, idProveedor): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/vFacturasProveedores?filter[where][and][0][idProveedor]=${idProveedor}&filter[where][fechaVencimiento][between][0]=${fechaI}&filter[where][fechaVencimiento][between][1]=${fechaF}`)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
   registrarDetalleFactura(DetalleFactura): Observable<any> {
     return this.http.post(`http://localhost:3000/api/DetalleFacturas`, DetalleFactura)
       .pipe(
@@ -106,6 +120,13 @@ export class FacturaService {
 
   facturasSinPagar() {
     return this.http.get(`http://localhost:3000/api/vFacturasProveedores?filter[where][saldo][nlike]=0`)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
+  facturasSinPagarEntreFechas(fechaI, fechaF) {
+    return this.http.get(`http://localhost:3000/api/vFacturasProveedores?filter[where][saldo][nlike]=0&filter[where][fechaVencimiento][between][0]=${fechaI}&filter[where][fechaVencimiento][between][1]=${fechaF}`)
       .pipe(
         catchError(this.handleError)
       )

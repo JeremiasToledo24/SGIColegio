@@ -10,7 +10,7 @@ export class ReportesService {
   cobros = [];
   reporte;
   pagos =[]
-
+  deudas = []
   cuotas = []
 
 

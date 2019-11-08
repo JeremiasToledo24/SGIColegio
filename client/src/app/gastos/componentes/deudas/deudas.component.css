@@ -1,0 +1,36 @@
+.backgroundCard {
+    background-color: #E8EAF6;
+    margin: 1rem 4rem 1rem 4rem;
+}
+
+mat-card {
+    background-color: #E8EAF6;
+    margin: 0px 20px 0px 20px;
+}
+
+
+mat-select {
+    width: 100px;
+    background-color: white;
+    margin-left: 25px;
+    border: 2px solid gray;
+    border-radius: 5px;
+}
+
+/* Estilos de tabla */
+
+table {
+    width: 100%;
+}
+
+th {
+    background-color: #3F51B5;
+    color: beige;
+}
+
+td {
+    background-color: rgb(225, 228, 245);}
+
+mat-cell {
+    background-color: #C5CAE9;
+}
