@@ -1,57 +1,66 @@
-<div class="row">
-    <div class="col">
-        <label for="">O filtre las facturas por Proveedor</label>
+<mat-card class="backgroundCard">
+  <div class="row">
+
+    <!-- Filtrar por PROVEEDOR -->
+    <div class="col-sm-4">
+      <label><b>Filtrar las facturas por Proveedor</b></label>
+      <mat-form-field class="col-sm-12">
+        <label>Seleccione el Proveedor</label>
+        <select matNativeControl required [formControl]="proveedorControl">
+          <option (click)="getFacturasPorProveedor()" [value]="'N'">TODOS LOS PROVEEDORES</option>
+          <option (click)="getFacturasPorProveedor()" *ngFor="let proveedor of proveedores"
+            [value]="proveedor.idProveedor">
+            {{proveedor.nombre}}
+          </option>
+        </select>
+      </mat-form-field>
     </div>
-    <div class="col">
-        <mat-form-field>
-            <label>Seleccione el Proveedor</label>
-            <select matNativeControl required [formControl]="proveedorControl">
-                <option (click)="getFacturasPorProveedor()" [value]="'N'">TODOS LOS PROVEEDORES</option>
-                <option (click)="getFacturasPorProveedor()" *ngFor="let proveedor of proveedores"
-                    [value]="proveedor.idProveedor">
-                    {{proveedor.nombre}}
-                </option>
-            </select>
-        </mat-form-field>
-    </div>
-    <mat-card style="margin-left: 20px">
-        <label>Seleccione un rango de Fechas de Pago</label>
+
+    <div class="col-sm-8">
+      <mat-card style="margin: 0px 0px 20px 0px;">
+        <label><b>Seleccione un rango de Fechas de Pago</b></label>
         <div>
-            <label style="margin-left: 20px">Fecha de Inicio</label>
-            <input style="margin-left: 10px" type="date" [formControl]="fechaInicio">
-            <label style="margin-left: 20px">Fecha fin</label>
-            <input style="margin-left: 20px" type="date" [formControl]="fechaFin">
+          <label style="margin-left: 20px">Fecha de Inicio</label>
+          <input style="margin-left: 10px" type="date" [formControl]="fechaInicio">
+          <label style="margin-left: 20px">Fecha fin</label>
+          <input style="margin-left: 20px" type="date" [formControl]="fechaFin">
 
+          <div class="d-flex justify-content-end">
             <button style="margin-left: 10px" (click)="obtenerPagosEntreFechas()" mat-raised-button
-                color="primary">Buscar</button>
+              color="primary">Buscar</button>
             <button style="margin-left: 10px" (click)="reset()" mat-raised-button color="primary">Reestablecer</button>
+          </div>
         </div>
-    </mat-card>
-</div>
+      </mat-card>
+    </div>
+  </div>
 
-
-<table mat-table #table [dataSource]="dataSource">
+  <table mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="codigoFactura">
-        <th mat-header-cell *matHeaderCellDef> Codigo de la Factura </th>
-        <td mat-cell *matCellDef="let row"> {{row.codigo}} </td>
+      <th mat-header-cell *matHeaderCellDef> Codigo de la Factura </th>
+      <td mat-cell *matCellDef="let row"> {{row.codigo}} </td>
     </ng-container>
     <ng-container matColumnDef="proveedor">
-        <th mat-header-cell *matHeaderCellDef> Proveedor </th>
-        <td mat-cell *matCellDef="let row"> {{row.nombre}}</td>
+      <th mat-header-cell *matHeaderCellDef> Proveedor </th>
+      <td mat-cell *matCellDef="let row"> {{row.nombre}}</td>
     </ng-container>
     <ng-container matColumnDef="fechaPago">
-        <th mat-header-cell *matHeaderCellDef> Fecha de Pago </th>
-        <td mat-cell *matCellDef="let row"> {{row.fecha}} </td>
+      <th mat-header-cell *matHeaderCellDef> Fecha de Pago </th>
+      <td mat-cell *matCellDef="let row"> {{row.fecha}} </td>
     </ng-container>
     <ng-container matColumnDef="importe">
-        <th mat-header-cell *matHeaderCellDef> Importe </th>
-        <td mat-cell *matCellDef="let row"> {{row.importe}} </td>
+      <th mat-header-cell *matHeaderCellDef> Importe </th>
+      <td mat-cell *matCellDef="let row"> {{row.importe}} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="['codigoFactura','proveedor','fechaPago','importe']"></tr>
     <tr mat-row *matRowDef="let row; columns: ['codigoFactura','proveedor','fechaPago','importe'];">
     </tr>
-</table>
-<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" class="mat-elevation-z8" showFirstLastButtons></mat-paginator>
 
-<button mat-raised-button (click)="generaBoleta()" color="primary">Generar Reporte</button>
+  <div class="d-flex justify-content-center">
+    <button mat-raised-button (click)="generaBoleta()" style="margin: 20px 0px 0px 0px" color="primary">Generar
+      Reporte</button>
+  </div>
+</mat-card>
