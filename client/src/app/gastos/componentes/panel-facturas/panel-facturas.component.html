@@ -22,11 +22,19 @@
             <label>Seleccione el Proveedor</label>
             <select matNativeControl required [formControl]="proveedorControl">
                 <option (click)="getFacturasPorProveedor()" [value]="'N'">TODOS LOS PROVEEDORES</option>
-                <option (click)="getFacturasPorProveedor()" *ngFor="let proveedor of proveedores" [value]="proveedor.idProveedor">
+                <option (click)="getFacturasPorProveedor()" *ngFor="let proveedor of proveedores"
+                    [value]="proveedor.idProveedor">
                     {{proveedor.nombre}}
                 </option>
             </select>
         </mat-form-field>
+    </div>
+    <div class="col">
+
+        <mat-radio-group [formControl]="estadoControl">
+            <mat-radio-button (click)="filtrarEstado()" value="S">Pagada</mat-radio-button>
+            <mat-radio-button (click)="filtrarEstado()" value="N">No Pagadas</mat-radio-button>
+        </mat-radio-group>
     </div>
 </div>
 

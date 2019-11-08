@@ -1,0 +1,109 @@
+<!-- Boton generar -->
+<div style="text-align: right; margin-right: 20px;">
+    <button mat-raised-button color="primary" (click)="generaBoleta()">
+        <mat-icon>print</mat-icon> Generar factura
+    </button>
+
+    <button mat-raised-button color="warn" (click)="close()" style="margin: 0px 0px 0px 20px">
+        <mat-icon>close</mat-icon> Cerrar
+    </button>
+</div>
+
+<!-- Factura -->
+<div class="hoja" id="to-pdf">
+    <div class="factura">
+
+        <!-- Original / Copia -->
+        <div class="original"><b>REPORTE</b></div>
+
+        <!-- Encabezado de factura -->
+        <div class="container">
+
+            <!-- Datos del colegio -->
+            <!-- <div class="datosColegioContainer">
+                <h2 style="text-align: center;">INSTITUTO MODELO S.R.L</h2>
+                <div class="datosColegio">
+                    <b>Razón social:</b> Instituto Modelo S.R.L.
+                    <br>
+                    <b>Domicilio comercial:</b> Radio Sgo. del Estero 563 - Salta, Salta.
+                    <br>
+                    <b>Condición frente al IVA: Excento</b>
+                </div>
+            </div> -->
+
+            <!-- Datos de la factura -->
+            <div class="datosFacturaContainer">
+                <h2 style="text-align: center;">INGRESOS EN CONCEPTO {{data.reporte.concepto}}</h2>
+                <div class="datosFactura">
+                    <b>Periodo</b>
+                    <br>
+                    <b>Desde:</b> {{data.reporte.fechaI}}
+                    <br>
+                    <b>Hasta:</b> {{data.reporte.fechaF}}
+                </div>
+            </div>
+        </div>
+
+        <!-- Datos del alumno-->
+        <!-- <div>
+            <div id="datosAlumnoContainer">
+                <b>Apellido y nombre:</b> {{this.data.nombreAlumno}}
+                <br>
+                <b>DNI:</b> {{this.data.boleta.dniAlumno}}
+                <br>
+                <b>Domicilio:</b> {{this.data.domicilioAlumno}}
+            </div>
+            <div id="condicionContainer">
+                <b>Condición frente al IVA:</b> Consumidor final
+                <br>
+                <b>Condición de venta:</b> Contado
+            </div>
+        </div> -->
+
+        <br class="clearBoth" />
+
+        <!-- Cuerpo de factura -->
+        <div class="cuerpoFactura">
+            <div class="detalleFactura">
+                <table>
+
+                    <!-- Encabezado de tabla-->
+                    <tr>
+                        <th style="background-color: rgb(160, 160, 160);">Concepto</th>
+                        <th style="background-color: rgb(160, 160, 160);">Fecha</th>
+                        <th style="background-color: rgb(160, 160, 160);">Importe</th>
+                    </tr>
+
+                    <!-- Conceptos del detalle-->
+                    <tr *ngFor="let cobro of this.data.cobros">
+                        <td>{{cobro.concepto}}</td>
+                        <td>{{cobro.fecha}}</td>
+                        <td>{{cobro.importe}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!-- Pie de factura -->
+        <div class="pieFactura">
+            <div class="total">
+                <div class="detalleTotal">
+                    <table>
+                        <tr>
+                            <th class="th2">Subtotal:</th>
+                            <th class="th2"><!-- ${{this.data.boleta.importeVencimiento1}} -->
+                            </th>
+                        </tr>
+                        <tr>
+                            <td class="td2"><b>Importe otros tributos:</b></td>
+                            <td class="td2"><b>$0</b></td>
+                        </tr>
+                        <tr>
+                            <td class="td2"><b>Importe total:</b></td>
+                            <td class="td2"><b><!-- ${{this.data.boleta.importeVencimiento1}} --></b></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

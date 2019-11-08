@@ -53,6 +53,18 @@ export class PeriodosSecundariaComponent implements OnInit {
     }
   }
 
+  verPlan(item){
+    console.log('item :', item);
+    this.planService.getPlanId(item.idPlanEstudio)
+    .subscribe(
+      res => {
+        const dialogRef = this.dialog.open(VerPlanComponent,
+          
+          {data: {plan: item}})
+      }
+    )
+  }
+
   openDialog(plan): void {
     const dialogRef = this.dialog.open(CrearLectivosComponent, {
       data: { plan: plan, anio: this.periodoControl.value }
@@ -91,17 +103,7 @@ export class PeriodosSecundariaComponent implements OnInit {
     })
   }
 
-  verPlan(item){
-    console.log('item :', item);
-    this.planService.getPlanId(item.idPlanEstudio)
-    .subscribe(
-      res => {
-        const dialogRef = this.dialog.open(VerPlanComponent,
-          
-          {data: {plan: item}})
-      }
-    )
-  }
+  
 
   eliminar(ciclo) {
     this.planService.eliminarPeriodo(ciclo.idPeriodoLectivo)
