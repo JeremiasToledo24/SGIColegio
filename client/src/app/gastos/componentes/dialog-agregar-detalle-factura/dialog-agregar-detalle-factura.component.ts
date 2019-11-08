@@ -11,7 +11,6 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 export class DialogAgregarDetalleFacturaComponent implements OnInit {
   detalleForm = this.fb.group({
     conceptoControl: ['', Validators.required],
-    subtotalControl: ['', Validators.required],
     cantidadControl: ['', Validators.required],
     unitarioControl: ['', Validators.required],
   });
@@ -26,7 +25,7 @@ export class DialogAgregarDetalleFacturaComponent implements OnInit {
   agregarDetalle() {
     if (this.detalleForm.valid) {
       this.dialogRef.close({
-        concepto: this.detalleForm.value.conceptoControl, subtotal: this.detalleForm.value.subtotalControl,
+        concepto: this.detalleForm.value.conceptoControl, subtotal: (Number(this.detalleForm.value.unitarioControl) * Number(this.detalleForm.value.cantidadControl)).toFixed(2),
         precioUnitario: this.detalleForm.value.unitarioControl, cantidad: this.detalleForm.value.cantidadControl
       });
     } else {
