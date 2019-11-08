@@ -4,6 +4,8 @@ import { CobrosService } from 'src/app/servicios/cobros/cobros.service';
 import * as jsdPDF from 'jspdf'
 import { MatTableDataSource, MatPaginator, MatDialog } from '@angular/material';
 import { ReporteIngresosComponent } from '../reporte-ingresos/reporte-ingresos.component';
+import { ReportesService } from 'src/app/servicios/reportes/reportes.service';
+import { Router } from '@angular/router';
 
 class Cobro {
   constructor(importe?, fecha?, concepto?) {
@@ -47,14 +49,21 @@ export class IngresosComponent implements OnInit {
   data: any[] = []
   dataSource;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  constructor(private cobrosService: CobrosService, public dialog: MatDialog) { }
+
+
+  constructor(private cobrosService: CobrosService, public dialog: MatDialog,
+    private reportesService: ReportesService,
+    private router: Router) { }
 
   ngOnInit() {
     this.obtenerDetallesCobros()
   }
 
+  applyFilter(filterValue: string) {
+      this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
   obtenerDetalles() {
-    console.log(this.fechaInicio.value, this.fechaFin.value)
     this.cobrosService.obtenerDetallesCobrosEntreFechas(this.fechaInicio.value, this.fechaFin.value)
       .subscribe(
         res => {
@@ -80,30 +89,16 @@ export class IngresosComponent implements OnInit {
         res => {
           this.data = [];
           this.data = res;
+          console.log(this.data)
           this.dataSource = new MatTableDataSource(this.data)
           this.dataSource.paginator = this.paginator;
         }
       )
   }
 
-  filtrarConcepto() {
-    if (this.conceptoReporte.value === 'CUOTA') {
-      this.data = this.data.filter(obj => obj.mes !== 'MATRICULA')
-    }else{
-      this.data = this.data.filter(obj => obj.mes === 'MATRICULA')
-    }
-    this.dataSource = new MatTableDataSource(this.data)
-    this.dataSource.paginator = this.paginator;
-  }
-
-  resetFiltro(){
-    this.obtenerDetallesCobros()
-  }
-
   generaBoleta() {
     let total: number = 0;
     let cobros: Cobro[] = [];
-    console.log(this.conceptoReporte.value)
     this.data.forEach(element => {
       total = total + Number(element.importe)
       cobros.push({ concepto: element.mes, importe: element.importe, fecha: element.fecha })
@@ -111,16 +106,15 @@ export class IngresosComponent implements OnInit {
     const reporte = {
       fechaI: this.fechaInicio.value,
       fechaF: this.fechaFin.value,
-      concepto: this.conceptoReporte.value,
       total: total
     }
-    const dialogRef = this.dialog.open(ReporteIngresosComponent, {
-      data: { cobros, reporte }
-    });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
+    this.reportesService.cobros = cobros;
+    this.reportesService.reporte = reporte;
+    
+    this.router.navigate(['/reporteIngresos']);
+
+
   }
 
 }
