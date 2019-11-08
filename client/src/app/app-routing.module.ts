@@ -41,6 +41,7 @@ import { ReporteIngresosComponent } from './cobros/componentes/reporte-ingresos/
 import { SaldosComponent } from './cobros/componentes/saldos/saldos.component';
 import { ReporteCuotasComponent } from './cobros/componentes/reporte-cuotas/reporte-cuotas.component';
 import { EgresosComponent } from './gastos/componentes/egresos/egresos.component';
+import { ReporteGastosComponent } from './gastos/componentes/reporte-gastos/reporte-gastos.component';
 
 
 
@@ -82,6 +83,8 @@ const routes: Routes = [
   { path: 'saldos', component: SaldosComponent },
   { path: 'reportesCuotas', component: ReporteCuotasComponent },
   { path: 'egresos', component: EgresosComponent },
+  { path: 'reportesGastos', component: ReporteGastosComponent },
+
 
   { path: '**', redirectTo: 'error' },
 
