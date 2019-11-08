@@ -34,4 +34,9 @@ export class DialogAgregarDetalleFacturaComponent implements OnInit {
     }
   }
 
+  // Cerrar dialog
+  close() {
+    this.dialogRef.close();
+  }
+
 }

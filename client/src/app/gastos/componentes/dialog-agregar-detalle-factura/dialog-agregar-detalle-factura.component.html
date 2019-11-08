@@ -1,32 +1,52 @@
 <form action="" [formGroup]="detalleForm">
+
+  <!-- CONCEPTO -->
   <div class="row">
-    <mat-form-field>
-      <label>Ingrese el Concepto</label>
+    <label style="margin-left: 15px;">Ingrese el Concepto</label>
+    <mat-form-field appearance="outline" class="col-sm-12">
       <input matInput formControlName="conceptoControl">
     </mat-form-field>
   </div>
-  <div class="row">
-    <div class="col">
-      <mat-form-field>
-        <label>Cantidad</label>
-        <input matInput type="number" formControlName="cantidadControl">
-      </mat-form-field>
-    </div>
-    <div class="col">
-      <mat-form-field>
-        <label>Precio Unitario</label>
-        <input matInput type="number" formControlName="unitarioControl">
-      </mat-form-field>
-    </div>
 
-  </div>
+  <!-- CANTIDAD / PRECIO -->
   <div class="row">
-    <mat-form-field>
+    <div class="col-sm-6">
+      <div>
+        <label>Cantidad</label>
+      </div>
+      <div>
+        <mat-form-field appearance="outline">
+          <input matInput type="number" formControlName="cantidadControl">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div>
+        <label>Precio unitario</label>
+      </div>
+      <div>
+        <mat-form-field appearance="outline">
+          <input matInput type="number" formControlName="unitarioControl">
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBTOTAL (BORRAR - AUTOCALCULADO) -->
+  <div class="row">
+    <div class="d-flex justify-content-end">
       <label>Subtotal</label>
-      <input matInput type="number" formControlName="subtotalControl">
-    </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <input matInput type="number" formControlName="subtotalControl">
+      </mat-form-field>
+    </div>
   </div>
-  <div class="row">
-    <button (click)="agregarDetalle()" class="text-right" mat-button>Aceptar</button>
+
+  <!-- BOTONES -->
+  <div class="d-flex justify-content-center">
+    <button mat-raised-button color="warn" (click)="close()">Cancelar</button>
+    <button mat-raised-button color="primary" (click)="agregarDetalle()">Aceptar</button>
   </div>
 </form>
