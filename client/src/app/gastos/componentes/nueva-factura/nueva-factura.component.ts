@@ -12,7 +12,7 @@ import { FacturaService } from 'src/app/servicios/factura/factura.service';
 })
 export class NuevaFacturaComponent implements OnInit {
 
-  displayedColumns: string[] = ['concepto', 'subtotal','unitario','cantidad', 'op'];
+  displayedColumns: string[] = ['concepto','cantidad','unitario','subtotal','op'];
   data: any[] = []
   dataSource = new MatTableDataSource(this.data);
 

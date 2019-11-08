@@ -1,32 +1,32 @@
 <form action="" [formGroup]="detalleForm">
-    <div class="row">
-        <mat-form-field>
-            <label>Ingrese el Concepto</label>
-            <input matInput formControlName="conceptoControl">
-        </mat-form-field>
+  <div class="row">
+    <mat-form-field>
+      <label>Ingrese el Concepto</label>
+      <input matInput formControlName="conceptoControl">
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-form-field>
+        <label>Cantidad</label>
+        <input matInput type="number" formControlName="cantidadControl">
+      </mat-form-field>
     </div>
-    <div class="row">
-        <div class="col">
-            <mat-form-field>
-                <label>Cantidad</label>
-                <input matInput type="number" formControlName="cantidadControl">
-            </mat-form-field>
-        </div>
-        <div class="col">
-            <mat-form-field>
-                <label>Precio Unitario</label>
-                <input matInput type="number" formControlName="unitarioControl">
-            </mat-form-field>
-        </div>
+    <div class="col">
+      <mat-form-field>
+        <label>Precio Unitario</label>
+        <input matInput type="number" formControlName="unitarioControl">
+      </mat-form-field>
+    </div>
 
-    </div>
-    <div class="row">
-        <mat-form-field>
-            <label>Subtotal</label>
-            <input matInput type="number" formControlName="subtotalControl">
-        </mat-form-field>
-    </div>
-    <div class="row">
-        <button (click)="agregarDetalle()" class="text-right" mat-button>Aceptar</button>
-    </div>
+  </div>
+  <div class="row">
+    <mat-form-field>
+      <label>Subtotal</label>
+      <input matInput type="number" formControlName="subtotalControl">
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <button (click)="agregarDetalle()" class="text-right" mat-button>Aceptar</button>
+  </div>
 </form>
