@@ -114,6 +114,10 @@ export class DeudasComponent implements OnInit {
       fechaF: this.fechaFin.value,
       total: total.toFixed(2)
     }
+
+          deudas.push({ codigo: 'TOTAL:',proveedor: '', importe: total.toFixed(2), fecha: '' })
+
+
     this.reportesService.deudas = deudas;
     this.reportesService.reporte = reporte;
 

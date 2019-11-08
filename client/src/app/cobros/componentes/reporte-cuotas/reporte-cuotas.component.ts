@@ -14,7 +14,7 @@ export class ReporteCuotasComponent implements OnInit {
     this.cuotas = reportesService.cuotas
   }
 
-  cuotas;
+  cuotas = [];
   reporte;
 
   ngOnInit() {
@@ -37,6 +37,8 @@ export class ReporteCuotasComponent implements OnInit {
     };
 
     const csvExporter = new ExportToCsv(options);
+
+    this.cuotas.push({total: this.reporte.total})
 
     csvExporter.generateCsv(this.cuotas);
 
