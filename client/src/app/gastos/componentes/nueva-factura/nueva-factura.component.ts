@@ -52,8 +52,8 @@ export class NuevaFacturaComponent implements OnInit {
   onSubmit() {
     if (this.data.length > 0) {
       const Factura = {
-        fechaEmision: moment(this.facturaForm.value.fechaEmisionControl).format('YYYY/MM/DD'),
-        fechaVencimiento: moment(this.facturaForm.value.fechaVencimientoControl).format('YYYY/MM/DD'),
+        fechaEmision: (this.facturaForm.value.fechaEmisionControl),
+        fechaVencimiento: (this.facturaForm.value.fechaVencimientoControl),
         importe: this.totalFactura.toFixed(2),
         idProveedor: this.facturaForm.value.proveedorControl,
         letra: this.facturaForm.value.letraControl,

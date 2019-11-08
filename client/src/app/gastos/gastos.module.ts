@@ -8,11 +8,12 @@ import { DetalleFacturaComponent } from './componentes/detalle-factura/detalle-f
 import { DialogRegistrarPagoFacturaComponent } from './componentes/dialog-registrar-pago-factura/dialog-registrar-pago-factura.component';
 import { EgresosComponent } from './componentes/egresos/egresos.component';
 import { ReporteGastosComponent } from './componentes/reporte-gastos/reporte-gastos.component';
+import { DeudasComponent } from './componentes/deudas/deudas.component';
 
 
 
 @NgModule({
-  declarations: [PanelFacturasComponent, NuevaFacturaComponent, DialogAgregarDetalleFacturaComponent, DetalleFacturaComponent, DialogRegistrarPagoFacturaComponent, EgresosComponent, ReporteGastosComponent],
+  declarations: [PanelFacturasComponent, NuevaFacturaComponent, DialogAgregarDetalleFacturaComponent, DetalleFacturaComponent, DialogRegistrarPagoFacturaComponent, EgresosComponent, ReporteGastosComponent, DeudasComponent],
   imports: [
     CommonModule,
     MaterialModule
