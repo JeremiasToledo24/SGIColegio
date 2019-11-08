@@ -1,0 +1,54 @@
+/* BACKGROUND CARD */
+
+.backGroundCard {
+    margin: 2rem 5rem 2rem 5rem;
+    background-color: #E8EAF6;
+}
+
+/* LISTA DE CONCEPTOS DE FACTURA */
+
+table {
+    width: 100%;
+}
+
+th {
+    background-color: #3F51B5;
+    color: beige;
+}
+
+td {
+    background-color: #C5CAE9;
+    text-align: left !important;
+}
+
+label{
+    margin-left: 40px;
+}
+
+#submitButton {
+    margin: 10px 10px 0px 10px;
+}
+
+#importe {
+    display: inline;
+}
+
+.mat-column-concepto {
+    width: 50% !important;
+}
+
+.mat-column-cantidad {
+    width: 10% !important;
+}
+
+.mat-column-unitario {
+    width: 15% !important;
+}
+
+.mat-column-subtotal {
+    width: 15% !important;
+}
+
+.mat-column-op {
+    width: 10% !important;
+}
