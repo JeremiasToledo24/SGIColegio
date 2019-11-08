@@ -80,9 +80,8 @@
           <td mat-cell *matCellDef="let row">
             <button (click)="verDetalle(row.idFactura)" mat-raised-button color="primary"
               style="margin: 0px 10px 0px 10px">Ver Detalle</button>
-            <button *ngIf="row.saldo !== 0" (click)="openDialog(row)" mat-raised-button
-              style="margin: 0px 10px 0px 10px; background-color: rgb(110, 240, 121);">Registrar como
-              Pagada</button>
+            <button *ngIf="row.saldo !== 0" (click)="openDialog(row)" color="primary" mat-raised-button
+              style="margin: 0px 10px 0px 10px">Pagar</button>
             <button *ngIf="row.saldo === 0" mat-raised-button disabled style="color: forestgreen;"
               style="margin: 0px 10px 0px 10px">Pagada</button>
           </td>

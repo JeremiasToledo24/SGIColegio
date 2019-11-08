@@ -26,7 +26,7 @@ td {
 }
 
 .mat-column-proveedor{
-    width: 25% !important;
+    width: 15% !important;
 }
 
 .mat-column-fechaEmision {
@@ -44,6 +44,6 @@ td {
 }
 
 .mat-column-operaciones {
-    width: 25% !important;
+    width: 35% !important;
     text-align: center !important;
 }
