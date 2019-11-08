@@ -60,7 +60,9 @@ export class ProveedorComponent implements OnInit {
         console.log(result)
         this.proveedorService.getProveedores().subscribe(
           res => {
-            this.dataSource = res as any[];
+            let data = res as any[];
+            this.dataSource = new MatTableDataSource(data);
+            this.dataSource.paginator = this.paginator;
           }
         );
       }

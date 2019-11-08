@@ -21,6 +21,9 @@ export class PanelFacturasComponent implements OnInit {
   proveedores = []
 
   dataDetalle = [];
+
+  estadoControl = new FormControl('')
+
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   constructor(public dialog: MatDialog,
@@ -92,14 +95,36 @@ export class PanelFacturasComponent implements OnInit {
     });
   }
 
+  filtrarEstado() {
+    if (this.estadoControl.value === 'N') {
+      this.facturaService.facturasSinPagar()
+        .subscribe(
+          res => {
+            this.data = []
+            this.data = res;
+            this.dataSource = new MatTableDataSource(this.data)
+            this.dataSource.paginator = this.paginator;
+          }
+        )
+    } else {
+      this.facturaService.facturasPagadas()
+        .subscribe(
+          res => {
+            this.data = []
+            this.data = res;
+            this.dataSource = new MatTableDataSource(this.data)
+            this.dataSource.paginator = this.paginator;
+          }
+        )
+    }
 
 
-
+  }
 
   registrarPago(row) {
     const fecha = new Date();
-    const f = (fecha.getFullYear() + '-' + ('0' + (fecha.getMonth()+1)).slice(-2) + '-' + ('0' + fecha.getDate()).slice(-2) );
-    
+    const f = (fecha.getFullYear() + '-' + ('0' + (fecha.getMonth() + 1)).slice(-2) + '-' + ('0' + fecha.getDate()).slice(-2));
+
     const Pago = {
       total: row.importe,
       idProveedor: row.idProveedor,

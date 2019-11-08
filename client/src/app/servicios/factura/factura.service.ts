@@ -67,6 +67,22 @@ export class FacturaService {
         catchError(this.handleError)
       );
   }
+
+  facturasPagadas() {
+    return this.http.get(`http://localhost:3000/api/vFacturasProveedores?filter[where][saldo]=0`)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
+  facturasSinPagar() {
+    return this.http.get(`http://localhost:3000/api/vFacturasProveedores?filter[where][saldo][nlike]=0`)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
+
   listarDetalleFactura(idFactura): Observable<any> {
     return this.http.get(`http://localhost:3000/api/DetalleFacturas?filter[where][idFactura]=${idFactura}`)
       .pipe(
