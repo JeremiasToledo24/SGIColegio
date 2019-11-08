@@ -16,21 +16,6 @@
         </div>
     </mat-card>
     <mat-card style="margin-left: 20px">
-        <label>Seleccione el concepto</label>
-        <div>
-            <mat-radio-group [formControl]="conceptoReporte" aria-label="Select an option">
-                <mat-radio-button (click)="filtrarConcepto()" value="CUOTAS">Cuotas</mat-radio-button>
-                <mat-radio-button (click)="filtrarConcepto()" value="MATRICULAS">Matriculas</mat-radio-button>
-                <mat-radio-button (click)="resetFiltro()" value="TODO">Todo</mat-radio-button>
-              </mat-radio-group>
-              
-            <!-- <button style="margin-left: 10px" (click)="obtenerDetalles()" mat-raised-button
-                color="primary">Buscar</button>
-            <button style="margin-left: 10px" (click)="reset()" mat-raised-button color="primary">Reestablecer</button> -->
-        </div>
-    </mat-card>
-
-    <mat-card style="margin-left: 20px">
         <label>Lista de cobros</label>
         <div class="row" style="margin: 2rem 2rem 2rem">
 

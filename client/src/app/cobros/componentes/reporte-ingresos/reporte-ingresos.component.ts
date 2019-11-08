@@ -1,6 +1,7 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import * as jsPDF from 'jspdf'
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Component, OnInit, Inject, Input } from '@angular/core';
+import { ReportesService } from 'src/app/servicios/reportes/reportes.service';
+import { ExportToCsv } from 'export-to-csv';
+
 
 @Component({
   selector: 'app-reporte-ingresos',
@@ -8,24 +9,35 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
   styleUrls: ['./reporte-ingresos.component.css']
 })
 export class ReporteIngresosComponent implements OnInit {
-
-  constructor(
-    public dialogRef: MatDialogRef<ReporteIngresosComponent>,
-    @Inject(MAT_DIALOG_DATA) public data) {}
-
-  onNoClick(): void {
-    this.dialogRef.close();
+  constructor(private reportesService: ReportesService) {
+    this.reporte = reportesService.reporte
+    this.cobros = reportesService.cobros
   }
 
+  
+
+  cobros;
+  reporte;
   ngOnInit() {
-    console.log(this.data)
   }
 
-  generaBoleta() {
-    var pdf = new jsPDF('p', 'pt', 'a4');
-    pdf.addHTML(document.getElementById('to-pdf'), function () {
-      pdf.save('factura.pdf');
-    });
-  }
+  exportarCSV(){
+    const options = { 
+      fieldSeparator: ',',
+      quoteStrings: '"',
+      decimalSeparator: '.',
+      showLabels: true, 
+      showTitle: true,
+      title: `Reporte de ingresos desde ${this.reporte.fechaI} hasta ${this.reporte.fechaF}`,
+      useTextFile: false,
+      useBom: true,
+      useKeysAsHeaders: true,
+      // headers: ['Column 1', 'Column 2', etc...] <-- Won't work with useKeysAsHeaders present!
+    };
 
+    const csvExporter = new ExportToCsv(options);
+
+    csvExporter.generateCsv(this.cobros);
+
+  }
 }
