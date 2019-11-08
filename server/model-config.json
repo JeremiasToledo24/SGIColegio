@@ -198,5 +198,9 @@
   "DetallePago": {
     "dataSource": "db",
     "public": true
+  },
+  "vPagos": {
+    "dataSource": "db",
+    "public": true
   }
 }

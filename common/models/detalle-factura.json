@@ -19,11 +19,11 @@
     "subtotal": {
       "type": "number"
     },
-    "cantidad":{
+    "cantidad": {
       "type": "number"
     },
-    "precioUnitario":{
-      "type":"number"
+    "precioUnitario": {
+      "type": "number"
     }
   },
   "validations": [],

@@ -134,17 +134,20 @@ export class PanelFacturasComponent implements OnInit {
     this.facturaService.registrarPago(Pago)
       .subscribe(
         res => {
+          let idPago = res.idPago
           this.facturaService.listarDetalleFactura(row.idFactura)
             .subscribe(
               res => {
+                console.log(idPago)
                 this.dataDetalle = res;
                 this.dataDetalle.forEach(detalleFactura => {
                   const DetallePago = {
                     concepto: detalleFactura.concepto,
                     subtotal: detalleFactura.subtotal,
                     idFactura: row.idFactura,
-                    idPago: res.idPago
+                    idPago: idPago
                   }
+                  console.log(DetallePago, 'detalle de pago')
                   this.facturaService.registrarDetallePago(DetallePago).
                     subscribe(
                       res => {
