@@ -1,24 +1,22 @@
 <mat-card class="backgroundCard">
     <mat-card-header>
-        <mat-card-title>Ingresos</mat-card-title>
+        <mat-card-title>Cuotas y Matriculas con Saldo</mat-card-title>
     </mat-card-header>
     <mat-card style="margin-left: 20px">
-        <label>Seleccione fecha de cobros</label>
+        <label>Seleccione periodos de vencimientos</label>
         <div>
             <label style="margin-left: 20px">Fecha de Inicio</label>
             <input style="margin-left: 10px" type="date" [formControl]="fechaInicio">
             <label style="margin-left: 20px">Fecha fin</label>
             <input style="margin-left: 20px" type="date" [formControl]="fechaFin">
 
-            <button style="margin-left: 10px" (click)="obtenerDetalles()" mat-raised-button
+            <button style="margin-left: 10px" (click)="obtenerCuotasEntreFechas()" mat-raised-button
                 color="primary">Buscar</button>
             <button style="margin-left: 10px" (click)="reset()" mat-raised-button color="primary">Reestablecer</button>
         </div>
     </mat-card>
     <mat-card style="margin-left: 20px">
-        <label>Lista de cobros</label>
         <div class="row" style="margin: 2rem 2rem 2rem">
-
             <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
                 <ng-container matColumnDef="mes">
                     <th mat-header-cell *matHeaderCellDef> Concepto</th>
@@ -26,17 +24,16 @@
                 </ng-container>
                 <ng-container matColumnDef="importe">
                     <th mat-header-cell *matHeaderCellDef> Importe </th>
-                    <td mat-cell *matCellDef="let element"> {{element.importe}} </td>
+                    <td mat-cell *matCellDef="let element"> {{element.saldo}} </td>
                 </ng-container>
-                <ng-container matColumnDef="fecha">
-                    <th mat-header-cell *matHeaderCellDef> Fecha </th>
-                    <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
+                <ng-container matColumnDef="vencimiento1">
+                    <th mat-header-cell *matHeaderCellDef> Vencimiento </th>
+                    <td mat-cell *matCellDef="let element"> {{element.vencimiento1}} </td>
                 </ng-container>
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
             <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-
         </div>
         <button mat-raised-button (click)="generaBoleta()" color="primary">Obtener Reporte</button>
     </mat-card>

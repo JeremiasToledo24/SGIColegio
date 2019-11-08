@@ -18,18 +18,7 @@ class Cobro {
   fecha
 }
 
-/* class Reporte {
-  constructor(fechaI, fechaF, concepto, total) {
-    fechaI = this.fechaI;
-    fechaF = this.fechaF;
-    concepto = this.concepto
-    total = this.total
-  }
-  fechaI;
-  fechaF;
-  concepto;
-  total;
-} */
+
 
 
 @Component({
@@ -38,11 +27,10 @@ class Cobro {
   styleUrls: ['./ingresos.component.css']
 })
 export class IngresosComponent implements OnInit {
-  //today: number = Date.now();
 
   fechaInicio = new FormControl('', Validators.required)
   fechaFin = new FormControl('', Validators.required)
-  conceptoReporte = new FormControl('')
+ 
 
 
   displayedColumns: string[] = ['mes', 'importe', 'fecha'];
@@ -59,9 +47,7 @@ export class IngresosComponent implements OnInit {
     this.obtenerDetallesCobros()
   }
 
-  applyFilter(filterValue: string) {
-      this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
+  
 
   obtenerDetalles() {
     this.cobrosService.obtenerDetallesCobrosEntreFechas(this.fechaInicio.value, this.fechaFin.value)

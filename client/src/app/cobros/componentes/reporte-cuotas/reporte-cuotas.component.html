@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="col">
+        REPORTE
+    </div>
+    <div class="col">
+        <button (click)="exportarCSV()" mat-raised-button color="primary" (click)="generaBoleta()">
+            <mat-icon> insert_drive_file
+            </mat-icon> Exportar a CSV
+        </button>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col">
+        SALDOS TOTALES
+    </div>
+</div>
+<br>
+<div *ngIf="reporte.fechaI !== '' || reporte.fechaF !== ''" class="row">
+    <div class="col-4">
+        Periodo
+    </div>
+    <div class="col-4">Desde: {{reporte.fechaI}}</div>
+    <div class="col-4">Hasta: {{reporte.fechaF}}</div>
+</div>
+<div *ngIf="reporte.fechaI === '' || reporte.fechaF === ''" class="row">
+    <div class="col-4">
+        TODOS LOS PERIODOS
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col">
+        <table>
+            <tr>
+                <th>Concepto</th>
+                <th>Fecha</th>
+                <th>Importe</th>
+            </tr>
+            <tr *ngFor="let cuota of cuotas">
+                <td>{{cuota.concepto}}</td>
+                <td>{{cuota.fecha}}</td>
+                <td>{{cuota.importe}}</td>
+            </tr>
+            <br>
+            <tfoot>
+                <tr>
+                    <td><b>TOTAL</b></td>
+                    <td></td>
+                    <td><b>{{reporte.total}}</b></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
