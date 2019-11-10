@@ -34,7 +34,6 @@ export class ListaDocenteComponent implements OnInit {
         this.dataSource = new MatTableDataSource(data);
       }
     )
-    console.log(this.data)
   }
 
 

@@ -28,27 +28,10 @@ export class DocentePrimariaComponent implements OnInit {
   nivelControl = new FormControl('', Validators.required);
   cursoControl = new FormControl('', Validators.required);
   cicloControl = new FormControl('', Validators.required);
-  
 
-  listaPrimero = [];
-  listaSegundo = [];
-  listaTercero = [];
-  listaCuarto = [];
-  listaQuinto = [];
-  listaSexto = [];
-  listaSeptimo = [];
-
-  docentesPrimero = [];
-  docentesSegundo = [];
-  docentesTercero = [];
-  docentesCuarto = [];
-  docentesQuinto = [];
-  docentesSexto = [];
-  docentesSeptimo = [];
   dataSource = []
-  displayedColumns: string[] = ['nombreMateria', 'DNIDocente','nombreDocente','apellidoDocente', 'Division', 'operaciones'];
+  displayedColumns: string[] = ['nombreMateria', 'DNIDocente', 'nombreDocente', 'apellidoDocente', 'Division', 'operaciones'];
   constructor(private planService: PlanEstudioService,
-    private docenteService: DocenteService,
     public dialog: MatDialog) { }
 
   ngOnInit() {
@@ -61,33 +44,16 @@ export class DocentePrimariaComponent implements OnInit {
       )
   }
 
-  modificar(element) {
-    console.log(element)
-  }
-
-
   traerMateriaPorCurso(div) {
     this.planService.listarMateriasPlanPorCurso(this.idPlanControl.value.idPlanEstudio, this.cursoControl.value)
       .subscribe(
         res => {
-         /*  this.dataSource = []
-          res.forEach(element => {
-            this.dataSource.push(element)
-          }); */
           this.dataSource = res
           this.dataSource = this.dataSource.filter(function (fila) {
             return fila.division !== div
           })
-          console.log(this.dataSource)
         }
       )
-  }
-
-
-  filtrarPorDivision(div) {
-    this.dataSource = this.dataSource.map(function (fila) {
-      return fila.division !== div
-    })
   }
 
   asignarDocente(element, operacion): void {
@@ -95,14 +61,14 @@ export class DocentePrimariaComponent implements OnInit {
     const dialogRef = this.dialog.open(ListaDocenteComponent, {
       width: '700px',
       data: {
-        nivel: 1, 
-        materia: element.nombreMateria, 
-        curso: element.anio, 
-        seccion: this.divisionControl.value, 
+        nivel: 1,
+        materia: element.nombreMateria,
+        curso: element.anio,
+        seccion: this.divisionControl.value,
         periodo: this.idPlanControl.value,
-        nombreDocente: element.nombreDocente, 
+        nombreDocente: element.nombreDocente,
         apellidoDocente: element.apellidoDocente,
-        DNIDocente: element.DNIDocente, 
+        DNIDocente: element.DNIDocente,
         operacion: operacion,
         idPeriodo: this.idPlanControl.value.idPeriodoLectivo,
         idPlanMateria: element.idPlanMateria,
@@ -113,7 +79,7 @@ export class DocentePrimariaComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'A') {
         this.traerMateriaPorCurso('B')
-      }else{
+      } else {
         this.traerMateriaPorCurso('A')
       }
     });

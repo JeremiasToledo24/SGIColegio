@@ -15,25 +15,14 @@ export class DocenteSecundariaComponent implements OnInit {
 
   ciclos: Ciclos[];
   divisionControl = new FormControl('', Validators.required);
+  idPlanControl = new FormControl('', Validators.required);
+  nivelControl = new FormControl('', Validators.required);
+  cursoControl = new FormControl('', Validators.required);
   cicloControl = new FormControl('', Validators.required);
-  listaPrimero = [];
-  listaSegundo = [];
-  listaTercero = [];
-  listaCuarto = [];
-  listaQuinto = [];
-  listaSexto = [];
-  listaSeptimo = [];
 
-  docentesPrimero = [];
-  docentesSegundo = [];
-  docentesTercero = [];
-  docentesCuarto = [];
-  docentesQuinto = [];
-  docentesSexto = [];
-  docentesSeptimo = [];
-
+  dataSource = []
+  displayedColumns: string[] = ['nombreMateria', 'DNIDocente', 'nombreDocente', 'apellidoDocente', 'Division', 'operaciones'];
   constructor(private planService: PlanEstudioService,
-    private docenteService: DocenteService,
     public dialog: MatDialog) { }
 
   ngOnInit() {
@@ -42,57 +31,47 @@ export class DocenteSecundariaComponent implements OnInit {
       .subscribe(
         res => {
           this.ciclos = res as Ciclos[]
-          console.log('this.ciclos :', this.ciclos);
         }
       )
   }
 
-  traerPlan() {
-    this.planService.getPlanId(this.cicloControl.value)
+  traerMateriaPorCurso(div) {
+    this.planService.listarMateriasPlanPorCurso(this.idPlanControl.value.idPlanEstudio, this.cursoControl.value)
       .subscribe(
         res => {
-          this.planService.listarMateriasPlan(this.cicloControl.value)
-            .subscribe(
-              res => {
-                res.forEach(element => {
-                  if (element.anio === 'PRIMERO') {
-                    this.listaPrimero.push(element)
-                  }
-                  if (element.anio === 'SEGUNDO') {
-                    this.listaSegundo.push(element)
-                  }
-                  if (element.anio === 'TERCERO') {
-                    this.listaTercero.push(element)
-                  }
-                  if (element.anio === 'CUARTO') {
-                    this.listaCuarto.push(element)
-                  }
-                  if (element.anio === 'QUINTO') {
-                    this.listaQuinto.push(element)
-                  }
-                });
-              }
-            )
+          this.dataSource = res
+          this.dataSource = this.dataSource.filter(function (fila) {
+            return fila.division !== div
+          })
         }
       )
-
   }
 
-  validaDivision(materia, curso: string) {
-    if (this.divisionControl.valid) {
-      this.asignarDocente(materia, curso)
-    }else{
-      this.docenteService.openSnackBar('Por favor, seleccione una division', 'OK')
-    }
-  }
-
-  asignarDocente(materia, curso: string): void {
+  asignarDocente(element, operacion): void {
     const dialogRef = this.dialog.open(ListaDocenteComponent, {
-      width: '600px',
-      data: { nivel: 2,materia: materia, curso: curso, seccion: this.divisionControl.value , periodo: this.cicloControl.value}
+      width: '700px',
+      data: {
+        nivel: 2,
+        materia: element.nombreMateria,
+        curso: element.anio,
+        seccion: this.divisionControl.value,
+        periodo: this.idPlanControl.value,
+        nombreDocente: element.nombreDocente,
+        apellidoDocente: element.apellidoDocente,
+        DNIDocente: element.DNIDocente,
+        operacion: operacion,
+        idPeriodo: this.idPlanControl.value.idPeriodoLectivo,
+        idPlanMateria: element.idPlanMateria,
+        idAsignacionDocente: element.idAsignacionDocente
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      if (result === 'A') {
+        this.traerMateriaPorCurso('B')
+      } else {
+        this.traerMateriaPorCurso('A')
+      }
     });
   }
 }
