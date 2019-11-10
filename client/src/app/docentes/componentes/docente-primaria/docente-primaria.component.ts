@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { PlanEstudioService } from 'src/app/servicios/planEstudio/plan-estudio.service';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatTableDataSource } from '@angular/material';
 import { ListaDocenteComponent } from '../lista-docente/lista-docente.component';
 import { DocenteService } from 'src/app/servicios/docentes/docente.service';
 
@@ -27,7 +27,8 @@ export class DocentePrimariaComponent implements OnInit {
   idPlanControl = new FormControl('', Validators.required);
   nivelControl = new FormControl('', Validators.required);
   cursoControl = new FormControl('', Validators.required);
-  cicloControl = new FormControl('', Validators.required)
+  cicloControl = new FormControl('', Validators.required);
+  
 
   listaPrimero = [];
   listaSegundo = [];
@@ -44,8 +45,8 @@ export class DocentePrimariaComponent implements OnInit {
   docentesQuinto = [];
   docentesSexto = [];
   docentesSeptimo = [];
-  dataSource = [];
-  displayedColumns: string[] = ['nombreMateria', 'DNIDocente', 'Division', 'operaciones'];
+  dataSource = []
+  displayedColumns: string[] = ['nombreMateria', 'DNIDocente','nombreDocente','apellidoDocente', 'Division', 'operaciones'];
   constructor(private planService: PlanEstudioService,
     private docenteService: DocenteService,
     public dialog: MatDialog) { }
@@ -65,17 +66,23 @@ export class DocentePrimariaComponent implements OnInit {
   }
 
 
-  traerMateriaPorCurso(div?) {
+  traerMateriaPorCurso(div) {
     this.planService.listarMateriasPlanPorCurso(this.idPlanControl.value.idPlanEstudio, this.cursoControl.value)
       .subscribe(
         res => {
-          this.dataSource = res;
+         /*  this.dataSource = []
+          res.forEach(element => {
+            this.dataSource.push(element)
+          }); */
+          this.dataSource = res
           this.dataSource = this.dataSource.filter(function (fila) {
             return fila.division !== div
           })
+          console.log(this.dataSource)
         }
       )
   }
+
 
   filtrarPorDivision(div) {
     this.dataSource = this.dataSource.map(function (fila) {
@@ -98,12 +105,17 @@ export class DocentePrimariaComponent implements OnInit {
         DNIDocente: element.DNIDocente, 
         operacion: operacion,
         idPeriodo: this.idPlanControl.value.idPeriodoLectivo,
-        idPlanMateria: element.idPlanMateria
+        idPlanMateria: element.idPlanMateria,
+        idAsignacionDocente: element.idAsignacionDocente
       }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.traerMateriaPorCurso()
+      if (result === 'A') {
+        this.traerMateriaPorCurso('B')
+      }else{
+        this.traerMateriaPorCurso('A')
+      }
     });
   }
 }

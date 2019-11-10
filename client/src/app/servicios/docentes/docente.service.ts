@@ -81,6 +81,14 @@ export class DocenteService {
       )
   }
 
+  updateMateriaDocente(id,md): Observable<any> {
+    return this.http.put(`http://localhost:3000/api/AsignacionDocentes/${id}`, md)
+      .pipe(
+        catchError(this.handleError)
+
+      )
+  }
+
   // Obtener docentes dados de baja¿
   getDocenteHistorico(): Observable<any> {
     return this.http.get('http://localhost:3000/api/Docentes-Historicos').pipe(

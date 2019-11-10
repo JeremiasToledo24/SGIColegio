@@ -33,9 +33,6 @@
 
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-      <!--- Note that these columns can be defined in any order.
-            The actual rendered columns are set as a property on the row definition" -->
-
       <!-- Position Column -->
       <ng-container matColumnDef="nombreMateria">
         <th mat-header-cell *matHeaderCellDef> Materia: </th>
@@ -45,19 +42,59 @@
       <!-- Name Column -->
       <ng-container matColumnDef="DNIDocente">
         <th mat-header-cell *matHeaderCellDef> DNI Docente Asignado </th>
-        <td mat-cell *matCellDef="let element"> {{element.DNIDocente}} </td>
+        <td mat-cell *matCellDef="let element">
+          <div *ngIf="element.DNIDocente !== 0">
+            {{element.DNIDocente}}
+          </div>
+          <div *ngIf="element.DNIDocente === 0">
+
+          </div>
+        </td>
       </ng-container>
+
+      <ng-container matColumnDef="nombreDocente">
+          <th mat-header-cell *matHeaderCellDef> Nombre </th>
+          <td mat-cell *matCellDef="let element">
+            <div *ngIf="element.DNIDocente !== 0">
+              {{element.nombreDocente}}
+            </div>
+            <div *ngIf="element.DNIDocente === 0">
+  
+            </div>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="apellidoDocente">
+            <th mat-header-cell *matHeaderCellDef> Apellido </th>
+            <td mat-cell *matCellDef="let element">
+              <div *ngIf="element.DNIDocente !== 0">
+                {{element.apellidoDocente}}
+              </div>
+              <div *ngIf="element.DNIDocente === 0">
+    
+              </div>
+            </td>
+          </ng-container>
 
       <!-- Weight Column -->
       <ng-container matColumnDef="Division">
         <th mat-header-cell *matHeaderCellDef> Division </th>
-        <td mat-cell *matCellDef="let element"> {{element.division}} </td>
+        <td mat-cell *matCellDef="let element">
+          <div *ngIf="element.DNIDocente !== 0">
+            {{element.division}} </div>
+          <div *ngIf="element.DNIDocente === 0">
+
+          </div>
+        </td>
       </ng-container>
 
       <ng-container matColumnDef="operaciones">
         <th mat-header-cell *matHeaderCellDef> Operaciones </th>
         <td mat-cell *matCellDef="let element">
-          <button (click)="asignarDocente(element,'M')" *ngIf="element.DNIDocente !== null">
+          <button *ngIf="element.DNIDocente === 0" (click)="asignarDocente(element,'M')">
+            Asignar
+          </button>
+          <button (click)="asignarDocente(element,'M')" *ngIf="element.DNIDocente !== null && element.DNIDocente !== 0">
             Modificar
           </button>
           <button (click)="asignarDocente(element,'A')" *ngIf="element.DNIDocente === null">

@@ -13,7 +13,7 @@
                 <label><b>Division:</b> {{this.data.seccion}}</label>
             </div>
         </div>
-        <div *ngIf="this.data.nombreDocente === null; else docente">
+        <div *ngIf=" this.data.DNIDocente === 0; else docente">
             <div>
                 <div class="row">
                     <div class="col">
@@ -35,7 +35,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col">
+                <div class="col" *ngIf="expression">
                     <label><b>Docente:</b> {{this.data.apellidoDocente}}, {{this.data.nombreDocente}}</label>
                 </div>
                 <div class="col">

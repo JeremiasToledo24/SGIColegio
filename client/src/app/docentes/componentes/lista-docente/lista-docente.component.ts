@@ -34,6 +34,7 @@ export class ListaDocenteComponent implements OnInit {
         this.dataSource = new MatTableDataSource(data);
       }
     )
+    console.log(this.data)
   }
 
 
@@ -58,13 +59,47 @@ export class ListaDocenteComponent implements OnInit {
       this.docenteService.registrarMateriaDocente(md)
         .subscribe(
           res => {
-            console.log('res :', res);
-            this.dialogRef.close();
+            this.dialogRef.close(md.division);
             this.docenteService.openSnackBar('Docente vinculado', 'ok')
           }
         )
+      const mdAux = {
+        DNIDocente: 0,
+        idPeriodo: this.data.idPeriodo,
+        curso: this.data.curso,
+        division: this.data.seccion,
+        nivel: this.data.nivel,
+        idPlanMateria: this.data.idPlanMateria
+      }
+      if (mdAux.division === 'A') {
+        mdAux.division = 'B'
+      }
+      this.docenteService.registrarMateriaDocente(mdAux)
+        .subscribe(
+          res => {
+            this.dialogRef.close(md.division);
+          }
+        )
+
 
     } else {
+      const md = {
+        idAsignacionDocente: this.data.idAsignacionDocente,
+        DNIDocente: empleado.dni,
+        idPeriodo: this.data.idPeriodo,
+        curso: this.data.curso,
+        division: this.data.seccion,
+        nivel: this.data.nivel,
+        idPlanMateria: this.data.idPlanMateria
+      }
+      console.log(md)
+      this.docenteService.updateMateriaDocente(md.idAsignacionDocente, md)
+        .subscribe(
+          res => {
+            this.dialogRef.close(md.division);
+            this.docenteService.openSnackBar('Docente vinculado', 'ok')
+          }
+        )
 
     }
 
