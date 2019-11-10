@@ -8,14 +8,20 @@ import { ReportesService } from 'src/app/servicios/reportes/reportes.service';
 import { Router } from '@angular/router';
 
 class Cobro {
-  constructor(importe?, fecha?, concepto?) {
+  constructor(importe?, fecha?, concepto?, vencimiento?,nroCuota?,dni?) {
     importe = this.importe;
     fecha = this.fecha;
     concepto = this.concepto
+    vencimiento = this.vencimiento;
+    nroCuota = this.nroCuota;
+    dni = this.dni
   }
   concepto;
   importe;
-  fecha
+  fecha;
+  vencimiento;
+  nroCuota;
+  dni;
 }
 
 
@@ -30,10 +36,10 @@ export class IngresosComponent implements OnInit {
 
   fechaInicio = new FormControl('', Validators.required)
   fechaFin = new FormControl('', Validators.required)
- 
 
 
-  displayedColumns: string[] = ['mes', 'importe', 'fecha'];
+
+  displayedColumns: string[] = ['nroCuota','mes','dni', 'vencimiento', 'fecha', 'importe'];
   data: any[] = []
   dataSource;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -47,7 +53,7 @@ export class IngresosComponent implements OnInit {
     this.obtenerDetallesCobros()
   }
 
-  
+
 
   obtenerDetalles() {
     this.cobrosService.obtenerDetallesCobrosEntreFechas(this.fechaInicio.value, this.fechaFin.value)
@@ -87,19 +93,20 @@ export class IngresosComponent implements OnInit {
     let cobros: Cobro[] = [];
     this.data.forEach(element => {
       total = total + Number(element.importe)
-      cobros.push({ concepto: element.mes, importe: element.importe, fecha: element.fecha })
+      cobros.push({
+        dni: element.dniAlumno, concepto: element.mes, nroCuota: element.idCuota,
+        vencimiento: element.vencimiento, importe: element.importe, fecha: element.fechaPago
+      })
     });
     const reporte = {
       fechaI: this.fechaInicio.value,
       fechaF: this.fechaFin.value,
       total: total
     }
-
-    cobros.push({concepto: 'Total', importe: total, fecha: ''})
-
+    cobros.push({ dni: '', concepto: '', nroCuota: '',
+      vencimiento: 'Total', importe: total, fecha: ''})
     this.reportesService.cobros = cobros;
     this.reportesService.reporte = reporte;
-    
     this.router.navigate(['/reporteIngresos']);
 
 

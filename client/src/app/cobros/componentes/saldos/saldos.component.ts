@@ -16,9 +16,7 @@ export class SaldosComponent implements OnInit {
   fechaInicio = new FormControl('', Validators.required)
   fechaFin = new FormControl('', Validators.required)
 
-
-
-  displayedColumns: string[] = ['mes', 'importe', 'vencimiento1'];
+  displayedColumns: string[] = ['nroCuota', 'mes', 'dni', 'vencimiento1', 'importe',];
   data: any[] = []
   dataSource;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -55,7 +53,11 @@ export class SaldosComponent implements OnInit {
     this.cobrosService.obtenerCuotasEntreFechas(this.fechaInicio.value, this.fechaFin.value)
       .subscribe(
         res => {
-          console.log(res)
+          this.data = [];
+          this.data = res;
+          console.log(this.data)
+          this.dataSource = new MatTableDataSource(this.data)
+          this.dataSource.paginator = this.paginator;
         })
   }
 

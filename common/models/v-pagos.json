@@ -19,14 +19,14 @@
       "type": "string",
       "id": true
     },
-    "nombre":{
-      "type":"string"
+    "nombre": {
+      "type": "string"
     },
-    "tipoServicio":{
-      "type":"string"
+    "tipoServicio": {
+      "type": "string"
     },
-    "idProveedor":{
-      "type":"string"
+    "idProveedor": {
+      "type": "string"
     }
   },
   "validations": [],

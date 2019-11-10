@@ -35,3 +35,7 @@ td {
 mat-cell {
     background-color: #C5CAE9;
 }
+
+.mat-column-nroCuota{
+    width: 15% !important;
+}

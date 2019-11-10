@@ -112,6 +112,13 @@ export class PlanEstudioService {
       )
   }
 
+  listarMateriasPlanPorCurso(id, curso): Observable<any> {
+    return this.http.get(`http://localhost:3000/api/PlanMateriaViews?filter[where][and][0][idPlanEstudio]=${id}&filter[where][and][1][anio]=${curso}`)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
   registrarPeriodoLectivo(pl): Observable<any> {
     return this.http.post(`http://localhost:3000/api/PeriodoLectivos`, pl)
       .pipe(

@@ -202,5 +202,9 @@
   "vPagos": {
     "dataSource": "db",
     "public": true
+  },
+  "vAsignacionDocente": {
+    "dataSource": "db",
+    "public": true
   }
 }

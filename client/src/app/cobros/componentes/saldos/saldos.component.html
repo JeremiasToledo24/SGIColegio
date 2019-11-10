@@ -19,9 +19,17 @@
     <label><b>Lista de saldos</b></label>
     <div class="row" style="margin: 2rem 2rem 2rem">
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="nroCuota">
+          <th mat-header-cell *matHeaderCellDef> Nro de Cuota</th>
+          <td mat-cell *matCellDef="let element"> {{element.nroCuota}} </td>
+        </ng-container>
         <ng-container matColumnDef="mes">
           <th mat-header-cell *matHeaderCellDef> Concepto</th>
           <td mat-cell *matCellDef="let element"> {{element.mes}} </td>
+        </ng-container>
+        <ng-container matColumnDef="dni">
+          <th mat-header-cell *matHeaderCellDef> DNI Alumno</th>
+          <td mat-cell *matCellDef="let element"> {{element.dniAlumno}} </td>
         </ng-container>
         <ng-container matColumnDef="importe">
           <th mat-header-cell *matHeaderCellDef> Importe </th>

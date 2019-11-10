@@ -27,20 +27,6 @@ export class ListaDocenteComponent implements OnInit {
     private docenteService: DocenteService,
   ) { }
   ngOnInit() {
-    console.log('this.data :', this.data);
-    this.docenteService.obtenerDocenteMateria(this.data.periodo, this.data.materia.idNivel, this.data.curso, this.data.seccion, this.data.materia.nombreMateria)
-      .subscribe(
-        (res: Docente) => {
-          if (res[0] !== undefined) {
-            this.docente.DNIDocente = res[0].DNIDocente;
-            this.docente.apellidoDocente = res[0].apellidoDocente;
-            this.docente.nombreDocente = res[0].nombreDocente;
-          }else{
-            this.docente = undefined
-          }
-        }
-      )
-
     this.empleadoService.getEmpleados().subscribe(
       res => {
         let data: Empleado[];
@@ -48,8 +34,6 @@ export class ListaDocenteComponent implements OnInit {
         this.dataSource = new MatTableDataSource(data);
       }
     )
-
-
   }
 
 
@@ -62,25 +46,36 @@ export class ListaDocenteComponent implements OnInit {
   }
 
   asignar(empleado) {
-    const md = { 
-      DNIDocente: empleado.dni, 
-      idPeriodo: this.data.periodo,
-      curso: this.data.curso, 
-      division: this.data.seccion, 
-      materia: this.data.materia.nombreMateria,
-      nombreDocente: empleado.nombre,
-      apellidoDocente: empleado.apellido,
-      nivel: this.data.nivel
-     }
-     console.log('md :', md);
-    this.docenteService.registrarMateriaDocente(md)
+    if (this.data.operacion === 'A') {
+      const md = {
+        DNIDocente: empleado.dni,
+        idPeriodo: this.data.idPeriodo,
+        curso: this.data.curso,
+        division: this.data.seccion,
+        nivel: this.data.nivel,
+        idPlanMateria: this.data.idPlanMateria
+      }
+      this.docenteService.registrarMateriaDocente(md)
+        .subscribe(
+          res => {
+            console.log('res :', res);
+            this.dialogRef.close();
+            this.docenteService.openSnackBar('Docente vinculado', 'ok')
+          }
+        )
+
+    } else {
+
+    }
+
+    /* this.docenteService.registrarMateriaDocente(md)
       .subscribe(
         res => {
           console.log('res :', res);
           this.dialogRef.close();
           this.docenteService.openSnackBar('Docente vinculado','ok')
         }
-      )
+      ) */
 
   }
 

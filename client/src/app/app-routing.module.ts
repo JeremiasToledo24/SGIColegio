@@ -44,6 +44,7 @@ import { EgresosComponent } from './gastos/componentes/egresos/egresos.component
 import { ReporteGastosComponent } from './gastos/componentes/reporte-gastos/reporte-gastos.component';
 import { DeudasComponent } from './gastos/componentes/deudas/deudas.component';
 import { ReporteDeudasComponent } from './gastos/componentes/reporte-deudas/reporte-deudas.component';
+import { ListaDocentesAsignadosComponent } from './docentes/componentes/lista-docentes-asignados/lista-docentes-asignados.component';
 
 
 
@@ -86,10 +87,9 @@ const routes: Routes = [
   { path: 'reportesCuotas', component: ReporteCuotasComponent },
   { path: 'egresos', component: EgresosComponent },
   { path: 'reportesGastos', component: ReporteGastosComponent },
-
   { path: 'deudas', component: DeudasComponent },
   { path: 'reporteDeudas', component: ReporteDeudasComponent },
-
+  { path: 'listaDocentesAsignados', component: ListaDocentesAsignadosComponent },
   { path: '**', redirectTo: 'error' },
 
 ];

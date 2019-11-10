@@ -10,7 +10,7 @@ export interface Ciclos {
   idPlanEstudio: number,
   nombrePlan: string,
   idPeriodoLectivo: number,
-  idNivel: number
+  idNivel: number,
 }
 
 @Component({
@@ -24,7 +24,11 @@ export class DocentePrimariaComponent implements OnInit {
 
   ciclos: Ciclos[];
   divisionControl = new FormControl('', Validators.required);
-  cicloControl = new FormControl('', Validators.required);
+  idPlanControl = new FormControl('', Validators.required);
+  nivelControl = new FormControl('', Validators.required);
+  cursoControl = new FormControl('', Validators.required);
+  cicloControl = new FormControl('', Validators.required)
+
   listaPrimero = [];
   listaSegundo = [];
   listaTercero = [];
@@ -40,6 +44,8 @@ export class DocentePrimariaComponent implements OnInit {
   docentesQuinto = [];
   docentesSexto = [];
   docentesSeptimo = [];
+  dataSource = [];
+  displayedColumns: string[] = ['nombreMateria', 'DNIDocente', 'Division', 'operaciones'];
   constructor(private planService: PlanEstudioService,
     private docenteService: DocenteService,
     public dialog: MatDialog) { }
@@ -50,63 +56,54 @@ export class DocentePrimariaComponent implements OnInit {
       .subscribe(
         res => {
           this.ciclos = res as Ciclos[]
-          console.log('this.ciclos :', this.ciclos);
         }
       )
   }
 
-  traerPlan() {
-    this.planService.getPlanId(this.cicloControl.value)
+  modificar(element) {
+    console.log(element)
+  }
+
+
+  traerMateriaPorCurso(div?) {
+    this.planService.listarMateriasPlanPorCurso(this.idPlanControl.value.idPlanEstudio, this.cursoControl.value)
       .subscribe(
         res => {
-          this.planService.listarMateriasPlan(this.cicloControl.value)
-            .subscribe(
-              res => {
-                res.forEach(element => {
-                  if (element.anio === 'PRIMERO') {
-                    this.listaPrimero.push(element)
-                  }
-                  if (element.anio === 'SEGUNDO') {
-                    this.listaSegundo.push(element)
-                  }
-                  if (element.anio === 'TERCERO') {
-                    this.listaTercero.push(element)
-                  }
-                  if (element.anio === 'CUARTO') {
-                    this.listaCuarto.push(element)
-                  }
-                  if (element.anio === 'QUINTO') {
-                    this.listaQuinto.push(element)
-                  }
-                  if (element.anio === 'SEXTO') {
-                    this.listaSexto.push(element)
-                  }
-                  if (element.anio === 'SEPTIMO') {
-                    this.listaSeptimo.push(element)
-                  }
-                });
-                console.log('res :', res);
-              }
-            )
+          this.dataSource = res;
+          this.dataSource = this.dataSource.filter(function (fila) {
+            return fila.division !== div
+          })
         }
       )
   }
 
-  validaDivision(materia, curso: string) {
-    if (this.divisionControl.valid) {
-      this.asignarDocente(materia, curso)
-    } else {
-      this.docenteService.openSnackBar('Por favor, seleccione una division', 'OK')
-    }
+  filtrarPorDivision(div) {
+    this.dataSource = this.dataSource.map(function (fila) {
+      return fila.division !== div
+    })
   }
 
-  asignarDocente(materia, curso: string): void {
+  asignarDocente(element, operacion): void {
+    console.log(element)
     const dialogRef = this.dialog.open(ListaDocenteComponent, {
-      width: '600px',
-      data: { nivel: 1, materia: materia, curso: curso, seccion: this.divisionControl.value, periodo: this.cicloControl.value }
+      width: '700px',
+      data: {
+        nivel: 1, 
+        materia: element.nombreMateria, 
+        curso: element.anio, 
+        seccion: this.divisionControl.value, 
+        periodo: this.idPlanControl.value,
+        nombreDocente: element.nombreDocente, 
+        apellidoDocente: element.apellidoDocente,
+        DNIDocente: element.DNIDocente, 
+        operacion: operacion,
+        idPeriodo: this.idPlanControl.value.idPeriodoLectivo,
+        idPlanMateria: element.idPlanMateria
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      this.traerMateriaPorCurso()
     });
   }
 }

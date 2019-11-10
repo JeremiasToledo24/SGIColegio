@@ -29,18 +29,27 @@
         <div class="col">
             <table>
                 <tr>
+                    <th>Nro de Comprobante</th>
                     <th>Concepto</th>
+                    <th>DNI Alumno</th>
+                    <th>Vencimiento</th>
                     <th>Fecha</th>
                     <th>Importe</th>
                 </tr>
                 <tr *ngFor="let cobro of cobros">
+                    <td>{{cobro.nroCuota}}</td>
                     <td>{{cobro.concepto}}</td>
+                    <td>{{cobro.dni}}</td>
+                    <td>{{cobro.vencimiento}}</td>
                     <td>{{cobro.fecha}}</td>
                     <td>{{cobro.importe}}</td>
                 </tr>
                 <br>
                 <tfoot>
                     <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                         <td><b>TOTAL</b></td>
                         <td></td>
                         <td><b>{{reporte.total}}</b></td>

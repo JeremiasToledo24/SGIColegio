@@ -2,7 +2,7 @@
     <div mat-dialog-content>
         <div class="row">
             <div class="col">
-                <label><b>Materia:</b> {{this.data.materia.nombreMateria}}</label>
+                <label><b>Materia:</b> {{this.data.materia}}</label>
             </div>
         </div>
         <div class="row">
@@ -13,7 +13,22 @@
                 <label><b>Division:</b> {{this.data.seccion}}</label>
             </div>
         </div>
-        <div *ngIf="this.docente !== undefined">
+        <div *ngIf="this.data.nombreDocente === null; else docente">
+            <div>
+                <div class="row">
+                    <div class="col">
+                        <label for="" style="color: #FF0000;"><b>La materia no tiene un docente asignado</b>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label>Seleccione un Docente a asignar</label>
+                </div>
+            </div>
+        </div>
+        <ng-template #docente>
             <div class="row">
                 <div class="col">
                     <label for=""><b>Docente Asignado</b></label>
@@ -21,26 +36,25 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <label><b>Docente:</b> {{this.docente.apellidoDocente}}, {{this.docente.nombreDocente}}</label>
+                    <label><b>Docente:</b> {{this.data.apellidoDocente}}, {{this.data.nombreDocente}}</label>
                 </div>
                 <div class="col">
-                    <label><b>DNI:</b> {{this.docente.DNIDocente}}</label>
+                    <label><b>DNI:</b> {{this.data.DNIDocente}}</label>
                 </div>
             </div>
-        </div>
-        <div *ngIf="this.docente === undefined">
             <div class="row">
-                <div class="col">
-                    <label for="" style="color: #FF0000;"><b>La materia no tiene un docente asignado</b>
-                    </label>
+                    <div class="col">
+                        <label for=""><b>Seleccione un docente para reasignar</b></label>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <label>Ó Seleccione un Docente a asignar</label>
-            </div>
-        </div>
+        </ng-template>
+
+
+
+
+
+
+
         <div class="row justify-content-md-center">
             <!-- Buscador -->
             <mat-form-field class="col-sm-12">

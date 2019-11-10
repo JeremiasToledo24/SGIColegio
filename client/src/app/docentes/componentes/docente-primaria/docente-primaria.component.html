@@ -5,8 +5,92 @@
   <mat-card-content>
     <label style="margin-left: 20px">Seleccione un ciclo Lectivo</label>
     <mat-form-field style="margin-left: 20px">
+      <mat-select [formControl]="idPlanControl">
+        <mat-option *ngFor="let ciclo of ciclos" [value]="ciclo">
+          {{ciclo.periodo}} {{ciclo.nombrePlan}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <label style="margin-left: 20px">Seleccione un curso</label>
+    <mat-form-field style="margin-left: 20px">
+      <mat-select [formControl]="cursoControl">
+        <mat-option value="PRIMERO">PRIMERO</mat-option>
+        <mat-option value="SEGUNDO">SEGUNDO</mat-option>
+        <mat-option value="TERCERO">TERCERO</mat-option>
+        <mat-option value="CUARTO">CUARTO</mat-option>
+        <mat-option value="QUINTO">QUINTO</mat-option>
+        <mat-option value="SEXTO">SEXTO</mat-option>
+        <mat-option value="SEPTIMO">SEPTIMO</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <label style="margin-left: 20px">Seleccione una División</label>
+    <mat-form-field style="margin-left: 20px">
+      <mat-select [formControl]="divisionControl">
+        <mat-option (click)="traerMateriaPorCurso('B')" value="A">A</mat-option>
+        <mat-option (click)="traerMateriaPorCurso('A')" value="B">B</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="nombreMateria">
+        <th mat-header-cell *matHeaderCellDef> Materia: </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombreMateria}}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="DNIDocente">
+        <th mat-header-cell *matHeaderCellDef> DNI Docente Asignado </th>
+        <td mat-cell *matCellDef="let element"> {{element.DNIDocente}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="Division">
+        <th mat-header-cell *matHeaderCellDef> Division </th>
+        <td mat-cell *matCellDef="let element"> {{element.division}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="operaciones">
+        <th mat-header-cell *matHeaderCellDef> Operaciones </th>
+        <td mat-cell *matCellDef="let element">
+          <button (click)="asignarDocente(element,'M')" *ngIf="element.DNIDocente !== null">
+            Modificar
+          </button>
+          <button (click)="asignarDocente(element,'A')" *ngIf="element.DNIDocente === null">
+            Asignar
+          </button>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+
+
+
+
+
+
+
+  </mat-card-content>
+</mat-card>
+
+
+
+
+<mat-card class="backgroundCard">
+  <mat-card-header>
+    <mat-card-title>Asignar Docentes de Primaria</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <label style="margin-left: 20px">Seleccione un ciclo Lectivo</label>
+    <mat-form-field style="margin-left: 20px">
       <mat-select [formControl]="cicloControl">
-        <mat-option (click)="traerPlan()" *ngFor="let ciclo of ciclos" [value]="ciclo.idPlanEstudio">
+        <mat-option (click)="traerPlan()" *ngFor="let ciclo of ciclos" [value]="ciclo.idPeriodoLectivo">
           {{ciclo.periodo}} {{ciclo.nombrePlan}}
         </mat-option>
       </mat-select>

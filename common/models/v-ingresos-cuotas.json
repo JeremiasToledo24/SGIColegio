@@ -15,12 +15,15 @@
     "mes": {
       "type": "string"
     },
-    "fecha": {
+    "fechaPago": {
       "type": "string"
     },
     "idCuota": {
       "type": "number",
       "id": true
+    },
+    "vencimiento": {
+      "type": "string"
     }
   },
   "validations": [],

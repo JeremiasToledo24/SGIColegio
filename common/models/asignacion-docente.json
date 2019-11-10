@@ -33,6 +33,9 @@
     },
     "nivel": {
       "type": "number"
+    },
+    "idPlanMateria":{
+      "type":"number"
     }
   },
   "validations": [],

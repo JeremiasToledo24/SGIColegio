@@ -1,14 +1,20 @@
 {
-  "name": "PlanMateriaView",
+  "name": "vAsignacionDocente",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "idPlanEstudio": {
+    "idPeriodoLectivo": {
       "type": "number",
-      "id": true
+      "id":true
+    },
+    "periodo": {
+      "type": "string"
+    },
+    "idPlanEstudio": {
+      "type": "number"
     },
     "idNivel": {
       "type": "number"
@@ -22,29 +28,23 @@
     "anio": {
       "type": "string"
     },
-    "codMateria": {
+    "idMateria": {
       "type": "number"
     },
     "nombreMateria": {
       "type": "string"
     },
-    "idAsignacionDocente":{
-      "type":"number"
+    "codigoMateria": {
+      "type": "string"
     },
-    "DNIDocente":{
-      "type":"number"
+    "idAsignacionDocente": {
+      "type": "number"
     },
-    "idPeriodo":{
-      "type":"number"
+    "DNIDocente": {
+      "type": "number"
     },
-    "division":{
-      "type":"string"
-    },
-    "nombreDocente":{
-      "type":"string"
-    },
-    "apellidoDocente":{
-      "type":"string"
+    "division": {
+      "type": "string"
     }
   },
   "validations": [],
