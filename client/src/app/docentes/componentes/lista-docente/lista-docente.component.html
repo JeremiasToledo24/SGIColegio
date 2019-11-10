@@ -43,10 +43,10 @@
                 </div>
             </div>
             <div class="row">
-                    <div class="col">
-                        <label for=""><b>Seleccione un docente para reasignar</b></label>
-                    </div>
+                <div class="col">
+                    <label for=""><b>Seleccione un docente para reasignar</b></label>
                 </div>
+            </div>
         </ng-template>
 
 
@@ -55,7 +55,7 @@
 
 
 
-        <div class="row justify-content-md-center">
+        <div *ngIf="this.data.operacion !== 'B'" class="row justify-content-md-center">
             <!-- Buscador -->
             <mat-form-field class="col-sm-12">
                 <input matInput (keyup)="applyFilter($event.target.value)"
@@ -93,6 +93,12 @@
                 <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
+        </div>
+
+        <div *ngIf="this.data.operacion === 'B'">
+            Desea desvincular el docente de la materia?
+            <button (click)="desvincular('S')">Si</button>
+            <button (click)="desvincular('N')">No</button>
         </div>
     </div>
 </mat-card>

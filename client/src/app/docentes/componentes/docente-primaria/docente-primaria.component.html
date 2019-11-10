@@ -97,6 +97,9 @@
           <button (click)="asignarDocente(element,'M')" *ngIf="element.DNIDocente !== null && element.DNIDocente !== 0">
             Modificar
           </button>
+          <button (click)="asignarDocente(element,'B')" *ngIf="element.DNIDocente !== null && element.DNIDocente !== 0">
+              Desvincular Docente
+            </button>
           <button (click)="asignarDocente(element,'A')" *ngIf="element.DNIDocente === null">
             Asignar
           </button>

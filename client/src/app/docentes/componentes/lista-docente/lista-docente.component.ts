@@ -82,7 +82,8 @@ export class ListaDocenteComponent implements OnInit {
         )
 
 
-    } else {
+    }
+    if (this.data.operacion === 'M') {
       const md = {
         idAsignacionDocente: this.data.idAsignacionDocente,
         DNIDocente: empleado.dni,
@@ -103,15 +104,34 @@ export class ListaDocenteComponent implements OnInit {
 
     }
 
-    /* this.docenteService.registrarMateriaDocente(md)
-      .subscribe(
-        res => {
-          console.log('res :', res);
-          this.dialogRef.close();
-          this.docenteService.openSnackBar('Docente vinculado','ok')
-        }
-      ) */
+
 
   }
+
+  desvincular(op) {
+    if (op === 'S') {
+      const md = {
+        idAsignacionDocente: this.data.idAsignacionDocente,
+        DNIDocente: 0,
+        idPeriodo: this.data.idPeriodo,
+        curso: this.data.curso,
+        division: this.data.seccion,
+        nivel: this.data.nivel,
+        idPlanMateria: this.data.idPlanMateria
+      }
+      this.docenteService.updateMateriaDocente(md.idAsignacionDocente, md)
+        .subscribe(
+          res => {
+            this.dialogRef.close(md.division);
+            this.docenteService.openSnackBar('Docente desvinculado', 'ok')
+          }
+        )
+
+    } else {
+      this.dialogRef.close(this.data.seccion);
+
+    }
+  }
+
 
 }
