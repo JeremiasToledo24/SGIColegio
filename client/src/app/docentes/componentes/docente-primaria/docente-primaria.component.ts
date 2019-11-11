@@ -30,7 +30,7 @@ export class DocentePrimariaComponent implements OnInit {
   cicloControl = new FormControl('', Validators.required);
 
   dataSource = []
-  displayedColumns: string[] = ['nombreMateria', 'DNIDocente', 'nombreDocente', 'apellidoDocente', 'Division', 'operaciones'];
+  displayedColumns: string[] = ['nombreMateria', 'DNIDocente', 'nombreDocente','apellidoDocente', 'operaciones'];
   constructor(private planService: PlanEstudioService,
     public dialog: MatDialog) { }
 
@@ -57,7 +57,7 @@ export class DocentePrimariaComponent implements OnInit {
   }
 
   asignarDocente(element, operacion): void {
-    console.log(element)
+    console.table(element)
     const dialogRef = this.dialog.open(ListaDocenteComponent, {
       width: '700px',
       data: {

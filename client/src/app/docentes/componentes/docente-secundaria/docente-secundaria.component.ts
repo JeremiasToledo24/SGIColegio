@@ -21,7 +21,7 @@ export class DocenteSecundariaComponent implements OnInit {
   cicloControl = new FormControl('', Validators.required);
 
   dataSource = []
-  displayedColumns: string[] = ['nombreMateria', 'DNIDocente', 'nombreDocente', 'apellidoDocente', 'Division', 'operaciones'];
+  displayedColumns: string[] = ['nombreMateria', 'DNIDocente', 'nombreDocente', 'apellidoDocente', 'operaciones'];
   constructor(private planService: PlanEstudioService,
     public dialog: MatDialog) { }
 

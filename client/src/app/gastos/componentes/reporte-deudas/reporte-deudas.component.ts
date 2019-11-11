@@ -11,19 +11,20 @@ export class ReporteDeudasComponent implements OnInit {
 
   constructor(private reportesService: ReportesService) {
     this.reporte = reportesService.reporte
-    this.deudas = reportesService.deudas}
+    this.deudas = reportesService.deudas
+  }
 
-    deudas;
+  deudas;
   reporte;
   ngOnInit() {
   }
 
-  exportarCSV(){
-    const options = { 
+  exportarCSV() {
+    const options = {
       fieldSeparator: ',',
       quoteStrings: '"',
       decimalSeparator: '.',
-      showLabels: true, 
+      showLabels: true,
       showTitle: true,
       title: `Reporte de deduas desde ${this.reporte.fechaI} hasta ${this.reporte.fechaF}`,
       useTextFile: false,

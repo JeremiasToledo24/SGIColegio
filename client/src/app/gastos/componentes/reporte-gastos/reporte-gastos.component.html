@@ -1,66 +1,60 @@
 <div style="padding: 25px;">
-    <div class="row">
-        <div class="col">
-            REPORTE
-        </div>
-        <div class="col">
-            <button (click)="exportarCSV()" mat-raised-button color="primary" (click)="generaBoleta()">
-                <mat-icon> insert_drive_file
-                </mat-icon> Exportar a CSV
-            </button>
-        </div>
+  <div class="row">
+    <div class="col">
+      REPORTE
     </div>
-    <br>
-    <div class="row">
-        <div class="col">
-            EGRESOS TOTALES
-        </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col">
+      EGRESOS TOTALES
     </div>
-    <br>
-    <div *ngIf="reporte.fechaI !== '' || reporte.fechaF !== ''" class="row">
-        <div class="col-4">
-            Periodo
-        </div>
-        <div class="col-4">Desde: {{reporte.fechaI}}</div>
-        <div class="col-4">Hasta: {{reporte.fechaF}}</div>
+  </div>
+  <br>
+  <div *ngIf="reporte.fechaI !== '' || reporte.fechaF !== ''" class="row">
+    <div class="col-4">
+      Periodo
     </div>
-    <div *ngIf="reporte.fechaI === '' || reporte.fechaF === ''" class="row">
-        <div class="col-4">
-            TODOS LOS PERIODOS
-        </div>
+    <div class="col-4">Desde: {{reporte.fechaI}}</div>
+    <div class="col-4">Hasta: {{reporte.fechaF}}</div>
+  </div>
+  <div *ngIf="reporte.fechaI === '' || reporte.fechaF === ''" class="row">
+    <div class="col-4">
+      TODOS LOS PERIODOS
     </div>
-    <br>
-    <div class="row">
-        <div class="col">
-            <table>
-                <tr>
-                    <th>Codigo de Factura</th>
-                    <th>Proveedor</th>
-                    <th>Fecha de Pago</th>
-                    <th>Importe</th>
-                </tr>
-                <tr *ngFor="let pago of pagos">
-                    <td>{{pago.codigo}}</td>
-                    <td>{{pago.proveedor}}</td>
-                    <td>{{pago.fecha}}</td>
-                    <td>{{pago.importe}}</td>
-                </tr>
-                <br>
-                <tfoot>
-                    <tr>
-                        <td><b>TOTAL</b></td>
-                        <td></td>
-                        <td><b>{{reporte.total}}</b></td>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col">
+      <table>
+        <tr>
+          <th>Codigo de Factura</th>
+          <th>Proveedor</th>
+          <th>Fecha de Pago</th>
+          <th>Importe</th>
+        </tr>
+        <tr *ngFor="let pago of pagos">
+          <td>{{pago.codigo}}</td>
+          <td>{{pago.proveedor}}</td>
+          <td>{{pago.fecha}}</td>
+          <td>{{pago.importe}}</td>
+        </tr>
+        <br>
+        <tfoot>
+          <tr>
+            <td><b>TOTAL</b></td>
+            <td></td>
+            <td><b>{{reporte.total}}</b></td>
+          </tr>
+        </tfoot>
+      </table>
     </div>
+  </div>
 </div>
 
 <div class="d-flex justify-content-center">
-    <button (click)="exportarCSV()" mat-raised-button color="primary" (click)="generaBoleta()">
-        <mat-icon> insert_drive_file
-        </mat-icon> Exportar a CSV
-    </button>
+  <button (click)="exportarCSV()" mat-raised-button color="primary" (click)="generaBoleta()">
+    <mat-icon> insert_drive_file
+    </mat-icon> Exportar a CSV
+  </button>
 </div>

@@ -1,4 +1,48 @@
-.backgroundCard {
+/* BACKGROUND CARD */
+
+.backGroundCard {
+    margin: 2rem 5rem 2rem 5rem;
     background-color: #E8EAF6;
-    margin: 1rem 4rem 1rem 4rem;
+}
+
+/* LISTA DE PROVEEDORES */
+
+table {
+    width: 100%;
+}
+
+.example-container {
+    height: 330px;
+    overflow: auto;
+}
+
+th {
+    background-color: #3F51B5;
+    color: beige;
+}
+
+td {
+    background-color: #C5CAE9;
+}
+
+.mat-column-nombreMateria {
+    width: 30% !important;
+}
+
+.mat-column-DNIDocente {
+    width: 15% !important;
+}
+
+.mat-column-Division {
+    width: 5% !important;
+    text-align: center !important;
+}
+
+.mat-column-operaciones {
+    width: 38% !important;
+    text-align: center !important;
+}
+
+button {
+    margin: 0px 5px 0px 5px;
 }
