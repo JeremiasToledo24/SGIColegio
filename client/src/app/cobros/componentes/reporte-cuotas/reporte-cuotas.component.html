@@ -28,12 +28,16 @@
         <div class="col">
             <table>
                 <tr>
+                    <th>Nro de Comprobante</th>
                     <th>Concepto</th>
-                    <th>Fecha</th>
+                    <th>DNI Alumno</th>
+                    <th>Vencimiento</th>
                     <th>Importe</th>
                 </tr>
                 <tr *ngFor="let cuota of cuotas">
+                    <td>{{cuota.nroCuota}}</td>
                     <td>{{cuota.concepto}}</td>
+                    <td>{{cuota.dnialumno}}</td>
                     <td>{{cuota.fecha}}</td>
                     <td>{{cuota.importe}}</td>
                 </tr>

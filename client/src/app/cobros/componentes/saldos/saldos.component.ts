@@ -35,7 +35,6 @@ export class SaldosComponent implements OnInit {
         res => {
           this.data = [];
           this.data = res;
-          console.log(this.data)
           this.dataSource = new MatTableDataSource(this.data)
           this.dataSource.paginator = this.paginator;
         }
@@ -55,7 +54,6 @@ export class SaldosComponent implements OnInit {
         res => {
           this.data = [];
           this.data = res;
-          console.log(this.data)
           this.dataSource = new MatTableDataSource(this.data)
           this.dataSource.paginator = this.paginator;
         })
@@ -64,9 +62,11 @@ export class SaldosComponent implements OnInit {
   generaBoleta() {
     let total: number = 0;
     let cuotas = [];
+    console.log(this.data)
     this.data.forEach(element => {
       total = total + Number(element.saldo)
-      cuotas.push({ concepto: element.mes, importe: element.saldo, fecha: element.vencimiento1 })
+      cuotas.push({ concepto: element.mes, importe: element.saldo, fecha: element.vencimiento1 ,
+        nroCuota: element.idCuota, dnialumno: element.dniAlumno})
     });
     const reporte = {
       fechaI: this.fechaInicio.value,
