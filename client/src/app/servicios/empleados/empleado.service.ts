@@ -53,7 +53,7 @@ export class EmpleadoService {
 
   // Obtener empleados
   getEmpleados(): Observable<any> {
-    return this.http.get('http://localhost:3000/api/Empleados').pipe(
+    return this.http.get('http://localhost:3000/api/Empleados?filter[where][dni][neq]=0').pipe(
       catchError(this.handleError)
     );
   }
